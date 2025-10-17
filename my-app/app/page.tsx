@@ -1,103 +1,174 @@
-import Image from "next/image";
+import Header from '../components/HeroSection';
+import Footer from '../components/Footer';
+import ContactButtons from '../components/FloatingButton';
+import InteractiveLink from '../components/InteractiveLink';
+import FeatureCard from '../components/FeatureCard';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const features = [
+    {
+      icon: '🛡️',
+      title: 'Quality Assured',
+      description: 'All our products meet international quality standards'
+    },
+    {
+      icon: '🚚',
+      title: 'Nationwide Delivery',
+      description: 'Fast delivery to all major industrial hubs across India'
+    },
+    {
+      icon: '👥',
+      title: 'Expert Support',
+      description: 'Technical guidance and personalized service'
+    },
+    {
+      icon: '📦',
+      title: 'Bulk Focus',
+      description: 'Specialized in handling large quantity orders'
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <Header />
+      
+      {/* Hero Section */}
+      <section style={{
+        background: 'linear-gradient(135deg, #1a5f7a 0%, #159895 100%)',
+        color: 'white'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '80px 20px',
+          textAlign: 'center'
+        }}>
+          <h1 style={{
+            fontSize: '3.5rem',
+            fontWeight: '800',
+            marginBottom: '24px',
+            lineHeight: '1.2'
+          }}>
+            Industrial Fasteners
+            <span style={{
+              display: 'block',
+              color: '#57C5B6',
+              fontSize: '4rem',
+              marginTop: '10px'
+            }}>
+              Made Simple
+            </span>
+          </h1>
+          <p style={{
+            fontSize: '1.25rem',
+            marginBottom: '40px',
+            color: '#e0f2fe',
+            maxWidth: '800px',
+            margin: '0 auto 40px',
+            lineHeight: '1.6'
+          }}>
+            Your trusted partner for high-quality screws, nuts, bolts, washers, and anchors. 
+            Specializing in bulk orders with expert guidance for industrial buyers across India.
+          </p>
+          <div style={{
+            display: 'flex',
+            gap: '16px',
+            justifyContent: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <InteractiveLink href="/categories" variant="primary">
+              Browse Products
+            </InteractiveLink>
+            <InteractiveLink href="/bulk-enquiry" variant="secondary">
+              Request Bulk Quote
+            </InteractiveLink>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Features Section */}
+      <section style={{
+        backgroundColor: '#f8f9fa',
+        padding: '80px 20px'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            textAlign: 'center',
+            marginBottom: '60px'
+          }}>
+            <h2 style={{
+              fontSize: '2.5rem',
+              fontWeight: '700',
+              color: '#343a40',
+              marginBottom: '16px'
+            }}>
+              Why Choose Screw Bazar?
+            </h2>
+            <p style={{
+              fontSize: '1.125rem',
+              color: '#6c757d',
+              maxWidth: '600px',
+              margin: '0 auto',
+              lineHeight: '1.6'
+            }}>
+              We understand the unique needs of industrial buyers and provide tailored solutions 
+              for your fastener requirements.
+            </p>
+          </div>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '32px'
+          }}>
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section style={{
+        backgroundColor: '#1a5f7a',
+        color: 'white',
+        padding: '80px 20px'
+      }}>
+        <div style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          textAlign: 'center'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: '700',
+            marginBottom: '20px'
+          }}>
+            Ready to Place Your Bulk Order?
+          </h2>
+          <p style={{
+            fontSize: '1.25rem',
+            marginBottom: '40px',
+            color: '#e0f2fe'
+          }}>
+            Get competitive pricing and expert guidance for your industrial fastener requirements.
+          </p>
+          <InteractiveLink href="/bulk-enquiry" variant="accent">
+            Get Instant Quote
+          </InteractiveLink>
+        </div>
+      </section>
+
+      <Footer />
+      <ContactButtons />
+    </>
   );
-}
+}  
