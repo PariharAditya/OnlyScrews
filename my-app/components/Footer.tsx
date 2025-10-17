@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
-
-
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear: number = new Date().getFullYear();
 
   return (
     <footer className="bg-gray-900 text-white">

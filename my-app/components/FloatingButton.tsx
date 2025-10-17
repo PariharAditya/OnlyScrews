@@ -3,11 +3,11 @@
 import { Phone, MessageCircle } from 'lucide-react';
 
 export default function ContactButtons() {
-  const handleWhatsAppClick = () => {
+  const handleWhatsAppClick = (): void => {
     window.open('https://wa.me/919876543210', '_blank');
   };
 
-  const handleCallClick = () => {
+  const handleCallClick = (): void => {
     window.open('tel:+919876543210', '_self');
   };
 

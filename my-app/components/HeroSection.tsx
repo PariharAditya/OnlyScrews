@@ -5,10 +5,15 @@ import Link from 'next/link';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface NavigationItem {
+  name: string;
+  href: string;
+}
 
-  const navigation = [
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  const navigation: NavigationItem[] = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/categories' },
     { name: 'Bulk Enquiry', href: '/bulk-enquiry' },
@@ -45,10 +50,14 @@ export default function Header() {
         <nav className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Image  src="/SB.jpg" alt="logo"    width={800} 
-            height={800}
-            className=" w-auto h-20  lg:h-20 object-contain transition-all duration-300"
-            priority />
+            <Image 
+              src="/SB.jpg" 
+              alt="logo"    
+              width={800} 
+              height={800}
+              className="w-auto h-20 lg:h-20 object-contain transition-all duration-300"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,6 +1,14 @@
 import Link from 'next/link';
 
-const categories = [
+interface Category {
+  readonly name: string;
+  readonly description: string;
+  readonly href: string;
+  readonly image: string;
+  readonly count: string;
+}
+
+const categories: Category[] = [
   {
     name: 'Screws',
     description: 'Wood screws, machine screws, self-tapping screws and more',
@@ -50,7 +58,7 @@ export default function CategoryGrid() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map((category, index) => (
         <Link
-          key={index}
+          key={category.name}
           href={category.href}
           className="group bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"
         >

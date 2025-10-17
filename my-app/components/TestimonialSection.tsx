@@ -1,4 +1,13 @@
-export default function TestimonialSection({ reviews }) {
+interface Review {
+  readonly text: string;
+  readonly author: string;
+}
+
+interface TestimonialSectionProps {
+  readonly reviews: readonly Review[];
+}
+
+export default function TestimonialSection({ reviews }: TestimonialSectionProps) {
   return (
     <section className="bg-gray-900 py-16">
       <div className="container mx-auto px-4">
@@ -6,7 +15,7 @@ export default function TestimonialSection({ reviews }) {
         <div className="space-y-12">
           {reviews.map((rev, idx) => (
             <blockquote key={idx} className="text-gray-300 italic">
-              “{rev.text}”  
+              "{rev.text}"  
               <footer className="mt-2 text-sm text-gray-400">— {rev.author}</footer>
             </blockquote>
           ))}

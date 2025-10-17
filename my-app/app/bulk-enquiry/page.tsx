@@ -1,12 +1,64 @@
 'use client';
 
-import { useState } from 'react';
-import Header from '@/components/Header';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Footer from '@/components/Footer';
-import ContactButtons from '@/components/ContactButtons';
+import FloatingButton from '@/components/FloatingButton';
+
+type Timeline = '' | 'urgent' | '1-2 weeks' | '2-4 weeks' | '1+ month';
+
+interface FormData {
+  readonly name: string;
+  readonly company: string;
+  readonly email: string;
+  readonly phone: string;
+  readonly products: string;
+  readonly quantity: string;
+  readonly specifications: string;
+  readonly timeline: Timeline;
+  readonly message: string;
+}
+
+type FormErrors = {
+  -readonly [K in keyof FormData]?: string;
+};
+
+const validateForm = (data: FormData): FormErrors => {
+  const errors: FormErrors = {};
+  
+  if (!data.name.trim()) {
+    errors.name = 'Name is required';
+  }
+  
+  if (!data.company.trim()) {
+    errors.company = 'Company name is required';
+  }
+  
+  if (!data.email.trim()) {
+    errors.email = 'Email is required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.email)) {
+    errors.email = 'Invalid email address';
+  }
+  
+  if (!data.phone.trim()) {
+    errors.phone = 'Phone number is required';
+  } else if (!/^\+?[\d\s-]{10,}$/.test(data.phone)) {
+    errors.phone = 'Invalid phone number';
+  }
+  
+  if (!data.products.trim()) {
+    errors.products = 'Products are required';
+  }
+  
+  if (!data.quantity.trim()) {
+    errors.quantity = 'Quantity is required';
+  }
+  
+  return errors;
+};
 
 export default function BulkEnquiry() {
-  const [formData, setFormData] = useState({
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     company: '',
     email: '',
@@ -18,24 +70,41 @@ export default function BulkEnquiry() {
     message: ''
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your enquiry! We will contact you shortly.');
+    const errors = validateForm(formData);
+    setFormErrors(errors);
+    
+    if (Object.keys(errors).length === 0) {
+      // Handle form submission here
+      console.log('Form submitted:', formData);
+      alert('Thank you for your enquiry! We will contact you shortly.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        products: '',
+        quantity: '',
+        specifications: '',
+        timeline: '',
+        message: ''
+      });
+    }
   };
 
   return (
     <>
-      <Header />
-      
       <div className="min-h-screen bg-light pt-20">
         <div className="container-custom section-padding">
           <div className="max-w-4xl mx-auto">
@@ -215,7 +284,7 @@ export default function BulkEnquiry() {
       </div>
 
       <Footer />
-      <ContactButtons />
+      <FloatingButton />
     </>
   );
 }

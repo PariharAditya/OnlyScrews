@@ -1,12 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 
-export default function FeatureCard({ icon, title, description }) {
-  const [isHovered, setIsHovered] = useState(false);
+interface FeatureCardProps {
+  readonly icon: ReactNode;
+  readonly title: string;
+  readonly description: string;
+}
+
+export default function FeatureCard({ icon, title, description }: FeatureCardProps) {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
-    <div
+    <article
       style={{
         backgroundColor: 'white',
         padding: '40px 24px',
@@ -16,10 +22,20 @@ export default function FeatureCard({ icon, title, description }) {
           ? '0 12px 20px rgba(0, 0, 0, 0.15)' 
           : '0 4px 6px rgba(0, 0, 0, 0.1)',
         transition: 'all 0.3s ease',
-        transform: isHovered ? 'translateY(-8px)' : 'translateY(0)'
+        transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+        cursor: 'pointer',
+        outline: 'none'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setIsHovered(!isHovered);
+        }
+      }}
     >
       <div style={{ fontSize: '3rem', marginBottom: '20px' }}>
         {icon}
@@ -39,6 +55,6 @@ export default function FeatureCard({ icon, title, description }) {
       }}>
         {description}
       </p>
-    </div>
+    </article>
   );
 }

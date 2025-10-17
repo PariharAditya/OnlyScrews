@@ -1,23 +1,31 @@
 'use client';
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
-
-
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  
+  // Handle hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full bg-dark/90 backdrop-blur border-b border-gray-800 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
-         { /* LOGO SECTION */ }
+        {/* LOGO SECTION */}
         <Link href="/" className="text-2xl font-bold text-primary gap-2">
-            <Image className="h-9 w-auto" src="/SB.jpg" alt="logo"    width={180}
+          <Image 
+            src="/SB.jpg" 
+            alt="logo" 
+            width={180}
             height={180}
             className="h-9 w-auto object-contain"
-            priority />
-           {/* <span className="text-2xl font-bold text-primary">Screw Bazar</span> */}
+            priority 
+          />
+          {/* <span className="text-2xl font-bold text-primary">Screw Bazar</span> */}
         </Link>
 
         <div className="hidden md:flex gap-8 text-gray-200 font-medium">
@@ -29,6 +37,9 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-2xl text-white"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          type="button"
         >
           ☰
         </button>
