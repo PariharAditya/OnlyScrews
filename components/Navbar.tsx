@@ -1,9 +1,9 @@
 'use client';
 import Link from "next/link";
 import { useState } from "react";
-import { FiShoppingCart, FiUser, FiSearch } from 'react-icons/fi';
+import { FiUser, FiSearch } from 'react-icons/fi';
 import Logo from './Logo';
-import { useCart } from '@/contexts/CartContext';
+import SearchModal from './SearchModal';
 
 interface NavLink {
   href: string;
@@ -15,14 +15,13 @@ const mainLinks: NavLink[] = [
   { href: '/shop', label: 'Shop' },
   { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
   { href: '/login', label: 'Login' },
-  { href: '/sell', label: 'Sell With Us!' },
-  { href: '/track-order', label: 'Track your Order' },
-  { href: '/e-invoice', label: 'E-Invoice' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { totalItems } = useCart();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 w-full bg-white z-50">
@@ -35,10 +34,12 @@ export default function Navbar() {
 
       {/* Main Navigation */}
       <div className="border-b">
-        <div className="container mx-auto py-4 px-4">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto py-6 px-4">
+          <div className="flex items-start justify-between">
             {/* Logo */}
-            <Logo />
+            <div className="pt-1">
+              <Logo />
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
@@ -70,7 +71,11 @@ export default function Navbar() {
 
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
-              <button className="hover:text-[#6A20CD]" aria-label="Search">
+              <button 
+                className="hover:text-[#6A20CD]" 
+                aria-label="Search"
+                onClick={() => setIsSearchOpen(true)}
+              >
                 <FiSearch className="w-[22px] h-[22px]" />
               </button>
 
@@ -79,14 +84,11 @@ export default function Navbar() {
                 <FiUser className="w-[22px] h-[22px]" />
               </Link>
 
-              <Link href="/cart" className="relative hover:text-[#6A20CD]">
-                <FiShoppingCart className="w-[22px] h-[22px]" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-[#6A20CD] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
-              </Link>
+              {/* Search Modal */}
+              <SearchModal 
+                isOpen={isSearchOpen} 
+                onClose={() => setIsSearchOpen(false)} 
+              />
 
               {/* Mobile Menu Button */}
               <button

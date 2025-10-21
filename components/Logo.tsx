@@ -1,11 +1,21 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Logo() {
   return (
-    <Link href="/" className="flex items-center">
-      <span className="text-2xl font-semibold">
-        Screw<span className="text-[#6A20CD]">Bazar</span>
-      </span>
+    <Link href="/" className="block">
+      <div className="flex flex-col">
+        <div className="relative w-[180px] h-[50px]">
+          <Image 
+            src="/SB.jpg"
+            alt="Screw Bazar Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+        <p className="text-sm mt-1 text-gray-600">Never Ordinary.</p>
+      </div>
     </Link>
   );
 }
