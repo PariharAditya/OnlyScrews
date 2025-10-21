@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import React from 'react'
 import Navbar from '../components/Navbar'
+import WhatsAppButton from '../components/WhatsAppButton'
 import { AuthProvider } from '../contexts/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -33,7 +34,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <Navbar />
-          {children}
+          <div className="mt-[144px]">
+            {children}
+          </div>
+          <WhatsAppButton />
         </AuthProvider>
       </body>
     </html>

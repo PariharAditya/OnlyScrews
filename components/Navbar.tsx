@@ -16,7 +16,7 @@ const mainLinks: NavLink[] = [
   { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
   { href: '/login', label: 'Login' },
   { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact', label: 'Contact & FAQ' },
 ];
 
 export default function Navbar() {
