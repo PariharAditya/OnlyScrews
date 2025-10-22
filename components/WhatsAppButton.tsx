@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/919876543210"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 inline-flex items-center bg-white py-3 px-6 rounded-lg shadow-xl hover:shadow-2xl transition-all text-gray-800"
+      className="fixed bottom-6 right-6 z-50 inline-flex items-center bg-white py-3 px-6 rounded-lg shadow-xl hover:shadow-2xl transition-all text-gray-800 outline-none focus:outline-none"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 mr-2">
         <g clipPath="url(#clip0_whatsapp)">
