@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Footer from '../components/Footer';
 import ContactButtons from '../components/FloatingButton';
 import HeroSection from '../components/HeroSection';
+import MiniAssortedPacks from '../components/MiniAssortedPacks';
 
 const categories = [
   {
@@ -111,6 +112,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Mini Assorted Packs */}
+        <MiniAssortedPacks />
 
         {/* Features */}
         <div className="w-full bg-white py-16">
