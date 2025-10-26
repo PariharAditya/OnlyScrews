@@ -58,8 +58,8 @@ export default function ShopPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Shop by Category</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h1 className="font-heading text-4xl font-bold text-gray-900 mb-4">Shop by Category</h1>
+          <p className="font-sans text-lg text-gray-600 max-w-2xl mx-auto">
             Explore our wide range of industrial fasteners and hardware. Quality products for every project.
           </p>
         </div>
@@ -85,8 +85,8 @@ export default function ShopPage() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-                  <p className="text-sm text-gray-200">
+                  <h3 className="font-heading text-2xl font-bold mb-2">{category.name}</h3>
+                  <p className="font-sans text-sm text-gray-200">
                     {category.description}
                   </p>
                 </div>
@@ -99,18 +99,18 @@ export default function ShopPage() {
         <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center p-6">
             <div className="text-4xl mb-4">🛡️</div>
-            <h3 className="text-xl font-semibold mb-2">Quality Assured</h3>
-            <p className="text-gray-600">All products meet international quality standards</p>
+            <h3 className="font-heading text-xl font-semibold mb-2">Quality Assured</h3>
+            <p className="font-sans text-gray-600">All products meet international quality standards</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-4">🚚</div>
-            <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-            <p className="text-gray-600">Quick shipping across India</p>
+            <h3 className="font-heading text-xl font-semibold mb-2">Fast Delivery</h3>
+            <p className="font-sans text-gray-600">Quick shipping across India</p>
           </div>
           <div className="text-center p-6">
             <div className="text-4xl mb-4">💬</div>
-            <h3 className="text-xl font-semibold mb-2">Expert Support</h3>
-            <p className="text-gray-600">Technical guidance available</p>
+            <h3 className="font-heading text-xl font-semibold mb-2">Expert Support</h3>
+            <p className="font-sans text-gray-600">Technical guidance available</p>
           </div>
         </div>
       </div>

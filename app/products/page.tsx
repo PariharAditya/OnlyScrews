@@ -85,8 +85,8 @@ export default function ProductsPage() {
       {/* Header */}
       <div className="bg-[#1a5f7a] text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4">Our Products</h1>
-          <p className="text-xl text-center max-w-2xl mx-auto">
+          <h1 className="font-heading text-4xl font-bold text-center mb-4">Our Products</h1>
+          <p className="font-sans text-xl text-center max-w-2xl mx-auto">
             Explore our comprehensive range of high-quality industrial fasteners. 
             We offer bulk quantities at competitive prices.
           </p>
@@ -111,17 +111,17 @@ export default function ProductsPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{category.name}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
+                <h3 className="font-heading text-2xl font-bold text-gray-800 mb-2">{category.name}</h3>
+                <p className="font-sans text-gray-600 mb-4">{category.description}</p>
                 <div className="space-y-1">
                   {category.types.map((type) => (
-                    <div key={type} className="flex items-center text-sm text-gray-500">
+                    <div key={type} className="font-sans flex items-center text-sm text-gray-500">
                       <span className="mr-2">•</span>
                       {type}
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 text-[#1a5f7a] font-medium group-hover:underline">
+                <div className="font-heading mt-4 text-[#1a5f7a] font-medium group-hover:underline">
                   View Products →
                 </div>
               </div>
@@ -131,13 +131,13 @@ export default function ProductsPage() {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Need Help Choosing?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h2 className="font-heading text-3xl font-bold text-gray-800 mb-4">Need Help Choosing?</h2>
+          <p className="font-sans text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Our experts are here to help you find the right fasteners for your application.
           </p>
           <Link 
             href="/bulk-enquiry"
-            className="inline-block bg-[#1a5f7a] text-white px-8 py-3 rounded-md hover:bg-[#134b61] transition-colors font-medium"
+            className="font-heading inline-block bg-[#1a5f7a] text-white px-8 py-3 rounded-md hover:bg-[#134b61] transition-colors font-medium"
           >
             Request Expert Guidance
           </Link>

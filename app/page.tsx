@@ -116,35 +116,40 @@ export default function Home() {
         {/* Mini Assorted Packs */}
         <MiniAssortedPacks />
 
+        
+        {/* Product Section 3 */}
+        <div className="w-full   bg-white">
+          <div className="relative w-screen" style={{ height: '600px' , maxWidth: '150vw' }}>
+            <Image
+              src="/images/products/3.png"
+              alt="Premium Fasteners"
+              fill
+              style={{ 
+                objectFit: 'contain',
+                objectPosition: 'center'
+              }}
+              className="w-full h-full"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Spacing div */}
+        <div className="h-15"></div>
+
         {/* Features */}
-        <div className="w-full bg-white py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1a5f7a] mb-12">
-              Why Choose OnlyScrews?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="h-12 w-12 bg-[#1a5f7a] rounded-full flex items-center justify-center mb-4">
-                  <Image src="/file.svg" alt="Quality Products" width={24} height={24} className="text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-[#1a5f7a] mb-3">Quality Products</h3>
-                <p className="text-gray-600">High-grade fasteners meeting international standards and specifications.</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="h-12 w-12 bg-[#1a5f7a] rounded-full flex items-center justify-center mb-4">
-                  <Image src="/window.svg" alt="Technical Support" width={24} height={24} />
-                </div>
-                <h3 className="text-xl font-semibold text-[#1a5f7a] mb-3">Expert Support</h3>
-                <p className="text-gray-600">Dedicated technical team to assist with product selection and specifications.</p>
-              </div>
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <div className="h-12 w-12 bg-[#1a5f7a] rounded-full flex items-center justify-center mb-4">
-                  <Image src="/globe.svg" alt="Pan India Supply" width={24} height={24} />
-                </div>
-                <h3 className="text-xl font-semibold text-[#1a5f7a] mb-3">Pan India Supply</h3>
-                <p className="text-gray-600">Efficient delivery network ensuring timely supply across India.</p>
-              </div>
-            </div>
+        <div className="w-full bg-white">
+          <div className="relative w-full" style={{ height: '800px', maxWidth: '100vw', overflow: 'hidden' }}>
+            <Image
+              src="/images/products/5.png"
+              alt="Why Choose OnlyScrews"
+              fill
+              style={{ 
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              priority
+            />
           </div>
         </div>
 
