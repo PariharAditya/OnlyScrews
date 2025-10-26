@@ -36,65 +36,18 @@ export default function InteractiveLink({
   variant = 'primary', 
   ...props 
 }: InteractiveLinkProps) {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
-  const baseStyles: StyleObject = {
-    padding: '16px 32px',
-    borderRadius: '8px',
-    fontWeight: '600',
-    textDecoration: 'none',
-    fontSize: '1.1rem',
-    transition: 'all 0.3s ease',
-    display: 'inline-block'
+  const baseClasses = "font-heading px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform inline-block hover:-translate-y-0.5";
+  
+  const variantClasses = {
+    primary: "bg-white text-[#1a5f7a] hover:bg-gray-50",
+    secondary: "bg-transparent text-white border-2 border-white hover:bg-white hover:text-[#1a5f7a]",
+    accent: "bg-[#57C5B6] text-white hover:bg-[#159895]"
   };
-
-  const variants: Variants = {
-    primary: {
-      backgroundColor: 'white',
-      color: '#1a5f7a',
-      border: 'none'
-    },
-    secondary: {
-      backgroundColor: 'transparent',
-      color: 'white',
-      border: '2px solid white'
-    },
-    accent: {
-      backgroundColor: '#57C5B6',
-      color: 'white',
-      border: 'none'
-    }
-  };
-
-  const hoverStyles: Variants = {
-    primary: {
-      backgroundColor: '#f8f9fa',
-      transform: 'translateY(-2px)'
-    },
-    secondary: {
-      backgroundColor: 'white',
-      color: '#1a5f7a',
-      transform: 'translateY(-2px)'
-    },
-    accent: {
-      backgroundColor: '#159895',
-      transform: 'translateY(-2px)'
-    }
-  };
-
-  const currentVariant = variants[variant];
-  const currentHover = isHovered ? hoverStyles[variant] : {};
 
   return (
     <Link
       href={href}
-      style={{
-        ...baseStyles,
-        ...currentVariant,
-        ...currentHover
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`${baseClasses} ${variantClasses[variant]}`}
       {...props}
     >
       {children}

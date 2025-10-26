@@ -69,15 +69,15 @@ export default function CategoryGrid() {
           </div>
           <div className="p-6">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-xl font-semibold text-dark group-hover:text-primary transition-colors">
+              <h3 className="font-heading text-xl font-semibold text-dark group-hover:text-primary transition-colors">
                 {category.name}
               </h3>
-              <span className="text-sm bg-primary text-white px-2 py-1 rounded-full">
+              <span className="font-sans text-sm bg-primary text-white px-2 py-1 rounded-full">
                 {category.count}
               </span>
             </div>
-            <p className="text-gray-600">{category.description}</p>
-            <div className="mt-4 text-primary font-medium group-hover:underline">
+            <p className="font-sans text-gray-600">{category.description}</p>
+            <div className="font-heading mt-4 text-primary font-medium group-hover:underline">
               Browse Products →
             </div>
           </div>

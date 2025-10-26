@@ -13,19 +13,11 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
 
   return (
     <article
-      style={{
-        backgroundColor: 'white',
-        padding: '40px 24px',
-        borderRadius: '12px',
-        textAlign: 'center',
-        boxShadow: isHovered 
-          ? '0 12px 20px rgba(0, 0, 0, 0.15)' 
-          : '0 4px 6px rgba(0, 0, 0, 0.1)',
-        transition: 'all 0.3s ease',
-        transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
-        cursor: 'pointer',
-        outline: 'none'
-      }}
+      className={`bg-white p-10 rounded-xl text-center ${
+        isHovered 
+          ? 'shadow-xl -translate-y-2' 
+          : 'shadow-md translate-y-0'
+      } transition-all duration-300 cursor-pointer outline-none`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
@@ -37,22 +29,13 @@ export default function FeatureCard({ icon, title, description }: FeatureCardPro
         }
       }}
     >
-      <div style={{ fontSize: '3rem', marginBottom: '20px' }}>
+      <div className="text-5xl mb-5">
         {icon}
       </div>
-      <h3 style={{
-        fontSize: '1.5rem',
-        fontWeight: '600',
-        color: '#343a40',
-        marginBottom: '12px'
-      }}>
+      <h3 className="font-heading text-2xl font-semibold text-gray-800 mb-3">
         {title}
       </h3>
-      <p style={{
-        color: '#6c757d',
-        lineHeight: '1.6',
-        fontSize: '1rem'
-      }}>
+      <p className="font-sans text-gray-600 leading-relaxed">
         {description}
       </p>
     </article>

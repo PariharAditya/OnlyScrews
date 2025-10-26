@@ -78,7 +78,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-400"
+              className="font-sans w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-400"
             />
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <button
@@ -100,17 +100,17 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   onClick={onClose}
                   className="block p-3 hover:bg-gray-50 rounded-lg transition-colors"
                 >
-                  <div className="font-medium text-gray-900">{result.title}</div>
-                  <div className="text-sm text-gray-500">{result.category}</div>
+                  <div className="font-heading font-medium text-gray-900">{result.title}</div>
+                  <div className="font-sans text-sm text-gray-500">{result.category}</div>
                 </Link>
               ))}
             </div>
           ) : searchQuery ? (
-            <div className="text-center text-gray-500 py-8">
+            <div className="font-sans text-center text-gray-500 py-8">
               No results found for "{searchQuery}"
             </div>
           ) : (
-            <div className="text-center text-gray-500 py-8">
+            <div className="font-sans text-center text-gray-500 py-8">
               Start typing to search products
             </div>
           )}

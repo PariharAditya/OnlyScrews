@@ -19,7 +19,7 @@ export default function WhatsAppButton() {
           </clipPath>
         </defs>
       </svg>
-      <span className="text-base font-medium">Talk to us</span>
+      <span className="font-heading text-base font-medium">Talk to us</span>
     </a>
   );
 }

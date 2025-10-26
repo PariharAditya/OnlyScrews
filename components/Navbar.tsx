@@ -28,7 +28,7 @@ export default function Navbar() {
       {/* Promo Banner */}
       <div className="bg-[#111111] text-white py-2 px-4 text-center relative">
         <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="text-sm">Use code "SCREWME10" to get 10% discount on orders above Rs. 999/-</p>
+        <p className="font-sans text-sm">Use code "SCREWME10" to get 10% discount on orders above Rs. 999/-</p>
         <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
       </div>
 
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-gray-800 hover:text-[#6A20CD] transition-colors text-[15px] ${
+                  className={`font-sans text-gray-800 hover:text-[#6A20CD] transition-colors text-[15px] ${
                     link.label === 'Shop' ? 'flex items-center' : ''
                   }`}
                 >
@@ -128,7 +128,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="block text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors"
+              className="font-sans block text-gray-700 hover:text-purple-600 font-medium py-2 transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -140,7 +140,7 @@ export default function Navbar() {
       {/* Secondary Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative">
         <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="text-sm">Cash on Delivery is available on orders above ₹100 and below ₹599</p>
+        <p className="font-sans text-sm">Cash on Delivery is available on orders above ₹100 and below ₹599</p>
         <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
       </div>
     </nav>

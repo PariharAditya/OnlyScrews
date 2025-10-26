@@ -22,13 +22,13 @@ export default function Footer() {
                     priority
                   />
                 </div>
-                <p className="text-sm mt-2">Never Ordinary.</p>
+                <p className="font-heading text-sm mt-2">Never Ordinary.</p>
               </div>
             </Link>
-            <p className="text-sm mb-6">
+            <p className="font-sans text-sm mb-6">
               An internet-first brand of industrial fasteners and hardware products.
             </p>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 text-sm font-sans">
               <p>Screwbazar Manufacturing Private Limited</p>
               <p className="text-blue-600">info@screwbazar.com</p>
               <p>CIN: U74999KA2018PTC127703</p>
@@ -41,40 +41,40 @@ export default function Footer() {
 
           {/* Links Section */}
           <div>
-            <h3 className="font-medium mb-4">Links</h3>
+            <h3 className="font-heading font-medium mb-4">Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/about" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/blogs" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Blogs
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/terms" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/returns" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Returns & Refunds
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/privacy" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/shipping" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link href="/warranty" className="text-sm hover:text-gray-900 transition-colors">
+                <Link href="/warranty" className="font-sans text-sm hover:text-gray-900 transition-colors">
                   Warranty
                 </Link>
               </li>
@@ -83,15 +83,15 @@ export default function Footer() {
 
           {/* Newsletter Section */}
           <div>
-            <h3 className="font-medium mb-4">Newsletter</h3>
-            <p className="text-sm mb-4">Sign up to our newsletter to receive exclusive offers.</p>
+            <h3 className="font-heading font-medium mb-4">Newsletter</h3>
+            <p className="font-sans text-sm mb-4">Sign up to our newsletter to receive exclusive offers.</p>
             <div className="flex flex-col space-y-2">
               <input 
                 type="email" 
                 placeholder="E-mail" 
                 className="px-4 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:border-gray-400"
               />
-              <button className="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-900 transition-colors">
+              <button className="font-heading bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-900 transition-colors">
                 SUBSCRIBE
               </button>
             </div>
@@ -101,8 +101,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-4">
-            <Link href="/" className="text-sm hover:text-gray-900">© {currentYear} - screwbazar.com</Link>
-            <Link href="https://shopify.com" className="text-sm text-gray-500 hover:text-gray-900">Powered by Shopify</Link>
+            <Link href="/" className="font-sans text-sm hover:text-gray-900">© {currentYear} - screwbazar.com</Link>
+            <Link href="https://shopify.com" className="font-sans text-sm text-gray-500 hover:text-gray-900">Powered by Shopify</Link>
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link href="https://facebook.com" className="text-gray-500 hover:text-gray-900">

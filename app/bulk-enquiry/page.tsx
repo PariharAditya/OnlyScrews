@@ -109,8 +109,8 @@ export default function BulkEnquiry() {
         <div className="container-custom section-padding">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-dark mb-4">Bulk Enquiry</h1>
-              <p className="text-xl text-gray-600">
+              <h1 className="font-heading text-4xl font-bold text-dark mb-4">Bulk Enquiry</h1>
+              <p className="font-sans text-xl text-gray-600">
                 Get competitive pricing for your bulk fastener requirements. Our team will provide 
                 you with a customized quote within 24 hours.
               </p>
@@ -120,7 +120,7 @@ export default function BulkEnquiry() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
                     </label>
                     <input
@@ -135,7 +135,7 @@ export default function BulkEnquiry() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Company Name *
                     </label>
                     <input
@@ -153,7 +153,7 @@ export default function BulkEnquiry() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -168,7 +168,7 @@ export default function BulkEnquiry() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -185,7 +185,7 @@ export default function BulkEnquiry() {
                 </div>
 
                 <div>
-                  <label htmlFor="products" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="products" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                     Products Required *
                   </label>
                   <textarea
@@ -202,7 +202,7 @@ export default function BulkEnquiry() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="quantity" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Estimated Quantity *
                     </label>
                     <input
@@ -217,7 +217,7 @@ export default function BulkEnquiry() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="timeline" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                       Required Timeline
                     </label>
                     <select
@@ -237,7 +237,7 @@ export default function BulkEnquiry() {
                 </div>
 
                 <div>
-                  <label htmlFor="specifications" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="specifications" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                     Technical Specifications
                   </label>
                   <textarea
@@ -252,7 +252,7 @@ export default function BulkEnquiry() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="font-sans block text-sm font-medium text-gray-700 mb-2">
                     Additional Notes
                   </label>
                   <textarea
@@ -269,11 +269,11 @@ export default function BulkEnquiry() {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="btn-primary px-12 py-4 text-lg"
+                    className="font-heading btn-primary px-12 py-4 text-lg"
                   >
                     Submit Enquiry
                   </button>
-                  <p className="text-gray-500 text-sm mt-4">
+                  <p className="font-sans text-gray-500 text-sm mt-4">
                     We typically respond to all enquiries within 2-4 hours during business days.
                   </p>
                 </div>

@@ -17,7 +17,7 @@ export default function CategoryCard({ name, img, href }: CategoryCardProps) {
       <div className="relative w-36 h-36">
         <Image src={img} alt={name} fill className="object-contain group-hover:scale-105 transition-transform" />
       </div>
-      <h3 className="mt-3 text-lg font-semibold group-hover:text-primary">{name}</h3>
+      <h3 className="font-heading mt-3 text-lg font-semibold group-hover:text-primary">{name}</h3>
     </Link>
   );
 }
