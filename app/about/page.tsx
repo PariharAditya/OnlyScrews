@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 
 export default function AboutPage() {
@@ -29,21 +28,7 @@ export default function AboutPage() {
       {/* Our Values */}
      
 
-      {/* Contact CTA */}
-      <div className="bg-[#1a5f7a] text-white py-10">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold mb-6">Ready to Work Together?</h2>
-          <p className="font-sans text-xl mb-8">
-            Contact us today to discuss your fastening requirements
-          </p>
-          <Link
-            href="/contact"
-            className="font-heading inline-block bg-white text-[#1a5f7a] py-3 px-8 rounded-md font-medium hover:bg-gray-100 transition-colors"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </div>
+      {/* Contact CTA removed as requested */}
     </div>
   );
 }

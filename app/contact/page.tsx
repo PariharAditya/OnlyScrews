@@ -1,13 +1,12 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
 interface ContactFormData {
   name: string;
   email: string;
-  phone: string;
   message: string;
 }
 
@@ -15,185 +14,106 @@ export default function ContactPage() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    phone: '',
     message: ''
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will contact you shortly.');
+    alert('Thank you for your message! We will get back to you shortly.');
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Contact Header */}
-      <div className="bg-[#1a5f7a] text-white py-16 relative">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="font-sans text-xl mb-8">
-              Our customer service team is here to help you with any questions about our products,
-              bulk orders, or technical specifications.
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="container mx-auto px-4 pt-32 pb-12">
+        <h1 className="text-5xl font-bold text-center mb-8">Contact us</h1>
+        
+        {/* Contact Info Section */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <p className="text-lg text-gray-700 mb-8">
+            Have any doubts, comments, or just like to say Hi, we are here for you, and we are wearing our thinking caps!
+          </p>
+          
+          <div className="space-y-4 mb-8">
+            <p className="text-xl">
+              <a href="tel:+919876543210" className="text-[#1a5f7a] hover:underline font-semibold">
+                +91-9876543210
+              </a>
+              <span className="text-gray-600"> (Mon-Sat, 9 am - 6 pm)</span>
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center">
-                <Phone className="w-8 h-8 mx-auto mb-4" />
-                <h3 className="font-heading text-lg font-semibold mb-2">Call Us</h3>
-                <p className="font-sans">+91-9876543210</p>
-              </div>
-              <div className="text-center">
-                <Mail className="w-8 h-8 mx-auto mb-4" />
-                <h3 className="font-heading text-lg font-semibold mb-2">Email Us</h3>
-                <p className="font-sans">info@screwbazar.com</p>
-              </div>
-              <div className="text-center">
-                <MapPin className="w-8 h-8 mx-auto mb-4" />
-                <h3 className="font-heading text-lg font-semibold mb-2">Visit Us</h3>
-                <p>Delhi NCR, India</p>
-              </div>
-            </div>
+            
+            <p className="text-gray-700">
+              You can also fill up the form below, or drop an email at{' '}
+              <a href="mailto:info@screwbazar.com" className="text-[#1a5f7a] hover:underline">
+                info@screwbazar.com
+              </a>
+              , and we will get back to you within an hour
+            </p>
           </div>
-        </div>
-      </div>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Information */}
-          <div className="space-y-6">
-              <h2 className="font-heading text-3xl font-bold text-gray-800 mb-4">Get in Touch</h2>            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="bg-[#1a5f7a] p-3 rounded-full">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-800">Phone</h3>
-                  <p className="font-sans text-gray-600">+91-9876543210</p>
-                  <p className="font-sans text-gray-600">Mon-Sat 9:00 AM - 6:00 PM</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-[#1a5f7a] p-3 rounded-full">
-                  <Mail className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-800">Email</h3>
-                  <p className="font-sans text-gray-600">info@screwbazar.com</p>
-                  <p className="font-sans text-gray-600">For inquiries and support</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-[#1a5f7a] p-3 rounded-full">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-800">Location</h3>
-                  <p className="font-sans text-gray-600">Delhi NCR, India</p>
-                  <p className="font-sans text-gray-600">Serving industrial hubs nationwide</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-[#1a5f7a] p-3 rounded-full">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-xl font-semibold text-gray-800">Business Hours</h3>
-                  <p className="font-sans text-gray-600">Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                  <p className="font-sans text-gray-600">Sunday: Closed</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Company Logo */}
-            <div className="pt-8 border-t mt-8">
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/SB.jpg"
-                  alt="Screw Bazar Logo"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto"
-                />
-              </div>
-              <p className="font-sans mt-4 text-sm text-gray-600">
-                Your trusted partner for industrial fasteners and hardware solutions.
+          {/* Founder Info */}
+          <div className="bg-gray-50 p-6 rounded-lg text-left">
+            <p className="text-gray-700 mb-4">
+              If you have any suggestions, complaints or just want to drop a message, you can drop a message to our founders directly here:
+            </p>
+            <div className="space-y-2 text-gray-800">
+              <p>
+                <strong>Founder Name:</strong>{' '}
+                <a href="mailto:founder@screwbazar.com" className="text-[#1a5f7a] hover:underline">
+                  founder@screwbazar.com
+                </a>
+                {' '}, +91-9876543210
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="font-heading text-2xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="font-sans block text-sm font-medium text-gray-700 mb-1">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1a5f7a] focus:border-[#1a5f7a]"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                />
-              </div>
+        {/* Contact Form */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Contact</h2>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <input
+                type="text"
+                placeholder="Name"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1a5f7a] focus:border-transparent outline-none"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              />
+            </div>
 
-              <div>
-                <label htmlFor="email" className="font-sans block text-sm font-medium text-gray-700 mb-1">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1a5f7a] focus:border-[#1a5f7a]"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                />
-              </div>
+            <div>
+              <input
+                type="email"
+                placeholder="E-mail"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1a5f7a] focus:border-transparent outline-none"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              />
+            </div>
 
-              <div>
-                <label htmlFor="phone" className="font-sans block text-sm font-medium text-gray-700 mb-1">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1a5f7a] focus:border-[#1a5f7a]"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-              </div>
+            <div>
+              <textarea
+                placeholder="Message"
+                rows={6}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#1a5f7a] focus:border-transparent outline-none resize-none"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              ></textarea>
+            </div>
 
-              <div>
-                <label htmlFor="message" className="font-sans block text-sm font-medium text-gray-700 mb-1">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#1a5f7a] focus:border-[#1a5f7a]"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="font-heading w-full bg-[#1a5f7a] text-white py-3 px-6 rounded-md hover:bg-[#134b61] transition-colors font-medium"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+            <button
+              type="submit"
+              className="w-full bg-[#1a5f7a] text-white py-3 px-6 rounded-md hover:bg-[#134b61] transition-colors font-semibold text-lg"
+            >
+              SEND MESSAGE
+            </button>
+          </form>
         </div>
       </div>
 

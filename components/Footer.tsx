@@ -22,7 +22,6 @@ export default function Footer() {
                     priority
                   />
                 </div>
-                <p className="font-heading text-sm mt-2">Never Ordinary.</p>
               </div>
             </Link>
             <p className="font-sans text-sm mb-6">

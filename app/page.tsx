@@ -96,6 +96,12 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Mini Assorted Packs */}
+        <div className="w-full bg-white pt-12 md:pt-20">
+          <MiniAssortedPacks />
+        </div>
+
+        
         {/* Product Section 3 */}
         <div className="w-full   bg-white">
           <div className="relative w-screen" style={{ height: '600px' , maxWidth: '150vw' }}>
@@ -142,7 +148,7 @@ export default function Home() {
         </div>
 
         {/* CTA Section */}
-        <div className="w-full bg-[#1a5f7a] text-white py-16">
+        <div className="w-full bg-black text-white py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto">
@@ -150,7 +156,7 @@ export default function Home() {
             </p>
             <Link
               href="/bulk-enquiry"
-              className="inline-block bg-yellow-400 text-[#1a5f7a] px-8 py-3 rounded-md font-semibold hover:bg-yellow-300 transition-colors"
+              className="inline-block bg-green-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-green-600 transition-colors"
             >
               Request Quote Now
             </Link>

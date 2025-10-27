@@ -35,14 +35,14 @@ export default function Navbar() {
       {/* Main Navigation */}
       <div className="border-b">
         <div className="container mx-auto py-6 px-4">
-          <div className="flex items-start justify-between">
+          <div className="flex items-center justify-between relative">
             {/* Logo */}
             <div className="pt-1">
               <Logo />
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            {/* Desktop Navigation - centered */}
+            <div className="hidden lg:flex items-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               {mainLinks.map((link) => (
                 <Link
                   key={link.href}
