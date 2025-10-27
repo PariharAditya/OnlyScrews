@@ -62,61 +62,40 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-between">
           <HeroSection />
 
-        {/* Product Categories */}
-        <div className="w-full bg-gray-50 py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1a5f7a] mb-12">
-              Our Product Range
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {categories.map((category) => (
-                <Link
-                  key={category.id}
-                  href={`/products/${category.id}`}
-                  className="group bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="aspect-w-16 aspect-h-9 relative h-48">
-                    <Image
-                      src={category.image}
-                      alt={category.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-[#1a5f7a] mb-2 group-hover:text-[#134b61]">
-                      {category.name}
-                    </h3>
-                    <p className="text-gray-600">
-                      {category.description}
-                    </p>
-                    <div className="mt-4 flex items-center text-[#1a5f7a] font-medium">
-                      Learn More
-                      <svg
-                        className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        {/* Product Range Section */}
+        <div className="w-full bg-white">
+          <div className="relative mx-auto" style={{ height: '700px', maxWidth: '90vw' }}>
+            <Image
+              src="/images/products/4.png"
+              alt="Our Product Range"
+              fill
+              style={{ 
+                objectFit: 'contain',
+                objectPosition: 'center'
+              }}
+              className="w-full h-full"
+              priority
+            />
           </div>
         </div>
 
-        {/* Mini Assorted Packs */}
-        <MiniAssortedPacks />
+        {/* Product Section 2 */}
+        <div className="w-full bg-white pt-12 md:pt-20">
+          <div className="relative w-full" style={{ height: '1100px' }}>
+            <Image
+              src="/images/products/2.png"
+              alt="Our Products"
+              fill
+              style={{ 
+                objectFit: 'contain',
+                objectPosition: 'center'
+              }}
+              className="w-full h-full"
+              priority
+            />
+          </div>
+        </div>
 
-        
         {/* Product Section 3 */}
         <div className="w-full   bg-white">
           <div className="relative w-screen" style={{ height: '600px' , maxWidth: '150vw' }}>
@@ -134,24 +113,13 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Mini Assorted Packs */}
+        <div className="w-full bg-white pt-12 md:pt-20">
+          <MiniAssortedPacks />
+        </div>
+
         {/* Spacing div */}
         <div className="h-15"></div>
-
-        {/* Features */}
-        <div className="w-full bg-white">
-          <div className="relative w-full" style={{ height: '800px', maxWidth: '100vw', overflow: 'hidden' }}>
-            <Image
-              src="/images/products/5.png"
-              alt="Why Choose OnlyScrews"
-              fill
-              style={{ 
-                objectFit: 'cover',
-                objectPosition: 'center'
-              }}
-              priority
-            />
-          </div>
-        </div>
 
         {/* Testimonials */}
         <div className="w-full bg-gray-50 py-16">
