@@ -1,117 +1,146 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-interface Category {
-  id: string;
+interface ProductCategory {
   name: string;
   description: string;
   image: string;
-  slug: string;
+  types: string[];
+  href: string;
 }
 
-const categories: Category[] = [
+const categories: ProductCategory[] = [
   {
-    id: '1',
     name: 'Screws',
-    description: 'High-quality screws for all your needs',
+    description: 'High-quality screws for various industrial applications',
     image: '/images/Screws.png',
-    slug: 'screws'
+    types: [
+      'Wood Screws',
+      'Machine Screws',
+      'Self-Drilling Screws',
+      'Sheet Metal Screws',
+      'Drywall Screws'
+    ],
+    href: '/products/screws'
   },
   {
-    id: '2',
     name: 'Nuts',
-    description: 'Wide variety of nuts for different applications',
+    description: 'Wide range of nuts for secure fastening',
     image: '/images/Nuts.png',
-    slug: 'nuts'
+    types: [
+      'Hex Nuts',
+      'Lock Nuts',
+      'Wing Nuts',
+      'Cap Nuts',
+      'Flange Nuts'
+    ],
+    href: '/products/nuts'
   },
   {
-    id: '3',
     name: 'Bolts',
-    description: 'Durable bolts for industrial use',
+    description: 'Durable bolts for heavy-duty applications',
     image: '/images/Bolts.png',
-    slug: 'bolts'
+    types: [
+      'Hex Bolts',
+      'Carriage Bolts',
+      'U-Bolts',
+      'Eye Bolts',
+      'Anchor Bolts'
+    ],
+    href: '/products/bolts'
   },
   {
-    id: '4',
     name: 'Washers',
-    description: 'Essential washers for proper fastening',
+    description: 'Essential washers for load distribution',
     image: '/images/Washers.png',
-    slug: 'washers'
+    types: [
+      'Flat Washers',
+      'Lock Washers',
+      'Spring Washers',
+      'Fender Washers',
+      'Wave Washers'
+    ],
+    href: '/products/washers'
   },
   {
-    id: '5',
     name: 'Anchors',
-    description: 'Reliable anchors for secure mounting',
+    description: 'Reliable anchoring solutions',
     image: '/images/Anchors.png',
-    slug: 'anchors'
+    types: [
+      'Wedge Anchors',
+      'Sleeve Anchors',
+      'Drop-In Anchors',
+      'Chemical Anchors',
+      'Concrete Screws'
+    ],
+    href: '/products/anchors'
   }
 ];
 
-export default function ShopPage() {
-  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-
+export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Shop by Category</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore our wide range of industrial fasteners and hardware. Quality products for every project.
+    <div className="min-h-screen bg-gray-50 pt-20">
+      {/* Header */}
+      <div className="bg-[#1a5f7a] text-white py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold text-center mb-4">Our Products</h1>
+          <p className="text-xl text-center max-w-2xl mx-auto">
+            Explore our comprehensive range of high-quality industrial fasteners. 
+            We offer bulk quantities at competitive prices.
           </p>
         </div>
+      </div>
 
-        {/* Categories Grid */}
+      {/* Categories */}
+      <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/shop/${category.slug}`}
-              className="group block"
+            <Link 
+              key={category.name}
+              href={category.href}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
             >
-              <div className="relative overflow-hidden rounded-lg shadow-lg bg-black transition-transform duration-300 transform hover:-translate-y-1">
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
-                    className="object-contain p-4"
-                  />
+              <div className="relative h-64 bg-gray-100">
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  fill
+                  className="object-contain p-4 group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{category.name}</h3>
+                <p className="text-gray-600 mb-4">{category.description}</p>
+                <div className="space-y-1">
+                  {category.types.map((type) => (
+                    <div key={type} className="flex items-center text-sm text-gray-500">
+                      <span className="mr-2">•</span>
+                      {type}
+                    </div>
+                  ))}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-                  <p className="text-sm text-gray-200">
-                    {category.description}
-                  </p>
+                <div className="mt-4 text-[#1a5f7a] font-medium group-hover:underline">
+                  View Products →
                 </div>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Features Section */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">🛡️</div>
-            <h3 className="text-xl font-semibold mb-2">Quality Assured</h3>
-            <p className="text-gray-600">All products meet international quality standards</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">🚚</div>
-            <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-            <p className="text-gray-600">Quick shipping across India</p>
-          </div>
-          <div className="text-center p-6">
-            <div className="text-4xl mb-4">💬</div>
-            <h3 className="text-xl font-semibold mb-2">Expert Support</h3>
-            <p className="text-gray-600">Technical guidance available</p>
-          </div>
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Need Help Choosing?</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Our experts are here to help you find the right fasteners for your application.
+          </p>
+          <Link 
+            href="/bulk-enquiry"
+            className="inline-block bg-[#1a5f7a] text-white px-8 py-3 rounded-md hover:bg-[#134b61] transition-colors font-medium"
+          >
+            Request Expert Guidance
+          </Link>
         </div>
       </div>
     </div>
