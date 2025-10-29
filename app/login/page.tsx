@@ -1,44 +1,43 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { login } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
       await login(email, password);
-      router.push('/');
+      router.push("/");
     } catch (err) {
-      console.error('Login error:', err);
-      setError('Invalid email or password. Please try again.');
+      console.error("Login error:", err);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
   return (
     <div className="min-h-screen w-full">
       {/* Background Image Container */}
-      <div 
-        className="relative w-full min-h-screen bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/images/screws-bg.jpg')" }}
-      >
+      <div className="relative w-full min-h-screen bg-center bg-cover bg-no-repeat bg-[url('/images/screws-bg.jpg')]">
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Login Form Container */}
         <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
           <div className="w-full max-w-md">
-            <h1 className="text-3xl font-semibold text-center mb-8 text-white">Login to your account</h1>
+            <h1 className="text-3xl font-semibold text-center mb-8 text-white">
+              Login to your account
+            </h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {error && (
@@ -90,9 +89,9 @@ export default function LoginPage() {
               {/* Sign Up Link */}
               <div className="text-center mt-6">
                 <p className="text-white">
-                  Don't have an account?{' '}
-                  <Link 
-                    href="/sign-up" 
+                  Don&apos;t have an account?{" "}
+                  <Link
+                    href="/sign-up"
                     className="text-white underline hover:text-white/80 transition-colors font-medium"
                   >
                     Sign Up now

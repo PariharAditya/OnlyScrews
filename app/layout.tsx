@@ -1,6 +1,7 @@
 import { Montserrat, Nunito_Sans } from 'next/font/google'
 import './globals.css'
 import React from 'react'
+import { ClerkProvider } from '@clerk/nextjs'
 import Navbar from '../components/Navbar'
 import WhatsAppButton from '../components/WhatsAppButton'
 import { AuthProvider } from '../contexts/AuthContext'
@@ -50,15 +51,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} ${nunitoSans.variable} font-sans`}>
-        <AuthProvider>
-          <ErrorBoundary>
-            <Navbar />
-            <div className="mt-[144px]">
-              {children}
-            </div>
-            <WhatsAppButton />
-          </ErrorBoundary>
-        </AuthProvider>
+        <ClerkProvider>
+          <AuthProvider>
+            <ErrorBoundary>
+              <Navbar />
+              <div className="mt-[144px]">
+                {children}
+              </div>
+              <WhatsAppButton />
+            </ErrorBoundary>
+          </AuthProvider>
+        </ClerkProvider>
       </body>
     </html>
   )

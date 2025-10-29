@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 interface Category {
   readonly name: string;
@@ -10,53 +10,53 @@ interface Category {
 
 const categories: Category[] = [
   {
-    name: 'Screws',
-    description: 'Wood screws, machine screws, self-tapping screws and more',
-    href: '/categories/screws',
-    image: '/images/screws.jpg',
-    count: '50+ Types'
+    name: "Screws",
+    description: "Wood screws, machine screws, self-tapping screws and more",
+    href: "/categories/screws",
+    image: "/images/screws.jpg",
+    count: "50+ Types",
   },
   {
-    name: 'Nuts',
-    description: 'Hex nuts, lock nuts, wing nuts, and specialized nuts',
-    href: '/categories/nuts',
-    image: '/images/nuts.jpg',
-    count: '30+ Variants'
+    name: "Nuts",
+    description: "Hex nuts, lock nuts, wing nuts, and specialized nuts",
+    href: "/categories/nuts",
+    image: "/images/nuts.jpg",
+    count: "30+ Variants",
   },
   {
-    name: 'Bolts',
-    description: 'Hex bolts, carriage bolts, eye bolts, and U-bolts',
-    href: '/categories/bolts',
-    image: '/images/bolts.jpg',
-    count: '40+ Types'
+    name: "Bolts",
+    description: "Hex bolts, carriage bolts, eye bolts, and U-bolts",
+    href: "/categories/bolts",
+    image: "/images/bolts.jpg",
+    count: "40+ Types",
   },
   {
-    name: 'Washers',
-    description: 'Flat washers, spring washers, lock washers',
-    href: '/categories/washers',
-    image: '/images/washers.jpg',
-    count: '25+ Variants'
+    name: "Washers",
+    description: "Flat washers, spring washers, lock washers",
+    href: "/categories/washers",
+    image: "/images/washers.jpg",
+    count: "25+ Variants",
   },
   {
-    name: 'Anchors',
-    description: 'Chemical anchors, mechanical anchors, sleeve anchors',
-    href: '/categories/anchors',
-    image: '/images/anchors.jpg',
-    count: '20+ Types'
+    name: "Anchors",
+    description: "Chemical anchors, mechanical anchors, sleeve anchors",
+    href: "/categories/anchors",
+    image: "/images/anchors.jpg",
+    count: "20+ Types",
   },
   {
-    name: 'All Products',
-    description: 'Complete range of industrial fasteners and hardware',
-    href: '/categories',
-    image: '/images/all-products.jpg',
-    count: '200+ Products'
-  }
+    name: "All Products",
+    description: "Complete range of industrial fasteners and hardware",
+    href: "/categories",
+    image: "/images/all-products.jpg",
+    count: "200+ Products",
+  },
 ];
 
 export default function CategoryGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {categories.map((category, index) => (
+      {categories.map((category) => (
         <Link
           key={category.name}
           href={category.href}

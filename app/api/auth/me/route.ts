@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
         email: decoded.email,
         name: 'Test User',
       });
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { message: 'Invalid token' },
         { status: 401 }

@@ -1,10 +1,9 @@
-'use client';
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { FiUser, FiSearch } from 'react-icons/fi';
-import Logo from './Logo';
-import SearchModal from './SearchModal';
+import { FiUser, FiSearch } from "react-icons/fi";
+import SearchModal from "./SearchModal";
 
 interface NavLink {
   href: string;
@@ -13,25 +12,25 @@ interface NavLink {
 }
 
 const mainLinks: NavLink[] = [
-  { href: '/', label: 'Home' },
-  { 
-    href: '/shop', 
-    label: 'Shop',
+  { href: "/", label: "Home" },
+  {
+    href: "/shop",
+    label: "Shop",
     children: [
-      { href: '/shop/screws', label: 'Screws' },
-      { href: '/shop/bolts', label: 'Bolts' },
-      { href: '/shop/anchor-bolts', label: 'Anchors' },
-      { href: '/shop/nuts', label: 'Nuts' },
-      { href: '/shop/washers', label: 'Washers' },
-      { href: '/shop/spacers-standoffs', label: 'Spacers' },
-      { href: '/shop/standoff', label: 'Stand-off' },
-      { href: '/shop/rivets', label: 'Rivets' },
-    ]
+      { href: "/shop/screws", label: "Screws" },
+      { href: "/shop/bolts", label: "Bolts" },
+      { href: "/shop/anchor-bolts", label: "Anchors" },
+      { href: "/shop/nuts", label: "Nuts" },
+      { href: "/shop/washers", label: "Washers" },
+      { href: "/shop/spacers-standoffs", label: "Spacers" },
+      { href: "/shop/standoff", label: "Stand-off" },
+      { href: "/shop/rivets", label: "Rivets" },
+    ],
   },
-  { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
-  { href: '/login', label: 'Login' },
-  { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact & FAQ' },
+  { href: "/bulk-enquiry", label: "Bulk/Custom Inquiry" },
+  { href: "/login", label: "Login" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact & FAQ" },
 ];
 
 export default function Navbar() {
@@ -43,9 +42,23 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-white z-50">
       {/* Promo Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative z-40">
-        <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="font-sans text-sm">Use code <span className="font-mono font-bold">"DEEZNUTS"</span> to get 🤑 5% discount on orders above Rs. 499/-</p>
-        <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
+        <button
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white"
+          aria-label="Previous promo"
+        >
+          &lt;
+        </button>
+        <p className="font-sans text-sm">
+          Use code{" "}
+          <span className="font-mono font-bold">&ldquo;DEEZNUTS&rdquo;</span> to
+          get 🤑 5% discount on orders above Rs. 499/-
+        </p>
+        <button
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white"
+          aria-label="Next promo"
+        >
+          &gt;
+        </button>
       </div>
 
       {/* Main Navigation */}
@@ -55,7 +68,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="relative w-[180px] h-[50px]">
-                <Image 
+                <Image
                   src="/SB.jpg"
                   alt="Screw Bazar Logo"
                   fill
@@ -82,25 +95,31 @@ export default function Navbar() {
                     {link.children && (
                       <svg
                         className={`w-4 h-4 transform transition-transform ${
-                          hoveredMenu === link.label ? 'rotate-180' : ''
+                          hoveredMenu === link.label ? "rotate-180" : ""
                         }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     )}
                   </Link>
-                  
+
                   {/* Dropdown Menu */}
                   {link.children && hoveredMenu === link.label && (
-                    <div 
-                      className="absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 z-[70]"
-                    >
+                    <div className="absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 z-[70]">
                       <div className="py-2">
                         {link.children.map((child) => (
-                          <div key={child.href} className="relative group/submenu">
+                          <div
+                            key={child.href}
+                            className="relative group/submenu"
+                          >
                             <Link
                               href={child.href}
                               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600 flex items-center justify-between"
@@ -113,7 +132,12 @@ export default function Navbar() {
                                   viewBox="0 0 24 24"
                                   stroke="currentColor"
                                 >
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 5l7 7-7 7"
+                                  />
                                 </svg>
                               )}
                             </Link>
@@ -143,22 +167,26 @@ export default function Navbar() {
 
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
-              <button 
-                className="hover:text-purple-600" 
+              <button
+                className="hover:text-purple-600"
                 aria-label="Search"
                 onClick={() => setIsSearchOpen(true)}
               >
                 <FiSearch className="w-5 h-5" />
               </button>
 
-              <Link href="/login" className="hover:text-purple-600" aria-label="Login">
+              <Link
+                href="/login"
+                className="hover:text-purple-600"
+                aria-label="Login"
+              >
                 <FiUser className="w-5 h-5" />
               </Link>
 
               {/* Search Modal */}
-              <SearchModal 
-                isOpen={isSearchOpen} 
-                onClose={() => setIsSearchOpen(false)} 
+              <SearchModal
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
               />
 
               {/* Mobile Menu Button */}
@@ -174,9 +202,19 @@ export default function Navbar() {
                   stroke="currentColor"
                 >
                   {isOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   )}
                 </svg>
               </button>
@@ -188,7 +226,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-screen' : 'max-h-0'
+          isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
@@ -204,18 +242,28 @@ export default function Navbar() {
                 </Link>
                 {link.children && (
                   <button
-                    onClick={() => setHoveredMenu(hoveredMenu === link.label ? null : link.label)}
+                    onClick={() =>
+                      setHoveredMenu(
+                        hoveredMenu === link.label ? null : link.label
+                      )
+                    }
                     className="p-1"
+                    aria-label={`Toggle ${link.label} submenu`}
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform ${
-                        hoveredMenu === link.label ? 'rotate-180' : ''
+                        hoveredMenu === link.label ? "rotate-180" : ""
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                 )}
@@ -234,18 +282,28 @@ export default function Navbar() {
                         </Link>
                         {child.children && (
                           <button
-                            onClick={() => setHoveredMenu(hoveredMenu === child.label ? null : child.label)}
+                            onClick={() =>
+                              setHoveredMenu(
+                                hoveredMenu === child.label ? null : child.label
+                              )
+                            }
                             className="p-1"
+                            aria-label={`Toggle ${child.label} submenu`}
                           >
                             <svg
                               className={`w-4 h-4 transform transition-transform ${
-                                hoveredMenu === child.label ? 'rotate-180' : ''
+                                hoveredMenu === child.label ? "rotate-180" : ""
                               }`}
                               fill="none"
                               viewBox="0 0 24 24"
                               stroke="currentColor"
                             >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
                             </svg>
                           </button>
                         )}
@@ -275,9 +333,21 @@ export default function Navbar() {
 
       {/* Secondary Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative">
-        <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="font-sans text-sm">Free shipping on all orders above Rs.599😀</p>
-        <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
+        <button
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white"
+          aria-label="Previous promotion"
+        >
+          &lt;
+        </button>
+        <p className="font-sans text-sm">
+          Free shipping on all orders above Rs.599😀
+        </p>
+        <button
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white"
+          aria-label="Next promotion"
+        >
+          &gt;
+        </button>
       </div>
     </nav>
   );
