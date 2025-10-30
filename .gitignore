@@ -44,3 +44,14 @@ next-env.d.ts
 /.clerk/
 
 /app/generated/prisma
+
+# netlify
+.netlify/
+.netlify
+netlify/
+**/netlify/functions/
+**/netlify/edge-functions/
+
+# prisma
+/prisma/migrations/
+node_modules/.prisma/
