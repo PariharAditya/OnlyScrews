@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { FiSearch, FiX } from 'react-icons/fi';
-import Link from 'next/link';
+import { useState, useEffect, useRef } from "react";
+import { FiSearch, FiX } from "react-icons/fi";
+import Link from "next/link";
 
 interface SearchResult {
   id: string;
@@ -17,43 +17,64 @@ interface SearchModalProps {
 }
 
 const mockProducts: SearchResult[] = [
-  { id: '1', title: 'Hex Bolts', category: 'Bolts', href: '/products/hex-bolts' },
-  { id: '2', title: 'Wood Screws', category: 'Screws', href: '/products/wood-screws' },
-  { id: '3', title: 'Lock Nuts', category: 'Nuts', href: '/products/lock-nuts' },
-  { id: '4', title: 'Flat Washers', category: 'Washers', href: '/products/flat-washers' },
+  {
+    id: "1",
+    title: "Hex Bolts",
+    category: "Bolts",
+    href: "/products/hex-bolts",
+  },
+  {
+    id: "2",
+    title: "Wood Screws",
+    category: "Screws",
+    href: "/products/wood-screws",
+  },
+  {
+    id: "3",
+    title: "Lock Nuts",
+    category: "Nuts",
+    href: "/products/lock-nuts",
+  },
+  {
+    id: "4",
+    title: "Flat Washers",
+    category: "Washers",
+    href: "/products/flat-washers",
+  },
 ];
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const modalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
       inputRef.current?.focus();
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen, onClose]);
 
   useEffect(() => {
     if (searchQuery) {
       // In a real application, this would be an API call
-      const filtered = mockProducts.filter(product =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchQuery.toLowerCase())
+      const filtered = mockProducts.filter(
+        (product) =>
+          product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          product.category.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setResults(filtered);
     } else {
@@ -68,7 +89,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
       <div
         ref={modalRef}
         className="bg-white w-full max-w-2xl mx-4 rounded-lg shadow-lg"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="p-4 border-b">
           <div className="relative">
@@ -78,12 +99,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-400"
+              className="font-sans w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-gray-400"
             />
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <button
               onClick={onClose}
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              aria-label="Close search"
             >
               <FiX />
             </button>
@@ -100,17 +122,21 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                   onClick={onClose}
                   className="block p-3 hover:bg-gray-50 rounded-lg transition-colors"
                 >
-                  <div className="font-medium text-gray-900">{result.title}</div>
-                  <div className="text-sm text-gray-500">{result.category}</div>
+                  <div className="font-heading font-medium text-gray-900">
+                    {result.title}
+                  </div>
+                  <div className="font-sans text-sm text-gray-500">
+                    {result.category}
+                  </div>
                 </Link>
               ))}
             </div>
           ) : searchQuery ? (
-            <div className="text-center text-gray-500 py-8">
-              No results found for "{searchQuery}"
+            <div className="font-sans text-center text-gray-500 py-8">
+              No results found for &ldquo;{searchQuery}&rdquo;
             </div>
           ) : (
-            <div className="text-center text-gray-500 py-8">
+            <div className="font-sans text-center text-gray-500 py-8">
               Start typing to search products
             </div>
           )}

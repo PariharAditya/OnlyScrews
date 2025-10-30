@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { cookies } from 'next/headers';
 import { sign } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import type { User, LoginCredentials, AuthResponse } from '@/types/auth';
@@ -47,6 +46,7 @@ export async function POST(request: NextRequest) {
       { expiresIn: '30d' }
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = user;
     const response = NextResponse.json({
       user: userWithoutPassword,

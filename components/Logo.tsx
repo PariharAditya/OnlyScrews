@@ -14,7 +14,6 @@ export default function Logo() {
             priority
           />
         </div>
-        <p className="text-sm mt-1 text-gray-600">Never Ordinary.</p>
       </div>
     </Link>
   );

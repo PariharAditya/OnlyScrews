@@ -43,15 +43,5 @@ next-env.d.ts
 # clerk configuration (can include secrets)
 /.clerk/
 
-/app/generated/prisma
-
-# netlify
-.netlify/
+# Local Netlify folder
 .netlify
-netlify/
-**/netlify/functions/
-**/netlify/edge-functions/
-
-# prisma
-/prisma/migrations/
-node_modules/.prisma/

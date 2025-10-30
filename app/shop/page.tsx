@@ -1,146 +1,108 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
-interface ProductCategory {
+interface Category {
+  id: string;
   name: string;
-  description: string;
-  image: string;
-  types: string[];
-  href: string;
+  slug: string;
 }
 
-const categories: ProductCategory[] = [
+const categories: Category[] = [
   {
+    id: '1',
     name: 'Screws',
-    description: 'High-quality screws for various industrial applications',
-    image: '/images/Screws.png',
-    types: [
-      'Wood Screws',
-      'Machine Screws',
-      'Self-Drilling Screws',
-      'Sheet Metal Screws',
-      'Drywall Screws'
-    ],
-    href: '/products/screws'
+    slug: 'screws'
   },
   {
-    name: 'Nuts',
-    description: 'Wide range of nuts for secure fastening',
-    image: '/images/Nuts.png',
-    types: [
-      'Hex Nuts',
-      'Lock Nuts',
-      'Wing Nuts',
-      'Cap Nuts',
-      'Flange Nuts'
-    ],
-    href: '/products/nuts'
+    id: '2',
+    name: 'Metal Nuts',
+    slug: 'nuts'
   },
   {
-    name: 'Bolts',
-    description: 'Durable bolts for heavy-duty applications',
-    image: '/images/Bolts.png',
-    types: [
-      'Hex Bolts',
-      'Carriage Bolts',
-      'U-Bolts',
-      'Eye Bolts',
-      'Anchor Bolts'
-    ],
-    href: '/products/bolts'
-  },
-  {
+    id: '3',
     name: 'Washers',
-    description: 'Essential washers for load distribution',
-    image: '/images/Washers.png',
-    types: [
-      'Flat Washers',
-      'Lock Washers',
-      'Spring Washers',
-      'Fender Washers',
-      'Wave Washers'
-    ],
-    href: '/products/washers'
+    slug: 'washers'
   },
   {
-    name: 'Anchors',
-    description: 'Reliable anchoring solutions',
-    image: '/images/Anchors.png',
-    types: [
-      'Wedge Anchors',
-      'Sleeve Anchors',
-      'Drop-In Anchors',
-      'Chemical Anchors',
-      'Concrete Screws'
-    ],
-    href: '/products/anchors'
+    id: '4',
+    name: 'Rivets and Riveting Tools',
+    slug: 'rivets'
+  },
+  {
+    id: '5',
+    name: 'Anchor Bolts',
+    slug: 'anchor-bolts'
+  },
+  {
+    id: '6',
+    name: 'Self Clinching Fasteners',
+    slug: 'self-clinching-fasteners'
+  },
+  {
+    id: '7',
+    name: 'Spacers and Standoffs',
+    slug: 'spacers-standoffs'
+  },
+  {
+    id: '8',
+    name: 'Locking Elements',
+    slug: 'locking-elements'
+  },
+  {
+    id: '9',
+    name: 'Thread Repair and Tools',
+    slug: 'thread-repair-tools'
+  },
+  {
+    id: '10',
+    name: 'Other Items',
+    slug: 'other-items'
+  },
+  {
+    id: '11',
+    name: 'Special Products',
+    slug: 'special-products'
   }
 ];
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Header */}
-      <div className="bg-[#1a5f7a] text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4">Our Products</h1>
-          <p className="text-xl text-center max-w-2xl mx-auto">
-            Explore our comprehensive range of high-quality industrial fasteners. 
-            We offer bulk quantities at competitive prices.
-          </p>
-        </div>
-      </div>
-
-      {/* Categories */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="min-h-screen bg-white pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="font-heading text-3xl font-bold text-gray-900 mb-8">Products</h1>
+        
+        <div className="flex flex-col space-y-4 max-w-3xl">
           {categories.map((category) => (
-            <Link 
-              key={category.name}
-              href={category.href}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+            <Link
+              key={category.id}
+              href={`/shop/${category.slug}`}
+              className="group flex items-center py-2 px-4 hover:bg-gray-50 rounded-lg transition-colors"
             >
-              <div className="relative h-64 bg-gray-100">
-                <Image
-                  src={category.image}
-                  alt={category.name}
-                  fill
-                  className="object-contain p-4 group-hover:scale-105 transition-transform"
-                />
+              <div className="flex-1">
+                <h2 className="font-sans text-gray-900 group-hover:text-[#1a5f7a] transition-colors">
+                  {category.name}
+                </h2>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{category.name}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
-                <div className="space-y-1">
-                  {category.types.map((type) => (
-                    <div key={type} className="flex items-center text-sm text-gray-500">
-                      <span className="mr-2">•</span>
-                      {type}
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 text-[#1a5f7a] font-medium group-hover:underline">
-                  View Products →
-                </div>
-              </div>
+              <svg
+                className="w-5 h-5 text-gray-400 group-hover:text-[#1a5f7a] group-hover:transform group-hover:translate-x-1 transition-all"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Need Help Choosing?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Our experts are here to help you find the right fasteners for your application.
+        <div className="mt-12 text-gray-600 max-w-3xl">
+          <p className="mb-4">
+            We have an extensive range of fasteners with over 60,000 parts in ready stock. Click on the above links for the relevant pages.
           </p>
-          <Link 
-            href="/bulk-enquiry"
-            className="inline-block bg-[#1a5f7a] text-white px-8 py-3 rounded-md hover:bg-[#134b61] transition-colors font-medium"
-          >
-            Request Expert Guidance
-          </Link>
+          <p>
+            Please email us at sales@onlyscrews.com with your requirements.
+          </p>
         </div>
       </div>
     </div>

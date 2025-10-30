@@ -1,47 +1,40 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-[#1a5f7a] text-white">
-      <div className="container mx-auto px-4 py-20 flex flex-col lg:flex-row items-center justify-between">
-        {/* Text Content */}
-        <div className="lg:w-1/2 z-10">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Your One-Stop Solution for Industrial Fasteners
-          </h1>
-          <p className="text-lg mb-8 text-gray-100">
-            Discover our comprehensive range of high-quality fasteners for all your industrial needs. From standard to custom solutions, we've got you covered.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link 
-              href="/products"
-              className="bg-yellow-400 text-black px-8 py-3 rounded-md font-semibold hover:bg-yellow-500 transition-colors"
-            >
-              View Products
-            </Link>
-            <Link 
-              href="/bulk-enquiry"
-              className="bg-transparent border-2 border-white px-8 py-3 rounded-md font-semibold hover:bg-white hover:text-[#1a5f7a] transition-colors"
-            >
-              Request Quote
-            </Link>
-          </div>
-        </div>
+    <section
+      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: `url('/images/products/1.png')`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
 
-        {/* Image */}
-        <div className="lg:w-1/2 mt-10 lg:mt-0">
-          <div className="relative w-full h-[400px]">
-            <Image
-              src="/images/hero-fasteners.jpg"
-              alt="Industrial Fasteners"
-              fill
-              className="object-cover rounded-lg"
-              priority
-            />
-          </div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col min-h-screen text-white px-4">
+        {/* Buttons positioned at bottom */}
+        {/* Buttons Container */}
+        <div className="absolute" style={{ left: "52.5%", bottom: "5%" }}>
+          <Link
+            href="/shop"
+            className="bg-green-600 hover:bg-green-700 text-white font-sans font-semibold px-8 py-2.5 rounded-lg transition-colors duration-300 text-base inline-block mr-10"
+            style={{ minWidth: "140px", textAlign: "center" }}
+          >
+            View All
+          </Link>
+          <Link
+            href="/bulk-enquiry"
+            className="border-2 border-white hover:bg-white/20 text-white font-sans font-semibold px-8 py-2.5 rounded-lg transition-colors duration-300 text-base inline-block"
+            style={{ minWidth: "140px", textAlign: "center" }}
+          >
+            Inquire
+          </Link>
         </div>
       </div>
     </section>

@@ -33,18 +33,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      // Here you would typically make an API call to your backend
-      // For now, we'll simulate a successful login
-      const mockUser = {
-        id: '1',
-        email,
-        name: 'Test User',
-      };
-      
-      setUser(mockUser);
-      localStorage.setItem('user', JSON.stringify(mockUser));
-    } catch (error) {
-      throw new Error('Login failed');
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      // Extract user data from the response
+      const userData = data.user;
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+    } catch (error: any) {
+      console.error('Auth error:', error);
+      throw new Error(error.message || 'Failed to login. Please try again.');
     }
   };
 
