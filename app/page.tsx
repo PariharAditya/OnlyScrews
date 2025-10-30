@@ -33,8 +33,8 @@ export default function Home() {
         <HeroSection />
 
         {/* Product Range Section */}
-        <div className="w-full bg-white">
-          <div className="relative mx-auto h-[700px] max-w-[90vw]">
+        <div className="w-full bg-white py-8 sm:py-12 md:py-16">
+          <div className="relative mx-auto h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] w-full max-w-[95vw] sm:max-w-[90vw] px-4">
             <Image
               src="/images/products/4.png"
               alt="Our Product Range"
@@ -45,13 +45,14 @@ export default function Home() {
               }}
               className="w-full h-full"
               priority
+              sizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 90vw"
             />
           </div>
         </div>
 
         {/* Product Section 2 */}
-        <div className="w-full bg-white pt-12 md:pt-20">
-          <div className="relative w-full h-[1100px]">
+        <div className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-20">
+          <div className="relative w-full h-[600px] sm:h-[800px] md:h-[900px] lg:h-[1100px] px-4">
             <Image
               src="/images/products/2.png"
               alt="Our Products"
@@ -62,18 +63,19 @@ export default function Home() {
               }}
               className="w-full h-full"
               priority
+              sizes="100vw"
             />
           </div>
         </div>
 
         {/* Mini Assorted Packs */}
-        <div className="w-full bg-white pt-12 md:pt-20">
+        <div className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-20">
           <MiniAssortedPacks />
         </div>
 
         {/* Product Section 3 */}
-        <div className="w-full   bg-white">
-          <div className="relative w-screen h-[600px] max-w-[150vw]">
+        <div className="w-full bg-white py-8 sm:py-12 md:py-16">
+          <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[600px] px-4">
             <Image
               src="/images/products/3.png"
               alt="Premium Fasteners"
@@ -83,7 +85,7 @@ export default function Home() {
                 objectPosition: "center",
               }}
               className="w-full h-full"
-              priority
+              sizes="100vw"
             />
           </div>
         </div>
