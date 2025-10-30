@@ -22,7 +22,7 @@ export default function HeroSection() {
         {/* Buttons Container */}
         <div className="absolute" style={{ left: "52.5%", bottom: "5%" }}>
           <Link
-            href="/shop"
+            href="/products"
             className="bg-green-600 hover:bg-green-700 text-white font-sans font-semibold px-8 py-2.5 rounded-lg transition-colors duration-300 text-base inline-block mr-10"
             style={{ minWidth: "140px", textAlign: "center" }}
           >
