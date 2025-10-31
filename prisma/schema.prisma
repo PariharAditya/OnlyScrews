@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Main product categories (Screws, Bolts, Washers, etc.)
+model MainCategory {
+  id          String     @id @default(cuid())
+  name        String     @unique
+  slug        String     @unique
+  description String?
+  imageUrl    String?
+  sortOrder   Int        @default(0)
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  
+  categories  Category[]
+
+  @@map("main_categories")
+}
+
+// Sub-categories (Machine Screws, Hex Bolts, etc.)
+model Category {
+  id             String        @id @default(cuid())
+  name           String
+  slug           String
+  description    String?
+  imageUrl       String?
+  sortOrder      Int           @default(0)
+  isActive       Boolean       @default(true)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  
+  mainCategoryId String
+  mainCategory   MainCategory  @relation(fields: [mainCategoryId], references: [id], onDelete: Cascade)
+  
+  subcategories  Subcategory[]
+
+  @@unique([mainCategoryId, slug])
+  @@map("categories")
+}
+
+// Product subcategories (Allen Screws, Hex Bolt, etc.)
+model Subcategory {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String
+  description String?
+  imageUrl    String?
+  sortOrder   Int       @default(0)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  
+  products    Product[]
+
+  @@unique([categoryId, slug])
+  @@map("subcategories")
+}
+
+// Individual products with specifications
+model Product {
+  id            String      @id @default(cuid())
+  name          String
+  slug          String
+  description   String?
+  specifications Json?      // Store product specs as JSON
+  imageUrl      String?
+  images        String[]    // Array of image URLs
+  price         Decimal?    @db.Decimal(10, 2)
+  stock         Int         @default(0)
+  sku           String?     @unique
+  isActive      Boolean     @default(true)
+  isFeatured    Boolean     @default(false)
+  sortOrder     Int         @default(0)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  subcategoryId String
+  subcategory   Subcategory @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
+
+  @@unique([subcategoryId, slug])
+  @@map("products")
+}
