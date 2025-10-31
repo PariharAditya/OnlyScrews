@@ -4,31 +4,19 @@ import Image from "next/image";
 import { useState } from "react";
 import { FiUser, FiSearch } from "react-icons/fi";
 import SearchModal from "./SearchModal";
+import ProductDropdown from "./ProductDropdown";
 
 interface NavLink {
   href: string;
   label: string;
-  children?: NavLink[];
+  isDropdown?: boolean;
 }
 
 const mainLinks: NavLink[] = [
   { href: "/", label: "Home" },
-  {
-    href: "/products",
-    label: "Products",
-    children: [
-      { href: "/products/screws", label: "Screws" },
-      { href: "/products/bolts", label: "Bolts" },
-      { href: "/products/anchor-bolts", label: "Anchors" },
-      { href: "/products/nuts", label: "Nuts" },
-      { href: "/products/washers", label: "Washers" },
-      { href: "/products/spacers-standoffs", label: "Spacers" },
-      { href: "/products/standoff", label: "Stand-off" },
-      { href: "/products/rivets", label: "Rivets" },
-    ],
-  },
+  { href: "/products", label: "Products", isDropdown: true },
   { href: "/bulk-enquiry", label: "Bulk/Custom Inquiry" },
-  { href: "/login", label: "Login" },
+  { href: "/sign-in", label: "Login" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact & FAQ" },
 ];
@@ -80,89 +68,19 @@ export default function Navbar() {
 
             {/* Desktop Navigation - centered */}
             <div className="hidden lg:flex items-center space-x-8">
-              {mainLinks.map((link) => (
-                <div
-                  key={link.href}
-                  className="relative group py-4"
-                  onMouseEnter={() => setHoveredMenu(link.label)}
-                  onMouseLeave={() => setHoveredMenu(null)}
-                >
+              {mainLinks.map((link) =>
+                link.isDropdown ? (
+                  <ProductDropdown key={link.href} />
+                ) : (
                   <Link
+                    key={link.href}
                     href={link.href}
-                    className="font-sans text-gray-700 hover:text-purple-600 transition-colors flex items-center gap-1"
+                    className="font-sans text-gray-700 hover:text-purple-600 transition-colors"
                   >
                     {link.label}
-                    {link.children && (
-                      <svg
-                        className={`w-4 h-4 transform transition-transform ${
-                          hoveredMenu === link.label ? "rotate-180" : ""
-                        }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    )}
                   </Link>
-
-                  {/* Dropdown Menu */}
-                  {link.children && hoveredMenu === link.label && (
-                    <div className="absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 z-[70]">
-                      <div className="py-2">
-                        {link.children.map((child) => (
-                          <div
-                            key={child.href}
-                            className="relative group/submenu"
-                          >
-                            <Link
-                              href={child.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600 flex items-center justify-between"
-                            >
-                              {child.label}
-                              {child.children && (
-                                <svg
-                                  className="w-4 h-4"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                  />
-                                </svg>
-                              )}
-                            </Link>
-                            {child.children && (
-                              <div className="absolute left-full top-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 hidden group-hover/submenu:block z-[71]">
-                                <div className="py-2">
-                                  {child.children.map((subChild) => (
-                                    <Link
-                                      key={subChild.href}
-                                      href={subChild.href}
-                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600"
-                                    >
-                                      {subChild.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                )
+              )}
             </div>
 
             {/* Right Icons */}
@@ -176,7 +94,7 @@ export default function Navbar() {
               </button>
 
               <Link
-                href="/login"
+                href="/sign-in"
                 className="hover:text-purple-600"
                 aria-label="Login"
               >
@@ -231,25 +149,18 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
           {mainLinks.map((link) => (
-            <div key={link.href} className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Link
-                  href={link.href}
-                  className="font-sans text-gray-700 hover:text-purple-600 font-medium"
-                  onClick={() => !link.children && setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-                {link.children && (
+            <div key={link.href}>
+              {link.isDropdown ? (
+                <div>
                   <button
                     onClick={() =>
                       setHoveredMenu(
                         hoveredMenu === link.label ? null : link.label
                       )
                     }
-                    className="p-1"
-                    aria-label={`Toggle ${link.label} submenu`}
+                    className="font-sans text-gray-700 hover:text-purple-600 font-medium flex items-center justify-between w-full"
                   >
+                    {link.label}
                     <svg
                       className={`w-4 h-4 transform transition-transform ${
                         hoveredMenu === link.label ? "rotate-180" : ""
@@ -266,65 +177,23 @@ export default function Navbar() {
                       />
                     </svg>
                   </button>
-                )}
-              </div>
-              {link.children && hoveredMenu === link.label && (
-                <div className="pl-4 space-y-2">
-                  {link.children.map((child) => (
-                    <div key={child.href} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <Link
-                          href={child.href}
-                          className="font-sans text-gray-600 hover:text-purple-600 text-sm"
-                          onClick={() => !child.children && setIsOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                        {child.children && (
-                          <button
-                            onClick={() =>
-                              setHoveredMenu(
-                                hoveredMenu === child.label ? null : child.label
-                              )
-                            }
-                            className="p-1"
-                            aria-label={`Toggle ${child.label} submenu`}
-                          >
-                            <svg
-                              className={`w-4 h-4 transform transition-transform ${
-                                hoveredMenu === child.label ? "rotate-180" : ""
-                              }`}
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                              />
-                            </svg>
-                          </button>
-                        )}
-                      </div>
-                      {child.children && hoveredMenu === child.label && (
-                        <div className="pl-4 space-y-2">
-                          {child.children.map((subChild) => (
-                            <Link
-                              key={subChild.href}
-                              href={subChild.href}
-                              className="block font-sans text-gray-500 hover:text-purple-600 text-sm"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subChild.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                  {hoveredMenu === link.label && (
+                    <div className="mt-2">
+                      <ProductDropdown
+                        isMobile
+                        onItemClick={() => setIsOpen(false)}
+                      />
                     </div>
-                  ))}
+                  )}
                 </div>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="font-sans text-gray-700 hover:text-purple-600 font-medium block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
               )}
             </div>
           ))}
