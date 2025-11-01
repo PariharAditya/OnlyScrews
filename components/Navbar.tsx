@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from 'react';
 import { FiUser, FiSearch } from 'react-icons/fi';
 import Logo from './Logo';
 import SearchModal from './SearchModal';
@@ -15,17 +15,17 @@ interface NavLink {
 const mainLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { 
-    href: '/shop', 
-    label: 'Shop',
+    href: '/products', 
+    label: 'Products',
     children: [
-      { href: '/shop/screws', label: 'Screws' },
-      { href: '/shop/bolts', label: 'Bolts' },
-      { href: '/shop/anchor-bolts', label: 'Anchors' },
-      { href: '/shop/nuts', label: 'Nuts' },
-      { href: '/shop/washers', label: 'Washers' },
-      { href: '/shop/spacers-standoffs', label: 'Spacers' },
-      { href: '/shop/standoff', label: 'Stand-off' },
-      { href: '/shop/rivets', label: 'Rivets' },
+      { href: '/products/screws', label: 'Screws' },
+      { href: '/products/bolts', label: 'Bolts' },
+      { href: '/products/anchor-bolts', label: 'Anchors' },
+      { href: '/products/nuts', label: 'Nuts' },
+      { href: '/products/washers', label: 'Washers' },
+      { href: '/products/spacers-standoffs', label: 'Spacers' },
+      { href: '/products/standoff', label: 'Stand-off' },
+      { href: '/products/rivets', label: 'Rivets' },
     ]
   },
   { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
@@ -36,6 +36,16 @@ const mainLinks: NavLink[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentMessage, setCurrentMessage] = useState(0);
+  const [secondMessage, setSecondMessage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentMessage((prev) => prev === 0 ? 1 : 0);
+      setSecondMessage((prev) => prev === 0 ? 1 : 0);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
@@ -43,12 +53,27 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full bg-white z-50">
       {/* Promo Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative z-40">
-        <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="font-sans text-sm">Use code <span className="font-mono font-bold">"DEEZNUTS"</span> to get 🤑 5% discount on orders above Rs. 499/-</p>
-        <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
+        <button 
+          onClick={() => setCurrentMessage(prev => prev === 0 ? 1 : 0)} 
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+        >
+          &lt;
+        </button>
+        <p className="font-sans text-base md:text-lg transition-all duration-300 ease-in-out">
+          {currentMessage === 0 
+            ? "Exclusive range of Nylon & Industrial Fasteners — Request a quote today 💡"
+            : "Custom bulk orders & quotations available via WhatsApp and Call 📞"
+          }
+        </p>
+        <button 
+          onClick={() => setCurrentMessage(prev => prev === 0 ? 1 : 0)}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+        >
+          &gt;
+        </button>
       </div>
 
-      {/* Main Navigation */}
+      {/* Logo and Navigation */}
       <div className="border-b">
         <div className="container mx-auto py-4 px-4">
           <div className="flex items-center justify-between">
@@ -275,9 +300,24 @@ export default function Navbar() {
 
       {/* Secondary Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative">
-        <button className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">&lt;</button>
-        <p className="font-sans text-sm">Free shipping on all orders above Rs.599😀</p>
-        <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white">&gt;</button>
+        <button 
+          onClick={() => setSecondMessage(prev => prev === 0 ? 1 : 0)}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+        >
+          &lt;
+        </button>
+        <p className="font-sans text-base md:text-lg transition-all duration-300 ease-in-out">
+          {secondMessage === 0 
+            ? "Quick Quotation Support | Nationwide Delivery | Quality Fasteners"
+            : "Explore. Inquire. Get Quotation — Fasteners Made Simple"
+          }
+        </p>
+        <button 
+          onClick={() => setSecondMessage(prev => prev === 0 ? 1 : 0)}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+        >
+          &gt;
+        </button>
       </div>
     </nav>
   );

@@ -34,7 +34,7 @@ Description: ${formData.get('description')}
           <div className="relative w-full" style={{ height: '600px' }}>
             {/* Background Image */}
             <Image
-              src="/images/products/6.png"
+              src="/images/products/6.1.png"
               alt="Product Details"
               fill
               style={{ 
@@ -46,7 +46,8 @@ Description: ${formData.get('description')}
             />
             
             {/* Form Overlay */}
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-[400px] p-6 bg-[#9deb8f]/90 rounded-lg mr-24">
+            
+            <div className=" absolute right-[17%] top-[60%] transform -translate-y-1/2 w-[480px] p-2  bg-[#9deb8f]/90 rounded-lg">
               <h3 className="text-gray-800 font-semibold mb-4">
                 To connect instantly for inquiries and quotes:
               </h3>
@@ -115,6 +116,7 @@ Description: ${formData.get('description')}
                 DOWNLOAD CATALOGUE
               </a>
             </div>
+            
           </div>
         </div>
       </div>
