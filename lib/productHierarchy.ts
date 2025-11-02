@@ -12,11 +12,12 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Allen Screws',
                         slug: 'allen-screws',
+                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws']
                     },
                     {
                         name: 'Torx Machine Screws',
                         slug: 'torx-machine-screws',
-                        types: ['Pan Torx', 'CSK Torx', 'Security Pan Torx']
+                        types: ['Pan Torx', 'CSK Torx', 'Security Pan Torx', 'Security CSK Torx']
                     },
                     {
                         name: 'Phillip Machine Screws',
@@ -34,8 +35,8 @@ export const productHierarchy: ProductHierarchy[] = [
                 ],
             },
             {
-                name: 'Self Tapping Screws',
-                slug: 'self-tapping-screws',
+                name: 'Self Drilling Screws',
+                slug: 'self-drilling-screws',
                 subcategories: [
                     {
                         name: 'Pan SDS',
@@ -50,14 +51,14 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'csk-sds',
                     },
                     {
-                        name: 'Wafer Head SDS',
-                        slug: 'wafer-head-sds',
+                        name: 'Water Head SDS',
+                        slug: 'water-head-sds',
                     },
                 ],
             },
             {
-                name: 'Self Drilling Screws',
-                slug: 'self-drilling-screws',
+                name: 'Self tapping Screws',
+                slug: 'self-tapping-screws',
                 subcategories: [
                     {
                         name: 'Slotted STS',
@@ -79,86 +80,6 @@ export const productHierarchy: ProductHierarchy[] = [
                         name: 'Torx STS',
                         slug: 'torx-sts',
                         types: ['Pan Torx STS', 'CSK Torx STS']
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        mainCategory: 'SHCS Machine Screws',
-        slug: 'shcs-machine-screws',
-        categories: [
-            {
-                name: 'Socket Head Cap Screws',
-                slug: 'socket-head-cap-screws',
-                subcategories: [
-                    {
-                        name: 'Standard SHCS',
-                        slug: 'standard-shcs',
-                    },
-                    {
-                        name: 'Low Head SHCS',
-                        slug: 'low-head-shcs',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        mainCategory: 'BHCS Machine Screws',
-        slug: 'bhcs-machine-screws',
-        categories: [
-            {
-                name: 'Button Head Cap Screws',
-                slug: 'button-head-cap-screws',
-                subcategories: [
-                    {
-                        name: 'Standard BHCS',
-                        slug: 'standard-bhcs',
-                    },
-                    {
-                        name: 'Low Profile BHCS',
-                        slug: 'low-profile-bhcs',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        mainCategory: 'CSK Machine Screws',
-        slug: 'csk-machine-screws',
-        categories: [
-            {
-                name: 'Countersunk Screws',
-                slug: 'countersunk-screws',
-                subcategories: [
-                    {
-                        name: 'Flat Head CSK',
-                        slug: 'flat-head-csk',
-                    },
-                    {
-                        name: 'Socket CSK',
-                        slug: 'socket-csk',
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        mainCategory: 'GRUB Screws',
-        slug: 'grub-screws',
-        categories: [
-            {
-                name: 'Set Screws',
-                slug: 'set-screws',
-                subcategories: [
-                    {
-                        name: 'Socket Set Screws',
-                        slug: 'socket-set-screws',
-                    },
-                    {
-                        name: 'Headless Set Screws',
-                        slug: 'headless-set-screws',
                     },
                 ],
             },

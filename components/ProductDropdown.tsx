@@ -182,15 +182,17 @@ export default function ProductDropdown({
   }
 
   // Desktop version (hover dropdowns)
-
   return (
     <div
-      className="relative"
+      className="relative group"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => {
-        setIsOpen(false);
-        setHoveredCategory(null);
-        setHoveredSubcategory(null);
+        // Add delay before closing to prevent flickering
+        setTimeout(() => {
+          setIsOpen(false);
+          setHoveredCategory(null);
+          setHoveredSubcategory(null);
+        }, 100);
       }}
     >
       {/* Main Products Link */}
@@ -203,114 +205,141 @@ export default function ProductDropdown({
 
       {/* Dropdown Menu */}
       {isOpen && hierarchy.length > 0 && (
-        <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-xl rounded-lg border border-gray-200 z-50">
-          <div className="py-2">
-            {hierarchy.map((mainCat) => (
-              <div
-                key={mainCat.slug}
-                className="relative"
-                onMouseEnter={() => setHoveredCategory(mainCat.slug)}
-                onMouseLeave={() => setHoveredCategory(null)}
-              >
-                <Link
-                  href={`/products/${mainCat.slug}`}
-                  className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
+        <div
+          className="absolute left-0 top-full pt-2 z-50"
+          onMouseEnter={() => setIsOpen(true)}
+        >
+          <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200">
+            <div className="py-2">
+              {hierarchy.map((mainCat) => (
+                <div
+                  key={mainCat.slug}
+                  className="relative group/item"
+                  onMouseEnter={() => {
+                    setHoveredCategory(mainCat.slug);
+                    setHoveredSubcategory(null);
+                  }}
                 >
-                  <span className="text-gray-700 font-medium">
-                    {mainCat.mainCategory}
-                  </span>
-                  {mainCat.categories.length > 0 && (
-                    <ChevronRight className="w-4 h-4 text-gray-400" />
-                  )}
-                </Link>
+                  <Link
+                    href={`/products/${mainCat.slug}`}
+                    className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="text-gray-700 font-medium">
+                      {mainCat.mainCategory}
+                    </span>
+                    {mainCat.categories.length > 0 && (
+                      <ChevronRight className="w-4 h-4 text-gray-400" />
+                    )}
+                  </Link>
 
-                {/* Subcategory Menu */}
-                {hoveredCategory === mainCat.slug &&
-                  mainCat.categories.length > 0 && (
-                    <div className="absolute left-full top-0 ml-1 w-72 bg-white shadow-xl rounded-lg border border-gray-200">
-                      <div className="py-2">
-                        {mainCat.categories.map((category) => (
-                          <div
-                            key={category.slug}
-                            className="relative"
-                            onMouseEnter={() =>
-                              setHoveredSubcategory(category.slug)
-                            }
-                            onMouseLeave={() => setHoveredSubcategory(null)}
-                          >
-                            <Link
-                              href={`/products/${mainCat.slug}/${category.slug}`}
-                              className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
-                            >
-                              <span className="text-gray-700 text-sm">
-                                {category.name}
-                              </span>
-                              {category.subcategories.length > 0 && (
-                                <ChevronRight className="w-3 h-3 text-gray-400" />
-                              )}
-                            </Link>
+                  {/* Subcategory Menu with gap bridge */}
+                  {hoveredCategory === mainCat.slug &&
+                    mainCat.categories.length > 0 && (
+                      <div
+                        className="absolute left-full top-0 pl-2 z-50"
+                        onMouseEnter={() => setHoveredCategory(mainCat.slug)}
+                      >
+                        <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200">
+                          <div className="py-2">
+                            {mainCat.categories.map((category) => (
+                              <div
+                                key={category.slug}
+                                className="relative group/subitem"
+                                onMouseEnter={() =>
+                                  setHoveredSubcategory(category.slug)
+                                }
+                              >
+                                <Link
+                                  href={`/products/${mainCat.slug}/${category.slug}`}
+                                  className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
+                                >
+                                  <span className="text-gray-700 text-sm">
+                                    {category.name}
+                                  </span>
+                                  {category.subcategories.length > 0 && (
+                                    <ChevronRight className="w-3 h-3 text-gray-400" />
+                                  )}
+                                </Link>
 
-                            {/* Third Level Menu */}
-                            {hoveredSubcategory === category.slug &&
-                              category.subcategories.length > 0 && (
-                                <div className="absolute left-full top-0 ml-1 w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
-                                  <div className="py-2">
-                                    {category.subcategories.map((subcat) => (
-                                      <div key={subcat.slug}>
-                                        <Link
-                                          href={`/products/${mainCat.slug}/${category.slug}/${subcat.slug}`}
-                                          className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                                        >
-                                          <span className="text-gray-700 text-sm font-medium">
-                                            {subcat.name}
-                                          </span>
-                                        </Link>
-
-                                        {/* Types (if any) */}
-                                        {subcat.types &&
-                                          subcat.types.length > 0 && (
-                                            <div className="pl-6 pb-2">
-                                              {subcat.types.map((type, idx) => (
+                                {/* Third Level Menu with gap bridge */}
+                                {hoveredSubcategory === category.slug &&
+                                  category.subcategories.length > 0 && (
+                                    <div
+                                      className="absolute left-full top-0 pl-2 z-50"
+                                      onMouseEnter={() =>
+                                        setHoveredSubcategory(category.slug)
+                                      }
+                                    >
+                                      <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+                                        <div className="py-2">
+                                          {category.subcategories.map(
+                                            (subcat) => (
+                                              <div key={subcat.slug}>
                                                 <Link
-                                                  key={idx}
-                                                  href={`/products/${
-                                                    mainCat.slug
-                                                  }/${category.slug}/${
-                                                    subcat.slug
-                                                  }?type=${type
-                                                    .toLowerCase()
-                                                    .replace(/\s+/g, "-")}`}
-                                                  className="block px-4 py-1.5 hover:bg-gray-50 transition-colors"
+                                                  href={`/products/${mainCat.slug}/${category.slug}/${subcat.slug}`}
+                                                  className="block px-4 py-2 hover:bg-gray-50 transition-colors"
                                                 >
-                                                  <span className="text-gray-600 text-xs">
-                                                    • {type}
+                                                  <span className="text-gray-700 text-sm font-medium">
+                                                    {subcat.name}
                                                   </span>
                                                 </Link>
-                                              ))}
-                                            </div>
-                                          )}
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-              </div>
-            ))}
-          </div>
 
-          {/* View All Products Link */}
-          <div className="border-t border-gray-200 px-4 py-3">
-            <Link
-              href="/products"
-              className="text-sm text-[#1a5f7a] hover:text-[#134b61] font-medium"
-            >
-              View All Products →
-            </Link>
+                                                {/* Types (if any) */}
+                                                {subcat.types &&
+                                                  subcat.types.length > 0 && (
+                                                    <div className="pl-6 pb-2">
+                                                      {subcat.types.map(
+                                                        (type, idx) => (
+                                                          <Link
+                                                            key={idx}
+                                                            href={`/products/${
+                                                              mainCat.slug
+                                                            }/${
+                                                              category.slug
+                                                            }/${
+                                                              subcat.slug
+                                                            }?type=${type
+                                                              .toLowerCase()
+                                                              .replace(
+                                                                /\s+/g,
+                                                                "-"
+                                                              )}`}
+                                                            className="block px-4 py-1.5 hover:bg-gray-50 transition-colors"
+                                                          >
+                                                            <span className="text-gray-600 text-xs">
+                                                              • {type}
+                                                            </span>
+                                                          </Link>
+                                                        )
+                                                      )}
+                                                    </div>
+                                                  )}
+                                              </div>
+                                            )
+                                          )}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                </div>
+              ))}
+            </div>
+
+            {/* View All Products Link */}
+            <div className="border-t border-gray-200 px-4 py-3">
+              <Link
+                href="/products"
+                className="text-sm text-[#1a5f7a] hover:text-[#134b61] font-medium"
+              >
+                View All Products →
+              </Link>
+            </div>
           </div>
         </div>
       )}
