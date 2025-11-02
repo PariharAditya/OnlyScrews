@@ -54,16 +54,29 @@ export default function Home() {
           <div className="relative z-10 container mx-auto px-4">
             {/* Header - Left Aligned */}
             <div className="text-left mb-12 md:mb-16 max-w-4xl">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h1
+                className="text-black mb-6"
+                style={{ font: "400 70px / 1.1 Montserrat, sans-serif" }}
+              >
                 Introducing Nylon Range
+              </h1>
+              <h2
+                className="text-gray-900 mb-6"
+                style={{ font: "600 24px / 32px Montserrat, sans-serif" }}
+              >
+                Strong, Lightweight, and Durable for Demanding Application
               </h2>
-              <div className="w-24 h-1 bg-[#c4ff0e] mb-6"></div>
-              <p className="text-lg md:text-xl text-gray-900 leading-relaxed">
-                <span className="font-semibold">
-                  Strong, Lightweight, and Durable for Demanding Application
-                </span>
-              </p>
-              <p className="text-sm md:text-base text-gray-700 mt-4 leading-relaxed">
+              <div
+                className="w-full border-t-2 border-black"
+                style={{ marginBottom: "32px" }}
+              ></div>
+              <p
+                className="text-gray-700 leading-relaxed font-normal text-lg"
+                style={{
+                  fontFamily: '"Nunito Sans", sans-serif',
+                  lineHeight: "1.8",
+                }}
+              >
                 Our Nylon Fastener Range offers exceptional mechanical strength
                 with minimal weight, making it ideal for high-performance
                 industrial and electrical environments. Resistant to corrosion,
