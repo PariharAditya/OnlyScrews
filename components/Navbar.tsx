@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { FiUser, FiSearch } from 'react-icons/fi';
 import Logo from './Logo';
 import SearchModal from './SearchModal';
+import CallButton from './CallButton';
 
 interface NavLink {
   href: string;
@@ -319,6 +320,7 @@ export default function Navbar() {
           &gt;
         </button>
       </div>
+      <CallButton />
     </nav>
   );
 }
