@@ -21,12 +21,12 @@ interface SearchModalProps {
 }
 
 const categories = [
-  { id: '1', name: 'Screws', icon: '/images/products/screws.jpg' },
-  { id: '2', name: 'Bolts', icon: '/images/products/bolts.jpg' },
-  { id: '3', name: 'Nuts', icon: '/images/products/nuts.jpg' },
-  { id: '4', name: 'Washers', icon: '/images/products/washers.jpg' },
-  { id: '5', name: 'Anchors', icon: '/images/products/anchors.jpg' },
-  { id: '6', name: 'Spacers', icon: '/images/products/spacers.jpg' },
+  { id: '1', name: 'Screws', icon: '/icons/screws.png' },
+  { id: '2', name: 'Bolts', icon: '/icons/bolts.png' },
+  { id: '3', name: 'Nuts', icon: '/icons/nuts.png' },
+  { id: '4', name: 'Washers', icon: '/icons/washers.png' },
+  { id: '5', name: 'Anchors', icon: '/icons/anchors.png' },
+  { id: '6', name: 'Spacers', icon: '/icons/spacers.png' },
 ];
 
 const popularSearches = [
@@ -44,7 +44,7 @@ const mockProducts: SearchResult[] = [
     title: 'Hex Bolts', 
     category: 'Bolts', 
     href: '/products/hex-bolts',
-    image: '/images/products/hex-bolts.jpg',
+    image: '/products/hex-bolts.png',
     price: '₹2.50'
   },
   { 
@@ -52,10 +52,41 @@ const mockProducts: SearchResult[] = [
     title: 'Wood Screws', 
     category: 'Screws', 
     href: '/products/wood-screws',
-    image: '/images/products/wood-screws.jpg',
+    image: '/products/wood-screws.png',
     price: '₹1.80'
   },
-  // ... other products
+  { 
+    id: '3', 
+    title: 'Lock Nuts', 
+    category: 'Nuts', 
+    href: '/products/lock-nuts',
+    image: '/products/lock-nuts.png',
+    price: '₹1.20'
+  },
+  { 
+    id: '4', 
+    title: 'Flat Washers', 
+    category: 'Washers', 
+    href: '/products/flat-washers',
+    image: '/products/flat-washers.png',
+    price: '₹0.80'
+  },
+  { 
+    id: '5', 
+    title: 'Anchor Bolts', 
+    category: 'Anchors', 
+    href: '/products/anchor-bolts',
+    image: '/products/anchor-bolts.png',
+    price: '₹3.50'
+  },
+  { 
+    id: '6', 
+    title: 'Spacers', 
+    category: 'Spacers', 
+    href: '/products/spacers',
+    image: '/products/spacers.png',
+    price: '₹1.50'
+  }
 ];
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
@@ -117,13 +148,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center" onClick={onClose}>
       <div
         ref={modalRef}
         className="bg-white w-full max-w-3xl mx-4 mt-4 rounded-lg shadow-xl"
         onClick={e => e.stopPropagation()}
       >
-        <div className="p-4 border-b">
+        <div className="p-4 border-b relative">
           <div className="relative">
             <input
               ref={inputRef}
@@ -137,12 +168,20 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
               >
                 <FiX className="text-xl" />
               </button>
             )}
           </div>
+          {/* Close Modal Button */}
+          <button
+            onClick={onClose}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full transition-colors"
+            aria-label="Close search"
+          >
+            <FiX className="text-2xl text-gray-600 hover:text-gray-800" />
+          </button>
         </div>
 
         <div className="max-h-[80vh] overflow-y-auto">
@@ -166,8 +205,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         <Image
                           src={category.icon}
                           alt={category.name}
-                          fill
-                          className="object-cover"
+                          width={40}
+                          height={40}
+                          className="object-contain p-1"
                         />
                       </div>
                       <span className="font-medium">{category.name}</span>
@@ -232,8 +272,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           <Image
                             src={result.image}
                             alt={result.title}
-                            fill
-                            className="object-cover"
+                            width={64}
+                            height={64}
+                            className="object-contain p-2"
                           />
                         </div>
                       )}
