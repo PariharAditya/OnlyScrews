@@ -32,26 +32,158 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-between">
         <HeroSection />
 
-        {/* Product Range Section */}
-        <div className="w-full bg-white py-8 sm:py-12 md:py-16">
-          <div className="relative mx-auto h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] w-full max-w-[95vw] sm:max-w-[90vw] px-4">
+        {/* Nylon Range Section */}
+        <div className="w-full relative py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+          {/* Background Image - Extends beyond viewport */}
+          <div className="absolute inset-0 w-full h-full">
             <Image
-              src="/images/products/4.png"
-              alt="Our Product Range"
+              src="https://cdn.builder.io/api/v1/image/assets%2F61feb74e32ed4195a4cbd55149a401bd%2Fb66521bb13234db2b75617a0f01640df"
+              alt="Nylon Range Background"
               fill
               style={{
-                objectFit: "contain",
+                objectFit: "cover",
                 objectPosition: "center",
               }}
-              className="w-full h-full"
+              className="w-full h-full opacity-100 scale-110"
               priority
-              sizes="(max-width: 640px) 95vw, (max-width: 1024px) 90vw, 90vw"
+              sizes="100vw"
             />
+          </div>
+
+          {/* Content Overlay */}
+          <div className="relative z-10 container mx-auto px-4">
+            {/* Header - Left Aligned */}
+            <div className="text-left mb-12 md:mb-16 max-w-4xl">
+              <h1
+                className="text-black mb-6"
+                style={{ font: "400 70px / 1.1 Montserrat, sans-serif" }}
+              >
+                Introducing Nylon Range
+              </h1>
+              <h2
+                className="text-gray-900 mb-6"
+                style={{ font: "600 24px / 32px Montserrat, sans-serif" }}
+              >
+                Strong, Lightweight, and Durable for Demanding Application
+              </h2>
+              <div
+                className="w-full border-t-2 border-black"
+                style={{ marginBottom: "32px" }}
+              ></div>
+              <p
+                className="text-gray-700 leading-relaxed font-normal text-lg"
+                style={{
+                  fontFamily: '"Nunito Sans", sans-serif',
+                  lineHeight: "1.8",
+                }}
+              >
+                Our Nylon Fastener Range offers exceptional mechanical strength
+                with minimal weight, making it ideal for high-performance
+                industrial and electrical environments. Resistant to corrosion,
+                moisture, and vibration, these components — including nylon
+                spacers, nuts, bolts, washers, and machine screws — deliver
+                long-lasting reliability where metal fasteners may fail. Perfect
+                for precision assemblies and non-conductive applications.
+              </p>
+            </div>
+
+            {/* Product Cards Grid - Larger cards */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 mt-12 md:mt-16">
+              {/* Nylon Spacers */}
+              <div className="group cursor-pointer">
+                <div className="relative bg-black rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/products/nylon-spacers.png"
+                    alt="Nylon Spacers"
+                    width={250}
+                    height={250}
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4">
+                    <h3 className="font-bold text-gray-900 text-sm md:text-base">
+                      Nylon Spacers
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nylon Washers */}
+              <div className="group cursor-pointer">
+                <div className="relative bg-black rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/products/nylon-washers.png"
+                    alt="Nylon Washers"
+                    width={250}
+                    height={250}
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4">
+                    <h3 className="font-bold text-gray-900 text-sm md:text-base">
+                      Nylon Washers
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nylon Nuts */}
+              <div className="group cursor-pointer">
+                <div className="relative bg-black rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/products/nylon-nuts.png"
+                    alt="Nylon Nuts"
+                    width={250}
+                    height={250}
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4">
+                    <h3 className="font-bold text-gray-900 text-sm md:text-base">
+                      Nylon Nuts
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nylon Bolts */}
+              <div className="group cursor-pointer">
+                <div className="relative bg-black rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/products/nylon-bolts.png"
+                    alt="Nylon Bolts"
+                    width={250}
+                    height={250}
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4">
+                    <h3 className="font-bold text-gray-900 text-sm md:text-base">
+                      Nylon Bolts
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              {/* Nylon Machine Screws */}
+              <div className="group cursor-pointer">
+                <div className="relative bg-black rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/products/nylon-machine-screws.png"
+                    alt="Nylon Machine Screws"
+                    width={250}
+                    height={250}
+                    className="object-contain w-full h-full"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4">
+                    <h3 className="font-bold text-gray-900 text-sm md:text-base">
+                      Nylon Machine Screws
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Product Section 2 */}
-        <div className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="w-full bg-white">
           <div className="relative w-full h-[600px] sm:h-[800px] md:h-[900px] lg:h-[1100px] px-4">
             <Image
               src="/images/products/2.png"
@@ -69,12 +201,12 @@ export default function Home() {
         </div>
 
         {/* Mini Assorted Packs */}
-        <div className="w-full bg-white py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="w-full bg-white py-12 sm:py-16 md:py-20">
           <MiniAssortedPacks />
         </div>
 
         {/* Product Section 3 */}
-        <div className="w-full bg-white py-8 sm:py-12 md:py-16">
+        <div className="w-full bg-white pb-12 md:pb-20">
           <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[600px] px-4">
             <Image
               src="/images/products/3.png"
