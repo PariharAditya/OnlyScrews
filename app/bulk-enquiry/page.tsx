@@ -1,127 +1,126 @@
 'use client';
 
-import React from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react';
 import Footer from '@/components/Footer';
 import FloatingButton from '@/components/FloatingButton';
 
 export default function BulkEnquiry() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    comment: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    
-    // Create a WhatsApp message with the form data
-    const message = `
-New Bulk Enquiry:
-Phone: ${formData.get('phone')}
-Email: ${formData.get('email')}
-Description: ${formData.get('description')}
-`;
+    try {
+      // Here you would typically send the data to your backend
+      console.log('Form submitted:', formData);
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        comment: ''
+      });
+      alert('Thank you for your inquiry! We will get back to you soon.');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    }
+  };
 
-    // Replace this with your WhatsApp number
-    const whatsappUrl = `https://wa.me/919879879879?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-
-    // Reset form and show confirmation
-    e.currentTarget.reset();
-    alert('Thank you for your inquiry! We will contact you shortly.');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
-    <>
-      <div className="min-h-screen bg-white pt-20">
-        <div className="w-screen">
-          <div className="relative w-full" style={{ height: '600px' }}>
-            {/* Background Image */}
-            <Image
-              src="/images/products/6.1.png"
-              alt="Product Details"
-              fill
-              style={{ 
-                objectFit: 'contain',
-                objectPosition: 'center'
-              }}
-              className="w-full h-full"
-              priority
-            />
-            
-            {/* Form Overlay */}
-            
-            <div className=" absolute right-[17%] top-[60%] transform -translate-y-1/2 w-[480px] p-2  bg-[#9deb8f]/90 rounded-lg">
-              <h3 className="text-gray-800 font-semibold mb-4">
-                To connect instantly for inquiries and quotes:
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number:
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address:
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter your email address"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Description of requirement / Inquiry:
-                  </label>
-                  <textarea
-                    name="description"
-                    required
-                    rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="Enter your requirements"
-                  />
-                </div>
-                
-                <div className="flex gap-4 justify-center">
-                  <button
-                    type="submit"
-                    className="px-6 py-2 bg-[#1a5f7a] text-white rounded-full hover:bg-[#134b61] transition-colors"
-                  >
-                    Submit Inquiry
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => window.location.href = '/shop'}
-                    className="px-6 py-2 bg-yellow-400 text-[#1a5f7a] rounded-full hover:bg-yellow-300 transition-colors"
-                  >
-                    Get Bulk Quote
-                  </button>
-                </div>
-              </form>
+    <div className="min-h-screen bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            For Bulk orders and Your feedback!
+          </h1>
+          <p className="text-lg text-gray-600">
+            Kindly fill the form up and share your requirements.
+          </p>
+        </div>
 
-              <a
-                href="/catalogue.pdf"
-                download
-                className="mt-6 block text-center px-6 py-2 border-2 border-[#1a5f7a] text-[#1a5f7a] rounded-md hover:bg-[#1a5f7a] hover:text-white transition-colors"
-              >
-                DOWNLOAD CATALOGUE
-              </a>
+        <div className="bg-white p-8 rounded-lg shadow-sm">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name Input */}
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                  required
+                />
+              </div>
+
+              {/* Email Input */}
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email *"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                  required
+                />
+              </div>
             </div>
-            
-          </div>
+
+            {/* Phone Input */}
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone number"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                required
+              />
+            </div>
+
+            {/* Comment Input */}
+            <div>
+              <textarea
+                name="comment"
+                value={formData.comment}
+                onChange={handleChange}
+                placeholder="Comment"
+                rows={6}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all resize-none"
+                required
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div className="text-right">
+              <button
+                type="submit"
+                className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200"
+              >
+                Send
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <Footer />
       <FloatingButton />
-    </>
+    </div>
   );
 }
