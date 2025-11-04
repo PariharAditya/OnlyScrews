@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export interface CarouselSlide {
   id: string;
@@ -164,9 +165,11 @@ export default function Carousel({
             </div>
 
             {/* View All Button */}
-            <button className="px-8 md:px-10 py-3 rounded-full border-2 border-[#c4ff0d] text-[#c4ff0d] font-semibold hover:bg-[#c4ff0d] hover:text-black transition-all whitespace-nowrap text-sm md:text-base">
-              View All
-            </button>
+            <Link href="/products">
+              <button className="px-8 md:px-10 py-3 rounded-full border-2 border-[#c4ff0d] text-[#c4ff0d] font-semibold hover:bg-[#c4ff0d] hover:text-black transition-all whitespace-nowrap text-sm md:text-base cursor-pointer">
+                View All
+              </button>
+            </Link>
           </div>
         </div>
       </div>
