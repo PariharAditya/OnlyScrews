@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 interface TestimonialCardProps {
   rating: number;
@@ -45,11 +46,15 @@ const TestimonialCard = ({
       </div>
 
       <div className="pt-4 border-t border-gray-200 w-full">
-        <img
-          src={productImage}
-          alt={productName}
-          className="w-16 h-16 object-contain mx-auto mb-2"
-        />
+        <div className="relative w-16 h-16 mx-auto mb-2">
+          <Image
+            src={productImage}
+            alt={productName}
+            width={64}
+            height={64}
+            className="object-contain"
+          />
+        </div>
         <p className="text-xs text-gray-600 hover:text-blue-600 transition-colors cursor-pointer line-clamp-1">
           {productName}
         </p>

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run clean && next dev",
     "build": "prisma generate && next build",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate || echo 'Prisma generate skipped - env vars may not be available yet'",
     "predeploy": "npm run build",
     "deploy": "netlify deploy --prod",
     "export": "next build",

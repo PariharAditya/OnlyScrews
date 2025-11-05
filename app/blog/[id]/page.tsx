@@ -5,14 +5,15 @@ import { BLOG_POSTS, BLOG_CONTENT } from "../blogData";
 import { notFound } from "next/navigation";
 
 interface BlogDetailProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default function BlogDetail({ params }: BlogDetailProps) {
-  const post = BLOG_POSTS.find((p) => p.id === params.id);
-  const content = BLOG_CONTENT[params.id as keyof typeof BLOG_CONTENT];
+export default async function BlogDetail({ params }: BlogDetailProps) {
+  const { id } = await params;
+  const post = BLOG_POSTS.find((p) => p.id === id);
+  const content = BLOG_CONTENT[id as keyof typeof BLOG_CONTENT];
 
   if (!post || !content) {
     notFound();
