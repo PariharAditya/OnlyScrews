@@ -16,6 +16,7 @@ const mainLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products", isDropdown: true },
   { href: "/bulk-enquiry", label: "Bulk/Custom Inquiry" },
+  { href: "/blog", label: "Blog" },
   { href: "/sign-in", label: "Login" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact & FAQ" },

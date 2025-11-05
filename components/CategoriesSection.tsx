@@ -6,9 +6,12 @@ import { useEffect, useState } from "react";
 const categories = [
   { name: "Bolts", image: "/images/categories/bolts.png" },
   { name: "Machine Screws", image: "/images/categories/machine-screws.png" },
-  { name: "Self-Clinching", image: "/images/categories/self-clinching.png" },
+  {
+    name: "Clinching Fasteners",
+    image: "/images/categories/clinching-fasteners.png",
+  },
   { name: "Allen Screws", image: "/images/categories/allen-screws.png" },
-  { name: "Washers", image: "/images/categories/washers.png" },
+  { name: "Washers", image: "/images/Washers.png" },
   { name: "Nylon", image: "/images/categories/nylon.png" },
   { name: "Nuts", image: "/images/categories/nuts.png" },
   { name: "PCB Fasteners", image: "/images/categories/pcb-fasteners.png" },
@@ -84,9 +87,15 @@ export default function CategoriesSection() {
           {categories.map((category) => (
             <div key={category.name} className="group cursor-pointer">
               <div className="relative bg-[#2c3e50] rounded-3xl p-8 md:p-10 aspect-square flex items-center justify-center transform transition-transform group-hover:scale-105 overflow-hidden shadow-lg">
-                {/* Placeholder for category image */}
+                {/* Category image */}
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-32 h-32 bg-gray-600 rounded-lg"></div>
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    width={220}
+                    height={220}
+                    className="object-contain"
+                  />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 bg-[#c4ff0e] text-center py-4 px-4 rounded-b-3xl">
                   <h3 className="font-bold text-gray-900 text-sm md:text-base">
