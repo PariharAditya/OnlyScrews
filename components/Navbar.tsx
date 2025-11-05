@@ -16,6 +16,7 @@ const mainLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products", isDropdown: true },
   { href: "/bulk-enquiry", label: "Bulk/Custom Inquiry" },
+  { href: "/blog", label: "Blog" },
   { href: "/sign-in", label: "Login" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact & FAQ" },
@@ -27,7 +28,7 @@ export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 w-full bg-white z-50">
+    <nav className="w-full bg-white z-50 shadow-md">
       {/* Promo Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative z-40">
         <button
