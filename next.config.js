@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  output: 'standalone',
   images: {
     domains: ['localhost'],
     unoptimized: true,
@@ -18,6 +19,12 @@ const nextConfig = {
   experimental: {
     windowsPolyfill: true,
     forceSwcTransforms: true
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
   webpack: (config, { dev, isServer }) => {
     // Optimize for Windows

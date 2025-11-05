@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { useState } from 'react';
+import { useState, use } from 'react';
 
 interface ProductSpec {
   label: string;
@@ -116,16 +116,18 @@ const getProductInfo = (id: string): ProductInfo | null => {
   };
 };
 
-export default function ProductPage({ params }: Readonly<{ params: { id: string } }>) {
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const [activeTab, setActiveTab] = useState<'specs' | 'applications' | 'features'>('specs');
   
-  if (!params.id) {
+  const resolvedParams = use(params);
+  
+  if (!resolvedParams.id) {
     notFound();
   }
 
   // Check if this is a category page
-  if (isCategory(params.id)) {
-    const categoryInfo = getCategoryInfo(params.id);
+  if (isCategory(resolvedParams.id)) {
+    const categoryInfo = getCategoryInfo(resolvedParams.id);
     if (!categoryInfo) {
       notFound();
     }
@@ -200,7 +202,7 @@ export default function ProductPage({ params }: Readonly<{ params: { id: string 
   }
 
   // Handle product page
-  const product = getProductInfo(params.id);
+  const product = getProductInfo(resolvedParams.id);
   if (!product) {
     notFound();
   }
