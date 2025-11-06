@@ -1,9 +1,20 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function HeroSection() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section 
       className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat"
@@ -16,7 +27,7 @@ export default function HeroSection() {
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40" />
-      
+
       {/* Content */}
       <div className="relative z-10 flex flex-col min-h-screen text-white px-4">
       

@@ -1,23 +1,21 @@
-import { ImageResponse } from 'next/og';
-import { NextRequest } from 'next/server';
+import { ImageResponse } from "next/og";
 
-export const runtime = 'edge';
+export const runtime = "edge";
 
-export async function GET(request: NextRequest) {
-
+export async function GET() {
   return new ImageResponse(
     (
       <div
         style={{
           fontSize: 24,
-          background: '#1a5f7a',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          borderRadius: '8px',
+          background: "#1a5f7a",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+          borderRadius: "8px",
         }}
       >
         OS

@@ -1,9 +1,7 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { useState, use } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import ProductTabs from "./ProductTabs";
 
 interface ProductSpec {
   label: string;
@@ -22,7 +20,7 @@ interface ProductInfo {
 }
 
 // Define available categories
-const categories = ['nuts', 'bolts', 'screws', 'washers', 'anchors'];
+const categories = ["nuts", "bolts", "screws", "washers", "anchors"];
 
 interface CategoryInfo {
   name: string;
@@ -41,36 +39,41 @@ const getCategoryInfo = (id: string): CategoryInfo | null => {
   const categoryMap: Record<string, CategoryInfo> = {
     nuts: {
       name: "Nuts",
-      description: "High-quality nuts for various industrial applications, including hex nuts, lock nuts, and specialty nuts.",
+      description:
+        "High-quality nuts for various industrial applications, including hex nuts, lock nuts, and specialty nuts.",
       image: "/images/Nuts.png",
-      products: ["Hex Nuts", "Lock Nuts", "Wing Nuts", "Cap Nuts"]
+      products: ["Hex Nuts", "Lock Nuts", "Wing Nuts", "Cap Nuts"],
     },
     bolts: {
       name: "Bolts",
-      description: "Premium bolts for secure fastening, including hex head bolts, carriage bolts, and specialty bolts.",
+      description:
+        "Premium bolts for secure fastening, including hex head bolts, carriage bolts, and specialty bolts.",
       image: "/images/Bolts.png",
-      products: ["Hex Head Bolts", "Carriage Bolts", "U-Bolts", "Eye Bolts"]
+      products: ["Hex Head Bolts", "Carriage Bolts", "U-Bolts", "Eye Bolts"],
     },
     screws: {
       name: "Screws",
-      description: "Wide range of screws for various applications, including machine screws, wood screws, and self-drilling screws.",
+      description:
+        "Wide range of screws for various applications, including machine screws, wood screws, and self-drilling screws.",
       image: "/images/Screws.png",
-      products: ["Machine Screws", "Wood Screws", "Self-Drilling Screws"]
+      products: ["Machine Screws", "Wood Screws", "Self-Drilling Screws"],
     },
     washers: {
       name: "Washers",
-      description: "Essential washers for load distribution and spacing, including flat washers, lock washers, and specialty washers.",
+      description:
+        "Essential washers for load distribution and spacing, including flat washers, lock washers, and specialty washers.",
       image: "/images/Washers.png",
-      products: ["Flat Washers", "Lock Washers", "Spring Washers"]
+      products: ["Flat Washers", "Lock Washers", "Spring Washers"],
     },
     anchors: {
       name: "Anchors",
-      description: "Reliable anchors for secure mounting and installation in various materials.",
+      description:
+        "Reliable anchors for secure mounting and installation in various materials.",
       image: "/images/Anchors.png",
-      products: ["Wall Anchors", "Concrete Anchors", "Toggle Bolts"]
-    }
+      products: ["Wall Anchors", "Concrete Anchors", "Toggle Bolts"],
+    },
   };
-  
+
   return categoryMap[id.toLowerCase()] || null;
 };
 
@@ -79,11 +82,12 @@ const getProductInfo = (id: string): ProductInfo | null => {
   if (isCategory(id)) {
     return null;
   }
-  
+
   return {
     name: "Hex Head Bolt",
     category: "Bolts",
-    description: "High-strength hex head bolts designed for industrial applications, featuring exceptional durability and precise threading for secure fastening.",
+    description:
+      "High-strength hex head bolts designed for industrial applications, featuring exceptional durability and precise threading for secure fastening.",
     image: "/images/Bolts.png",
     specifications: [
       { label: "Material", value: "Carbon Steel, Stainless Steel" },
@@ -91,37 +95,41 @@ const getProductInfo = (id: string): ProductInfo | null => {
       { label: "Finish", value: "Plain, Zinc Plated, Hot Dip Galvanized" },
       { label: "Thread", value: "Metric, UNC, UNF" },
       { label: "Size Range", value: "M6 to M36" },
-      { label: "Length Range", value: "20mm to 400mm" }
+      { label: "Length Range", value: "20mm to 400mm" },
     ],
     applications: [
       "Heavy Machinery",
       "Construction Equipment",
       "Automotive Assembly",
       "Steel Structures",
-      "Industrial Manufacturing"
+      "Industrial Manufacturing",
     ],
     features: [
       "High tensile strength",
       "Precise threading",
       "Corrosion resistant options",
       "Multiple finish options",
-      "Various size ranges"
+      "Various size ranges",
     ],
-    standards: [
-      "ISO 4014",
-      "DIN 931",
-      "ASME B18.2.3.1M",
-      "IS 1364"
-    ]
+    standards: ["ISO 4014", "DIN 931", "ASME B18.2.3.1M", "IS 1364"],
   };
 };
 
+<<<<<<< HEAD
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const [activeTab, setActiveTab] = useState<'specs' | 'applications' | 'features'>('specs');
   
   const resolvedParams = use(params);
   
   if (!resolvedParams.id) {
+=======
+export default async function ProductPage(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
+
+  if (!params.id) {
+>>>>>>> parihar/main
     notFound();
   }
 
@@ -139,11 +147,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           <div className="container mx-auto px-4">
             <div className="flex flex-col space-y-2">
               <div className="flex items-center text-sm">
-                <Link href="/products" className="hover:text-yellow-300">Products</Link>
+                <Link href="/products" className="hover:text-yellow-300">
+                  Products
+                </Link>
                 <span className="mx-2">→</span>
                 <span>{categoryInfo.name}</span>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold">{categoryInfo.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold">
+                {categoryInfo.name}
+              </h1>
             </div>
           </div>
         </div>
@@ -165,18 +177,24 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             {/* Category Information */}
             <div className="space-y-8">
               <div className="prose max-w-none">
-                <p className="text-lg text-gray-600">{categoryInfo.description}</p>
+                <p className="text-lg text-gray-600">
+                  {categoryInfo.description}
+                </p>
               </div>
 
               <div>
-                <h2 className="text-xl font-semibold text-gray-800 mb-4">Available Products</h2>
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                  Available Products
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {categoryInfo.products.map((productName) => (
                     <div
                       key={productName}
                       className="bg-white p-4 rounded-lg shadow border border-gray-100 hover:border-[#1a5f7a] transition-colors"
                     >
-                      <h3 className="text-lg font-medium text-gray-800">{productName}</h3>
+                      <h3 className="text-lg font-medium text-gray-800">
+                        {productName}
+                      </h3>
                     </div>
                   ))}
                 </div>
@@ -214,9 +232,14 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <div className="container mx-auto px-4">
           <div className="flex flex-col space-y-2">
             <div className="flex items-center text-sm">
-              <Link href="/products" className="hover:text-yellow-300">Products</Link>
+              <Link href="/products" className="hover:text-yellow-300">
+                Products
+              </Link>
               <span className="mx-2">→</span>
-              <Link href={`/products/${product.category.toLowerCase()}`} className="hover:text-yellow-300">
+              <Link
+                href={`/products/${product.category.toLowerCase()}`}
+                className="hover:text-yellow-300"
+              >
                 {product.category}
               </Link>
               <span className="mx-2">→</span>
@@ -247,71 +270,13 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               <p className="text-lg text-gray-600">{product.description}</p>
             </div>
 
-            {/* Tabs */}
-            <div className="border-b border-gray-200">
-              <div className="flex space-x-8">
-                {(['specs', 'applications', 'features'] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`py-4 px-2 text-lg font-medium border-b-2 transition-colors ${
-                      activeTab === tab
-                        ? 'border-[#1a5f7a] text-[#1a5f7a]'
-                        : 'border-transparent text-gray-500 hover:text-[#1a5f7a]'
-                    }`}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Tab Content */}
-            <div className="space-y-6">
-              {activeTab === 'specs' && (
-                <div className="grid grid-cols-1 gap-4">
-                  {product.specifications.map((spec) => (
-                    <div key={spec.label} className="flex border-b border-gray-200 py-2">
-                      <span className="w-1/3 font-medium text-gray-700">{spec.label}</span>
-                      <span className="w-2/3 text-gray-600">{spec.value}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {activeTab === 'applications' && (
-                <div className="space-y-4">
-                  <ul className="list-disc list-inside space-y-2">
-                    {product.applications.map((app) => (
-                      <li key={app} className="text-gray-600">{app}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {activeTab === 'features' && (
-                <div className="space-y-4">
-                  <ul className="list-disc list-inside space-y-2">
-                    {product.features.map((feature) => (
-                      <li key={feature} className="text-gray-600">{feature}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-8">
-                    <h3 className="text-lg font-medium text-gray-800 mb-4">Standards & Compliance</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {product.standards.map((standard) => (
-                        <span
-                          key={standard}
-                          className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                        >
-                          {standard}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* Product Tabs */}
+            <ProductTabs
+              specifications={product.specifications}
+              applications={product.applications}
+              features={product.features}
+              standards={product.standards}
+            />
 
             {/* CTA */}
             <div className="mt-8 space-y-4">

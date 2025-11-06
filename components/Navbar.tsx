@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
@@ -10,7 +10,7 @@ import CallButton from './CallButton';
 interface NavLink {
   href: string;
   label: string;
-  children?: NavLink[];
+  isDropdown?: boolean;
 }
 
 const mainLinks: NavLink[] = [
@@ -51,7 +51,7 @@ export default function Navbar() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 w-full bg-white z-50">
+    <nav className="w-full bg-white z-50 shadow-md">
       {/* Promo Banner */}
       <div className="bg-black text-white py-2 px-4 text-center relative z-40">
         <button 
@@ -81,7 +81,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="relative w-[180px] h-[50px]">
-                <Image 
+                <Image
                   src="/SB.jpg"
                   alt="Screw Bazar Logo"
                   fill
@@ -93,98 +93,43 @@ export default function Navbar() {
 
             {/* Desktop Navigation - centered */}
             <div className="hidden lg:flex items-center space-x-8">
-              {mainLinks.map((link) => (
-                <div
-                  key={link.href}
-                  className="relative group py-4"
-                  onMouseEnter={() => setHoveredMenu(link.label)}
-                  onMouseLeave={() => setHoveredMenu(null)}
-                >
+              {mainLinks.map((link) =>
+                link.isDropdown ? (
+                  <ProductDropdown key={link.href} />
+                ) : (
                   <Link
+                    key={link.href}
                     href={link.href}
-                    className="font-sans text-gray-700 hover:text-purple-600 transition-colors flex items-center gap-1"
+                    className="font-sans text-gray-700 hover:text-purple-600 transition-colors"
                   >
                     {link.label}
-                    {link.children && (
-                      <svg
-                        className={`w-4 h-4 transform transition-transform ${
-                          hoveredMenu === link.label ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
                   </Link>
-                  
-                  {/* Dropdown Menu */}
-                  {link.children && hoveredMenu === link.label && (
-                    <div 
-                      className="absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 z-[70]"
-                    >
-                      <div className="py-2">
-                        {link.children.map((child) => (
-                          <div key={child.href} className="relative group/submenu">
-                            <Link
-                              href={child.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600 flex items-center justify-between"
-                            >
-                              {child.label}
-                              {child.children && (
-                                <svg
-                                  className="w-4 h-4"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              )}
-                            </Link>
-                            {child.children && (
-                              <div className="absolute left-full top-0 w-56 bg-white shadow-lg rounded-lg border border-gray-100 hidden group-hover/submenu:block z-[71]">
-                                <div className="py-2">
-                                  {child.children.map((subChild) => (
-                                    <Link
-                                      key={subChild.href}
-                                      href={subChild.href}
-                                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-purple-600"
-                                    >
-                                      {subChild.label}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                )
+              )}
             </div>
 
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
-              <button 
-                className="hover:text-purple-600" 
+              <button
+                className="hover:text-purple-600"
                 aria-label="Search"
                 onClick={() => setIsSearchOpen(true)}
               >
                 <FiSearch className="w-5 h-5" />
               </button>
 
-              <Link href="/login" className="hover:text-purple-600" aria-label="Login">
+              <Link
+                href="/sign-in"
+                className="hover:text-purple-600"
+                aria-label="Login"
+              >
                 <FiUser className="w-5 h-5" />
               </Link>
 
               {/* Search Modal */}
-              <SearchModal 
-                isOpen={isSearchOpen} 
-                onClose={() => setIsSearchOpen(false)} 
+              <SearchModal
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
               />
 
               {/* Mobile Menu Button */}
@@ -200,9 +145,19 @@ export default function Navbar() {
                   stroke="currentColor"
                 >
                   {isOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   )}
                 </svg>
               </button>
@@ -214,85 +169,56 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-screen' : 'max-h-0'
+          isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
           {mainLinks.map((link) => (
-            <div key={link.href} className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Link
-                  href={link.href}
-                  className="font-sans text-gray-700 hover:text-purple-600 font-medium"
-                  onClick={() => !link.children && setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-                {link.children && (
+            <div key={link.href}>
+              {link.isDropdown ? (
+                <div>
                   <button
-                    onClick={() => setHoveredMenu(hoveredMenu === link.label ? null : link.label)}
-                    className="p-1"
+                    onClick={() =>
+                      setHoveredMenu(
+                        hoveredMenu === link.label ? null : link.label
+                      )
+                    }
+                    className="font-sans text-gray-700 hover:text-purple-600 font-medium flex items-center justify-between w-full"
                   >
+                    {link.label}
                     <svg
                       className={`w-4 h-4 transform transition-transform ${
-                        hoveredMenu === link.label ? 'rotate-180' : ''
+                        hoveredMenu === link.label ? "rotate-180" : ""
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
-                )}
-              </div>
-              {link.children && hoveredMenu === link.label && (
-                <div className="pl-4 space-y-2">
-                  {link.children.map((child) => (
-                    <div key={child.href} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <Link
-                          href={child.href}
-                          className="font-sans text-gray-600 hover:text-purple-600 text-sm"
-                          onClick={() => !child.children && setIsOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                        {child.children && (
-                          <button
-                            onClick={() => setHoveredMenu(hoveredMenu === child.label ? null : child.label)}
-                            className="p-1"
-                          >
-                            <svg
-                              className={`w-4 h-4 transform transition-transform ${
-                                hoveredMenu === child.label ? 'rotate-180' : ''
-                              }`}
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </button>
-                        )}
-                      </div>
-                      {child.children && hoveredMenu === child.label && (
-                        <div className="pl-4 space-y-2">
-                          {child.children.map((subChild) => (
-                            <Link
-                              key={subChild.href}
-                              href={subChild.href}
-                              className="block font-sans text-gray-500 hover:text-purple-600 text-sm"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subChild.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                  {hoveredMenu === link.label && (
+                    <div className="mt-2">
+                      <ProductDropdown
+                        isMobile
+                        onItemClick={() => setIsOpen(false)}
+                      />
                     </div>
-                  ))}
+                  )}
                 </div>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="font-sans text-gray-700 hover:text-purple-600 font-medium block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
               )}
             </div>
           ))}

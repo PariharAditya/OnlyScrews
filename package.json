@@ -4,19 +4,29 @@
   "private": true,
   "scripts": {
     "dev": "npm run clean && next dev",
-    "build": "npm run clean && next build",
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate || echo 'Prisma generate skipped - env vars may not be available yet'",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy --prod",
+    "export": "next build",
     "start": "next start",
     "lint": "eslint",
-    "clean": "rimraf .next node_modules/.cache"
+    "clean": "rimraf .next node_modules/.cache",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "prisma:studio": "prisma studio",
+    "db:push": "prisma db push",
+    "db:seed": "npm run prisma:generate && npm run prisma:seed"
   },
   "dependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/jsonwebtoken": "^9.0.10",
-    "bcryptjs": "^3.0.2",
+    "@clerk/nextjs": "^6.34.1",
+    "@prisma/client": "^6.18.0",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
-    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.545.0",
     "next": "15.5.5",
+    "prisma": "^6.18.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
@@ -24,6 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@netlify/plugin-nextjs": "^5.14.4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -32,6 +43,7 @@
     "eslint-config-next": "15.5.5",
     "rimraf": "^6.0.1",
     "tailwindcss": "^4",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }
