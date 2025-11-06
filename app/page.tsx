@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Footer from "../components/Footer";
 import ContactButtons from "../components/FloatingButton";
-import HeroSection from "../components/HeroSection";
+import LandingPage from "../components/LandingPage";
+
 import NylonRangeSection from "../components/NylonRangeSection";
 import CategoriesSection from "../components/CategoriesSection";
 import FeaturedProductsSection from "../components/FeaturedProductsSection";
@@ -10,9 +11,12 @@ import BlogSection from "../components/BlogSection";
 
 export default function Home() {
   return (
-    <>
+    <div className="-mt-[144px]">
+      {/* Landing Page Hero Section */}
+      <LandingPage />
+
       <main className="flex min-h-screen flex-col items-center justify-between">
-        <HeroSection />
+        
 
         {/* Nylon Range Section */}
         <NylonRangeSection />
@@ -54,6 +58,6 @@ export default function Home() {
 
       <Footer />
       <ContactButtons />
-    </>
+    </div>
   );
 }

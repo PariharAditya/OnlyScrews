@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-nunito-sans)', 'sans-serif'],
+        nunito: ['var(--font-nunito-sans)', 'sans-serif'],
         heading: ['var(--font-montserrat)', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
       },
     },
   },

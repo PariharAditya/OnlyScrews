@@ -115,21 +115,12 @@ const getProductInfo = (id: string): ProductInfo | null => {
   };
 };
 
-<<<<<<< HEAD
-export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
-  const [activeTab, setActiveTab] = useState<'specs' | 'applications' | 'features'>('specs');
-  
-  const resolvedParams = use(params);
-  
-  if (!resolvedParams.id) {
-=======
 export default async function ProductPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
 
   if (!params.id) {
->>>>>>> parihar/main
     notFound();
   }
 
