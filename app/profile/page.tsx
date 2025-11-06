@@ -1,25 +1,21 @@
 'use client';
-import { UserProfile, ClerkProvider } from "@clerk/nextjs";
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'edge';
 
 export default function ProfilePage() {
   return (
-    <ClerkProvider>
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          <UserProfile 
-            appearance={{
-              elements: {
-                formButtonPrimary: 'bg-[#6A20CD] hover:bg-[#5618A8]',
-                navbarButton: 'text-[#6A20CD] hover:text-[#5618A8]',
-              },
-            }}
-            path="/profile"
-          />
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white shadow rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            User Profile
+          </h2>
+          <p className="text-gray-600">
+            Authentication is currently disabled
+          </p>
         </div>
       </div>
-    </ClerkProvider>
+    </div>
   );
 }
