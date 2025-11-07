@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run clean && next dev",
-    "build": "next build",
+    "build": "DATABASE_URL=\"postgresql://user:pass@localhost:5432/dbname\" npx prisma generate && next build",
     "postinstall": "echo 'Skipping prisma generate'",
     "predeploy": "npm run build",
     "deploy": "netlify deploy --prod",
