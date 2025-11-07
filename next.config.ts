@@ -1,10 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'cdn.builder.io'],
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -14,4 +12,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+export default nextConfig

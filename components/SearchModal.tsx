@@ -295,7 +295,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 <div className="text-center text-gray-500 py-12">
                   <div className="text-lg mb-2">No results found</div>
                   <div className="text-sm">
-                    We couldn't find any products matching "{searchQuery}"
+                    We couldn&apos;t find any products matching &quot;{searchQuery}&quot;
                   </div>
                 </div>
               )}
