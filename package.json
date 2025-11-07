@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npm run clean && next dev",
-    "build": "prisma generate || true && next build",
-    "postinstall": "prisma generate || echo 'Prisma generate skipped - env vars may not be available yet'",
+    "build": "next build",
+    "postinstall": "echo 'Skipping prisma generate'",
     "predeploy": "npm run build",
     "deploy": "netlify deploy --prod",
     "export": "next build",
