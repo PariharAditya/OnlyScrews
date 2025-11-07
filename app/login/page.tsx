@@ -2,99 +2,159 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
+const COUNTRIES = [
+  { code: '+91', flag: '🇮🇳', name: 'India' },
+];
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const router = useRouter();
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState('+91');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
+  const currentCountry = COUNTRIES.find((c) => c.code === selectedCountry);
 
-    // TODO: Implement authentication logic
-    setError('Authentication not yet implemented. Please check back later.');
+  const handleRequestOTP = () => {
+    if (phoneNumber.trim()) {
+      const otp = Math.floor(1000 + Math.random() * 9000).toString();
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('otp', otp);
+        sessionStorage.setItem('phone', `${selectedCountry}${phoneNumber}`);
+        console.log(`Generated OTP: ${otp}`);
+      }
+      router.push('/verify-otp');
+    }
+  };
+
+  const handleEmailLogin = () => {
+    router.push('/email-login');
+  };
+
+  const handleWhatsAppLogin = () => {
+    router.push('/whatsapp-login');
   };
 
   return (
-    <div className="min-h-screen w-full">
-      {/* Background Image Container */}
-      <div 
-        className="relative w-full min-h-screen bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/images/screws-bg.jpg')" }}
-      >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+    <div className="min-h-screen bg-white -mt-[144px] pt-[80px]">
+      <div className="w-full max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-8">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F3c37fbde83fe43be8fad8675de33582a%2F73f2212a4ead4e649a0cc0205419d4fe?format=webp&width=800"
+            alt="ScrewBazar"
+            className="h-28 sm:h-40 object-contain"
+          />
+        </div>
 
-        {/* Login Form Container */}
-        <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-          <div className="w-full max-w-md">
-            <h1 className="text-3xl font-semibold text-center mb-8 text-white">Login to your account</h1>
+        {/* Main content */}
+        <div className="space-y-6">
+          {/* Heading */}
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black">
+              Login with OTP
+            </h2>
+            <p className="text-gray-600 text-base">
+              Enter your log in details
+            </p>
+          </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {error && (
-                <div className="bg-red-500/80 text-white px-4 py-2 rounded-lg text-center mb-4">
-                  <span className="block sm:inline">{error}</span>
-                </div>
-              )}
-
-              {/* Email Field */}
-              <div className="mb-4">
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full h-12 bg-white/90 rounded-lg px-4 text-[#1a2e4c] focus:outline-none focus:ring-2 focus:ring-[#1a2e4c]"
-                  placeholder="Email Address"
-                />
-              </div>
-
-              {/* Password Field */}
-              <div className="mb-6">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full h-12 bg-white/90 rounded-lg px-4 text-[#1a2e4c] focus:outline-none focus:ring-2 focus:ring-[#1a2e4c]"
-                  placeholder="Password"
-                />
-              </div>
-
-              {/* Login Button */}
-              <div className="flex justify-end mb-8">
+          {/* Phone input section */}
+          <div className="space-y-4">
+            <div className="flex gap-2">
+              {/* Country code selector */}
+              <div className="relative w-32">
                 <button
-                  type="submit"
-                  className="w-32 h-12 bg-[#1a2e4c]/90 text-white rounded-full hover:bg-[#1a2e4c] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1a2e4c] focus:ring-offset-2"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-between"
                 >
-                  LOGIN
+                  <span className="flex items-center gap-1">
+                    <span className="text-lg">{currentCountry?.flag}</span>
+                    <span className="text-sm">{selectedCountry}</span>
+                  </span>
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
                 </button>
+                {isDropdownOpen && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto z-50">
+                    {COUNTRIES.map((country) => (
+                      <button
+                        key={country.code}
+                        onClick={() => {
+                          setSelectedCountry(country.code);
+                          setIsDropdownOpen(false);
+                        }}
+                        className="w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors flex items-center gap-2 border-b border-gray-200 last:border-b-0"
+                      >
+                        <span className="text-lg">{country.flag}</span>
+                        <span className="text-sm">
+                          {country.name} ({country.code})
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Sign Up Link */}
-              <div className="text-center mt-6">
-                <p className="text-white">
-                  Don't have an account?{' '}
-                  <Link 
-                    href="/sign-up" 
-                    className="text-white underline hover:text-white/80 transition-colors font-medium"
-                  >
-                    Sign Up now
-                  </Link>
-                </p>
-              </div>
-            </form>
+              {/* Phone input */}
+              <input
+                type="tel"
+                placeholder="Phone number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg outline-none text-gray-800 placeholder-gray-500 focus:border-black transition-colors"
+              />
+            </div>
+
+            {/* Request OTP button */}
+            <button
+              onClick={handleRequestOTP}
+              className="w-full bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 group"
+            >
+              <span>Request OTP</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4">
+            <div className="flex-1 h-px bg-gray-300"></div>
+            <span className="text-gray-500 text-sm font-medium">
+              Or Login Using
+            </span>
+            <div className="flex-1 h-px bg-gray-300"></div>
+          </div>
+
+          {/* Alternative login buttons */}
+          <div className="grid grid-cols-2 gap-4">
+            <button
+              onClick={handleEmailLogin}
+              className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 font-medium"
+            >
+              <Image 
+                src="https://www.google.com/gmail/about/static-2.0/images/logo-gmail.png"
+                alt="Gmail"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />
+              <span>Email</span>
+            </button>
+            <button
+              onClick={handleWhatsAppLogin}
+              className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 font-medium"
+            >
+              <Image 
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+              />
+              <span>WhatsApp</span>
+            </button>
           </div>
         </div>
       </div>

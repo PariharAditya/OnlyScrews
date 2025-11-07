@@ -57,8 +57,8 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="w-full px-0 py-8 md:py-16">
+    <div className="h-screen bg-black text-white -mt-[144px] overflow-hidden">
+      <div className="w-full px-0 pt-[50px]">
         {/* Carousel Component */}
         <Carousel
           slides={slides}
