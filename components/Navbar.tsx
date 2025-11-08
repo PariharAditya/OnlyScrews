@@ -6,11 +6,13 @@ import { FiUser, FiSearch } from 'react-icons/fi';
 import Logo from './Logo';
 import SearchModal from './SearchModal';
 import CallButton from './CallButton';
+import ProductDropdown from './ProductDropdown';
 
 interface NavLink {
   href: string;
   label: string;
   isDropdown?: boolean;
+  children?: { href: string; label: string; }[];
 }
 
 const mainLinks: NavLink[] = [
@@ -18,6 +20,7 @@ const mainLinks: NavLink[] = [
   { 
     href: '/products', 
     label: 'Products',
+    isDropdown: true,
     children: [
       { href: '/products/screws', label: 'Screws' },
       { href: '/products/bolts', label: 'Bolts' },
@@ -30,9 +33,17 @@ const mainLinks: NavLink[] = [
     ]
   },
   { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
-  { href: '/login', label: 'Login' },
+  { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact & FAQ' },
+  { 
+    href: '/contact', 
+    label: 'Contact & FAQs',
+    isDropdown: true,
+    children: [
+      { href: '/contact', label: 'Contact Us' },
+      { href: '/faq', label: 'FAQs' },
+    ]
+  },
 ];
 
 export default function Navbar() {
@@ -95,7 +106,28 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-8">
               {mainLinks.map((link) =>
                 link.isDropdown ? (
-                  <ProductDropdown key={link.href} />
+                  link.label === 'Products' ? (
+                    <ProductDropdown key={link.href} />
+                  ) : (
+                    <div key={link.href} className="relative group">
+                      <button className="font-sans text-gray-700 hover:text-purple-600 transition-colors">
+                        {link.label}
+                      </button>
+                      <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div className="py-2">
+                          {link.children?.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )
                 ) : (
                   <Link
                     key={link.href}
@@ -119,7 +151,7 @@ export default function Navbar() {
               </button>
 
               <Link
-                href="/sign-in"
+                href="/login"
                 className="hover:text-purple-600"
                 aria-label="Login"
               >
