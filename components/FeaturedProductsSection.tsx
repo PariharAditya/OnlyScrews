@@ -112,7 +112,7 @@ const FeaturedProductsSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mb-8 md:mb-12 flex items-center justify-between">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="flex-1 text-4xl md:text-5xl font-bold text-[#BCFF83] text-center">
             Our Featured Products
           </h2>
           <div className="flex gap-2">
@@ -146,17 +146,17 @@ const FeaturedProductsSection = () => {
                       key={product.id}
                       className="flex flex-col items-center"
                     >
-                      {/* White card container for image only */}
-                      <div className="w-[350px] rounded-lg bg-white shadow-[0_4px_15px_rgba(0,0,0,0.3)] overflow-hidden">
+                      {/* Card container for image only (dark background to match grid) */}
+                      <div className="w-[280px] rounded-lg bg-black shadow-[0_6px_20px_rgba(0,0,0,0.6)] border border-neutral-800 overflow-hidden">
                         <img
                           src={product.image}
                           alt={product.title}
-                          className="w-full h-[250px] object-cover block"
+                          className="w-full h-[160px] object-contain block bg-transparent"
                         />
                       </div>
 
                       {/* Text separate below the card */}
-                      <div className="mt-3 px-4 text-[15px] text-white font-medium max-w-[350px]">
+                      <div className="mt-3 px-4 text-[15px] text-white font-medium max-w-[280px] text-center">
                         {product.title}
                       </div>
                     </div>
