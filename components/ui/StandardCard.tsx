@@ -44,7 +44,7 @@ export default function StandardCard({
           inset: "2px",
           borderRadius: "calc(20px - 2px)",
           pointerEvents: "none",
-          boxShadow: `inset 0 0 0 2px rgba(127,224,138,0.18)`,
+          boxShadow: `inset 0 0 0 2px rgba(188,255,131,0.18)`,
         }}
       />
 
@@ -57,7 +57,7 @@ export default function StandardCard({
           width: "12px",
           height: "12px",
           borderRadius: "6px",
-          background: "rgba(127,224,138,0.08)",
+          background: "rgba(188,255,131,0.08)",
         }}
       />
 
@@ -93,7 +93,7 @@ export default function StandardCard({
           position: "absolute",
           left: "10px",
           bottom: "10px",
-          background: `rgba(127,224,138,0.95)`,
+          background: `rgba(188,255,131,0.95)`,
           color: "#0b0b0b",
           padding: "8px 14px",
           borderRadius: "999px",

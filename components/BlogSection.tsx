@@ -31,7 +31,6 @@ export default function BlogSection() {
               backgroundColor: isHovering
                 ? COLORS.primaryHover
                 : COLORS.primary,
-              fontFamily: '"Nunito Sans", sans-serif',
             }}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}

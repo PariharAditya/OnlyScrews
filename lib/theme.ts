@@ -5,7 +5,7 @@
 
 export const COLORS = {
     primary: '#BCFF83',
-    primaryHover: '#a8e670',
+    primaryHover: '#BCFF83',
     primaryDark: '#94d65e',
     black: '#000000',
     white: '#FFFFFF',

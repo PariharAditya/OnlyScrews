@@ -107,7 +107,10 @@ const TestimonialsSection = () => {
             >
               from 698 reviews
             </a>
-            <CheckCircle className="w-5 h-5 text-green-500" />
+            <CheckCircle
+              className="w-5 h-5"
+              style={{ color: COLORS.primary }}
+            />
           </div>
         </div>
 

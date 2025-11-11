@@ -11,11 +11,7 @@ const products = [
   { id: 2, name: "Nylon Washers", image: "/images/products/nylon-washers.png" },
   { id: 3, name: "Nylon Nuts", image: "/images/products/nylon-nuts.png" },
   { id: 4, name: "Nylon Bolts", image: "/images/products/nylon-bolts.png" },
-  {
-    id: 5,
-    name: "Nylon Machine Screws",
-    image: "/images/products/nylon-machine-screws.png",
-  },
+  { id: 5, name: "Nylon Machine Screws", image: "/images/products/nylon-machine-screws.png"},
 ];
 
 export default function NylonRangeSection() {
