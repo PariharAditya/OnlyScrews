@@ -35,8 +35,8 @@ export default function Blog() {
           post.tags.some(
             (tag) =>
               tag.toLowerCase() === activeFilter.toLowerCase() ||
-              post.category.toLowerCase() === activeFilter.toLowerCase(),
-          ),
+              post.category.toLowerCase() === activeFilter.toLowerCase()
+          )
         );
 
   return (
@@ -60,7 +60,9 @@ export default function Blog() {
                   className={`px-3 py-1.5 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-200 ${
                     isActive ? "text-black" : "text-gray-700 hover:bg-gray-50"
                   }`}
-                  style={isActive ? { backgroundColor: COLORS.primary } : undefined}
+                  style={
+                    isActive ? { backgroundColor: COLORS.primary } : undefined
+                  }
                 >
                   {filter}
                 </button>
@@ -78,7 +80,9 @@ export default function Blog() {
                   className={`px-3 py-1.5 rounded-full font-medium text-sm whitespace-nowrap transition-all duration-200 ${
                     isActive ? "text-black" : "text-gray-700 hover:bg-gray-50"
                   }`}
-                  style={isActive ? { backgroundColor: COLORS.primary } : undefined}
+                  style={
+                    isActive ? { backgroundColor: COLORS.primary } : undefined
+                  }
                 >
                   {filter}
                 </button>
