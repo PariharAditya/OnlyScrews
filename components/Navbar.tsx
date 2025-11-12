@@ -24,10 +24,10 @@ const mainLinks: NavLink[] = [
     children: [
       { href: '/products/screws', label: 'Screws' },
       { href: '/products/bolts', label: 'Bolts' },
-      { href: '/products/anchor-bolts', label: 'Anchors' },
+      { href: '/products/anchors', label: 'Anchors' },
       { href: '/products/nuts', label: 'Nuts' },
       { href: '/products/washers', label: 'Washers' },
-      { href: '/products/spacers-standoffs', label: 'Spacers' },
+      { href: '/products/spacers', label: 'Spacers' },
       { href: '/products/standoff', label: 'Stand-off' },
       { href: '/products/rivets', label: 'Rivets' },
     ]

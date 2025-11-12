@@ -125,8 +125,8 @@ export default async function ProductPage(props: {
   }
 
   // Check if this is a category page
-  if (isCategory(resolvedParams.id)) {
-    const categoryInfo = getCategoryInfo(resolvedParams.id);
+  if (isCategory(params.id)) {
+    const categoryInfo = getCategoryInfo(params.id);
     if (!categoryInfo) {
       notFound();
     }
@@ -211,7 +211,7 @@ export default async function ProductPage(props: {
   }
 
   // Handle product page
-  const product = getProductInfo(resolvedParams.id);
+  const product = getProductInfo(params.id);
   if (!product) {
     notFound();
   }
