@@ -10,7 +10,7 @@ import CTAButton from "../components/ui/CTAButton";
 
 export default function Home() {
   return (
-    <div className="-mt-[144px]">
+    <div>
       {/* Landing Page Hero Section */}
       <LandingPage />
 
