@@ -7,10 +7,10 @@ const RIVETS_IMAGE = "https://cdn.builder.io/api/v1/image/assets%2F7f57dba66b364
 
 export default function RivetsPage() {
   const rivets = [
-    { title: "Solid Dowel Pin", slug: "solid-dowel-pin" },
-    { title: "Spring Dowel Pin Cotter", slug: "spring-dowel-pin-cotter" },
-    { title: "Cotter Pin Blind / POP Rivet", slug: "cotter-pin-blind-pop-rivet" },
-    { title: "Blind / POP Rivet", slug: "blind-pop-rivet" },
+    { title: "Solid Dowel Pin", slug: "solid-dowel-pin" , image: "/images/products/rivets/Solid Dowel Pin.png" },
+    { title: "Spring Dowel Pin Cotter", slug: "spring-dowel-pin-cotter" , image: "/images/products/rivets/Spring Dowel Pin Cotter Pin Blind  POP Rivet.png" },
+    { title: "Cotter Pin Blind / POP Rivet", slug: "cotter-pin-blind-pop-rivet" , image: "/images/products/rivets/Cotter Pin Blind  POP Rivet.png"  },
+    { title: "Blind / POP Rivet", slug: "blind-pop-rivet" , image: "/images/products/rivets/Blind.png"  },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function RivetsPage() {
           <ProductCategoryCard
             key={rivet.slug}
             title={rivet.title}
-            imageSrc={RIVETS_IMAGE}
+            imageSrc={rivet.image}
             href={`/category/${rivet.slug}`}
           />
         ))}
