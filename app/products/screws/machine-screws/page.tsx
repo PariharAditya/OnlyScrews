@@ -23,7 +23,7 @@ export default function MachineScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/category/${screw.slug}`}
+            href={`/products/screws/machine-screws/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>

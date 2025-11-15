@@ -23,7 +23,7 @@ export default function SelfTappingScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/category/${screw.slug}`}
+            href={`/products/screws/self-tapping-screws/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>
