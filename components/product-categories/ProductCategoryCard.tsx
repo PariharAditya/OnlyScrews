@@ -13,7 +13,7 @@ export function ProductCategoryCard({ title, imageSrc, href, className }: Catego
     <Link
       href={href}
       className={cn(
-        "group relative block rounded-3xl w-full h-64 md:h-80",
+        "group relative block rounded-3xl w-full h-48 md:h-56",
         "outline-none focus-visible:ring-4 focus-visible:ring-[hsl(var(--brand))]/40",
         className,
       )}
@@ -31,18 +31,18 @@ export function ProductCategoryCard({ title, imageSrc, href, className }: Catego
             <img
               src={imageSrc}
               alt={title}
-              className="max-h-32 md:max-h-40 object-contain"
+              className="max-h-24 md:max-h-32 object-contain"
               draggable={false}
             />
           ) : (
-            <div className="w-32 h-32 bg-neutral-800 rounded-md" />
+            <div className="w-24 h-24 bg-neutral-800 rounded-md" />
           )}
         </div>
 
-        <div className="absolute left-6 bottom-6">
+        <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6">
           <span
             className={cn(
-                "inline-flex items-center rounded-full px-4 py-2 text-base md:text-lg font-semibold",
+                "inline-flex items-center rounded-full px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-semibold",
                 "bg-[hsl(var(--brand))] text-[hsl(var(--brand-foreground))]",
                 "shadow-[inset_0_2px_0_rgba(0,0,0,0.25)]",
                 "whitespace-pre-line text-center",
