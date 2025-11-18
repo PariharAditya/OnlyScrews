@@ -9,6 +9,7 @@ export default function AllenScrewsPage() {
     { title: "BHCS Machine Screws", slug: "bhcs-machine-screws", image: "/images/products/screws/machine screws/allen screws/Allen Cap SHCS.png" },
     { title: "CSK Machine Screws", slug: "csk-machine-screws", image: "/images/products/screws/machine screws/allen screws/Allen CSK Machine Screw.png" },
     { title: "GRUB Screws", slug: "grub-screws", image: "/images/products/screws/machine screws/allen screws/GRUB Screws.png" },
+    { title: "JCB Screws", slug: "jcb-screws", image: "/images/products/screws/machine screws/allen screws/GRUB Screws.png" },
   ];
 
   return (

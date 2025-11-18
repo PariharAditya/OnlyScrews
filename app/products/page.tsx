@@ -36,7 +36,7 @@ export default function ProductsPage() {
       image: "/images/products/standoffs/Blind Stand Off.png" 
     },
     { 
-      title: "Rivets", 
+      title: "Rivets and Dowels", 
       slug: "rivets", 
       image: "/images/products/rivets/Blind.png" 
     },

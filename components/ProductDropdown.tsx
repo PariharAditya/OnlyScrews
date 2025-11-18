@@ -44,7 +44,7 @@ export default function ProductDropdown({
     { label: 'Washers', href: '/products/washers' },
     { label: 'Spacers', href: '/products/spacers' },
     { label: 'Stand-off', href: '/products/standoff' },
-    { label: 'Rivets', href: '/products/rivets' },
+    { label: 'Rivets and Dowels', href: '/products/rivets' },
   ];
 
   // Mobile version (accordion style)

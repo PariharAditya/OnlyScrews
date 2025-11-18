@@ -29,7 +29,7 @@ const mainLinks: NavLink[] = [
       { href: '/products/washers', label: 'Washers' },
       { href: '/products/spacers', label: 'Spacers' },
       { href: '/products/standoff', label: 'Stand-off' },
-      { href: '/products/rivets', label: 'Rivets' },
+      { href: '/products/rivets', label: 'Rivets and Dowels' },
     ]
   },
   { href: '/bulk-enquiry', label: 'Bulk/Custom Inquiry' },
