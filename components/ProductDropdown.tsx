@@ -35,8 +35,45 @@ export default function ProductDropdown({
     loadHierarchy();
   }, []);
 
+  // Fallback static menu if database is unavailable
+  const fallbackMenu = [
+    { label: 'Screws', href: '/products/screws' },
+    { label: 'Bolts', href: '/products/bolts' },
+    { label: 'Anchors', href: '/products/anchors' },
+    { label: 'Nuts', href: '/products/nuts' },
+    { label: 'Washers', href: '/products/washers' },
+    { label: 'Spacers', href: '/products/spacers' },
+    { label: 'Stand-off', href: '/products/standoff' },
+    { label: 'Rivets and Dowels', href: '/products/rivets' },
+  ];
+
   // Mobile version (accordion style)
   if (isMobile) {
+    // Show fallback if no hierarchy data
+    if (hierarchy.length === 0) {
+      return (
+        <div className="space-y-2">
+          {fallbackMenu.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block text-gray-700 hover:text-purple-600 text-sm py-2"
+              onClick={onItemClick}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/products"
+            className="block text-sm text-purple-600 hover:text-purple-700 font-medium pt-2"
+            onClick={onItemClick}
+          >
+            View All Products →
+          </Link>
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-2">
         {hierarchy.map((mainCat) => (
@@ -204,14 +241,31 @@ export default function ProductDropdown({
       </Link>
 
       {/* Dropdown Menu */}
-      {isOpen && hierarchy.length > 0 && (
+      {isOpen && (
         <div
           className="absolute left-0 top-full pt-2 z-50"
           onMouseEnter={() => setIsOpen(true)}
         >
           <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200">
             <div className="py-2">
-              {hierarchy.map((mainCat) => (
+              {/* Show fallback menu if no hierarchy data */}
+              {hierarchy.length === 0 ? (
+                <>
+                  {fallbackMenu.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-3 hover:bg-gray-50 transition-colors"
+                    >
+                      <span className="text-gray-700 font-medium">
+                        {item.label}
+                      </span>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {hierarchy.map((mainCat) => (
                 <div
                   key={mainCat.slug}
                   className="relative group/item"
@@ -329,6 +383,8 @@ export default function ProductDropdown({
                     )}
                 </div>
               ))}
+                </>
+              )}
             </div>
 
             {/* View All Products Link */}

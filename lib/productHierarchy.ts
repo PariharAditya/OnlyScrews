@@ -12,7 +12,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Allen Screws',
                         slug: 'allen-screws',
-                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws']
+                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws']
                     },
                     {
                         name: 'Torx Machine Screws',
@@ -319,7 +319,7 @@ export const productHierarchy: ProductHierarchy[] = [
         ],
     },
     {
-        mainCategory: 'Rivets',
+        mainCategory: 'Rivets and Dowels',
         slug: 'rivets',
         categories: [
             {
