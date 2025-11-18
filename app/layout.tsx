@@ -54,7 +54,7 @@ export default function RootLayout({
       >
         <ErrorBoundary>
           <Navbar />
-          <div className="mt-[144px]">{children}</div>
+          <div>{children}</div>
           <WhatsAppButton />
         </ErrorBoundary>
       </body>
