@@ -176,6 +176,51 @@ export const productHierarchy: ProductHierarchy[] = [
         ],
     },
     {
+        mainCategory: 'Nuts',
+        slug: 'nuts',
+        categories: [
+            {
+                name: 'NUTS',
+                slug: 'nuts',
+                subcategories: [
+                    {
+                        name: 'General Nuts',
+                        slug: 'general-nuts',
+                        types: [
+                            'Hex Nut',
+                            'Dome Nut',
+                            'Cage Nut',
+                            'Insert Nut (LF)',
+                            'Insert Nut (RF)',
+                            'Keps(K) Nut',
+                            'Flange Nyloc Nut',
+                            'Lock Nut',
+                            'Pronge Tee Nut',
+                            'Long Nut',
+                            'Rivet Nut',
+                            'Weld Nut',
+                            'Profilp side Nut',
+                            'Semi Hex Nut (RF)',
+                            'Full Hex Nut (RF)',
+                            'Square Weld Nut',
+                            'Flange Nut',
+                            'Wing Nut',
+                            'Square Nut',
+                            'Nyloc Nut',
+                            'Insert (D) Nut',
+                            'Metal Lock Nut',
+                            'Mosflo (T) Nut',
+                            'Profilp (T) Nut',
+                            'Shear Nut',
+                            'Semi Hex Nut (LF)',
+                            'Full Hex Nut (LF)'
+                        ]
+                    }
+                ],
+            },
+        ],
+    },
+    {
         mainCategory: 'Anchors',
         slug: 'anchors',
         categories: [
