@@ -15,11 +15,12 @@ export default function Home() {
       <LandingPage />
 
       <main className="flex min-h-screen flex-col items-center justify-between">
-        {/* Nylon Range Section */}
-        <NylonRangeSection />
-
+       
         {/* Categories Section */}
         <CategoriesSection />
+
+        {/* Nylon Range Section */}
+        <NylonRangeSection />
 
         {/* Featured Products Section */}
         <FeaturedProductsSection />
