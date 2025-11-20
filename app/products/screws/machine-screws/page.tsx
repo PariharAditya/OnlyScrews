@@ -5,11 +5,11 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function MachineScrewsPage() {
   const machineScrews = [
-    { title: "Allen Screws", slug: "allen-screws", image: "/images/products/screws/machine screws/Allen Button Head BHCS.png" },
-    { title: "Torx Machine Screws", slug: "torx-machine-screws", image: "/images/products/screws/machine screws/CSK Torx Machine Screw.png" },
+    { title: "Allen Screws", slug: "shcs-machine-screws", image: "/images/products/screws/machine screws/Allen Button Head BHCS.png" },
+    { title: "Torx Machine Screws", slug: "pan-torx", image: "/images/products/screws/machine screws/CSK Torx Machine Screw.png" },
     { title: "Philip Machine Screws", slug: "philip-machine-screws", image: "/images/products/screws/machine screws/Phillips Machine Screw.png" },
     { title: "Slotted Machine Screws", slug: "slotted-machine-screws", image: "/images/products/screws/machine screws/Slotted Machine Screw.png" },
-    { title: "SEMS Screws", slug: "sems-screws", image: "/images/products/screws/Machine Screw.png" },
+    { title: "SEMS Screws", slug: "pan-sem", image: "/images/products/screws/Machine Screw.png" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function MachineScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/products/screws/machine-screws/${screw.slug}`}
+            href={`/category/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>
