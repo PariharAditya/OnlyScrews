@@ -1,12 +1,7 @@
 "use client";
 
-
-
 import { ProductCategoryLayout } from "@/components/product-categories/ProductCategoryLayout";
 import { ProductCategoryCard } from "@/components/product-categories/ProductCategoryCard";
-
-import Image from "next/image";
-import Link from "next/link";
 
 export default function ProductsPage() {
   const productCategories = [

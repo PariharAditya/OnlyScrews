@@ -9,7 +9,7 @@ export default function SelfTappingScrewsPage() {
     { title: "Phillip STS", slug: "phillip-sts", image: "/images/products/screws/self tapping screws/Phillips STS.png" },
     { title: "Hex STS", slug: "hex-sts", image: "/images/products/screws/self tapping screws/Hex sts.png" },
     { title: "Allen STS", slug: "allen-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
-    { title: "Torx STS", slug: "torx-sts", image: "/images/products/screws/self tapping screws/Torx STS.png" },
+    { title: "Torx STS", slug: "pan-torx-sts", image: "/images/products/screws/self tapping screws/Torx STS.png" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export default function SelfTappingScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/products/screws/self-tapping-screws/${screw.slug}`}
+            href={`/category/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>

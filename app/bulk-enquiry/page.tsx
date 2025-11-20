@@ -62,7 +62,7 @@ export default function BulkEnquiry() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                   required
                 />
               </div>
@@ -75,7 +75,7 @@ export default function BulkEnquiry() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email *"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                   required
                 />
               </div>
@@ -89,7 +89,7 @@ export default function BulkEnquiry() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone number"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                 required
               />
             </div>
@@ -102,16 +102,17 @@ export default function BulkEnquiry() {
                 onChange={handleChange}
                 placeholder="Comment"
                 rows={6}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all resize-none"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all resize-none"
                 required
               />
             </div>
 
             {/* Submit Button */}
-            <div className="text-right">
+            <div className="text-center">
               <button
                 type="submit"
-                className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200"
+                className="mx-auto block bg-[#BCFF83] text-black px-8 py-3 rounded-lg font-bold hover:brightness-95 transition duration-200 cursor-pointer"
+                style={{ boxShadow: '0 6px 18px rgba(188,255,131,0.12)' }}
               >
                 Send
               </button>
