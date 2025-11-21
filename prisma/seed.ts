@@ -26,52 +26,29 @@ async function main() {
             },
         });
 
-        let catOrder = 0;
+        // Create a single dummy category for each main category (required by schema)
+        const createdCategory = await prisma.category.create({
+            data: {
+                name: mainCat.mainCategory,
+                slug: `${mainCat.slug}-items`,
+                mainCategoryId: createdMainCategory.id,
+                sortOrder: 0,
+            },
+        });
 
-        for (const cat of mainCat.categories) {
-            console.log(`  📁 Creating category: ${cat.name}`);
+        // Create subcategories directly from items
+        let itemOrder = 0;
+        for (const item of mainCat.items) {
+            console.log(`  📄 Creating item: ${item.name}`);
 
-            const createdCategory = await prisma.category.create({
+            await prisma.subcategory.create({
                 data: {
-                    name: cat.name,
-                    slug: cat.slug,
-                    mainCategoryId: createdMainCategory.id,
-                    sortOrder: catOrder++,
+                    name: item.name,
+                    slug: item.slug,
+                    categoryId: createdCategory.id,
+                    sortOrder: itemOrder++,
                 },
             });
-
-            let subcatOrder = 0;
-
-            for (const subcat of cat.subcategories) {
-                console.log(`    📄 Creating subcategory: ${subcat.name}`);
-
-                const createdSubcategory = await prisma.subcategory.create({
-                    data: {
-                        name: subcat.name,
-                        slug: subcat.slug,
-                        categoryId: createdCategory.id,
-                        sortOrder: subcatOrder++,
-                    },
-                });
-
-                // If there are types, create them as products
-                if (subcat.types && subcat.types.length > 0) {
-                    let typeOrder = 0;
-                    for (const type of subcat.types) {
-                        const typeSlug = type.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
-                        console.log(`      🔩 Creating product: ${type}`);
-
-                        await prisma.product.create({
-                            data: {
-                                name: type,
-                                slug: typeSlug,
-                                subcategoryId: createdSubcategory.id,
-                                sortOrder: typeOrder++,
-                            },
-                        });
-                    }
-                }
-            }
         }
     }
 
@@ -88,7 +65,7 @@ async function main() {
     console.log('\n📊 Summary:');
     console.log(`   Main Categories: ${counts[0]}`);
     console.log(`   Categories: ${counts[1]}`);
-    console.log(`   Subcategories: ${counts[2]}`);
+    console.log(`   Subcategories (Items): ${counts[2]}`);
     console.log(`   Products: ${counts[3]}`);
 }
 
