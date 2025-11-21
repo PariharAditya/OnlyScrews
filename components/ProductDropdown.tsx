@@ -95,62 +95,64 @@ export default function ProductDropdown({
               >
                 {mainCat.mainCategory}
               </Link>
-              {mainCat.categories.length > 0 && mainCat.categories.some(cat => cat.subcategories.length > 0) && (
-                <button
-                  onClick={() =>
-                    setExpandedMainCat(
-                      expandedMainCat === mainCat.slug ? null : mainCat.slug
-                    )
-                  }
-                  className="p-1"
-                  aria-label={`Toggle ${mainCat.mainCategory} submenu`}
-                >
-                  <ChevronRight
-                    className={`w-4 h-4 transition-transform ${
-                      expandedMainCat === mainCat.slug ? "rotate-90" : ""
-                    }`}
-                  />
-                </button>
-              )}
+              {mainCat.categories.length > 0 &&
+                mainCat.categories.some(
+                  (cat) => cat.subcategories.length > 0
+                ) && (
+                  <button
+                    onClick={() =>
+                      setExpandedMainCat(
+                        expandedMainCat === mainCat.slug ? null : mainCat.slug
+                      )
+                    }
+                    className="p-1"
+                    aria-label={`Toggle ${mainCat.mainCategory} submenu`}
+                  >
+                    <ChevronRight
+                      className={`w-4 h-4 transition-transform ${
+                        expandedMainCat === mainCat.slug ? "rotate-90" : ""
+                      }`}
+                    />
+                  </button>
+                )}
             </div>
 
             {/* Items directly under main category */}
             {expandedMainCat === mainCat.slug && (
               <div className="pl-4 mt-2 space-y-1">
-                {mainCat.categories.length === 1 && mainCat.categories[0].slug.endsWith('-items') ? (
-                  // Flat structure: show items directly
-                  mainCat.categories[0].subcategories.map((item) => (
-                    <Link
-                      key={item.slug}
-                      href={`/category/${item.slug}`}
-                      className="block text-gray-600 hover:text-purple-600 text-sm py-1"
-                      onClick={onItemClick}
-                    >
-                      {item.name}
-                    </Link>
-                  ))
-                ) : (
-                  // Hierarchical structure: show categories, then items
-                  mainCat.categories.map((category) => (
-                    <div key={category.slug} className="mb-3">
-                      <div className="text-gray-700 font-medium text-sm mb-1">
-                        {category.name}
+                {mainCat.categories.length === 1 &&
+                mainCat.categories[0].slug.endsWith("-items")
+                  ? // Flat structure: show items directly
+                    mainCat.categories[0].subcategories.map((item) => (
+                      <Link
+                        key={item.slug}
+                        href={`/category/${item.slug}`}
+                        className="block text-gray-600 hover:text-purple-600 text-sm py-1"
+                        onClick={onItemClick}
+                      >
+                        {item.name}
+                      </Link>
+                    ))
+                  : // Hierarchical structure: show categories, then items
+                    mainCat.categories.map((category) => (
+                      <div key={category.slug} className="mb-3">
+                        <div className="text-gray-700 font-medium text-sm mb-1">
+                          {category.name}
+                        </div>
+                        <div className="pl-3 space-y-1">
+                          {category.subcategories.map((item) => (
+                            <Link
+                              key={item.slug}
+                              href={`/category/${item.slug}`}
+                              className="block text-gray-600 hover:text-purple-600 text-xs py-1"
+                              onClick={onItemClick}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <div className="pl-3 space-y-1">
-                        {category.subcategories.map((item) => (
-                          <Link
-                            key={item.slug}
-                            href={`/category/${item.slug}`}
-                            className="block text-gray-600 hover:text-purple-600 text-xs py-1"
-                            onClick={onItemClick}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))
-                )}
+                    ))}
               </div>
             )}
           </div>
@@ -224,9 +226,12 @@ export default function ProductDropdown({
                         <span className="text-gray-700 font-medium">
                           {mainCat.mainCategory}
                         </span>
-                        {mainCat.categories.length > 0 && mainCat.categories.some(cat => cat.subcategories.length > 0) && (
-                          <ChevronRight className="w-4 h-4 text-gray-400" />
-                        )}
+                        {mainCat.categories.length > 0 &&
+                          mainCat.categories.some(
+                            (cat) => cat.subcategories.length > 0
+                          ) && (
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                          )}
                       </Link>
 
                       {/* Items submenu */}
@@ -240,42 +245,43 @@ export default function ProductDropdown({
                           >
                             <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
                               <div className="py-2">
-                                {mainCat.categories.length === 1 && mainCat.categories[0].slug.endsWith('-items') ? (
-                                  // Flat structure: show items directly
-                                  mainCat.categories[0].subcategories.map((item) => (
-                                    <Link
-                                      key={item.slug}
-                                      href={`/category/${item.slug}`}
-                                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                                    >
-                                      <span className="text-gray-700 text-sm">
-                                        {item.name}
-                                      </span>
-                                    </Link>
-                                  ))
-                                ) : (
-                                  // Hierarchical structure: show categories with items
-                                  mainCat.categories.map((category) => (
-                                    <div key={category.slug} className="mb-2">
-                                      <div className="px-4 py-2 bg-gray-50">
-                                        <span className="text-gray-900 font-semibold text-sm">
-                                          {category.name}
-                                        </span>
-                                      </div>
-                                      {category.subcategories.map((item) => (
+                                {mainCat.categories.length === 1 &&
+                                mainCat.categories[0].slug.endsWith("-items")
+                                  ? // Flat structure: show items directly
+                                    mainCat.categories[0].subcategories.map(
+                                      (item) => (
                                         <Link
                                           key={item.slug}
                                           href={`/category/${item.slug}`}
-                                          className="block px-6 py-2 hover:bg-gray-50 transition-colors"
+                                          className="block px-4 py-2 hover:bg-gray-50 transition-colors"
                                         >
                                           <span className="text-gray-700 text-sm">
                                             {item.name}
                                           </span>
                                         </Link>
-                                      ))}
-                                    </div>
-                                  ))
-                                )}
+                                      )
+                                    )
+                                  : // Hierarchical structure: show categories with items
+                                    mainCat.categories.map((category) => (
+                                      <div key={category.slug} className="mb-2">
+                                        <div className="px-4 py-2 bg-gray-50">
+                                          <span className="text-gray-900 font-semibold text-sm">
+                                            {category.name}
+                                          </span>
+                                        </div>
+                                        {category.subcategories.map((item) => (
+                                          <Link
+                                            key={item.slug}
+                                            href={`/category/${item.slug}`}
+                                            className="block px-6 py-2 hover:bg-gray-50 transition-colors"
+                                          >
+                                            <span className="text-gray-700 text-sm">
+                                              {item.name}
+                                            </span>
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    ))}
                               </div>
                             </div>
                           </div>
