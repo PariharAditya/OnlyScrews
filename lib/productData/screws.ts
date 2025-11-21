@@ -1,7 +1,7 @@
 // Machine Screws - Allen Screws
 export const screwsData = {
   "shcs-machine-screws": {
-    title: "SHCS Machine Screws | Socket Head Cap Screws | Hex Allen Drive | High Tensile | Fully Threaded | Multiple Materials Available",
+    title: "Allen Cap Socket Head Cap Screw (SHCS)",
     images: [
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
@@ -16,19 +16,21 @@ export const screwsData = {
       { id: 6, name: "Nylon", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 7, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "These Socket Head Cap Screws (SHCS) are high-strength hex Allen drive bolts designed for reliable fastening. Manufactured from High Tensile Carbon Steel, they provide excellent strength, durability, and resistance to wear under heavy load applications. The fully threaded machine design ensures secure grip and dependable performance in a variety of applications, including machinery, automotive repairs, furniture assembly, and general DIY projects.",
+    about: "An Allen Cap Socket Head Cap Screw (SHCS) is a high-strength fastener featuring a cylindrical head with an internal hex drive, allowing reliable tightening using a hex key. Its design offers excellent clamping force, durability, and the ability to fit into confined areas, making it a preferred choice in precision engineering, heavy machinery, and structural assemblies.",
+
     specifications: [
-      { label: "Item Dimensions", value: "20 x 8 x 8 Millimeters" },
-      { label: "Thread Size", value: "M8" },
-      { label: "Item Weight", value: "40 Grams" },
-      { label: "Thread Coverage", value: "Fully Threaded" },
-      { label: "Fastener Size", value: "M8" },
-      { label: "Drive Type", value: "Hex Allen" },
+      { label: "Application", value: "Used in machinery, automotive, and industrial equipment for high-strength fastening" },
+      { label: "Application", value: "Ideal where precise torque and strong clamping force are required" },
+      { label: "Application", value: "Suitable for tight or recessed spaces due to its compact socket-head design" },
+      { label: "Application", value: "Common in robotics, assemblies, and metal fabrication" },
+      { label: "Application", value: "Frequently used with Allen/hex keys for secure installation and easy maintenance" },
+      { label: "Application", value: "Frequently chosen for aesthetic assemblies or where snag-free surfaces are needed" },
     ],
   },
 
   "bhcs-machine-screws": {
-    title: "BHCS Machine Screws | Button Head Cap Screws | Hex Allen Drive | High Tensile | Fully Threaded | Multiple Materials Available",
+    title: "Allen Button Head Cap Screw (BHCS)",
+
     images: [
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
@@ -43,19 +45,20 @@ export const screwsData = {
       { id: 6, name: "Nylon", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 7, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Button Head Cap Screws (BHCS) feature a low-profile, rounded head design that provides a sleek appearance while maintaining high strength. These hex Allen drive bolts are perfect for applications where a flush or near-flush finish is desired. Manufactured from high-quality materials, they offer excellent corrosion resistance and durability for demanding applications.",
+    about: " An Allen Button Head Cap Screw (BHCS) is a machine screw featuring a rounded, low-profile head with an internal hex drive. It offers a clean appearance, easy installation, and a broader bearing surface, making it well-suited for fastening panels, guards, and components where moderate strength, safety, and aesthetics are important.",
+
     specifications: [
-      { label: "Head Type", value: "Button Head" },
-      { label: "Drive Type", value: "Hex Allen" },
-      { label: "Thread Coverage", value: "Fully Threaded" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Finish Options", value: "Multiple Available" },
-      { label: "Application", value: "General Purpose" },
+      { label: "Application", value: "Commonly used in machinery, equipment assemblies, and consumer products" },
+      { label: "Application", value: "Ideal for applications needing a low-profile, smooth, and rounded head" },
+      { label: "Application", value: "Useful where a wider bearing surface is required to prevent material damage" },
+      { label: "Application", value: "Suitable for panels, guards, covers, and aesthetic assemblies" },
+      { label: "Application", value: "Installed using a hex/Allen key for secure and convenient fastening" },
     ],
   },
 
   "csk-machine-screws": {
-    title: "CSK Machine Screws | Countersunk Allen Screws | Flush Finish | High Tensile | Multiple Materials Available",
+    title: "Allen Countersunk Screw (CSK)",
+
     images: [
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
@@ -70,19 +73,18 @@ export const screwsData = {
       { id: 6, name: "Nylon", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 7, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Countersunk (CSK) Allen Machine Screws are designed to sit flush with the surface when installed in a countersunk hole. These screws feature a flat head with a conical bearing surface, making them ideal for applications requiring a smooth, flush finish. Perfect for woodworking, metalworking, and precision assembly applications.",
+    about: "An Allen CSK (Countersunk) Screw features a flat, conical head designed to sit flush with the surface once installed, providing a clean and streamlined finish. With its internal hex drive, it ensures precise tightening and is widely used in machinery, panels, and assemblies that require smooth, obstruction-free surfaces.",
     specifications: [
-      { label: "Head Type", value: "Countersunk (CSK)" },
-      { label: "Drive Type", value: "Hex Allen" },
-      { label: "Thread Coverage", value: "Fully Threaded" },
-      { label: "Finish", value: "Flush Mount" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Application", value: "Precision Assembly" },
+      { label: "Application", value: "Used where a flush, flat surface finish is required after fastening" },
+      { label: "Application", value: "Ideal for machinery, metalworks, woodworking, and precision assemblies" },
+      { label: "Application", value: "Suitable for fastening panels, hinges, brackets, and structural components" },
+      { label: "Application", value: "Common in applications where snag-free, smooth surfaces are important" },
+      { label: "Application", value: "Installed using a hex/Allen key for accurate torque and secure fit" },
     ],
   },
 
   "grub-screws": {
-    title: "Grub Screws | Set Screws | Hex Allen Drive | Headless Design | High Tensile | Multiple Materials",
+    title: "Allen Grub Screw",
     images: [
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
       "/images/products/screws/machine screws/Allen Button Head BHCS.png",
@@ -96,19 +98,20 @@ export const screwsData = {
       { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 6, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Grub Screws (also known as set screws) are headless fasteners with a hex Allen socket drive. They are designed to be screwed completely into a threaded hole, sitting flush or below the surface. Commonly used to secure rotating components like gears, pulleys, and collars onto shafts.",
+    about: "An Allen Grub Screw is a headless screw with an internal hex drive designed to sit entirely within a threaded hole, providing a clean and concealed fastening solution. It is primarily used to lock components onto a shaft or prevent movement between parts, offering strong holding force in tight or compact mechanical assemblies.",
+
     specifications: [
-      { label: "Type", value: "Headless Set Screw" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Point Styles", value: "Cup, Cone, Flat, Dog" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Application", value: "Shaft Locking" },
-      { label: "Installation", value: "Flush/Below Surface" },
+      { label: "Application", value: "Commonly used to secure pulleys, collars, gears, and knobs onto shafts" },
+      { label: "Application", value: "Ideal for applications requiring a flush or hidden fastening point" },
+      { label: "Application", value: "Widely used in machinery, automotive parts, and mechanical assemblies" },
+      { label: "Application", value: "Suitable for precision components where space is limited" },
+      { label: "Application", value: "Provides strong holding power using an internal hex/Allen drive" },
     ],
   },
 
   "jcb-screws": {
-    title: "JCB Screws | Heavy Duty Machine Screws | High Tensile | Industrial Grade | Multiple Sizes | Applications",
+    title: "JCB Screw",
+
     images: [
       "/images/products/screws/machine screws/JCB Screw.png",
       "/images/products/screws/machine screws/JCB Screw.png",
@@ -120,19 +123,19 @@ export const screwsData = {
       { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
       { id: 4, name: "Alloy Steel", color: "from-slate-500 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "JCB Screws are heavy-duty industrial machine screws designed for demanding applications in construction equipment, machinery, and automotive industries. They offer high tensile strength and excellent durability for critical fastening requirements.",
+    about: "A JCB Screw is a specialized fastener widely used in furniture manufacturing and assembly. Designed to work with JCB nuts or inserts, it provides strong, stable joints between wooden panels. Its coarse threads and robust construction ensure reliable fastening, making it a popular choice for flat-pack furniture and modular wooden structures.",
     specifications: [
-      { label: "Type", value: "Heavy Duty Machine Screw" },
-      { label: "Grade", value: "High Tensile, Industrial" },
-      { label: "Drive Type", value: "Hex, Allen Socket" },
-      { label: "Application", value: "Heavy Equipment, Machinery" },
-      { label: "Strength", value: "High Tensile Grade" },
-      { label: "Industry", value: "Construction, Automotive, Industrial" },
+      { label: "Application", value: "Commonly used in furniture assembly, especially for connecting wooden panels" },
+      { label: "Application", value: "Ideal for flat-pack furniture, cabinets, wardrobes, and modular fixtures" },
+      { label: "Application", value: "Suitable for strong, rigid joints between wood or particle board components" },
+      { label: "Application", value: "Frequently paired with JCB nuts or inserts to create high-strength connections" },
+      { label: "Application", value: "Useful in applications requiring frequent assembly and disassembly" },
     ],
   },
 
   "pan-torx": {
-    title: "Pan Torx Machine Screws | Torx Drive | High Torque Transfer | Reduced Cam-Out | Multiple Materials",
+    title: "Pan Phillips Machine Screw",
+
     images: [
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
@@ -146,19 +149,21 @@ export const screwsData = {
       { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 6, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Pan Head Torx Machine Screws feature a star-shaped Torx drive that provides superior torque transfer and significantly reduces cam-out compared to Phillips or slotted drives. The pan head design offers a low-profile appearance with a wide bearing surface for secure fastening.",
+    about: " A Pan Phillips Machine Screw features a rounded, slightly raised pan head with a Phillips cross-drive, providing stable tool engagement and neat appearance. Designed for machine-threaded applications, it offers reliable fastening for metal or plastic components and is widely used in electronics, appliances, and general hardware assembly.",
+
     specifications: [
-      { label: "Head Type", value: "Pan Head" },
-      { label: "Drive Type", value: "Torx (Star)" },
-      { label: "Cam-Out Resistance", value: "Excellent" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Thread Coverage", value: "Fully Threaded" },
-      { label: "Application", value: "Precision Assembly" },
+      { label: "Application", value: "Used in electronics, appliances, and general industrial assemblies" },
+      { label: "Application", value: "Ideal for fastening metal, plastic, and light mechanical components" },
+      { label: "Application", value: "Suitable for panels, brackets, enclosures, and device housings" },
+      { label: "Application", value: "Common in automotive interiors, electrical equipment, and consumer products" },
+      { label: "Application", value: "Easy to install and remove using standard Phillips screwdrivers" },
     ],
+
   },
 
   "csk-torx": {
-    title: "CSK Torx Machine Screws | Countersunk Torx | Flush Finish | High Torque | Reduced Cam-Out",
+    title: "CSK Phillips Machine Screw",
+
     images: [
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
@@ -172,19 +177,18 @@ export const screwsData = {
       { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 6, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Countersunk Torx Machine Screws combine the flush-mounting benefits of a countersunk head with the superior torque transfer of Torx drive. These screws sit flush with the surface when properly installed, providing a smooth finish while the Torx drive ensures easy installation.",
+    about: " A CSK Phillips Machine Screw features a flat, countersunk head designed to sit flush with the material surface, providing a clean and snag-free finish. The Phillips cross-drive allows easy alignment and efficient torque application, making this screw ideal for electronics, hardware fittings, and assemblies requiring a neat, professional appearance.",
     specifications: [
-      { label: "Head Type", value: "Countersunk (CSK)" },
-      { label: "Drive Type", value: "Torx (Star)" },
-      { label: "Finish", value: "Flush Mount" },
-      { label: "Cam-Out Resistance", value: "Excellent" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Application", value: "Woodworking, Metalworking" },
+      { label: "Application", value: "Used where a flush, smooth surface finish is required after fastening" },
+      { label: "Application", value: "Ideal for electronics, appliances, furniture hardware, and precision assemblies" },
+      { label: "Application", value: "Suitable for metal, plastic, and wood components with countersunk holes" },
+      { label: "Application", value: "Common in panels, hinges, brackets, and structural fittings" },
+      { label: "Application", value: "Installs easily using a standard Phillips screwdriver for secure fastening" },
     ],
   },
 
   "security-pan-torx": {
-    title: "Security Pan Torx | Tamper-Resistant | Pin-in-Torx | High Security Fastening | Multiple Materials",
+    title: "Security Pan Torx Machine Screw",
     images: [
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
@@ -197,19 +201,19 @@ export const screwsData = {
       { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 5, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Security Pan Torx Screws feature a pin-in-Torx (Torx Plus) design that provides tamper resistance, preventing removal with standard Torx drivers. The pan head design offers a low-profile appearance while the security pin requires a special driver bit for installation and removal.",
+    about: "A Security Pan Torx Machine Screw features a rounded pan head and a tamper-resistant Torx drive—typically with a central pin—designed to deter unauthorized access. It offers strong torque transfer, reduced cam-out, and enhanced security, making it ideal for public-facing equipment, protected enclosures, and applications requiring reliable, anti-tamper fastening.",
+    
     specifications: [
-      { label: "Head Type", value: "Pan Head" },
-      { label: "Drive Type", value: "Security Torx (Pin-in-Torx)" },
-      { label: "Security Level", value: "High - Tamper Resistant" },
-      { label: "Special Tool Required", value: "Yes" },
-      { label: "Material Grade", value: "High Tensile" },
-      { label: "Application", value: "Public Installations, Security" },
+      { label: "Application", value: "Used in public-access equipment to prevent tampering or unauthorized removal" },
+      { label: "Application", value: "Ideal for electronics, kiosks, appliances, and security panels" },
+      { label: "Application", value: "Suitable for assemblies requiring moderate strength with added security features" },
+      { label: "Application", value: "Common in automotive interiors, access control devices, and safety enclosures" },
+      { label: "Application", value: "Excellent for installations where vandal resistance is important" },
     ],
   },
 
   "security-csk-torx": {
-    title: "Security CSK Torx | Tamper-Resistant Countersunk | Pin-in-Torx | Flush Finish | High Security",
+    title: "Security CSK Torx Machine Screw",
     images: [
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
       "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
@@ -222,14 +226,13 @@ export const screwsData = {
       { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 5, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Security Countersunk Torx Screws combine flush-mounting capability with tamper-resistant security features. The pin-in-Torx design prevents removal with standard tools while the countersunk head sits flush with the surface.",
+    about: "A Security CSK Torx Machine Screw features a countersunk flat head and a tamper-resistant Torx drive—typically incorporating a central pin—to prevent unauthorized removal. Designed to sit flush with the surface, it offers clean aesthetics, strong torque transfer, and enhanced protection, making it ideal for secure enclosures, machinery, and public-access devices.",
     specifications: [
-      { label: "Head Type", value: "Countersunk (CSK)" },
-      { label: "Drive Type", value: "Security Torx (Pin-in-Torx)" },
-      { label: "Finish", value: "Flush Mount" },
-      { label: "Security Level", value: "High - Tamper Resistant" },
-      { label: "Special Tool Required", value: "Yes" },
-      { label: "Application", value: "Security Applications" },
+      { label: "Application", value: "Used in public-facing or high-security installations to prevent tampering" },
+      { label: "Application", value: "Ideal for access panels, control boxes, and safety equipment" },
+      { label: "Application", value: "Suitable for electronics, automotive fixtures, and industrial machines" },
+      { label: "Application", value: "Common in installations requiring a flush, snag-free finish with added security" },
+      { label: "Application", value: "Excellent for environments where vandal resistance and durability are essential" },
     ],
   },
 
@@ -485,7 +488,7 @@ export const screwsData = {
 
   // Self Drilling Screws
   "pan-sds": {
-    title: "PAN SDS | Pan Head Self-Drilling Screws | Drill Point | No Pre-Drilling | Sheet Metal | Multiple Materials",
+    title: "Pan Self-Drilling Screws",
     images: [
       "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png",
       "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png",
@@ -496,19 +499,20 @@ export const screwsData = {
       { id: 2, name: "Stainless Steel 410", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
       { id: 3, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Pan Head Self-Drilling Screws combine a low-profile pan head with an integrated drill point, eliminating pre-drilling for fast installation. Ideal for HVAC ductwork, metal building assembly, and automotive bodywork.",
+    about: "Pan Self-Drilling Screws feature a rounded, low-profile pan head combined with a drill-point tip that cuts its own hole during installation. This design allows quick fastening without pre-drilling while providing strong, reliable joints in sheet metal and light construction applications. They are widely used for their convenience, clean appearance, and consistent performance.",
+    
     specifications: [
-      { label: "Type", value: "Self-Drilling Screw" },
-      { label: "Head Type", value: "Pan Head" },
-      { label: "Point Type", value: "Drill Point (Tek)" },
-      { label: "Drive Type", value: "Phillips, Torx" },
-      { label: "Application", value: "Sheet Metal, HVAC" },
-      { label: "Thickness Capacity", value: "Up to 12mm" },
+      { label: "Used for fastening thin metal sheets, metal-to-metal, and metal-to-wood connections"},
+      { label: "Ideal for HVAC systems, ductwork, light construction, and general sheet-metal fabrication"},
+      { label: "Suitable for installations where a low-profile, rounded head is preferred"},
+      { label: "Common in enclosure assemblies, electrical panels, and appliance manufacturing"},
+      { label: "Eliminates the need for pre-drilling, speeding up installation and improving efficiency"},
+      
     ],
   },
 
   "hex-sds": {
-    title: "Hex SDS | Hex Head Self-Drilling Screws | High Torque | Drill Point | Metal Roofing | Multiple Materials",
+    title: "Hex Self-Drilling Screws",
     images: [
       "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png",
       "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png",
@@ -519,19 +523,19 @@ export const screwsData = {
       { id: 2, name: "Stainless Steel 410", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
       { id: 3, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Hex Head Self-Drilling Screws offer maximum torque capability with wrench or socket drive, combined with self-drilling convenience. Perfect for structural steel connections, metal roofing, and steel framing.",
+    about: "Hex Self-Drilling Screws feature a hexagonal head and a specialized drill tip that cuts through metal or wood without requiring a pilot hole. Their efficient design saves time during installation while providing excellent holding power, making them a preferred choice for construction, sheet metal work, and industrial applications.",
     specifications: [
-      { label: "Type", value: "Self-Drilling Screw" },
-      { label: "Head Type", value: "Hexagon Head" },
-      { label: "Point Type", value: "Drill Point (Tek #2-#5)" },
-      { label: "Drive Type", value: "Hex Wrench/Socket" },
-      { label: "Application", value: "Metal Roofing, Steel Framing" },
-      { label: "Torque Capability", value: "Very High" },
+      { label: "Used for fastening metal-to-metal or metal-to-wood without the need for pre-drilling"},
+      { label: "Ideal for roofing, cladding, HVAC installations, and metal fabrication"},
+      { label: "Suitable for steel frames, sheet metal work, and construction assemblies"},
+      { label: "Common in rapid installation environments due to built-in drill point"},
+      { label: "Provides strong, secure joints with high resistance to vibration"},
+      
     ],
   },
 
   "csk-sds": {
-    title: "CSK SDS | Countersunk Self-Drilling Screws | Flush Finish | Drill Point | Multiple Materials",
+    title: "CSK Self-Drilling Screws",
     images: [
       "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png",
       "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png",
@@ -542,7 +546,7 @@ export const screwsData = {
       { id: 2, name: "Stainless Steel 410", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
       { id: 3, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Countersunk Self-Drilling Screws provide a flush surface finish while eliminating the need for pre-drilling. Perfect for cabinetry, metal panels, and automotive trim.",
+    about: "CSK Self-Drilling Screws feature a flat, countersunk head designed to sit flush with the surface, along with a drill-point tip that eliminates the need for pilot holes. They offer fast, efficient installation and strong holding power, making them ideal for structural panels, metal fabrication, and applications that require a neat, obstruction-free finish.",
     specifications: [
       { label: "Type", value: "Self-Drilling Screw" },
       { label: "Head Type", value: "Countersunk (CSK)" },

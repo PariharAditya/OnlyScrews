@@ -118,7 +118,7 @@ export const standoffsData = {
   },
 
   "blind-stand-off": {
-    title: "Blind Stand-Off | Press-Fit Standoff | No Access Hole | Sheet Metal | PCB Mounting | Multiple Materials",
+    title: "Blind Stand Off",
     images: [
       "/images/products/standoffs/BLIND STAND-OFF.png",
       "/images/products/standoffs/BLIND STAND-OFF.png",
@@ -130,19 +130,18 @@ export const standoffsData = {
       { id: 3, name: "Aluminum", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 4, name: "Steel Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Blind Stand-Offs are press-fit fasteners that install from one side only, requiring no access to the rear. They create threaded mounting points in thin materials like sheet metal and PCBs where through-holes aren't possible.",
+    about: "Blind Stand Offs are cylindrical spacers with a threaded hole on one side and a closed end on the other. This blind design allows secure mounting without exposing threads or requiring a through-hole on the opposite surface. Perfect for electronic and structural assemblies, Blind Stand Offs ensure precise spacing, clean aesthetics, and strong, reliable support in compact or sensitive setups.",
     specifications: [
-      { label: "Type", value: "Blind Stand-Off (Press-Fit)" },
-      { label: "Installation", value: "One-Side Access Only" },
-      { label: "Method", value: "Press-Fit, Rivet-Style" },
-      { label: "Application", value: "Sheet Metal, PCBs, Panels" },
-      { label: "Access Required", value: "One Side Only" },
-      { label: "Material Thickness", value: "0.5mm - 3mm" },
+      { label: "Application", value: "Used to create a fixed spacing or elevation between two components in assemblies" },
+      { label: "Application", value: "Ideal for electronics, PCB mounting, panels, enclosures, and precision hardware setups" },
+      { label: "Application", value: "Commonly used where one side of the standoff must be closed (blind) for secure, clean fastening" },
+      { label: "Application", value: "Suitable for applications requiring stable support, insulation, and accurate spacing" },
+      { label: "Application", value: "Provides neat, professional assembly by eliminating through-holes on one side" },
     ],
   },
 
   "through-hole-stand-off": {
-    title: "Through-Hole Stand-Off | PCB Standoff | Round | Female-Female | Metric/Imperial | Multiple Materials",
+    title: "Through Hole Stand Off",
     images: [
       "/images/products/standoffs/THROUGH-HOLE STAND-OFF.png",
       "/images/products/standoffs/THROUGH-HOLE STAND-OFF.png",
@@ -154,14 +153,13 @@ export const standoffsData = {
       { id: 3, name: "Aluminum", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 4, name: "Nylon Natural", color: "from-gray-100 to-slate-200", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
     ],
-    about: "Through-Hole Stand-Offs are round female-female standoffs designed for PCB mounting. The central through-hole allows wiring and ventilation, making them ideal for stacking PCBs and electronic assemblies.",
+    about: "Through Hole Stand Offs are cylindrical spacers featuring a continuous hole that allows a screw or bolt to pass fully through the component. This design ensures strong, stable fastening while maintaining consistent spacing and alignment in assemblies. Frequently used in electronics and mechanical setups, Through Hole Stand Offs offer clean, reliable structural separation with the flexibility of through-mount fastening.",
     specifications: [
-      { label: "Type", value: "Through-Hole Stand-Off (Female-Female)" },
-      { label: "Shape", value: "Round with Central Hole" },
-      { label: "Threading", value: "Internal Both Ends" },
-      { label: "Application", value: "PCBs, Electronics, Stacking Boards" },
-      { label: "Common Sizes", value: "M3, M4, #4-40, #6-32" },
-      { label: "Features", value: "Wiring Access, Ventilation" },
+      { label: "Application", value: "Used to create precise spacing and support between two components in an assembly" },
+      { label: "Application", value: "Ideal for PCB mounting, electronic modules, panels, brackets, and enclosure fabrication" },
+      { label: "Application", value: "Commonly used where a fastener needs to pass completely through the standoff for secure, through-bolted connections" },
+      { label: "Application", value: "Suitable for applications requiring accurate alignment, insulation, or structural separation" },
+      { label: "Application", value: "Provides stable mounting while allowing screws or bolts to run end-to-end through the standoff" },
     ],
   },
 };

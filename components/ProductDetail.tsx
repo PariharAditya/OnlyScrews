@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface ProductDetailProps {
@@ -38,6 +38,10 @@ export default function ProductDetail({
     quantity: "",
     message: "",
   });
+  const mainFrameRef = useRef<HTMLDivElement | null>(null);
+  const availabilityRef = useRef<HTMLButtonElement | null>(null);
+  
+  const [availabilityMinHeight, setAvailabilityMinHeight] = useState<number | null>(null);
 
   const nextImage = () => {
     setMainImageIndex((prev) => (prev + 1) % images.length);
@@ -46,6 +50,34 @@ export default function ProductDetail({
   const prevImage = () => {
     setMainImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
+
+  useEffect(() => {
+    // Use ResizeObserver to update the frame height and availability height so they align at the bottom
+    const updateHeights = () => {
+      const frameEl = mainFrameRef.current;
+      const availEl = availabilityRef.current;
+      if (!frameEl) return;
+      const frameRect = frameEl.getBoundingClientRect();
+      if (availEl) {
+        const availRect = availEl.getBoundingClientRect();
+        // compute height so availability bottom aligns with frame bottom
+        const needed = Math.max(0, frameRect.bottom - availRect.top);
+        setAvailabilityMinHeight(needed);
+      }
+    };
+
+    const ro = new ResizeObserver(() => updateHeights());
+    if (mainFrameRef.current) ro.observe(mainFrameRef.current);
+    if (availabilityRef.current) ro.observe(availabilityRef.current);
+    // Also observe window resize
+    window.addEventListener("resize", updateHeights);
+    // fallback: initial set after next paint
+    requestAnimationFrame(updateHeights);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", updateHeights);
+    };
+  }, [selectedMaterial, mainImageIndex]);
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-white py-12 px-4 sm:px-6 lg:px-8">
@@ -58,11 +90,11 @@ export default function ProductDetail({
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-stretch">
           {/* Left Column - Images */}
           <div className="flex flex-col gap-6">
             {/* Main Image */}
-            <div className="bg-white rounded-2xl aspect-square overflow-hidden flex items-center justify-center p-8 sm:p-12">
+            <div ref={mainFrameRef} className="bg-white rounded-2xl aspect-square overflow-hidden flex items-center justify-center p-8 sm:p-12">
               <img
                 src={images[mainImageIndex]}
                 alt="Product"
@@ -108,7 +140,7 @@ export default function ProductDetail({
           </div>
 
           {/* Right Column - Details */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8 h-full">
             {/* Material Section */}
             <div>
               <h3 className="text-base font-heading font-semibold mb-4 text-[#BCFF83]">
@@ -138,7 +170,10 @@ export default function ProductDetail({
               </h3>
               <button
                 onClick={() => setShowMaterialImageModal(true)}
-                className="w-full rounded-lg overflow-hidden aspect-video relative transition-all duration-500 hover:opacity-90 cursor-pointer border border-gray-700 bg-[#0f0f0f]"
+                className="w-full rounded-lg overflow-hidden relative transition-all duration-500 hover:opacity-90 cursor-pointer border border-gray-700 bg-[#0f0f0f]"
+                aria-label={`${materials[selectedMaterial].name} image`}
+                ref={availabilityRef}
+                style={{ minHeight: availabilityMinHeight ? `${availabilityMinHeight}px` : undefined }}
               >
                 <img
                   src={materials[selectedMaterial].image}
@@ -203,7 +238,11 @@ export default function ProductDetail({
                   <li key={`${spec.label}-${spec.value}`} className="flex items-start gap-3">
                     <span className="text-[#A3F61E] font-bold">•</span>
                     <span>
-                      {spec.label}: {spec.value}
+                      {spec.label && spec.label.toLowerCase() === "application"
+                        ? spec.value
+                        : spec.label
+                        ? `${spec.label}: ${spec.value}`
+                        : spec.value}
                     </span>
                   </li>
                 ))}
