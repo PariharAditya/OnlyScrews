@@ -20,8 +20,16 @@ export interface ProductCategory {
 export interface ProductHierarchy {
     mainCategory: string;
     slug: string;
-    items: {
+    items?: {
         name: string;
         slug: string;
+    }[];
+    categories?: {
+        name: string;
+        slug: string;
+        items: {
+            name: string;
+            slug: string;
+        }[];
     }[];
 }

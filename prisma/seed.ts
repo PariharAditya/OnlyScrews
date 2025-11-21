@@ -26,29 +26,60 @@ async function main() {
             },
         });
 
-        // Create a single dummy category for each main category (required by schema)
-        const createdCategory = await prisma.category.create({
-            data: {
-                name: mainCat.mainCategory,
-                slug: `${mainCat.slug}-items`,
-                mainCategoryId: createdMainCategory.id,
-                sortOrder: 0,
-            },
-        });
+        // Check if this main category has hierarchical structure or flat items
+        if (mainCat.categories) {
+            // Hierarchical structure (e.g., Screws with subcategories)
+            let categoryOrder = 0;
+            for (const category of mainCat.categories) {
+                console.log(`  📂 Creating category: ${category.name}`);
 
-        // Create subcategories directly from items
-        let itemOrder = 0;
-        for (const item of mainCat.items) {
-            console.log(`  📄 Creating item: ${item.name}`);
+                const createdCategory = await prisma.category.create({
+                    data: {
+                        name: category.name,
+                        slug: category.slug,
+                        mainCategoryId: createdMainCategory.id,
+                        sortOrder: categoryOrder++,
+                    },
+                });
 
-            await prisma.subcategory.create({
+                let itemOrder = 0;
+                for (const item of category.items) {
+                    console.log(`    📄 Creating item: ${item.name}`);
+
+                    await prisma.subcategory.create({
+                        data: {
+                            name: item.name,
+                            slug: item.slug,
+                            categoryId: createdCategory.id,
+                            sortOrder: itemOrder++,
+                        },
+                    });
+                }
+            }
+        } else if (mainCat.items) {
+            // Flat structure (e.g., Bolts, Nuts with direct items)
+            const createdCategory = await prisma.category.create({
                 data: {
-                    name: item.name,
-                    slug: item.slug,
-                    categoryId: createdCategory.id,
-                    sortOrder: itemOrder++,
+                    name: mainCat.mainCategory,
+                    slug: `${mainCat.slug}-items`,
+                    mainCategoryId: createdMainCategory.id,
+                    sortOrder: 0,
                 },
             });
+
+            let itemOrder = 0;
+            for (const item of mainCat.items) {
+                console.log(`  📄 Creating item: ${item.name}`);
+
+                await prisma.subcategory.create({
+                    data: {
+                        name: item.name,
+                        slug: item.slug,
+                        categoryId: createdCategory.id,
+                        sortOrder: itemOrder++,
+                    },
+                });
+            }
         }
     }
 
