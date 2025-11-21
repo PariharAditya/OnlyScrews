@@ -1,7 +1,7 @@
 // Anchors Data
 export const anchorsData = {
   "wedge-anchor": {
-    title: "Wedge Anchor | Expansion Anchor | Concrete Anchor | Heavy Duty | Permanent | Multiple Sizes",
+    title: "Wedge Anchor",
     images: [
       "/images/products/anchors/WEDGE ANCHOR.png",
       "/images/products/anchors/WEDGE ANCHOR.png",
@@ -12,19 +12,18 @@ export const anchorsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
     ],
-    about: "Wedge Anchors are heavy-duty expansion anchors for permanent fastening to concrete, brick, and block. When tightened, the wedge expands into the base material, creating an extremely strong, vibration-resistant connection.",
+    about: "Wedge Anchors are mechanical expansion fasteners designed for solid concrete, featuring a tapered end and expansion clip that securely locks into place when tightened. Offering exceptional holding strength, they ensure firm anchoring for structural and heavy-duty applications. With reliable load capacity, corrosion-resistant options, and quick installation, Wedge Anchors provide long-lasting stability and confidence in demanding construction and industrial environments.",
     specifications: [
-      { label: "Type", value: "Wedge Expansion Anchor" },
-      { label: "Installation", value: "Drill, Insert, Tighten" },
-      { label: "Base Material", value: "Concrete, Brick, Block" },
-      { label: "Holding Power", value: "Very High" },
-      { label: "Application", value: "Structural, Heavy Machinery" },
-      { label: "Standard", value: "ASTM F1554" },
+      { label: "Application", value: "Used for heavy-duty fastening into solid concrete, providing strong and permanent anchoring" },
+      { label: "Application", value: "Ideal for structural work, machinery installation, racking systems, and industrial equipment mounting" },
+      { label: "Application", value: "Commonly used in construction, civil projects, steel fabrication, and heavy load-bearing applications" },
+      { label: "Application", value: "Suitable where high pull-out strength, vibration resistance, and long-term stability are required" },
+      { label: "Application", value: "Provides secure, flush, and reliable fastening in environments demanding maximum durability" },
     ],
   },
 
   "pin-type-anchor": {
-    title: "Pin Type Anchor | Pin Drive Anchor | Hammer Drive | Quick Install | Permanent | Multiple Sizes",
+    title: "Pin-Type Anchor",
     images: [
       "/images/products/anchors/PIN TYPE ANCHOR.png",
       "/images/products/anchors/PIN TYPE ANCHOR.png",
@@ -34,19 +33,18 @@ export const anchorsData = {
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 2, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Pin Type Anchors (Hammer Drive Anchors) feature a pin that is hammered to expand the anchor body in the hole. Fast, permanent installation for light to medium-duty applications in concrete and masonry.",
+    about: "Pin-Type Anchors feature a pre-expanded body and a drive pin that, when hammered, locks the anchor securely into the base material. Designed for fast, efficient installation, they offer dependable grip and resistance to loosening under vibration. Perfect for structural supports, mounting applications, and interior or exterior construction work, Pin-Type Anchors deliver stable, long-lasting performance with a clean, professional finish.",
     specifications: [
-      { label: "Type", value: "Pin Drive/Hammer Drive Anchor" },
-      { label: "Installation", value: "Hammer Pin to Expand" },
-      { label: "Base Material", value: "Concrete, Brick, Block" },
-      { label: "Speed", value: "Very Fast Installation" },
-      { label: "Application", value: "Electrical, Plumbing, Fixtures" },
-      { label: "Removal", value: "Permanent (Not Removable)" },
+      { label: "Application", value: "Used for medium to heavy-duty fastening into concrete, block, or solid masonry" },
+      { label: "Application", value: "Ideal for construction, electrical supports, HVAC installations, and equipment mounting" },
+      { label: "Application", value: "Commonly used where quick installation and strong, vibration-resistant anchoring are needed" },
+      { label: "Application", value: "Suitable for fastening brackets, channels, plates, and fixtures to concrete surfaces" },
+      { label: "Application", value: "Provides reliable anchoring with minimal surface damage and clean finishing" },
     ],
   },
 
   "drop-in-anchor": {
-    title: "Drop In Anchor | Flush Mount | Internally Threaded | Concrete Anchor | Multiple Sizes",
+    title: "Drop-In Anchor",
     images: [
       "/images/products/anchors/DROP IN ANCHOR.png",
       "/images/products/anchors/DROP IN ANCHOR.png",
@@ -57,19 +55,18 @@ export const anchorsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Drop In Anchors are internally threaded expansion anchors that sit flush with the concrete surface. Installed by dropping into a drilled hole and expanding with a setting tool, they accept standard bolts for versatile mounting.",
+    about: "Drop-In Anchors are internally threaded expansion anchors designed for solid concrete. Once placed into a drilled hole, the anchor is expanded using a setting tool, creating a secure and permanent mechanical lock within the concrete. Their flush-fit design makes them perfect for overhead and embedded applications where only the threaded connection remains visible. Offering strong load capacity and easy bolt replacement, Drop-In Anchors are ideal for professional, industrial, and structural installations requiring reliable and efficient fastening.",
     specifications: [
-      { label: "Type", value: "Drop In Expansion Anchor" },
-      { label: "Installation", value: "Drop-In, Set with Tool" },
-      { label: "Threading", value: "Internal (Accepts Bolts)" },
-      { label: "Finish", value: "Flush with Surface" },
-      { label: "Application", value: "Overhead, Ceilings, Floors" },
-      { label: "Reusability", value: "Removable Bolts" },
+      { label: "Application", value: "Used for fastening threaded rods, bolts, and hangers into solid concrete" },
+      { label: "Application", value: "Ideal for HVAC systems, electrical supports, pipe hangers, and suspended installations" },
+      { label: "Application", value: "Commonly chosen where flush, internal, and removable fastening is required" },
+      { label: "Application", value: "Suitable for overhead applications, structural supports, and heavy load-bearing setups" },
+      { label: "Application", value: "Provides a clean, level surface since the anchor sits fully inside the concrete" },
     ],
   },
 
   "sleeve-anchor": {
-    title: "Sleeve Anchor | Through Bolt | All-Purpose | Concrete & Block | Multiple Materials & Sizes",
+    title: "Sleeve Anchor",
     images: [
       "/images/products/anchors/SLEEVE ANCHOR.png",
       "/images/products/anchors/SLEEVE ANCHOR.png",
@@ -80,14 +77,13 @@ export const anchorsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Yellow Zinc", color: "from-yellow-300 to-amber-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Sleeve Anchors are versatile expansion anchors for concrete, brick, and block. The expanding sleeve grips the base material as the bolt is tightened, providing reliable holding power in solid and hollow materials.",
+    about: "Sleeve Anchors feature a threaded bolt surrounded by an expansion sleeve that grips the walls of the drilled hole as the nut is tightened. This even, 360° expansion ensures strong holding power across various masonry materials. Offering easy installation, reliable load capacity, and clean finish, Sleeve Anchors are ideal for construction, industrial setups, and structural mounting where dependable, all-purpose anchoring is essential.",
     specifications: [
-      { label: "Type", value: "Sleeve Expansion Anchor" },
-      { label: "Installation", value: "Through Bolt Design" },
-      { label: "Base Material", value: "Concrete, Brick, Block (Solid/Hollow)" },
-      { label: "Configurations", value: "Hex, Acorn, Flat Head" },
-      { label: "Application", value: "All-Purpose, General Construction" },
-      { label: "Standard", value: "ASTM F1554" },
+      { label: "Application", value: "Used for reliable fastening into concrete, brick, block, and other masonry materials" },
+      { label: "Application", value: "Ideal for installing frames, base plates, brackets, railings, HVAC systems, and utility fixtures" },
+      { label: "Application", value: "Commonly chosen where versatility across different masonry types is required" },
+      { label: "Application", value: "Suitable for medium to heavy-duty applications that demand secure, vibration-resistant anchoring" },
+      { label: "Application", value: "Provides strong, uniform expansion that ensures firm grip and stable long-term performance" },
     ],
   },
 
@@ -160,7 +156,7 @@ export const anchorsData = {
   },
 
   "tam-anchor": {
-    title: "TAM Anchor | Threaded Anchor | Masonry Anchor | Self-Tapping | Concrete & Brick | Multiple Sizes",
+    title: "Tam Anchor",
     images: [
       "/images/products/anchors/TAM ANCHOR.png",
       "/images/products/anchors/TAM ANCHOR.png",
@@ -171,19 +167,18 @@ export const anchorsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Yellow Zinc", color: "from-yellow-300 to-amber-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "TAM Anchors (Threaded Anchor Masonry) are self-tapping expansion anchors designed for concrete, brick, and block applications. They feature external threads that cut into the base material, providing secure fastening without expansion mechanisms.",
+    about: "Tam Anchors are heavy-duty mechanical anchors designed to deliver strong and dependable fixation in masonry and concrete. Featuring an expansion mechanism that activates as the screw or bolt is tightened, they ensure a tight, vibration-resistant hold. Perfect for structural fixtures, mounting brackets, and industrial installations, Tam Anchors offer long-lasting support, ease of installation, and consistent performance in demanding environments.",
     specifications: [
-      { label: "Type", value: "Threaded Masonry Anchor (TAM)" },
-      { label: "Installation", value: "Self-Tapping, Direct Drive" },
-      { label: "Base Material", value: "Concrete, Brick, Block" },
-      { label: "Thread Type", value: "External, Self-Cutting" },
-      { label: "Application", value: "Electrical, HVAC, Light Fixtures" },
-      { label: "Removal", value: "Removable/Reusable" },
+      { label: "Application", value: "Used for secure fastening into concrete, brick, and solid masonry surfaces" },
+      { label: "Application", value: "Ideal for construction work, façade installations, metal fixtures, and utility mounting" },
+      { label: "Application", value: "Commonly chosen where a strong, reliable, and permanent fixing is required" },
+      { label: "Application", value: "Suitable for heavy-duty applications that demand high pull-out strength and stability" },
+      { label: "Application", value: "Provides clean, firm anchoring with minimal installation effort" },
     ],
   },
 
   "taper-anchor": {
-    title: "Taper Anchor | Cone Anchor | Expansion Anchor | Heavy Duty | Concrete | Multiple Sizes",
+    title: "Taper Anchor",
     images: [
       "/images/products/anchors/TAPER ANCHOR.png",
       "/images/products/anchors/TAPER ANCHOR.png",
@@ -194,19 +189,18 @@ export const anchorsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Taper Anchors (Cone Anchors) feature a tapered expansion cone that provides strong holding power in concrete. When the nut is tightened, the cone pulls into the anchor shell, expanding it for a secure, permanent connection.",
+    about: "Taper Anchors are precision-formed anchors featuring a gradually tapered body that wedges tightly into drilled concrete holes as the screw or bolt is driven in. This taper action creates strong mechanical interlock, ensuring excellent pull-out resistance and long-term stability. Perfect for heavy fixtures, mounting plates, and structural components, Taper Anchors deliver a strong, efficient, and dependable fastening solution for demanding construction and industrial applications.",
     specifications: [
-      { label: "Type", value: "Taper/Cone Expansion Anchor" },
-      { label: "Installation", value: "Insert, Tighten Nut" },
-      { label: "Base Material", value: "Solid Concrete" },
-      { label: "Expansion", value: "Tapered Cone Design" },
-      { label: "Application", value: "Structural, Heavy Load Applications" },
-      { label: "Holding Power", value: "Very High" },
+      { label: "Application", value: "Used for secure fastening into solid concrete and hard masonry surfaces" },
+      { label: "Application", value: "Ideal for construction, structural supports, machinery mounting, and heavy-duty fixtures" },
+      { label: "Application", value: "Commonly used where reliable, high-strength anchoring is required without complex installation" },
+      { label: "Application", value: "Suitable for applications exposed to vibration, load shifts, or continuous stress" },
+      { label: "Application", value: "Provides firm, durable holding power with simple drill-and-drive installation" },
     ],
   },
 
   "shield-anchor": {
-    title: "Shield Anchor | Lag Shield | Screw Expansion | Concrete & Masonry | Multiple Sizes",
+    title: "Shield Anchor",
     images: [
       "/images/products/anchors/SHIELD ANCHOR.png",
       "/images/products/anchors/SHIELD ANCHOR.png",
@@ -217,14 +211,13 @@ export const anchorsData = {
       { id: 2, name: "Lead (Traditional)", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "Zamak Alloy", color: "from-slate-300 to-gray-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Shield Anchors (Lag Shields) are expansion anchors that accept lag screws or wood screws. As the screw is driven, the shield expands against the hole walls, providing secure anchoring in concrete, brick, and block.",
+    about: "Shield Anchors are heavy-duty expansion anchors consisting of a thick metal sleeve that spreads outward as the bolt is tightened, gripping the masonry with strong mechanical interlock. Their multi-segment design ensures broad surface contact for maximum holding strength, even in weaker masonry. Perfect for industrial installations, construction fixtures, and load-bearing applications, Shield Anchors deliver dependable stability, excellent durability, and secure fastening across a wide range of masonry materials.",
     specifications: [
-      { label: "Type", value: "Shield/Lag Shield Expansion Anchor" },
-      { label: "Installation", value: "Insert Shield, Drive Lag Screw" },
-      { label: "Base Material", value: "Concrete, Brick, Block" },
-      { label: "Accepts", value: "Lag Screws, Wood Screws" },
-      { label: "Application", value: "Wood to Masonry, General Construction" },
-      { label: "Load Capacity", value: "Medium to High" },
+      { label: "Application", value: "Used for strong anchoring in brick, block, stone, and solid masonry surfaces" },
+      { label: "Application", value: "Ideal for heavy fixtures such as gates, railings, machinery bases, brackets, and structural supports" },
+      { label: "Application", value: "Commonly chosen where high pull-out strength and reliable load distribution are required" },
+      { label: "Application", value: "Suitable for applications exposed to vibration, dynamic loads, or varying environmental conditions" },
+      { label: "Application", value: "Provides secure, permanent fastening through robust expansion inside the base material" },
     ],
   },
 };

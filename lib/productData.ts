@@ -9,7 +9,8 @@ import { spacersData } from './productData/spacers';
 import { rivetsData } from './productData/rivets';
 
 // Merge all product data into a single object
-export const productData: Record<string, any> = {
+// Merge all category data
+const mergedData: Record<string, any> = {
   ...screwsData,
   ...boltsData,
   ...nutsData,
@@ -19,3 +20,17 @@ export const productData: Record<string, any> = {
   ...spacersData,
   ...rivetsData,
 };
+
+// Normalize washer specification labels to "Application" so ProductDetail shows bullets only.
+// This avoids needing to edit every washer file entry individually.
+Object.keys(washersData).forEach((key) => {
+  const item = mergedData[key];
+  if (item && Array.isArray(item.specifications)) {
+    item.specifications = item.specifications.map((spec: any) => ({
+      label: 'Application',
+      value: spec.value,
+    }));
+  }
+});
+
+export const productData: Record<string, any> = mergedData;

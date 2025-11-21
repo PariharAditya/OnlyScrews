@@ -1,7 +1,7 @@
 // Bolts Data
 export const boltsData = {
   "hex-bolt": {
-    title: "Hex Bolt | Hexagon Head Bolt | High Strength | Partial/Full Thread | Multiple Materials Available",
+    title: "Hex Bolt",
     images: [
       "/images/products/bolts/HEX BOLT.png",
       "/images/products/bolts/HEX BOLT.png",
@@ -14,19 +14,19 @@ export const boltsData = {
       { id: 4, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
     ],
-    about: "Hex Bolts are the most common type of bolt, featuring a hexagonal head that provides excellent grip for wrenches and sockets. These bolts deliver high clamping force and are ideal for structural applications, machinery assembly, automotive repair, and general construction.",
+    about: "Hex Bolts feature a six-sided head designed for easy tightening with wrenches or spanners, offering excellent grip and torque. Known for their strength and durability, they ensure secure fastening in both heavy-duty and general-purpose applications. With precise threading and robust construction, Hex Bolts deliver dependable performance, resistance to loosening, and long-lasting stability in structural, mechanical, and engineered assemblies.",
     specifications: [
-      { label: "Head Type", value: "Hexagonal" },
-      { label: "Drive Type", value: "Wrench/Socket" },
-      { label: "Thread Type", value: "Full/Partial Thread" },
-      { label: "Strength Grade", value: "4.6, 5.8, 8.8, 10.9, 12.9" },
-      { label: "Application", value: "Structural, Machinery, Automotive" },
-      { label: "Standard", value: "DIN 931, DIN 933, ISO 4014" },
+    { label: "Application", value: "Used for strong, secure fastening in construction, machinery, automotive, and industrial assemblies" },
+    { label: "Application", value: "Ideal for structural joints, equipment mounting, steel fabrication, and heavy mechanical setups" },
+    { label: "Application", value: "Commonly used with nuts and washers for stable, vibration-resistant connections" },
+    { label: "Application", value: "Suitable for applications requiring high tensile strength and precise torque control" },
+    { label: "Application", value: "Provides reliable fastening in metal, wood, and composite materials across a wide range of projects" },
+    
     ],
   },
 
   "dome-bolt": {
-    title: "Dome Bolt | Domed Head | Decorative Fastening | Smooth Finish | Multiple Materials Available",
+    title: "Dome Bolt",
     images: [
       "/images/products/bolts/DOME BOLT.png",
       "/images/products/bolts/DOME BOLT.png",
@@ -38,19 +38,19 @@ export const boltsData = {
       { id: 3, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
       { id: 4, name: "Chrome", color: "from-gray-200 to-slate-300", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Dome Bolts feature a smooth, rounded decorative head that provides an attractive finish. Perfect for furniture, architectural applications, and anywhere a polished, professional appearance is desired alongside secure fastening.",
+    about: "Dome Bolts feature a rounded, dome-shaped head that offers a smooth and safe finish, making them perfect for exposed or touchable surfaces. The low-profile design not only enhances appearance but also reduces the risk of catching on clothing or skin. With strong threading and reliable fastening capability, Dome Bolts are ideal for furniture, protective covers, and structural assemblies that require both safety and visual appeal.",
     specifications: [
-      { label: "Head Type", value: "Dome/Rounded" },
-      { label: "Finish", value: "Decorative, Polished" },
-      { label: "Thread Type", value: "Partial/Full Thread" },
-      { label: "Application", value: "Furniture, Decorative" },
-      { label: "Appearance", value: "Smooth, Professional" },
-      { label: "Standard", value: "Custom/Decorative" },
+    { label: "Application", value: "Used where a smooth, rounded, and safe head profile is required after fastening" },
+    { label: "Application", value: "Ideal for furniture, machinery covers, playground equipment, decorative fixtures, and public-use installations" },
+    { label: "Application", value: "Chosen to prevent snagging, scratching, or injury thanks to its domed head" },
+    { label: "Application", value: "Suitable for applications requiring clean aesthetics and tamper-resistant fastening" },
+    { label: "Application", value: "Provides secure assembly while maintaining a neat, polished appearance" },
+    
     ],
   },
 
   "flange-button-head-bolt": {
-    title: "Flange Button Head Bolt | Integrated Flange | Wide Bearing | Allen Drive | Multiple Materials",
+    title: "Flange Button Head Bolt",
     images: [
       "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png",
       "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png",
@@ -61,19 +61,17 @@ export const boltsData = {
       { id: 2, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "Alloy Steel", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Flange Button Head Bolts combine a low-profile button head with an integrated flange washer, eliminating the need for separate washers. The flange distributes load over a wider area, preventing damage to soft materials.",
+    about: "Flange Button Head Bolts feature a rounded, low-profile head combined with an integrated flange that spreads load evenly across the surface. This design eliminates the need for additional washers while improving stability and grip. Offering clean appearance, easy installation, and strong fastening, these bolts are perfect for machinery, automotive parts, and assemblies that require both a neat finish and dependable performance.",
     specifications: [
-      { label: "Head Type", value: "Button Head with Flange" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Washer", value: "Integrated Flange" },
-      { label: "Load Distribution", value: "Wide Bearing Surface" },
-      { label: "Application", value: "Automotive, Machinery" },
-      { label: "Profile", value: "Low Profile" },
+    { label: "Application", value: "Used where a wide bearing surface and smooth, low-profile head are required" },
+    { label: "Application", value: "Ideal for automotive assemblies, machinery panels, enclosures, and metal fabrications" },
+    { label: "Application", value: "Distributes load evenly and often eliminates the need for a separate washer" },
+    { label: "Application", value: "Provides reliable, vibration-resistant holding thanks to the integrated flange" },
     ],
   },
 
   "wing-bolt": {
-    title: "Wing Bolt | Hand-Tightened | Quick Release | Tool-Free | Multiple Materials Available",
+    title: "Wing Bolt",
     images: [
       "/images/products/bolts/WING BOLT.png",
       "/images/products/bolts/WING BOLT.png",
@@ -84,19 +82,17 @@ export const boltsData = {
       { id: 2, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Wing Bolts feature wing-shaped heads that allow for hand-tightening without tools. Perfect for applications requiring frequent assembly and disassembly, such as panels, covers, and adjustment points.",
+    about: "Wing Bolts feature two wide “wings” on the head, allowing users to tighten or loosen them easily by hand. Designed for convenience and reusability, they are perfect for adjustable or frequently accessed components. With reliable threading and a grip-friendly shape, Wing Bolts deliver simple, efficient fastening in setups that prioritize ease of use and quick adjustments.",
     specifications: [
-      { label: "Head Type", value: "Wing/Butterfly" },
-      { label: "Installation", value: "Hand-Tightened, Tool-Free" },
-      { label: "Thread Type", value: "Coarse/Fine" },
-      { label: "Application", value: "Quick-Release, Panels" },
-      { label: "Reusability", value: "High - Frequent Use" },
-      { label: "Torque", value: "Manual Tightening" },
+    { label: "Application", value: "Used where quick, tool-free tightening and loosening is required" },
+    { label: "Application", value: "Ideal for fixtures, panels, clamps, DIY assemblies, and adjustable setups" },
+    { label: "Application", value: "Suitable for light to medium-duty fastening in furniture, equipment, and maintenance work" },
+    { label: "Application", value: "Provides convenient, hand-operated fastening without the need for wrenches or screwdrivers" },
     ],
   },
 
   "hex-bolt-half-threaded": {
-    title: "Hex Bolt Half Threaded | Partial Thread | Smooth Shank | High Strength | Multiple Materials",
+    title: "Hex Bolt Half Threaded",
     images: [
       "/images/products/bolts/HEX BOLT HALF THREADED.png",
       "/images/products/bolts/HEX BOLT HALF THREADED.png",
@@ -108,19 +104,16 @@ export const boltsData = {
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 4, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Half Threaded Hex Bolts feature a smooth shank section with threads only at the end, providing precise alignment and reducing stress concentration. The unthreaded portion acts as a dowel pin, ensuring accurate positioning.",
+    about: "Hex Bolt Half Threaded bolts feature a partially threaded design, combining a strong unthreaded shank with a threaded end for secure fastening. The smooth shank enhances shear strength, alignment, and load distribution, making them ideal for structural and mechanical assemblies. With a six-sided head for easy tightening and robust performance, these bolts ensure dependable, long-lasting connections in demanding applications.",
     specifications: [
-      { label: "Head Type", value: "Hexagonal" },
-      { label: "Thread Coverage", value: "Partial (Half Thread)" },
-      { label: "Shank", value: "Smooth Unthreaded Section" },
-      { label: "Strength Grade", value: "8.8, 10.9, 12.9" },
-      { label: "Application", value: "Precision Assembly, Heavy Machinery" },
-      { label: "Standard", value: "DIN 931, ISO 4014" },
+    { label: "Application", value: "Used where high shear strength and strong clamping force are required" },
+    { label: "Application", value: "Ideal for construction, machinery, automotive assemblies, and heavy structural joints" },
+    { label: "Application", value: "Commonly chosen for applications needing a solid, unthreaded shank to bear load and reduce wear" },
     ],
   },
 
   "allen-bolt": {
-    title: "Allen Bolt | Socket Head Cap Bolt | Hex Allen Drive | High Tensile | Multiple Materials",
+    title: "Allen Bolt",
     images: [
       "/images/products/bolts/HEX BOLT HALF THREADED.png",
       "/images/products/bolts/HEX BOLT HALF THREADED.png",
@@ -132,19 +125,17 @@ export const boltsData = {
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 4, name: "Alloy Steel", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Allen Bolts (Socket Head Cap Bolts) feature a hexagonal socket drive in a cylindrical head, providing high-strength fastening with a compact, low-profile design. Perfect for machinery, automotive, and precision assembly.",
+    about: "Allen Bolts feature a cylindrical head with an internal hex drive, allowing tightening with an Allen key for superior control and torque. Known for their strength, durability, and sleek profile, they are perfect for compact assemblies and mechanical structures. With clean looks and excellent load capacity, Allen Bolts deliver dependable fastening in professional, industrial, and high-performance applications.",
     specifications: [
-      { label: "Head Type", value: "Socket Head (Cylindrical)" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Thread Type", value: "Full/Partial Thread" },
-      { label: "Strength Grade", value: "8.8, 10.9, 12.9" },
-      { label: "Application", value: "Machinery, Automotive" },
-      { label: "Profile", value: "Low Profile, Compact" },
+    { label: "Application", value: "Used where strong fastening and clean, compact head design are required" },
+    { label: "Application", value: "Ideal for machinery, automotive parts, robotics, metal fabrication, and precision assemblies" },
+    { label: "Application", value: "Commonly chosen for tight or recessed spaces where standard wrenches cannot reach" },
+    { label: "Application", value: "Suitable for high-strength joints, vibration-prone setups, and precise torque control" },
     ],
   },
 
   "shoulder-bolt": {
-    title: "Shoulder Bolt | Precision Shoulder | Bearing Surface | Stripper Bolt | Multiple Materials",
+    title: "Shoulder Bolt",
     images: [
       "/images/products/bolts/SHOULDER BOLT.png",
       "/images/products/bolts/SHOULDER BOLT.png",
@@ -155,19 +146,16 @@ export const boltsData = {
       { id: 2, name: "Alloy Steel", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "Hardened Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Shoulder Bolts feature a precision-machined shoulder (shank) with a smaller threaded portion. The smooth shoulder acts as a bearing surface or pivot point, perfect for creating rotating or sliding mechanisms.",
+    about: "Shoulder Bolts feature a precision-machined, unthreaded shoulder between the head and threaded section, creating a stable surface for guiding, pivoting, or mounting moving components. Their accurate dimensions and smooth finish make them essential for mechanical assemblies that demand controlled motion or exact spacing. Offering strength, reliability, and precision, Shoulder Bolts are widely used in industrial machinery, equipment design, and high-performance mechanical applications.",
     specifications: [
-      { label: "Type", value: "Shoulder Bolt (Stripper Bolt)" },
-      { label: "Shoulder", value: "Precision Machined" },
-      { label: "Function", value: "Bearing Surface, Pivot Point" },
-      { label: "Thread Type", value: "Partial Thread (Small Diameter)" },
-      { label: "Application", value: "Rotating Mechanisms, Jigs" },
-      { label: "Tolerance", value: "Tight Tolerance" },
+    { label: "Application", value: "Used where precise alignment, smooth movement, or pivoting action is required" },
+    { label: "Application", value: "Ideal for machinery, automation equipment, linkages, pulleys, joints, and tooling setups" },
+    { label: "Application", value: "Commonly chosen for die fixtures, sliding mechanisms, rotating parts, and precision assemblies" },
     ],
   },
 
   "coach-bolt": {
-    title: "Coach Bolt | Carriage Bolt | Square Neck | Anti-Rotation | Wood Applications | Multiple Materials",
+    title: "Coach Bolt",
     images: [
       "/images/products/bolts/COACH BOLT.png",
       "/images/products/bolts/COACH BOLT.png",
@@ -178,19 +166,17 @@ export const boltsData = {
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Coach Bolts (Carriage Bolts) feature a domed head and square section beneath, preventing rotation when tightened. The square neck bites into wood, making them ideal for timber construction and woodworking.",
+    about: "Coach Bolts, also known as carriage bolts, feature a domed head with a square neck that prevents rotation when tightened. Designed for wooden and structural applications, they offer strong clamping force, secure connections, and a smooth, finished appearance. Widely used in construction, furniture, and timber assemblies, Coach Bolts deliver durability, reliability, and professional-grade fastening in both indoor and outdoor setups.",
     specifications: [
-      { label: "Head Type", value: "Dome Head with Square Neck" },
-      { label: "Anti-Rotation", value: "Yes - Square Section" },
-      { label: "Thread Type", value: "Coarse Thread" },
-      { label: "Application", value: "Wood, Timber Construction" },
-      { label: "Installation", value: "One-Sided Tightening" },
-      { label: "Standard", value: "DIN 603, ISO 8677" },
+    { label: "Application", value: "Used for fastening wood to wood, wood to metal, or heavy structural timber applications" },
+    { label: "Application", value: "Ideal for construction, furniture, fencing, and timber framing" },
+    { label: "Application", value: "Commonly chosen where a smooth, domed head is preferred for aesthetic or safety reasons" },
+    { label: "Application", value: "Provides reliable fastening with a nut on the opposite side for secure joints" },
     ],
   },
 
   "flange-bolt": {
-    title: "Flange Bolt | Integrated Flange | Wide Bearing | No Washer Needed | Multiple Materials",
+    title: "Flange",
     images: [
       "/images/products/bolts/FLANGE BOLT.png",
       "/images/products/bolts/FLANGE BOLT.png",
@@ -201,19 +187,17 @@ export const boltsData = {
       { id: 2, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Flange Bolts feature an integrated circular flange under the head, eliminating the need for separate washers. The flange distributes load over a wider area, preventing damage and providing secure fastening.",
+    about: "Flange Bolts feature an integrated flange beneath the head that acts as a built-in washer, distributing pressure across the surface for stronger, more stable fastening. Their robust design and high tensile strength make them ideal for industrial, automotive, and construction applications. Flange Bolts ensure secure, vibration-resistant connections while simplifying installation and delivering a clean, professional finish.",
     specifications: [
-      { label: "Head Type", value: "Hex Head with Flange" },
-      { label: "Washer", value: "Integrated Flange (No Washer Needed)" },
-      { label: "Load Distribution", value: "Wide Bearing Surface" },
-      { label: "Application", value: "Automotive, Machinery" },
-      { label: "Assembly", value: "Simplified (No Separate Washer)" },
-      { label: "Standard", value: "DIN 6921" },
+    { label: "Application", value: "Used where a wide bearing surface is needed to distribute load evenly without a separate washer" },
+    { label: "Application", value: "Ideal for machinery, automotive assemblies, structural frames, and heavy equipment" },
+    { label: "Application", value: "Commonly chosen for applications requiring secure, vibration-resistant fastening" },
+    { label: "Application", value: "Provides reliable clamping with reduced risk of surface damage and loosening" },
     ],
   },
 
   "nylon-hex-bolt": {
-    title: "Nylon Hex Bolt | Non-Metallic | Lightweight | Corrosion Resistant | Electrical Insulation",
+    title: "Nylon Hex Bolt",
     images: [
       "/images/products/bolts/NYLON HEX BOLT.png",
       "/images/products/bolts/NYLON HEX BOLT.png",
@@ -224,19 +208,14 @@ export const boltsData = {
       { id: 2, name: "PTFE", color: "from-gray-200 to-slate-300", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 3, name: "POM (Acetal)", color: "from-blue-200 to-cyan-300", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
     ],
-    about: "Nylon Hex Bolts are non-metallic fasteners offering lightweight, corrosion-resistant, and electrically insulating properties. Perfect for electronics, food processing, chemical environments, and applications requiring non-magnetic or non-conductive fasteners.",
+    about: "Nylon Hex Bolts are hexagonal-headed bolts made from durable, corrosion-resistant nylon material. Designed for non-metallic assemblies, they offer excellent insulation, lightweight construction, and resistance to moisture and chemicals. Perfect for electronic devices, plastic panels, and other sensitive applications, Nylon Hex Bolts provide reliable, secure fastening while maintaining component integrity and clean, safe assembly.",
     specifications: [
-      { label: "Material", value: "Nylon 6/6, PTFE, POM" },
-      { label: "Properties", value: "Lightweight, Non-Conductive" },
-      { label: "Corrosion Resistance", value: "Excellent" },
-      { label: "Electrical", value: "Insulating" },
-      { label: "Application", value: "Electronics, Food Processing" },
-      { label: "Temperature Range", value: "-40°C to +100°C" },
+    { label: "Application", value: "Used for fastening components where electrical insulation, corrosion resistance, or lightweight fastening is required" },
     ],
   },
 
   "allen-csk-bolt": {
-    title: "Allen CSK Bolt | Countersunk Allen Bolt | Flush Finish | Hex Socket Drive | Multiple Materials",
+    title: "Allen CSK Bolt",
     images: [
       "/images/products/bolts/ALLEN CSK BOLT.png",
       "/images/products/bolts/ALLEN CSK BOLT.png",
@@ -248,19 +227,17 @@ export const boltsData = {
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 4, name: "Alloy Steel", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Allen CSK Bolts combine the flush-mounting benefits of countersunk heads with the precision of hex Allen socket drive. The countersunk head sits flush or below the surface, ideal for applications requiring smooth, aerodynamic surfaces.",
+    about: "Allen CSK (Countersunk) Bolts feature a flat, countersunk head with an internal hex drive, allowing them to sit flush with the surface while providing high torque and secure fastening. Designed for precision applications, these bolts are ideal for assemblies where both aesthetics and performance matter. With durable construction and reliable holding strength, Allen CSK Bolts ensure long-lasting, vibration-resistant fastening in industrial, mechanical, and electronic setups.",
     specifications: [
-      { label: "Head Type", value: "Countersunk (CSK)" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Finish", value: "Flush Mount" },
-      { label: "Strength Grade", value: "8.8, 10.9, 12.9" },
-      { label: "Application", value: "Aerospace, Automotive, Machinery" },
-      { label: "Profile", value: "Flush/Below Surface" },
+    { label: "Application", value: "Used where a flush, smooth surface finish is required after fastening" },
+    { label: "Application", value: "Ideal for machinery, electronics, panels, automotive assemblies, and precision fixtures" },
+    { label: "Application", value: "Commonly chosen for applications needing high-strength fastening in recessed or compact spaces" },
+    { label: "Application", value: "Provides clean, professional appearance with reliable torque control" },
     ],
   },
 
   "u-bolt": {
-    title: "U-Bolt | U-Shaped | Pipe Clamp | Suspension | Multiple Sizes & Materials",
+    title: "U-Bolt",
     images: [
       "/images/products/bolts/U BOLT.png",
       "/images/products/bolts/U BOLT.png",
@@ -273,17 +250,15 @@ export const boltsData = {
     ],
     about: "U-Bolts are U-shaped bolts with threads on both ends, designed to secure pipes, tubes, or round objects to structures. Commonly used in automotive suspensions, plumbing, and industrial pipe mounting applications.",
     specifications: [
-      { label: "Shape", value: "U-Shaped" },
-      { label: "Thread Type", value: "Both Ends Threaded" },
-      { label: "Application", value: "Pipe Clamp, Suspension, Mounting" },
-      { label: "Sizes", value: "Various Diameters" },
-      { label: "Configuration", value: "Round, Square Bend" },
-      { label: "Standard", value: "DIN 3570" },
+    { label: "Application", value: "Used to secure pipes, tubes, or round objects to a surface or structure" },
+    { label: "Application", value: "Ideal for plumbing, construction, automotive suspensions, and electrical conduit installations" },
+    { label: "Application", value: "Commonly chosen for applications requiring strong clamping around cylindrical components" },
+    { label: "Application", value: "Provides reliable holding power with easy installation using nuts and washers" },
     ],
   },
 
   "t-bolt": {
-    title: "T-Bolt | T-Head | Slot Mounting | Profile Extrusion | Multiple Materials",
+    title: "T-Bolt",
     images: [
       "/images/products/bolts/T BOLT.png",
       "/images/products/bolts/T BOLT.png",
@@ -296,17 +271,13 @@ export const boltsData = {
     ],
     about: "T-Bolts feature a T-shaped head designed to slide into T-slots or grooves in aluminum extrusions and machine tables. Perfect for modular framing systems, workbenches, and adjustable mounting applications.",
     specifications: [
-      { label: "Head Type", value: "T-Shaped" },
-      { label: "Mounting", value: "T-Slot, Groove Insert" },
-      { label: "Application", value: "Aluminum Extrusion, Machine Tables" },
-      { label: "Adjustment", value: "Slidable, Positionable" },
-      { label: "Configuration", value: "Drop-In, Slide-In" },
-      { label: "Standard", value: "DIN 787" },
+    { label: "Application", value: "Used for fastening components in slots, tracks, or channels where adjustable positioning is needed" },
+    { label: "Application", value: "Machine tables, fixture assemblies, automotive jigs, modular setups" },
     ],
   },
 
   "carriage-bolt": {
-    title: "Carriage Bolt | Round Head | Square Neck | Anti-Rotation | Wood Fastening | Multiple Materials",
+    title: "Carriage Bolt",
     images: [
       "/images/products/bolts/CARRIAGE BOLT.png",
       "/images/products/bolts/CARRIAGE BOLT.png",
@@ -319,17 +290,13 @@ export const boltsData = {
     ],
     about: "Carriage Bolts (also called Coach Bolts) feature a smooth, rounded head with a square section beneath that prevents rotation. The square neck bites into wood for secure fastening without the need to hold the bolt head.",
     specifications: [
-      { label: "Head Type", value: "Round/Dome Head" },
-      { label: "Anti-Rotation", value: "Yes - Square Neck" },
-      { label: "Thread Type", value: "Coarse Thread" },
-      { label: "Application", value: "Wood Construction, Timber" },
-      { label: "Installation", value: "One-Sided Tightening" },
-      { label: "Standard", value: "DIN 603, ISO 8677" },
+    { label: "Application", value: "Used for fastening wood to wood, wood to metal, or structural timber assemblies" },
+    { label: "Application", value: "Furniture, fencing, construction, heavy-duty timber framing" },
     ],
   },
 
   "button-head-bolt": {
-    title: "Button Head Bolt | Low Profile | Rounded Head | Hex Allen Drive | Multiple Materials",
+    title: "Button Head Bolt",
     images: [
       "/images/products/bolts/BUTTON HEAD BOLT.png",
       "/images/products/bolts/BUTTON HEAD BOLT.png",
@@ -342,17 +309,13 @@ export const boltsData = {
     ],
     about: "Button Head Bolts feature a low-profile, rounded head with hex Allen socket drive. The sleek design provides a clean appearance while maintaining high strength, perfect for visible fastening applications.",
     specifications: [
-      { label: "Head Type", value: "Button Head (Rounded)" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Profile", value: "Low Profile" },
-      { label: "Strength Grade", value: "8.8, 10.9, 12.9" },
-      { label: "Application", value: "Automotive, Machinery, Furniture" },
-      { label: "Appearance", value: "Clean, Modern" },
+    { label: "Application", value: "Used where a smooth, low-profile head is desired for safety and aesthetics" },
+    { label: "Application", value: "Machinery, panels, enclosures, furniture, automotive assemblies" },
     ],
   },
 
   "eye-bolt": {
-    title: "Eye Bolt | Lifting Eye | Rigging | Load Bearing | Multiple Sizes & Materials",
+    title: "Eye Bolt",
     images: [
       "/images/products/bolts/EYE BOLT.png",
       "/images/products/bolts/EYE BOLT.png",
@@ -363,19 +326,15 @@ export const boltsData = {
       { id: 2, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
       { id: 3, name: "Alloy Steel", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Eye Bolts feature a circular eye (loop) at the head, designed for lifting, rigging, and securing applications. Used with ropes, cables, or chains for load-bearing applications in construction, marine, and industrial settings.",
+    about: "Eye Bolts feature a threaded shank with a circular loop (eye) at the top, designed to attach ropes, hooks, or lifting equipment. They offer reliable load-bearing capacity and secure fastening in both vertical and angled lifting applications. Widely used in construction, industrial, and marine environments, Eye Bolts deliver strength, durability, and safety for lifting, anchoring, and tie-down purposes.",
     specifications: [
-      { label: "Head Type", value: "Eye (Circular Loop)" },
-      { label: "Application", value: "Lifting, Rigging, Securing" },
-      { label: "Load Bearing", value: "Yes - Rated Capacity" },
-      { label: "Configuration", value: "Straight Eye, Shoulder Eye" },
-      { label: "Safety", value: "Working Load Limit (WLL)" },
-      { label: "Standard", value: "DIN 580" },
+    { label: "Application", value: "Used for lifting, securing, or guiding cables, ropes, and chains" },
+    { label: "Application", value: "Construction, rigging, marine applications, machinery lifting points" },
     ],
   },
 
   "j-bolt": {
-    title: "J-Bolt | J-Shaped | Anchor Bolt | Concrete Embedment | Multiple Sizes",
+    title: "J-Bolt",
     images: [
       "/images/products/bolts/J BOLT.png",
       "/images/products/bolts/J BOLT.png",
@@ -388,17 +347,14 @@ export const boltsData = {
     ],
     about: "J-Bolts are J-shaped anchor bolts designed for embedding in concrete. The curved end provides strong holding power when cast into concrete, while the threaded end secures structures and equipment.",
     specifications: [
-      { label: "Shape", value: "J-Shaped (Hooked)" },
-      { label: "Application", value: "Concrete Embedment, Anchoring" },
-      { label: "Installation", value: "Cast-In-Place" },
-      { label: "Holding Power", value: "High - Curved Hook" },
-      { label: "Configuration", value: "Various Hook Lengths" },
-      { label: "Standard", value: "ASTM F1554" },
+    { label: "Application", value: "Used for anchoring structural elements, pipes, or machinery to concrete or other solid surfaces" },
+    { label: "Application", value: "Construction, fencing, automotive, industrial equipment mounting" },
+    
     ],
   },
 
   "hook-bolt": {
-    title: "Hook Bolt | Hooked End | Securing | Hanging Applications | Multiple Materials",
+    title: "Hook Bolt",
     images: [
       "/images/products/bolts/HOOK BOLT.png",
       "/images/products/bolts/HOOK BOLT.png",
@@ -411,12 +367,9 @@ export const boltsData = {
     ],
     about: "Hook Bolts feature a hook at one end and threads at the other, designed for hanging, securing, and anchoring applications. Perfect for gates, fencing, and general hanging applications where a secure hook point is needed.",
     specifications: [
-      { label: "Configuration", value: "Hook End + Threaded End" },
-      { label: "Application", value: "Hanging, Securing, Gates" },
-      { label: "Hook Type", value: "Open Hook, Closed Hook" },
-      { label: "Thread Type", value: "Coarse Thread" },
-      { label: "Installation", value: "Screw-In or Nut Secured" },
-      { label: "Load Bearing", value: "Yes - Rated Capacity" },
+    { label: "Application", value: "Used for suspending, securing, or anchoring cables, pipes, chains, or light structural elements" },
+    { label: "Application", value: "Construction, electrical installations, plumbing, industrial setups" },
+
     ],
   },
 };
