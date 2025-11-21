@@ -121,7 +121,7 @@ export default function ProductDropdown({
                   {mainCat.categories[0].subcategories.map((item) => (
                     <Link
                       key={item.slug}
-                      href={`/products/${mainCat.slug}/${item.slug}`}
+                      href={`/category/${item.slug}`}
                       className="block text-gray-600 hover:text-purple-600 text-sm py-1"
                       onClick={onItemClick}
                     >
@@ -221,7 +221,7 @@ export default function ProductDropdown({
                                   (item) => (
                                     <Link
                                       key={item.slug}
-                                      href={`/products/${mainCat.slug}/${item.slug}`}
+                                      href={`/category/${item.slug}`}
                                       className="block px-4 py-2 hover:bg-gray-50 transition-colors"
                                     >
                                       <span className="text-gray-700 text-sm">
