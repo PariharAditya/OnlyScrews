@@ -12,7 +12,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Allen Screws',
                         slug: 'allen-screws',
-                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws']
+                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws', 'Flange Button Head']
                     },
                     {
                         name: 'Torx Machine Screws',
@@ -22,10 +22,12 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Phillip Machine Screws',
                         slug: 'phillip-machine-screws',
+                        types: ['Pan Head Phillips', 'CSK Head Phillips', 'Truss Head Phillips', 'WW Pan Phillips']
                     },
                     {
                         name: 'Slotted Machine Screws',
                         slug: 'slotted-machine-screws',
+                        types: ['CSK Slotted', 'Cheese Head Slotted', 'Round Head Slotted']
                     },
                     {
                         name: 'SEMS Screws',
@@ -51,8 +53,8 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'csk-sds',
                     },
                     {
-                        name: 'Water Head SDS',
-                        slug: 'water-head-sds',
+                        name: 'Truss Phillips',
+                        slug: 'truss-phillips',
                     },
                 ],
             },
@@ -61,20 +63,24 @@ export const productHierarchy: ProductHierarchy[] = [
                 slug: 'self-tapping-screws',
                 subcategories: [
                     {
-                        name: 'Slotted STS',
-                        slug: 'slotted-sts',
+                        name: 'STS Pan Phillips',
+                        slug: 'sts-pan-phillips',
                     },
                     {
-                        name: 'Phillip STS',
-                        slug: 'phillip-sts',
+                        name: 'STS CSK Phillips',
+                        slug: 'sts-csk-phillips',
                     },
                     {
-                        name: 'Hex STS',
-                        slug: 'hex-sts',
+                        name: 'STS WW Pan Phillips',
+                        slug: 'sts-ww-pan-phillips',
                     },
                     {
-                        name: 'Allen STS',
-                        slug: 'allen-sts',
+                        name: 'STS Pan B Type',
+                        slug: 'sts-pan-b-type',
+                    },
+                    {
+                        name: 'STS CSK B Type',
+                        slug: 'sts-csk-b-type',
                     },
                     {
                         name: 'Torx STS',
@@ -213,7 +219,9 @@ export const productHierarchy: ProductHierarchy[] = [
                             'Profilp (T) Nut',
                             'Shear Nut',
                             'Semi Hex Nut (LF)',
-                            'Full Hex Nut (LF)'
+                            'Full Hex Nut (LF)',
+                            'Barrel Nut',
+                            'Clinch Nut'
                         ]
                     }
                 ],
@@ -377,6 +385,10 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Chakri Washer',
                         slug: 'chakri-washer',
+                    },
+                    {
+                        name: 'Conical Disc Washer',
+                        slug: 'conical-disc-washer',
                     },
                 ],
             },
