@@ -3,7 +3,7 @@ export const standoffsData = {
   "hex-standoff": {
     title: "Hex Standoff | Hexagonal Spacer | Male-Female | Threaded | Multiple Materials & Sizes",
     images: [
-      "/images/products/stand-offs/HEX STAND OFF.png",
+      "/images/product/stand-offs/HEX STAND OFF.png",
       "/images/products/stand-offs/HEX STAND OFF.png",
       "/images/products/stand-offs/HEX STAND OFF.png",
     ],
@@ -120,9 +120,9 @@ export const standoffsData = {
   "blind-stand-off": {
     title: "Blind Stand Off",
     images: [
-      "/images/products/standoffs/BLIND STAND-OFF.png",
-      "/images/products/standoffs/BLIND STAND-OFF.png",
-      "/images/products/standoffs/BLIND STAND-OFF.png",
+      "/images/productdata/standoffs/Blind Stand Off ht.png",
+      "/images/productdata/standoffs/Blind Stand Off ms.png",
+      "/images/productdata/standoffs/Blind Stand Off ss.png",
     ],
     materials: [
       { id: 1, name: "Brass", color: "from-yellow-600 to-amber-700", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -143,9 +143,9 @@ export const standoffsData = {
   "through-hole-stand-off": {
     title: "Through Hole Stand Off",
     images: [
-      "/images/products/standoffs/THROUGH-HOLE STAND-OFF.png",
-      "/images/products/standoffs/THROUGH-HOLE STAND-OFF.png",
-      "/images/products/standoffs/THROUGH-HOLE STAND-OFF.png",
+      "/images/productdata/standoffs/Through Hole Stand Off ht.png",
+      "/images/productdata/standoffs/Through Hole Stand Off ms.png",
+      "/images/productdata/standoffs/Through Hole Stand Off ss.png",
     ],
     materials: [
       { id: 1, name: "Brass", color: "from-yellow-600 to-amber-700", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },

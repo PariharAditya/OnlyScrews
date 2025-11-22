@@ -3,9 +3,9 @@ export const spacersData = {
   "hex-spacer": {
     title: "Hex Spacer",
     images: [
-      "/images/products/spacers/HEX SPACER.png",
-      "/images/products/spacers/HEX SPACER.png",
-      "/images/products/spacers/HEX SPACER.png",
+      "/images/productdata/spacers/Hex Spacer ht.png",
+      "/images/productdata/spacers/Hex Spacer ms.png",
+      "/images/productdata/spacers/Hex Spacer ss.png",
     ],
     materials: [
       { id: 1, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
@@ -26,9 +26,9 @@ export const spacersData = {
   "nylon-round-plain-spacer": {
     title: "Nylon Round Plain Spacer",
     images: [
-      "/images/products/spacers/NYLON ROUND PLAIN SPACER.png",
-      "/images/products/spacers/NYLON ROUND PLAIN SPACER.png",
-      "/images/products/spacers/NYLON ROUND PLAIN SPACER.png",
+      "/images/productdata/spacers/Nylon Round Plain Spacer.png",
+      "/images/productdata/spacers/Nylon Round Plain Spacer.png",
+      "/images/productdata/spacers/Nylon Round Plain Spacer.png",
     ],
     materials: [
       { id: 1, name: "Nylon 6/6", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -117,9 +117,9 @@ export const spacersData = {
   "hex-et-spacer": {
     title: "Hex ET Spacer",
     images: [
-      "/images/products/spacers/HEX ET SPACER.png",
-      "/images/products/spacers/HEX ET SPACER.png",
-      "/images/products/spacers/HEX ET SPACER.png",
+      "/images/productdata/spacers/Hex ET Spacer ht.png",
+      "/images/productdata/spacers/Hex ET Spacer ms.png",
+      "/images/productdata/spacers/Hex ET Spacer ss.png",
     ],
     materials: [
       { id: 1, name: "Brass", color: "from-yellow-600 to-amber-700", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -140,9 +140,9 @@ export const spacersData = {
   "nylon-hex-spacer": {
     title: "Nylon Hex Spacer",
     images: [
-      "/images/products/spacers/NYLON HEX SPACER.png",
-      "/images/products/spacers/NYLON HEX SPACER.png",
-      "/images/products/spacers/NYLON HEX SPACER.png",
+      "/images/productdata/spacers/Nylon Hex Spacer.png",
+      "/images/productdata/spacers/Nylon Hex Spacer.png",
+      "/images/productdata/spacers/Nylon Hex Spacer.png",
     ],
     materials: [
       { id: 1, name: "Nylon 6/6 Natural", color: "from-gray-100 to-slate-200", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -161,9 +161,9 @@ export const spacersData = {
   "nylon-et-spacer": {
     title: "Nylon ET Spacer",
     images: [
-      "/images/products/spacers/NYLON ET SPACER.png",
-      "/images/products/spacers/NYLON ET SPACER.png",
-      "/images/products/spacers/NYLON ET SPACER.png",
+      "/images/productdata/spacers/Nylon ET Spacer.png",
+      "/images/productdata/spacers/Nylon ET Spacer.png",
+      "/images/productdata/spacers/Nylon ET Spacer.png",
     ],
     materials: [
       { id: 1, name: "Nylon 6/6 Natural", color: "from-gray-100 to-slate-200", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },

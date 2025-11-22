@@ -27,9 +27,9 @@ export const washersData = {
   "spring-washer": {
     title: "Spring Washer",
     images: [
-      "/images/products/washers/SPRING WASHER.png",
-      "/images/products/washers/SPRING WASHER.png",
-      "/images/products/washers/SPRING WASHER.png",
+      "/images/productdata/washers/Spring Washer ht.png",
+      "/images/productdata/washers/Spring Washer ms.png",
+      "/images/productdata/washers/Spring Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -49,9 +49,9 @@ export const washersData = {
   "wave-washer": {
     title: "Wave Washer",
     images: [
-      "/images/products/washers/WAVE WASHER.png",
-      "/images/products/washers/WAVE WASHER.png",
-      "/images/products/washers/WAVE WASHER.png",
+      "/images/productdata/washers/Wave Washer ht.png",
+      "/images/productdata/washers/Wave Washer ms.png",
+      "/images/productdata/washers/Wave Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -344,9 +344,9 @@ export const washersData = {
   "nylon-round-plain-washer": {
     title: "Nylon Plain Washer",
     images: [
-      "/images/products/washers/Nylon Plain Washer.png",
-      "/images/products/washers/Nylon Plain Washer.png",
-      "/images/products/washers/Nylon Plain Washer.png",
+      "/images/productdata/washers/Nylon Plain Washer.png",
+      "/images/productdata/washers/Nylon Plain Washer.png",
+      "/images/productdata/washers/Nylon Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Nylon 6/6", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -366,9 +366,9 @@ export const washersData = {
   "ext-star-washer": {
     title: "Ext-Star Washer",
     images: [
-      "/images/products/washers/Ext-Star Washer.png",
-      "/images/products/washers/Ext-Star Washer.png",
-      "/images/products/washers/Ext-Star Washer.png",
+      "/images/productdata/washers/Ext-Star Washer ht.png",
+      "/images/productdata/washers/Ext-Star Washer ms.png",
+      "/images/productdata/washers/Ext-Star Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -388,9 +388,9 @@ export const washersData = {
   "wedge-lock-washer": {
     title: "Wedge Lock Washer",
     images: [
-      "/images/products/washers/Wedge Lock Washer.png",
-      "/images/products/washers/Wedge Lock Washer.png",
-      "/images/products/washers/Wedge Lock Washer.png",
+      "/images/productdata/washers/Wedge Lock Washer ht.png",
+      "/images/productdata/washers/Wedge Lock Washer ms.png",
+      "/images/productdata/washers/Wedge Lock Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -409,9 +409,9 @@ export const washersData = {
   "taper-washer": {
     title: "Taper Washer",
     images: [
-      "/images/products/washers/Taper Washer.png",
-      "/images/products/washers/Taper Washer.png",
-      "/images/products/washers/Taper Washer.png",
+      "/images/productdata/washers/Taper Washer ht.png",
+      "/images/productdata/washers/Taper Washer ms.png",
+      "/images/productdata/washers/Taper Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -431,9 +431,9 @@ export const washersData = {
   "ext-tooth-washer": {
     title: "Ext-Tooth Washer",
     images: [
-      "/images/products/washers/Ext- Tooth Washer.png",
-      "/images/products/washers/Ext- Tooth Washer.png",
-      "/images/products/washers/Ext- Tooth Washer.png",
+      "/images/productdata/washers/Ext- Tooth Washer ht.png",
+      "/images/productdata/washers/Ext- Tooth Washer ms.png",
+      "/images/productdata/washers/Ext- Tooth Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -452,9 +452,9 @@ export const washersData = {
   "int-tooth-washer": {
     title: "Int-Tooth Washer",
     images: [
-      "/images/products/washers/Int-Tooth Washer.png",
-      "/images/products/washers/Int-Tooth Washer.png",
-      "/images/products/washers/Int-Tooth Washer.png",
+      "/images/productdata/washers/Int-Tooth Washer ht.png",
+      "/images/productdata/washers/Int-Tooth Washer ms.png",
+      "/images/productdata/washers/Int-Tooth Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -473,9 +473,9 @@ export const washersData = {
   "int-star-washer": {
     title: "Int-Star Washer",
     images: [
-      "/images/products/washers/Int-Star Washer.png",
-      "/images/products/washers/Int-Star Washer.png",
-      "/images/products/washers/Int-Star Washer.png",
+      "/images/productdata/washers/Int-Star Washer ht.png",
+      "/images/productdata/washers/Int-Star Washer ms.png",
+      "/images/productdata/washers/Int-Star Washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -494,9 +494,9 @@ export const washersData = {
   "circlip-type-a": {
     title: "Circlip Type A",
     images: [
-      "/images/products/washers/Circlip Type A.png",
-      "/images/products/washers/Circlip Type A.png",
-      "/images/products/washers/Circlip Type A.png",
+      "/images/productdata/washers/Circlip type A ht.png",
+      "/images/productdata/washers/Circlip type A ms.png",
+      "/images/productdata/washers/Circlip type A ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -515,9 +515,9 @@ export const washersData = {
   "circlip-type-b": {
     title: "Circlip Type B",
     images: [
-      "/images/products/washers/Circlip Type B.png",
-      "/images/products/washers/Circlip Type B.png",
-      "/images/products/washers/Circlip Type B.png",
+      "/images/productdata/washers/Circlip type B ht.png",
+      "/images/productdata/washers/Circlip type B ms.png",
+      "/images/productdata/washers/Circlip type B ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -536,9 +536,9 @@ export const washersData = {
   "circlip-type-e": {
     title: "Circlip Type E",
     images: [
-      "/images/products/washers/Circlip Type E.png",
-      "/images/products/washers/Circlip Type E.png",
-      "/images/products/washers/Circlip Type E.png",
+      "/images/productdata/washers/Circlip type E ht.png",
+      "/images/productdata/washers/Circlip type E ms.png",
+      "/images/productdata/washers/Circlip type E ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },

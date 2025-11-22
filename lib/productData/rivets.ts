@@ -3,9 +3,9 @@ export const rivetsData = {
   "solid-dowel-pin": {
     title: "Solid Dowel Pin",
     images: [
-      "/images/products/rivets/SOLID DOWEL PIN.png",
-      "/images/products/rivets/SOLID DOWEL PIN.png",
-      "/images/products/rivets/SOLID DOWEL PIN.png",
+      "/images/productdata/rivets&dowels/Solid Dowel Pin ht.png",
+      "/images/productdata/rivets&dowels/Solid Dowel Pin ms.png",
+      "/images/productdata/rivets&dowels/Solid Dowel Pin ss.png",
     ],
     materials: [
       { id: 1, name: "Hardened Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -25,9 +25,9 @@ export const rivetsData = {
   "spring-dowel-pin-cotter": {
     title: "Spring Dowel Pin",
     images: [
-      "/images/products/rivets/SPRING DOWEL PIN COTTER.png",
-      "/images/products/rivets/SPRING DOWEL PIN COTTER.png",
-      "/images/products/rivets/SPRING DOWEL PIN COTTER.png",
+      "/images/productdata/rivets&dowels/Spring Dowel Pin Cotter Pin Blind  POP Rivet ht.png",
+      "/images/productdata/rivets&dowels/Spring Dowel Pin Cotter Pin Blind  POP Rivet ms.png",
+      "/images/productdata/rivets&dowels/Spring Dowel Pin Cotter Pin Blind  POP Rivet ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -93,9 +93,9 @@ export const rivetsData = {
   "cotter-pin-blind-pop-rivet": {
     title: "Cotter Pin",
     images: [
-      "/images/products/rivets/COTTER PIN BLIND POP RIVET.png",
-      "/images/products/rivets/COTTER PIN BLIND POP RIVET.png",
-      "/images/products/rivets/COTTER PIN BLIND POP RIVET.png",
+      "/images/productdata/rivets&dowels/Cotter Pin ht.png",
+      "/images/productdata/rivets&dowels/Cotter Pin ms.png",
+      "/images/productdata/rivets&dowels/Cotter Pin ss.png",
     ],
     materials: [
       { id: 1, name: "Steel Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -115,9 +115,9 @@ export const rivetsData = {
   "blind-pop-rivet": {
     title: "Blind / POP Rivet",
     images: [
-      "/images/products/rivets/BLIND POP RIVET.png",
-      "/images/products/rivets/BLIND POP RIVET.png",
-      "/images/products/rivets/BLIND POP RIVET.png",
+      "/images/productdata/rivets&dowels/Blind POP Rivet ht.png",
+      "/images/productdata/rivets&dowels/Blind POP Rivet ms.png",
+      "/images/productdata/rivets&dowels/Blind POP Rivet ss.png",
     ],
     materials: [
       { id: 1, name: "Aluminum Body/Steel Mandrel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
