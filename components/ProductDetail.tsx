@@ -94,11 +94,11 @@ export default function ProductDetail({
           {/* Left Column - Images */}
           <div className="flex flex-col gap-6">
             {/* Main Image */}
-            <div ref={mainFrameRef} className="bg-white rounded-2xl aspect-square overflow-hidden flex items-center justify-center p-8 sm:p-12">
+            <div ref={mainFrameRef} className="bg-black rounded-xl aspect-square overflow-hidden flex items-center justify-center">
               <img
                 src={images[mainImageIndex]}
                 alt="Product"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain p-4"
               />
             </div>
 

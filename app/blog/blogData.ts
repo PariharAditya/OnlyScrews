@@ -13,7 +13,7 @@ export const BLOG_POSTS: BlogPost[] = [
         title: "Why Precision Matters: The Science Behind Thread Pitch and Grip",
         excerpt:
             "Understanding thread pitch and grip is crucial for fastener performance and reliability in critical applications.",
-        image: "/images/products/1.png",
+        image: "/images/products/1Blog.png",
         category: "Precision Engineered fasteners",
         tags: ["Guide", "DIY", "Precision Engineered fasteners"],
     },
@@ -22,7 +22,7 @@ export const BLOG_POSTS: BlogPost[] = [
         title: "Common Mistakes in Fastener Installation—and How to Avoid Them",
         excerpt:
             "Learn the most common fastener installation errors and professional tips to ensure secure, long-lasting connections.",
-        image: "/images/products/2.png",
+        image: "/images/products/2Blog.png",
         category: "DIY",
         tags: ["DIY", "Machine screws", "Guide"],
     },
