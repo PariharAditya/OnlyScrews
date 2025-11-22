@@ -28,7 +28,7 @@ export default function BoltsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[44px]">
+    <div className=" pt-[44px]">
       <ProductCategoryLayout
         title="Bolts"
         description="Bolts provide strong, reliable fastening for heavy-duty applications—ideal for joining metal, wood, or structural components where high strength and durability are essential."

@@ -25,7 +25,7 @@ export default function WashersPage() {
     ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className=" pt-[54px]">
       <ProductCategoryLayout
         title="Washers"
         description="Washers ensure secure, even fastening by distributing load and preventing surface damage—essential for improving grip, reducing vibration, and enhancing the longevity of assemblies."

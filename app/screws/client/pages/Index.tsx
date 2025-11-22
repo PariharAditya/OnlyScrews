@@ -12,6 +12,7 @@ export default function Index() {
   ];
 
   return (
+    <div className="pt-[54px]">
     <ProductCategoryLayout
       title="Screws"
       description="Built for strength and precision. From machine to self-tapping and self-drilling — made to fit every need."
@@ -25,5 +26,6 @@ export default function Index() {
         />
       ))}
     </ProductCategoryLayout>
+    </div>
   );
 }

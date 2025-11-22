@@ -13,7 +13,7 @@ export default function StandoffsPage() {
  ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Stand-Offs"
         description="Standoffs create precise spacing between components, ensuring alignment, insulation, and stability—commonly used in electronics, panels, and mechanical assemblies for a clean, professional finish."

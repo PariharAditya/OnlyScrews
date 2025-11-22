@@ -13,7 +13,7 @@ export default function AllenScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className=" pt-[54px]">
       <ProductCategoryLayout
         title="Allen Screws"
         description="Premium Allen head machine screws featuring socket head cap screws (SHCS), button head cap screws (BHCS), countersunk, and grub screws. Perfect for applications requiring high torque and a clean, professional finish."

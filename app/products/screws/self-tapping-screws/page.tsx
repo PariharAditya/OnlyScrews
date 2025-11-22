@@ -13,7 +13,7 @@ export default function SelfTappingScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className=" pt-[54px]">
       <ProductCategoryLayout
         title="Self Tapping Screws"
         description="Self-tapping screws that create their own threads as they're driven into materials. Perfect for sheet metal, plastic, and wood applications with multiple drive options for different needs."

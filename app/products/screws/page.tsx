@@ -10,7 +10,7 @@ const ScrewsIndex = dynamic(
 
 export default function ScrewsPage() {
   return (
-    <div className="-mt-[144px] pt-[100px]">
+    <div className="pt-[44px]">
       <ScrewsIndex />
     </div>
   );

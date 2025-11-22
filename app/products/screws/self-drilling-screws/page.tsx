@@ -12,7 +12,7 @@ export default function SelfDrillingScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Self Drilling Screws"
         description="Self-drilling screws with integrated drill points that eliminate the need for pre-drilling. Designed for quick installation in metal, wood, and composite materials with various head styles."

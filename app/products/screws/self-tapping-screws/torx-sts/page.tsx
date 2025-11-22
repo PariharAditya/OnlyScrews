@@ -10,7 +10,7 @@ export default function TorxSTSPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Torx STS"
         description="Torx self-tapping screws offering superior torque transfer and reduced cam-out. Available in pan head and countersunk configurations for various fastening applications."

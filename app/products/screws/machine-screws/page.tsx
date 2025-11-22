@@ -13,7 +13,7 @@ export default function MachineScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className=" pt-[54px]">
       <ProductCategoryLayout
         title="Machine Screws"
         description="Precision-engineered machine screws designed for secure fastening in threaded holes. Available in various drive types including Allen, Torx, Philip, and Slotted configurations for versatile applications."

@@ -10,7 +10,7 @@ export default function SemsScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="SEMS Screws"
         description="SEMS (Pre-assembled Screw and Washer) screws combining screws with captive washers for efficient assembly. Available in pan head and hex head configurations for various fastening needs."

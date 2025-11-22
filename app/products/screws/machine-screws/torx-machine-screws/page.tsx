@@ -12,7 +12,7 @@ export default function TorxMachineScrewsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Torx Machine Screws"
         description="High-quality Torx machine screws with superior torque transfer and reduced cam-out. Available in pan head, countersunk, and security variants for enhanced tamper resistance."

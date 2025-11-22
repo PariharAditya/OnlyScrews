@@ -37,7 +37,7 @@ export default function NutsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Nuts"
         description="Nuts deliver secure fastening with bolts or screws, offering strength, stability, and easy adjustment—ideal for machinery, construction, and general assemblies requiring dependable, long-lasting connections."

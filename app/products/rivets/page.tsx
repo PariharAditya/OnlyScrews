@@ -14,7 +14,7 @@ export default function RivetsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[54px]">
+    <div className="pt-[54px]">
       <ProductCategoryLayout
         title="Rivets and Dowels"
         description="Rivets and Dowels provide permanent, vibration-resistant joints—ideal for metal, plastic, and composite materials where strong, tamper-proof fastening is needed for structural integrity and durability."

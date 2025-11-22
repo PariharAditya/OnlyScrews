@@ -16,7 +16,7 @@ export default function SpacersPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[44px]">
+    <div className="pt-[44px]">
       <ProductCategoryLayout
         title="Spacers"
         description="Spacers maintain consistent gaps between parts, ensuring proper alignment and smooth assembly—perfect for electronics, machinery, and architectural applications requiring accuracy and balance."

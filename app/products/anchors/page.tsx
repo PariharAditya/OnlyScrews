@@ -18,7 +18,7 @@ export default function AnchorsPage() {
   ];
 
   return (
-    <div className="-mt-[144px] pt-[50px]">
+    <div className=" pt-[50px]">
       <ProductCategoryLayout
         title="Anchors"
         description="Anchors offer firm, reliable holding in concrete, brick, or drywall—designed to secure screws or bolts tightly for heavy-duty fixtures, installations, and structural applications."
