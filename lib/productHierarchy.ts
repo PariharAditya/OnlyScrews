@@ -8,74 +8,85 @@ export const productHierarchy: ProductHierarchy[] = [
             {
                 name: 'Machine Screws',
                 slug: 'machine-screws',
-                items: [
-                    { name: 'SHCS Machine Screws', slug: 'shcs-machine-screws' },
-                    { name: 'BHCS Machine Screws', slug: 'bhcs-machine-screws' },
-                    { name: 'CSK Machine Screws', slug: 'csk-machine-screws' },
-                    { name: 'GRUB Screws', slug: 'grub-screws' },
-                    { name: 'JCB Screws', slug: 'jcb-screws' },
+                subcategories: [
+                    {
+                        name: 'Allen Screws',
+                        slug: 'allen-screws',
+                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws', 'Flange Button Head']
+                    },
+                    {
+                        name: 'Torx Machine Screws',
+                        slug: 'torx-machine-screws',
+                        types: ['Pan Torx', 'CSK Torx', 'Security Pan Torx', 'Security CSK Torx']
+                    },
+                    {
+                        name: 'Phillip Machine Screws',
+                        slug: 'phillip-machine-screws',
+                        types: ['Pan Head Phillips', 'CSK Head Phillips', 'Truss Head Phillips', 'WW Pan Phillips']
+                    },
+                    {
+                        name: 'Slotted Machine Screws',
+                        slug: 'slotted-machine-screws',
+                        types: ['CSK Slotted', 'Cheese Head Slotted', 'Round Head Slotted']
+                    },
+                    {
+                        name: 'SEMS Screws',
+                        slug: 'sems-screws',
+                        types: ['Pan SEM', 'Hex SEM']
+                    },
                 ],
             },
             {
-                name: 'Torx Screws',
-                slug: 'torx-screws',
-                items: [
-                    { name: 'Pan Torx', slug: 'pan-torx' },
-                    { name: 'CSK Torx', slug: 'csk-torx' },
-                    { name: 'Security Pan Torx', slug: 'security-pan-torx' },
-                    { name: 'Security CSK Torx', slug: 'security-csk-torx' },
-                ],
-            },
-            {
-                name: 'Phillips Screws',
-                slug: 'phillips-screws',
-                items: [
-                    { name: 'Phillip Machine Screws', slug: 'phillip-machine-screws' },
-                    { name: 'Pan Head Phillips', slug: 'pan-head-phillips' },
-                    { name: 'CSK Head Phillips', slug: 'csk-head-phillips' },
-                    { name: 'Truss Head Phillips', slug: 'truss-head-phillips' },
-                    { name: 'WW Pan Phillips', slug: 'ww-pan-phillips' },
-                ],
-            },
-            {
-                name: 'Slotted Screws',
-                slug: 'slotted-screws',
-                items: [
-                    { name: 'Slotted Machine Screws', slug: 'slotted-machine-screws' },
-                    { name: 'CSK Slotted', slug: 'csk-slotted' },
-                    { name: 'Cheese Head Slotted', slug: 'cheese-head-slotted' },
-                    { name: 'Round Head Slotted', slug: 'round-head-slotted' },
-                ],
-            },
-            {
-                name: 'SEMS Screws',
-                slug: 'sems-screws',
-                items: [
-                    { name: 'Pan SEM', slug: 'pan-sem' },
-                    { name: 'Hex SEM', slug: 'hex-sem' },
-                ],
-            },
-            {
-                name: 'Self-Drilling Screws',
+                name: 'Self Drilling Screws',
                 slug: 'self-drilling-screws',
-                items: [
-                    { name: 'Pan SDS', slug: 'pan-sds' },
-                    { name: 'Hex SDS', slug: 'hex-sds' },
-                    { name: 'CSK SDS', slug: 'csk-sds' },
-                    { name: 'Water Head SDS', slug: 'water-head-sds' },
+                subcategories: [
+                    {
+                        name: 'Pan SDS',
+                        slug: 'pan-sds',
+                    },
+                    {
+                        name: 'Hex SDS',
+                        slug: 'hex-sds',
+                    },
+                    {
+                        name: 'CSK SDS',
+                        slug: 'csk-sds',
+                    },
+                    {
+                        name: 'Truss Phillips',
+                        slug: 'truss-phillips',
+                    },
                 ],
             },
             {
-                name: 'Self-Tapping Screws',
+                name: 'Self tapping Screws',
                 slug: 'self-tapping-screws',
-                items: [
-                    { name: 'Slotted STS', slug: 'slotted-sts' },
-                    { name: 'Phillip STS', slug: 'phillip-sts' },
-                    { name: 'Hex STS', slug: 'hex-sts' },
-                    { name: 'Allen STS', slug: 'allen-sts' },
-                    { name: 'Allen Flange Button Head', slug: 'allen-flange-button-head' },
-                    { name: 'Pan Torx STS', slug: 'pan-torx-sts' },
-                    { name: 'CSK Torx STS', slug: 'csk-torx-sts' },
+                subcategories: [
+                    {
+                        name: 'STS Pan Phillips',
+                        slug: 'sts-pan-phillips',
+                    },
+                    {
+                        name: 'STS CSK Phillips',
+                        slug: 'sts-csk-phillips',
+                    },
+                    {
+                        name: 'STS WW Pan Phillips',
+                        slug: 'sts-ww-pan-phillips',
+                    },
+                    {
+                        name: 'STS Pan B Type',
+                        slug: 'sts-pan-b-type',
+                    },
+                    {
+                        name: 'STS CSK B Type',
+                        slug: 'sts-csk-b-type',
+                    },
+                    {
+                        name: 'Torx STS',
+                        slug: 'torx-sts',
+                        types: ['Pan Torx STS', 'CSK Torx STS']
+                    },
                 ],
             },
         ],
@@ -83,122 +94,350 @@ export const productHierarchy: ProductHierarchy[] = [
     {
         mainCategory: 'Bolts',
         slug: 'bolts',
-        items: [
-            { name: 'Hex Bolt', slug: 'hex-bolt' },
-            { name: 'Hex Bolt Half Threaded', slug: 'hex-bolt-half-threaded' },
-            { name: 'Dome Bolt', slug: 'dome-bolt' },
-            { name: 'Flange Button Head Bolt', slug: 'flange-button-head-bolt' },
-            { name: 'Wing Bolt', slug: 'wing-bolt' },
-            { name: 'Allen Bolt', slug: 'allen-bolt' },
-            { name: 'Shoulder Bolt', slug: 'shoulder-bolt' },
-            { name: 'Coach Bolt', slug: 'coach-bolt' },
-            { name: 'Flange Bolt', slug: 'flange-bolt' },
-            { name: 'Allen CSK Bolt', slug: 'allen-csk-bolt' },
-            { name: 'U-Bolt', slug: 'u-bolt' },
-            { name: 'T-Bolt', slug: 't-bolt' },
-            { name: 'Carriage Bolt', slug: 'carriage-bolt' },
-            { name: 'Button Head Bolt', slug: 'button-head-bolt' },
-            { name: 'Eye Bolt', slug: 'eye-bolt' },
-            { name: 'J-Bolt', slug: 'j-bolt' },
-            { name: 'Hook Bolt', slug: 'hook-bolt' },
-            { name: 'Nylon Hex Bolt', slug: 'nylon-hex-bolt' },
+        categories: [
+            {
+                name: 'Hex Bolts',
+                slug: 'hex-bolts',
+                subcategories: [
+                    {
+                        name: 'Hex Bolt',
+                        slug: 'hex-bolt',
+                    },
+                    {
+                        name: 'Hex Bolt Half Threaded',
+                        slug: 'hex-bolt-half-threaded',
+                    },
+                ],
+            },
+            {
+                name: 'Specialty Bolts',
+                slug: 'specialty-bolts',
+                subcategories: [
+                    {
+                        name: 'Dome Bolt',
+                        slug: 'dome-bolt',
+                    },
+                    {
+                        name: 'Flange Button Head Bolt',
+                        slug: 'flange-button-head-bolt',
+                    },
+                    {
+                        name: 'Wing Bolt',
+                        slug: 'wing-bolt',
+                    },
+                    {
+                        name: 'Allen Bolt',
+                        slug: 'allen-bolt',
+                    },
+                    {
+                        name: 'Shoulder Bolt',
+                        slug: 'shoulder-bolt',
+                    },
+                    {
+                        name: 'Coaach Bolt',
+                        slug: 'coaach-bolt',
+                    },
+                    {
+                        name: 'Flange Bolt',
+                        slug: 'flange-bolt',
+                    },
+                    {
+                        name: 'Allen CSK Bolt',
+                        slug: 'allen-csk-bolt',
+                    },
+                    {
+                        name: 'U-Bolt',
+                        slug: 'u-bolt',
+                    },
+                    {
+                        name: 'T-Bolt',
+                        slug: 't-bolt',
+                    },
+                    {
+                        name: 'Carriage Bolt',
+                        slug: 'carriage-bolt',
+                    },
+                    {
+                        name: 'Button Head Bolt',
+                        slug: 'button-head-bolt',
+                    },
+                    {
+                        name: 'Eye Bolt',
+                        slug: 'eye-bolt',
+                    },
+                    {
+                        name: 'J-Bolt',
+                        slug: 'j-bolt',
+                    },
+                    {
+                        name: 'Hook Bolt',
+                        slug: 'hook-bolt',
+                    },
+                    {
+                        name: 'Nylon Hex Bolt',
+                        slug: 'nylon-hex-bolt',
+                    },
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Nuts',
         slug: 'nuts',
-        items: [
-            { name: 'Hex Nut', slug: 'hex-nut' },
-            { name: 'Dome Nut', slug: 'dome-nut' },
-            { name: 'Cage Nut', slug: 'cage-nut' },
-            { name: 'Insert Nut (LF)', slug: 'insert-nut-lf' },
-            { name: 'Insert Nut (RF)', slug: 'insert-nut-rf' },
-            { name: 'Keps(K) Nut', slug: 'keps-k-nut' },
-            { name: 'Flange Nyloc Nut', slug: 'flange-nyloc-nut' },
-            { name: 'Lock Nut', slug: 'lock-nut' },
-            { name: 'Pronge Tee Nut', slug: 'pronge-tee-nut' },
-            { name: 'Long Nut', slug: 'long-nut' },
-            { name: 'Rivet Nut', slug: 'rivet-nut' },
-            { name: 'Weld Nut', slug: 'weld-nut' },
-            { name: 'Profilp side Nut', slug: 'profilp-side-nut' },
-            { name: 'Semi Hex Nut (RF)', slug: 'semi-hex-nut-rf' },
-            { name: 'Full Hex Nut (RF)', slug: 'full-hex-nut-rf' },
-            { name: 'Square Weld Nut', slug: 'square-weld-nut' },
-            { name: 'Flange Nut', slug: 'flange-nut' },
-            { name: 'Wing Nut', slug: 'wing-nut' },
-            { name: 'Square Nut', slug: 'square-nut' },
-            { name: 'Nyloc Nut', slug: 'nyloc-nut' },
-            { name: 'Insert (D) Nut', slug: 'insert-d-nut' },
-            { name: 'Metal Lock Nut', slug: 'metal-lock-nut' },
-            { name: 'Mosflo (T) Nut', slug: 'mosflo-t-nut' },
-            { name: 'Profilp (T) Nut', slug: 'profilp-t-nut' },
-            { name: 'Shear Nut', slug: 'shear-nut' },
-            { name: 'Semi Hex Nut (LF)', slug: 'semi-hex-nut-lf' },
-            { name: 'Full Hex Nut (LF)', slug: 'full-hex-nut-lf' },
+        categories: [
+            {
+                name: 'NUTS',
+                slug: 'nuts',
+                subcategories: [
+                    {
+                        name: 'General Nuts',
+                        slug: 'general-nuts',
+                        types: [
+                            'Hex Nut',
+                            'Dome Nut',
+                            'Cage Nut',
+                            'Insert Nut (LF)',
+                            'Insert Nut (RF)',
+                            'Keps(K) Nut',
+                            'Flange Nyloc Nut',
+                            'Lock Nut',
+                            'Pronge Tee Nut',
+                            'Long Nut',
+                            'Rivet Nut',
+                            'Weld Nut',
+                            'Profilp side Nut',
+                            'Semi Hex Nut (RF)',
+                            'Full Hex Nut (RF)',
+                            'Square Weld Nut',
+                            'Flange Nut',
+                            'Wing Nut',
+                            'Square Nut',
+                            'Nyloc Nut',
+                            'Insert (D) Nut',
+                            'Metal Lock Nut',
+                            'Mosflo (T) Nut',
+                            'Profilp (T) Nut',
+                            'Shear Nut',
+                            'Semi Hex Nut (LF)',
+                            'Full Hex Nut (LF)',
+                            'Barrel Nut',
+                            'Clinch Nut'
+                        ]
+                    }
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Anchors',
         slug: 'anchors',
-        items: [
-            { name: 'Wedge Anchor', slug: 'wedge-anchor' },
-            { name: 'Sleeve Anchor', slug: 'sleeve-anchor' },
-            { name: 'Pin-Type Anchor', slug: 'pin-type-anchor' },
-            { name: 'Shield Anchor', slug: 'shield-anchor' },
-            { name: 'Tam Anchor', slug: 'tam-anchor' },
-            { name: 'Drop-In Anchor', slug: 'drop-in-anchor' },
-            { name: 'Taper Anchor', slug: 'taper-anchor' },
+        categories: [
+            {
+                name: 'Wall Anchors',
+                slug: 'wall-anchors',
+                subcategories: [
+                    {
+                        name: 'Wedge Anchor',
+                        slug: 'wedge-anchor',
+                    },
+                    {
+                        name: 'Sleeve Anchor',
+                        slug: 'sleeve-anchor',
+                    },
+                    {
+                        name: 'Pin-Type Anchor',
+                        slug: 'pin-type-anchor',
+                    },
+                    {
+                        name: 'Sheild Anchor',
+                        slug: 'sheild-anchor',
+                    },
+                    {
+                        name: 'Tam Anchor',
+                        slug: 'tam-anchor',
+                    },
+                    {
+                        name: 'Drop-In Anchor',
+                        slug: 'drop-in-anchor',
+                    },
+                    {
+                        name: 'Taper Anchor',
+                        slug: 'taper-anchor',
+                    },
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Spacers',
         slug: 'spacers',
-        items: [
-            { name: 'Hex Spacer', slug: 'hex-spacer' },
-            { name: 'Hex ET Spacer', slug: 'hex-et-spacer' },
-            { name: 'Nylon Round Plain Spacer', slug: 'nylon-round-plain-spacer' },
-            { name: 'Nylon Hex Spacer', slug: 'nylon-hex-spacer' },
-            { name: 'Nylon ET Spacer', slug: 'nylon-et-spacer' },
+        categories: [
+            {
+                name: 'Metal Spacers',
+                slug: 'metal-spacers',
+                subcategories: [
+                    {
+                        name: 'Hex Spacer',
+                        slug: 'hex-spacer',
+                    },
+                    {
+                        name: 'Hex ET Spacer',
+                        slug: 'hex-et-spacer',
+                    },
+                ],
+            },
+            {
+                name: 'Nylon Spacers',
+                slug: 'nylon-spacers',
+                subcategories: [
+                    {
+                        name: 'Nylon Round Plain Spacer',
+                        slug: 'nylon-round-plain-spacer',
+                    },
+                    {
+                        name: 'Nylon Hex Spacer',
+                        slug: 'nylon-hex-spacer',
+                    },
+                    {
+                        name: 'Nylon ET Spacer',
+                        slug: 'nylon-et-spacer',
+                    },
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Stand-Offs',
         slug: 'stand-offs',
-        items: [
-            { name: 'Blind Stand Off', slug: 'blind-stand-off' },
-            { name: 'Through Hole Stand Off', slug: 'through-hole-stand-off' },
+        categories: [
+            {
+                name: 'Mounting Stand-Offs',
+                slug: 'mounting-stand-offs',
+                subcategories: [
+                    {
+                        name: 'Blind Stand Off',
+                        slug: 'blind-stand-off',
+                    },
+                    {
+                        name: 'Through Hole Stand Off',
+                        slug: 'through-hole-stand-off',
+                    },
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Rivets and Dowels',
         slug: 'rivets',
-        items: [
-            { name: 'Solid Dowel Pin', slug: 'solid-dowel-pin' },
-            { name: 'Spring Dowel Pin', slug: 'spring-dowel-pin' },
-            { name: 'Cotter Pin', slug: 'cotter-pin' },
-            { name: 'Blind / POP Rivet', slug: 'blind-pop-rivet' },
+        categories: [
+            {
+                name: 'Solid Rivets',
+                slug: 'solid-rivets',
+                subcategories: [
+                    {
+                        name: 'Solid Dowel Pin',
+                        slug: 'solid-dowel-pin',
+                    },
+                    {
+                        name: 'Spring Dowel Pin',
+                        slug: 'spring-dowel-pin',
+                    },
+                    {
+                        name: 'Cotter Pin',
+                        slug: 'cotter-pin',
+                    },
+                    {
+                        name: 'Blind / POP Rivet',
+                        slug: 'blind-pop-rivet',
+                    },
+                ],
+            },
         ],
     },
     {
         mainCategory: 'Washers',
         slug: 'washers',
-        items: [
-            { name: 'Plain Washer', slug: 'plain-washer' },
-            { name: 'Fibre Washer', slug: 'fibre-washer' },
-            { name: 'Nylon Plain Washer', slug: 'nylon-plain-washer' },
-            { name: 'Taper Washer', slug: 'taper-washer' },
-            { name: 'Spring Washer', slug: 'spring-washer' },
-            { name: 'Chakri Washer', slug: 'chakri-washer' },
-            { name: 'Conical-Disk Washer', slug: 'conical-disk-washer' },
-            { name: 'Ext-Tooth Washer', slug: 'ext-tooth-washer' },
-            { name: 'Wave Washer', slug: 'wave-washer' },
-            { name: 'Int-Tooth Washer', slug: 'int-tooth-washer' },
-            { name: 'Ext-Star Washer', slug: 'ext-star-washer' },
-            { name: 'Int-Star Washer', slug: 'int-star-washer' },
-            { name: 'Wedge Lock Washer', slug: 'wedge-lock-washer' },
-            { name: 'Circlip type A', slug: 'circlip-type-a' },
-            { name: 'Circlip type B', slug: 'circlip-type-b' },
-            { name: 'Circlip type E', slug: 'circlip-type-e' },
+        categories: [
+            {
+                name: 'Standard Washers',
+                slug: 'standard-washers',
+                subcategories: [
+                    {
+                        name: 'Plain Washer',
+                        slug: 'plain-washer',
+                    },
+                    {
+                        name: 'Fibre Washer',
+                        slug: 'fibre-washer',
+                    },
+                    {
+                        name: 'Nylon Plain Washer',
+                        slug: 'nylon-plain-washer',
+                    },
+                    {
+                        name: 'Taper Washer',
+                        slug: 'taper-washer',
+                    },
+                    {
+                        name: 'Spring Washer',
+                        slug: 'spring-washer',
+                    },
+                    {
+                        name: 'Chakri Washer',
+                        slug: 'chakri-washer',
+                    },
+                    {
+                        name: 'Conical Disc Washer',
+                        slug: 'conical-disc-washer',
+                    },
+                ],
+            },
+            {
+                name: 'Specialty Washers',
+                slug: 'specialty-washers',
+                subcategories: [
+                    {
+                        name: 'Conical-Disk Washer',
+                        slug: 'conical-disk-washer',
+                    },
+                    {
+                        name: 'Ext-Tooth Washer',
+                        slug: 'ext-tooth-washer',
+                    },
+                    {
+                        name: 'Wave Washer',
+                        slug: 'wave-washer',
+                    },
+                    {
+                        name: 'Int-Tooth Washer',
+                        slug: 'int-tooth-washer',
+                    },
+                    {
+                        name: 'Ext-Star Washer',
+                        slug: 'ext-star-washer',
+                    },
+                    {
+                        name: 'Int-Star Washer',
+                        slug: 'int-star-washer',
+                    },
+                    {
+                        name: 'Wedge Lock Washer',
+                        slug: 'wedge-lock-washer',
+                    },
+                    {
+                        name: 'Circlip type A',
+                        slug: 'circlip-type-a',
+                    },
+                    {
+                        name: 'Circlip type B',
+                        slug: 'circlip-type-b',
+                    },
+                    {
+                        name: 'Circlip type E',
+                        slug: 'circlip-type-e',
+                    },
+                ],
+            },
         ],
     },
 ];

@@ -26,59 +26,51 @@ async function main() {
             },
         });
 
-        // Check if this main category has hierarchical structure or flat items
-        if (mainCat.categories) {
-            // Hierarchical structure (e.g., Screws with subcategories)
-            let categoryOrder = 0;
-            for (const category of mainCat.categories) {
-                console.log(`  📂 Creating category: ${category.name}`);
+        let catOrder = 0;
 
-                const createdCategory = await prisma.category.create({
-                    data: {
-                        name: category.name,
-                        slug: category.slug,
-                        mainCategoryId: createdMainCategory.id,
-                        sortOrder: categoryOrder++,
-                    },
-                });
+        for (const cat of mainCat.categories) {
+            console.log(`  📁 Creating category: ${cat.name}`);
 
-                let itemOrder = 0;
-                for (const item of category.items) {
-                    console.log(`    📄 Creating item: ${item.name}`);
-
-                    await prisma.subcategory.create({
-                        data: {
-                            name: item.name,
-                            slug: item.slug,
-                            categoryId: createdCategory.id,
-                            sortOrder: itemOrder++,
-                        },
-                    });
-                }
-            }
-        } else if (mainCat.items) {
-            // Flat structure (e.g., Bolts, Nuts with direct items)
             const createdCategory = await prisma.category.create({
                 data: {
-                    name: mainCat.mainCategory,
-                    slug: `${mainCat.slug}-items`,
+                    name: cat.name,
+                    slug: cat.slug,
                     mainCategoryId: createdMainCategory.id,
-                    sortOrder: 0,
+                    sortOrder: catOrder++,
                 },
             });
 
-            let itemOrder = 0;
-            for (const item of mainCat.items) {
-                console.log(`  📄 Creating item: ${item.name}`);
+            let subcatOrder = 0;
 
-                await prisma.subcategory.create({
+            for (const subcat of cat.subcategories) {
+                console.log(`    📄 Creating subcategory: ${subcat.name}`);
+
+                const createdSubcategory = await prisma.subcategory.create({
                     data: {
-                        name: item.name,
-                        slug: item.slug,
+                        name: subcat.name,
+                        slug: subcat.slug,
                         categoryId: createdCategory.id,
-                        sortOrder: itemOrder++,
+                        sortOrder: subcatOrder++,
                     },
                 });
+
+                // If there are types, create them as products
+                if (subcat.types && subcat.types.length > 0) {
+                    let typeOrder = 0;
+                    for (const type of subcat.types) {
+                        const typeSlug = type.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
+                        console.log(`      🔩 Creating product: ${type}`);
+
+                        await prisma.product.create({
+                            data: {
+                                name: type,
+                                slug: typeSlug,
+                                subcategoryId: createdSubcategory.id,
+                                sortOrder: typeOrder++,
+                            },
+                        });
+                    }
+                }
             }
         }
     }
@@ -96,7 +88,7 @@ async function main() {
     console.log('\n📊 Summary:');
     console.log(`   Main Categories: ${counts[0]}`);
     console.log(`   Categories: ${counts[1]}`);
-    console.log(`   Subcategories (Items): ${counts[2]}`);
+    console.log(`   Subcategories: ${counts[2]}`);
     console.log(`   Products: ${counts[3]}`);
 }
 
