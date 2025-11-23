@@ -3,9 +3,9 @@ export const nutsData = {
   "hex-nut": {
     title: "Hex Nut",
     images: [
-      "/images/products/nuts/HEX NUT.png",
-      "/images/products/nuts/HEX NUT.png",
-      "/images/products/nuts/HEX NUT.png",
+      "/images/productdata/nuts/Hex Nut ht.png",
+      "/images/productdata/nuts/Hex Nut ms.png",
+      "/images/productdata/nuts/Hex Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -28,9 +28,9 @@ export const nutsData = {
   "cage-nut": {
     title: "Cage Nut",
     images: [
-      "/images/products/nuts/CAGE NUT.png",
-      "/images/products/nuts/CAGE NUT.png",
-      "/images/products/nuts/CAGE NUT.png",
+      "/images/productdata/nuts/Cage Nut ht.png",
+      "/images/productdata/nuts/Cage Nut ms.png",
+      "/images/productdata/nuts/Cage Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -51,9 +51,9 @@ export const nutsData = {
   "square-weld-nut": {
     title: "Square Weld Nut",
     images: [
-      "/images/products/nuts/SQUARE WELD NUT.png",
-      "/images/products/nuts/SQUARE WELD NUT.png",
-      "/images/products/nuts/SQUARE WELD NUT.png",
+      "/images/productdata/nuts/Square Weld Nut ht.png",
+      "/images/productdata/nuts/Square Weld Nut ms.png",
+      "/images/productdata/nuts/Square Weld Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -74,9 +74,9 @@ export const nutsData = {
   "flange-nut": {
     title: "Flange Nut",
     images: [
-      "/images/products/nuts/FLANGE NUT.png",
-      "/images/products/nuts/FLANGE NUT.png",
-      "/images/products/nuts/FLANGE NUT.png",
+      "/images/productdata/nuts/Flange Nut ht.png",
+      "/images/productdata/nuts/Flange Nut ms.png",
+      "/images/productdata/nuts/Flange Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -97,9 +97,9 @@ export const nutsData = {
   "wing-nut": {
     title: "Wing Nut",
     images: [
-      "/images/products/nuts/WING NUT.png",
-      "/images/products/nuts/WING NUT.png",
-      "/images/products/nuts/WING NUT.png",
+      "/images/productdata/nuts/Wing Nut ht.png",
+      "/images/productdata/nuts/Wing Nut ms.png",
+      "/images/productdata/nuts/Wing Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -121,9 +121,9 @@ export const nutsData = {
   "square-nut": {
     title: "Square Nut",
     images: [
-      "/images/products/nuts/SQUARE NUT.png",
-      "/images/products/nuts/SQUARE NUT.png",
-      "/images/products/nuts/SQUARE NUT.png",
+      "/images/productdata/nuts/Square Nut ht.png",
+      "/images/productdata/nuts/Square Nut ms.png",
+      "/images/productdata/nuts/Square Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -144,9 +144,9 @@ export const nutsData = {
   "dome-nut": {
     title: "Dome Nut",
     images: [
-      "/images/products/nuts/DOME NUT.png",
-      "/images/products/nuts/DOME NUT.png",
-      "/images/products/nuts/DOME NUT.png",
+      "/images/productdata/nuts/Dome Nut ht.png",
+      "/images/productdata/nuts/Dome Nut ms.png",
+      "/images/productdata/nuts/Dome Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -168,9 +168,9 @@ export const nutsData = {
   "insert-nut-lf": {
     title: "Insert Nut (LF)",
     images: [
-      "/images/products/nuts/INSERT NUT LF.png",
-      "/images/products/nuts/INSERT NUT LF.png",
-      "/images/products/nuts/INSERT NUT LF.png",
+      "/images/productdata/nuts/Insert Nut (LF) ht.png",
+      "/images/productdata/nuts/Insert Nut (LF) ms.png",
+      "/images/productdata/nuts/Insert Nut (LF) ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Alloy", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -191,9 +191,9 @@ export const nutsData = {
   "insert-nut-rf": {
     title: "Insert Nut (RF)",
     images: [
-      "/images/products/nuts/INSERT NUT RF.png",
-      "/images/products/nuts/INSERT NUT RF.png",
-      "/images/products/nuts/INSERT NUT RF.png",
+      "/images/productdata/nuts/Insert Nut (RF) ht.png",
+      "/images/productdata/nuts/Insert Nut (RF) ms.png",
+      "/images/productdata/nuts/Insert Nut (RF) ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Alloy", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -214,9 +214,9 @@ export const nutsData = {
   "keps-k-nut": {
     title: "Keps (K) Nut",
     images: [
-      "/images/products/nuts/KEPS K NUT.png",
-      "/images/products/nuts/KEPS K NUT.png",
-      "/images/products/nuts/KEPS K NUT.png",
+      "/images/productdata/nuts/Keps(K) Nut ht.png",
+      "/images/productdata/nuts/Keps(K) Nut ms.png",
+      "/images/productdata/nuts/Keps(K) Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -237,9 +237,9 @@ export const nutsData = {
   "flange-nyloc-nut": {
     title: "Flange Nyloc Nut",
     images: [
-      "/images/products/nuts/FLANGE NYLOC NUT.png",
-      "/images/products/nuts/FLANGE NYLOC NUT.png",
-      "/images/products/nuts/FLANGE NYLOC NUT.png",
+      "/images/productdata/nuts/Flange Nyloc  Nut ht.png",
+      "/images/productdata/nuts/Flange Nyloc  Nut ms.png",
+      "/images/productdata/nuts/Flange Nyloc  Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -260,9 +260,9 @@ export const nutsData = {
   "lock-nut": {
     title: "Lock Nut",
     images: [
-      "/images/products/nuts/LOCK NUT.png",
-      "/images/products/nuts/LOCK NUT.png",
-      "/images/products/nuts/LOCK NUT.png",
+      "/images/productdata/nuts/Lock nut ht.png",
+      "/images/productdata/nuts/Lock nut ms.png",
+      "/images/productdata/nuts/Lock nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -284,9 +284,9 @@ export const nutsData = {
   "prongs-tee-nut": {
     title: "Prong Tee Nut",
     images: [
-      "/images/products/nuts/PRONGS TEE NUT.png",
-      "/images/products/nuts/PRONGS TEE NUT.png",
-      "/images/products/nuts/PRONGS TEE NUT.png",
+      "/images/productdata/nuts/Pronge Tee Nut ht.png",
+      "/images/productdata/nuts/Pronge Tee Nut ms.png",
+      "/images/productdata/nuts/Pronge Tee Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Plated Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -307,9 +307,9 @@ export const nutsData = {
   "nyloc-nut": {
     title: "Nyloc Nut",
     images: [
-      "/images/products/nuts/NYLOC NUT.png",
-      "/images/products/nuts/NYLOC NUT.png",
-      "/images/products/nuts/NYLOC NUT.png",
+      "/images/productdata/nuts/Nyloc Nut ht.png",
+      "/images/productdata/nuts/Nyloc Nut ms.png",
+      "/images/productdata/nuts/Nyloc Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -331,9 +331,9 @@ export const nutsData = {
   "long-nut": {
     title: "Long Nut",
     images: [
-      "/images/products/nuts/LONG NUT.png",
-      "/images/products/nuts/LONG NUT.png",
-      "/images/products/nuts/LONG NUT.png",
+      "/images/productdata/nuts/Long Nut ht.png",
+      "/images/productdata/nuts/Long Nut ms.png",
+      "/images/productdata/nuts/Long Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -355,9 +355,9 @@ export const nutsData = {
   "insert-d-nut": {
     title: "Insert (D) Nut",
     images: [
-      "/images/products/nuts/INSERT D NUT.png",
-      "/images/products/nuts/INSERT D NUT.png",
-      "/images/products/nuts/INSERT D NUT.png",
+      "/images/productdata/nuts/Insert(D) Nut ht.png",
+      "/images/productdata/nuts/Insert(D) Nut ms.png",
+      "/images/productdata/nuts/Insert(D) Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Alloy", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -378,9 +378,9 @@ export const nutsData = {
   "metal-lock-nut": {
     title: "Metal Lock Nut",
     images: [
-      "/images/products/nuts/METAL LOCK NUT.png",
-      "/images/products/nuts/METAL LOCK NUT.png",
-      "/images/products/nuts/METAL LOCK NUT.png",
+      "/images/productdata/nuts/Metal Lock Nut ht.png",
+      "/images/productdata/nuts/Metal Lock Nut ms.png",
+      "/images/productdata/nuts/Metal Lock Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -401,9 +401,9 @@ export const nutsData = {
   "rivet-nut": {
     title: "Rivet Nut",
     images: [
-      "/images/products/nuts/RIVET NUT.png",
-      "/images/products/nuts/RIVET NUT.png",
-      "/images/products/nuts/RIVET NUT.png",
+      "/images/productdata/nuts/Rivet Nut ht.png",
+      "/images/productdata/nuts/Rivet Nut ms.png",
+      "/images/productdata/nuts/Rivet Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Aluminum", color: "from-gray-200 to-slate-300", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -424,9 +424,9 @@ export const nutsData = {
   "profile-t-nut": {
     title: "Profile (T) Nut",
     images: [
-      "/images/products/nuts/PROFILE T NUT.png",
-      "/images/products/nuts/PROFILE T NUT.png",
-      "/images/products/nuts/PROFILE T NUT.png",
+      "/images/productdata/nuts/Profile (T) Nut ht.png",
+      "/images/productdata/nuts/Profile (T) Nut ms.png",
+      "/images/productdata/nuts/Profile (T) Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -447,9 +447,9 @@ export const nutsData = {
   "weld-nut": {
     title: "Weld Nut",
     images: [
-      "/images/products/nuts/WELD NUT.png",
-      "/images/products/nuts/WELD NUT.png",
-      "/images/products/nuts/WELD NUT.png",
+      "/images/productdata/nuts/Weld Nut ht.png",
+      "/images/productdata/nuts/Weld Nut ms.png",
+      "/images/productdata/nuts/Weld Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -470,9 +470,9 @@ export const nutsData = {
   "shear-nut": {
     title: "Shear Nut",
     images: [
-      "/images/products/nuts/SHEAR NUT.png",
-      "/images/products/nuts/SHEAR NUT.png",
-      "/images/products/nuts/SHEAR NUT.png",
+      "/images/productdata/nuts/Shear Nut ht.png",
+      "/images/productdata/nuts/Shear Nut ms.png",
+      "/images/productdata/nuts/Shear Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -492,9 +492,9 @@ export const nutsData = {
   "profile-side-nut": {
     title: "Profile Side Nut",
     images: [
-      "/images/products/nuts/PROFILE SIDE NUT.png",
-      "/images/products/nuts/PROFILE SIDE NUT.png",
-      "/images/products/nuts/PROFILE SIDE NUT.png",
+      "/images/productdata/nuts/Profile Side Nut ht.png",
+      "/images/productdata/nuts/Profile Side Nut ms.png",
+      "/images/productdata/nuts/Profile Side Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -605,9 +605,9 @@ export const nutsData = {
   "clinch-nut": {
     title: "Clinch Nut",
     images: [
-      "/images/products/nuts/CLINCH NUT.png",
-      "/images/products/nuts/CLINCH NUT.png",
-      "/images/products/nuts/CLINCH NUT.png",
+      "/images/productdata/nuts/Clinch nut ht.png",
+      "/images/productdata/nuts/Clinch nut ms.png",
+      "/images/productdata/nuts/Clinch nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -626,9 +626,9 @@ export const nutsData = {
   "barrel-nut": {
     title: "Barrel Nut",
     images: [
-      "/images/products/nuts/BARREL NUT.png",
-      "/images/products/nuts/BARREL NUT.png",
-      "/images/products/nuts/BARREL NUT.png",
+      "/images/productdata/nuts/Barrel Nut ht.png",
+      "/images/productdata/nuts/Barrel Nut ms.png",
+      "/images/productdata/nuts/Barrel Nut ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },

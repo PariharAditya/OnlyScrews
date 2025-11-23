@@ -4,8 +4,8 @@ export const anchorsData = {
     title: "Wedge Anchor",
     images: [
       "/images/products/anchors/WEDGE ANCHOR.png",
-      "/images/products/anchors/WEDGE ANCHOR.png",
-      "/images/products/anchors/WEDGE ANCHOR.png",
+      "/images/productdata/anchors/Wedge Anchor ms.png",
+      "/images/productdata/anchors/Wedge Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -25,9 +25,9 @@ export const anchorsData = {
   "pin-type-anchor": {
     title: "Pin-Type Anchor",
     images: [
-      "/images/products/anchors/PIN TYPE ANCHOR.png",
-      "/images/products/anchors/PIN TYPE ANCHOR.png",
-      "/images/products/anchors/PIN TYPE ANCHOR.png",
+      "/images/products/anchors/Pin-Type Anchor.png",
+      "/images/productdata/anchors/Pin-Type Anchor ms.png",
+      "/images/productdata/anchors/Pin-Type Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -46,9 +46,9 @@ export const anchorsData = {
   "drop-in-anchor": {
     title: "Drop-In Anchor",
     images: [
-      "/images/products/anchors/DROP IN ANCHOR.png",
-      "/images/products/anchors/DROP IN ANCHOR.png",
-      "/images/products/anchors/DROP IN ANCHOR.png",
+      "/images/products/anchors/Drop-In Anchor.png",
+      "/images/productdata/anchors/Drop-In Anchor ms.png",
+      "/images/productdata/anchors/Drop-In Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -69,8 +69,8 @@ export const anchorsData = {
     title: "Sleeve Anchor",
     images: [
       "/images/products/anchors/SLEEVE ANCHOR.png",
-      "/images/products/anchors/SLEEVE ANCHOR.png",
-      "/images/products/anchors/SLEEVE ANCHOR.png",
+      "/images/productdata/anchors/Sleeve Anchor ms.png",
+      "/images/productdata/anchors/Sleeve Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -159,8 +159,8 @@ export const anchorsData = {
     title: "Tam Anchor",
     images: [
       "/images/products/anchors/TAM ANCHOR.png",
-      "/images/products/anchors/TAM ANCHOR.png",
-      "/images/products/anchors/TAM ANCHOR.png",
+      "/images/productdata/anchors/Tam Anchor ms.png",
+      "/images/productdata/anchors/Tam Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Plated Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -181,8 +181,8 @@ export const anchorsData = {
     title: "Taper Anchor",
     images: [
       "/images/products/anchors/TAPER ANCHOR.png",
-      "/images/products/anchors/TAPER ANCHOR.png",
-      "/images/products/anchors/TAPER ANCHOR.png",
+      "/images/productdata/anchors/Taper Anchor ms.png",
+      "/images/productdata/anchors/Taper Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -203,8 +203,8 @@ export const anchorsData = {
     title: "Shield Anchor",
     images: [
       "/images/products/anchors/SHIELD ANCHOR.png",
-      "/images/products/anchors/SHIELD ANCHOR.png",
-      "/images/products/anchors/SHIELD ANCHOR.png",
+      "/images/productdata/anchors/Shield Anchor ms.png",
+      "/images/productdata/anchors/Shield Anchor ss.png",
     ],
     materials: [
       { id: 1, name: "Zinc Plated Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },

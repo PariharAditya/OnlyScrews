@@ -3,9 +3,9 @@ export const boltsData = {
   "hex-bolt": {
     title: "Hex Bolt",
     images: [
-      "/images/products/bolts/HEX BOLT.png",
-      "/images/products/bolts/HEX BOLT.png",
-      "/images/products/bolts/HEX BOLT.png",
+      "/images/productdata/bolts/Hex Bolt ht.png",
+      "/images/productdata/bolts/Hex Bolt ms.png",
+      "/images/productdata/bolts/Hex Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -28,9 +28,9 @@ export const boltsData = {
   "dome-bolt": {
     title: "Dome Bolt",
     images: [
-      "/images/products/bolts/DOME BOLT.png",
-      "/images/products/bolts/DOME BOLT.png",
-      "/images/products/bolts/DOME BOLT.png",
+      "/images/productdata/bolts/Dome Bolt ht.png",
+      "/images/productdata/bolts/Dome Bolt ms.png",
+      "/images/productdata/bolts/Dome Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -52,9 +52,9 @@ export const boltsData = {
   "flange-button-head-bolt": {
     title: "Flange Button Head Bolt",
     images: [
-      "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png",
-      "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png",
-      "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png",
+      "/images/productdata/bolts/Flange Button Head Bolt ht.png",
+      "/images/productdata/bolts/Flange Button Head Bolt ms.png",
+      "/images/productdata/bolts/Flange Button Head Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -73,9 +73,9 @@ export const boltsData = {
   "wing-bolt": {
     title: "Wing Bolt",
     images: [
-      "/images/products/bolts/WING BOLT.png",
-      "/images/products/bolts/WING BOLT.png",
-      "/images/products/bolts/WING BOLT.png",
+      "/images/productdata/bolts/wing bolt ht.png",
+      "/images/productdata/bolts/wing bolt ms.png",
+      "/images/productdata/bolts/wing bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -94,9 +94,9 @@ export const boltsData = {
   "hex-bolt-half-threaded": {
     title: "Hex Bolt Half Threaded",
     images: [
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
+      "/images/productdata/bolts/Hex bolt half threaded ht.png",
+      "/images/productdata/bolts/Hex bolt half threaded ms.png",
+      "/images/productdata/bolts/Hex bolt half threaded ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -137,9 +137,9 @@ export const boltsData = {
   "shoulder-bolt": {
     title: "Shoulder Bolt",
     images: [
-      "/images/products/bolts/SHOULDER BOLT.png",
-      "/images/products/bolts/SHOULDER BOLT.png",
-      "/images/products/bolts/SHOULDER BOLT.png",
+      "/images/productdata/bolts/Shoulder bolt ht.png",
+      "/images/productdata/bolts/Shoulder bolt ms.png",
+      "/images/productdata/bolts/shoulder bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -178,9 +178,9 @@ export const boltsData = {
   "flange-bolt": {
     title: "Flange",
     images: [
-      "/images/products/bolts/FLANGE BOLT.png",
-      "/images/products/bolts/FLANGE BOLT.png",
-      "/images/products/bolts/FLANGE BOLT.png",
+      "/images/productdata/bolts/Flange Bolt ht.png",
+      "/images/productdata/bolts/Flange Bolt ms.png",
+      "/images/productdata/bolts/Flange Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -239,9 +239,9 @@ export const boltsData = {
   "u-bolt": {
     title: "U-Bolt",
     images: [
-      "/images/products/bolts/U BOLT.png",
-      "/images/products/bolts/U BOLT.png",
-      "/images/products/bolts/U BOLT.png",
+      "/images/productdata/bolts/U bolt ht.png",
+      "/images/productdata/bolts/U bolt ms.png",
+      "/images/productdata/bolts/U bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -260,9 +260,9 @@ export const boltsData = {
   "t-bolt": {
     title: "T-Bolt",
     images: [
-      "/images/products/bolts/T BOLT.png",
-      "/images/products/bolts/T BOLT.png",
-      "/images/products/bolts/T BOLT.png",
+      "/images/productdata/bolts/T bolt ht.png",
+      "/images/productdata/bolts/T bolt ms.png",
+      "/images/productdata/bolts/T bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -279,9 +279,9 @@ export const boltsData = {
   "carriage-bolt": {
     title: "Carriage Bolt",
     images: [
-      "/images/products/bolts/CARRIAGE BOLT.png",
-      "/images/products/bolts/CARRIAGE BOLT.png",
-      "/images/products/bolts/CARRIAGE BOLT.png",
+      "/images/productdata/bolts/carriage bolt ht.png",
+      "/images/productdata/bolts/Carriage bolt ms.png",
+      "/images/productdata/bolts/Carriage bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -317,9 +317,9 @@ export const boltsData = {
   "eye-bolt": {
     title: "Eye Bolt",
     images: [
-      "/images/products/bolts/EYE BOLT.png",
-      "/images/products/bolts/EYE BOLT.png",
-      "/images/products/bolts/EYE BOLT.png",
+      "/images/productdata/bolts/Eye Bolt ht.png",
+      "/images/productdata/bolts/Eye Bolt ms.png",
+      "/images/productdata/bolts/Eye Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -336,9 +336,9 @@ export const boltsData = {
   "j-bolt": {
     title: "J-Bolt",
     images: [
-      "/images/products/bolts/J BOLT.png",
-      "/images/products/bolts/J BOLT.png",
-      "/images/products/bolts/J BOLT.png",
+      "/images/productdata/bolts/J bolt ht.png",
+      "/images/productdata/bolts/J bolt ms.png",
+      "/images/productdata/bolts/J bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -356,9 +356,9 @@ export const boltsData = {
   "hook-bolt": {
     title: "Hook Bolt",
     images: [
-      "/images/products/bolts/HOOK BOLT.png",
-      "/images/products/bolts/HOOK BOLT.png",
-      "/images/products/bolts/HOOK BOLT.png",
+      "/images/productdata/bolts/Hook bolt ht.png",
+      "/images/productdata/bolts/Hook bolt ms.png",
+      "/images/productdata/bolts/Hook Bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
