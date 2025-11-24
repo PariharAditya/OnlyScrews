@@ -339,12 +339,12 @@ export const screwsData = {
   },
 
   // Self Tapping Screws
-  "slotted-sts": {
-    title: "Slotted STS | Self-Tapping Screws | Flat Slot Drive | Creates Own Threads | Sheet Metal | Multiple Materials",
+  "pan-phillips-sts": {
+    title: "STS Pan Phillips",
     images: [
-      "/images/products/screws/self tapping screws/slotted sts.png",
-      "/images/products/screws/self tapping screws/slotted sts.png",
-      "/images/products/screws/self tapping screws/slotted sts.png",
+      "/images/productdata/screws/self tapping screws/STS Pan (+) ht.png",
+      "/images/productdata/screws/self tapping screws/STS Pan (+) ms.png",
+      "/images/productdata/screws/self tapping screws/STS Pan (+) ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -352,23 +352,22 @@ export const screwsData = {
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 4, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Slotted Self-Tapping Screws combine traditional slotted drive with self-tapping threads that cut their own path into materials. These screws eliminate the need for pre-drilling or tapping. Ideal for sheet metal work, HVAC installations, and electrical enclosures.",
+    about: "Pan Head Phillips Self-Tapping Screws feature a rounded pan head with Phillips cross-recess drive and self-tapping threads. These screws create their own threads as they're driven, eliminating pre-drilling needs. Perfect for sheet metal, HVAC, and electrical applications.",
     specifications: [
-      { label: "Type", value: "Self-Tapping (STS)" },
-      { label: "Drive Type", value: "Slotted (Flat Blade)" },
-      { label: "Thread Forming", value: "Self-Tapping" },
-      { label: "Material Compatibility", value: "Sheet Metal, Plastic" },
-      { label: "Application", value: "HVAC, Electrical Enclosures" },
-      { label: "Point Style", value: "Type A/AB" },
+      { label: "Application", value: "Used for fastening sheet metal, plastic, and thin materials" },
+      { label: "Application", value: "Ideal for HVAC ductwork, electrical enclosures, and appliance assembly" },
+      { label: "Application", value: "Suitable for quick installation without pre-drilling" },
+      { label: "Application", value: "Common in automotive trim, panels, and light fabrication" },
+      { label: "Application", value: "Easy installation with standard Phillips screwdrivers" },
     ],
   },
 
-  "phillip-sts": {
-    title: "Phillip STS | Phillips Self-Tapping Screws | Cross Recess | Creates Own Threads | Sheet Metal | Multiple Materials",
+  "csk-phillips-sts": {
+    title: "STS CSK Phillips",
     images: [
-      "/images/products/screws/self tapping screws/Phillips STS.png",
-      "/images/products/screws/self tapping screws/Phillips STS.png",
-      "/images/products/screws/self tapping screws/Phillips STS.png",
+      "/images/productdata/screws/self tapping screws/STS CSK (+) ht.png",
+      "/images/productdata/screws/self tapping screws/STS CSK (+) ms.png",
+      "/images/productdata/screws/self tapping screws/STS CSK (+) ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -376,72 +375,93 @@ export const screwsData = {
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 4, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Phillips Self-Tapping Screws feature the popular cross-recess drive combined with self-tapping threads for quick installation without pre-drilling. Perfect for automotive applications, appliance assembly, and sheet metal fabrication.",
+    about: "Countersunk Phillips Self-Tapping Screws feature a flat, countersunk head that sits flush with the surface, combined with Phillips drive and self-tapping threads. Ideal for applications requiring a smooth, snag-free finish without pre-drilling.",
     specifications: [
-      { label: "Type", value: "Self-Tapping (STS)" },
-      { label: "Drive Type", value: "Phillips (Cross Recess)" },
-      { label: "Thread Forming", value: "Self-Tapping" },
-      { label: "Material Compatibility", value: "Sheet Metal, Plastic, Wood" },
-      { label: "Application", value: "Automotive, Appliances" },
-      { label: "Point Style", value: "Type A/AB/B" },
+      { label: "Application", value: "Used where flush mounting is required on sheet metal and panels" },
+      { label: "Application", value: "Ideal for electronics enclosures, furniture hardware, and trim work" },
+      { label: "Application", value: "Suitable for thin materials requiring clean, flush surfaces" },
+      { label: "Application", value: "Common in automotive interiors, appliances, and cabinetry" },
+      { label: "Application", value: "Provides professional finish with self-tapping convenience" },
     ],
   },
 
-  "hex-sts": {
-    title: "Hex STS | Hex Head Self-Tapping Screws | Wrench Drive | High Torque | Creates Own Threads | Multiple Materials",
+  "ww-pan-phillips-sts": {
+    title: "STS WW Pan Phillips",
     images: [
-      "/images/products/screws/self tapping screws/Hex sts.png",
-      "/images/products/screws/self tapping screws/Hex sts.png",
-      "/images/products/screws/self tapping screws/Hex sts.png",
+      "/images/productdata/screws/self tapping screws/STS WW Pan (+)  ht.png",
+      "/images/productdata/screws/self tapping screws/STS WW Pan (+)  ms.png",
+      "/images/productdata/screws/self tapping screws/STS WW Pan (+) ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
       { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
-      { id: 4, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 4, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Hex Head Self-Tapping Screws combine the high-torque capability of hex heads with self-tapping threads for maximum fastening strength without pre-drilling. Ideal for structural applications, roofing, and metal building construction.",
+    about: "Wide Washer Pan Phillips Self-Tapping Screws feature an extra-wide pan head for superior load distribution, combined with Phillips drive and self-tapping threads. Perfect for soft materials or thin panels requiring enhanced clamping without surface damage.",
     specifications: [
-      { label: "Type", value: "Self-Tapping (STS)" },
-      { label: "Head Type", value: "Hex Head" },
-      { label: "Drive Type", value: "Wrench/Socket" },
-      { label: "Thread Forming", value: "Self-Tapping" },
-      { label: "Torque Capability", value: "High" },
-      { label: "Application", value: "Structural, Roofing, Metal Buildings" },
+      { label: "Application", value: "Used for fastening thin or soft materials requiring wide load distribution" },
+      { label: "Application", value: "Ideal for plastic panels, fiberglass, and composite materials" },
+      { label: "Application", value: "Suitable for HVAC ductwork and thin sheet metal applications" },
+      { label: "Application", value: "Common in electrical enclosures and automotive trim" },
+      { label: "Application", value: "Prevents material pull-through with integrated washer-like head" },
     ],
   },
 
-  "allen-sts": {
-    title: "Allen STS | Hex Socket Self-Tapping Screws | Allen Drive | Creates Own Threads | Low Profile | Multiple Materials",
+  "pan-b-type-sts": {
+    title: "STS Pan B Type",
     images: [
-      "/images/products/screws/self tapping screws/Allen STS.png",
-      "/images/products/screws/self tapping screws/Allen STS.png",
-      "/images/products/screws/self tapping screws/Allen STS.png",
+      "/images/productdata/screws/self tapping screws/STS Pan B type ht.png",
+      "/images/productdata/screws/self tapping screws/STS Pan B type ms.png",
+      "/images/productdata/screws/self tapping screws/STS Pan B type ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
       { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
-      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
-      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
-      { id: 5, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 4, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
     ],
-    about: "Allen (Hex Socket) Self-Tapping Screws provide the precision and torque benefits of hex Allen drive combined with self-tapping threads. Perfect for electronics, machinery covers, automotive trim, and precision assembly work.",
+    about: "Pan Head B Type Self-Tapping Screws feature blunt point threading designed for thicker materials and pre-drilled holes. The pan head provides good bearing surface while B-type threads offer superior holding power in plastics and softer metals.",
     specifications: [
-      { label: "Type", value: "Self-Tapping (STS)" },
-      { label: "Drive Type", value: "Hex Allen Socket" },
-      { label: "Thread Forming", value: "Self-Tapping" },
-      { label: "Head Profile", value: "Low Profile" },
-      { label: "Material Compatibility", value: "Sheet Metal, Plastic" },
-      { label: "Application", value: "Electronics, Precision Assembly" },
+      { label: "Application", value: "Used for fastening plastic, fiberglass, and soft metals" },
+      { label: "Application", value: "Ideal for electronics enclosures and plastic assemblies" },
+      { label: "Application", value: "Suitable for pre-drilled or molded-in holes" },
+      { label: "Application", value: "Common in appliance manufacturing and consumer products" },
+      { label: "Application", value: "Provides strong thread engagement in softer materials" },
     ],
   },
+
+  "csk-b-type-sts": {
+    title: "STS CSK B Type",
+    images: [
+      "/images/productdata/screws/self tapping screws/STS CSK B Type ht.png",
+      "/images/productdata/screws/self tapping screws/STS CSK B Tye ms.png",
+      "/images/productdata/screws/self tapping screws/STS CSK B Type ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 4, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+    ],
+    about: "Countersunk B Type Self-Tapping Screws combine flush-mount countersunk head with B-type threading for thicker plastics and soft metals. Perfect for applications requiring smooth surfaces with strong thread engagement in softer materials.",
+    specifications: [
+      { label: "Application", value: "Used for flush mounting in plastic, fiberglass, and soft metal" },
+      { label: "Application", value: "Ideal for electronics housings and plastic enclosures" },
+      { label: "Application", value: "Suitable for furniture hardware and appliance assemblies" },
+      { label: "Application", value: "Common in automotive trim and interior panels" },
+      { label: "Application", value: "Provides clean finish with superior holding in soft materials" },
+    ],
+  },
+
+  
 
   "pan-torx-sts": {
-    title: "Pan Torx STS | Self-Tapping Screws | Torx Drive | Creates Own Threads | Sheet Metal | Multiple Materials",
+    title: "Pan Torx STS ",
     images: [
-      "/images/products/screws/self tapping screws/Torx STS.png",
-      "/images/products/screws/self tapping screws/Torx STS.png",
-      "/images/products/screws/self tapping screws/Torx STS.png",
+      "/images/productdata/screws/self tapping screws/Pan Torx STS ht.png",
+      "/images/productdata/screws/self tapping screws/Pan Torx STS ms.png",
+      "/images/productdata/screws/self tapping screws/Pan Torx STS ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -462,11 +482,11 @@ export const screwsData = {
   },
 
   "csk-torx-sts": {
-    title: "CSK Torx STS | Countersunk Self-Tapping | Torx Drive | Flush Finish | Creates Own Threads | Multiple Materials",
+    title: "CSK Torx STS",
     images: [
-      "/images/products/screws/self tapping screws/Torx STS.png",
-      "/images/products/screws/self tapping screws/Torx STS.png",
-      "/images/products/screws/self tapping screws/Torx STS.png",
+      "/images/productdata/screws/self tapping screws/CSK Torx STS ht.png",
+      "/images/productdata/screws/self tapping screws/CSK Torx STS ms.png",
+      "/images/productdata/screws/self tapping screws/CSK Torx STS ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },

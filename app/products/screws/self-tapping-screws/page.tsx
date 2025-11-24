@@ -5,11 +5,12 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function SelfTappingScrewsPage() {
   const selfTappingScrews = [
-    { title: "Slotted STS", slug: "slotted-sts", image: "/images/products/screws/self tapping screws/slotted sts.png" },
-    { title: "Phillip STS", slug: "phillip-sts", image: "/images/products/screws/self tapping screws/Phillips STS.png" },
-    { title: "Hex STS", slug: "hex-sts", image: "/images/products/screws/self tapping screws/Hex sts.png" },
-    { title: "Allen STS", slug: "allen-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
-    { title: "Torx STS", slug: "pan-torx-sts", image: "/images/products/screws/self tapping screws/Torx STS.png" },
+    { title: "STS Pan Phillips", slug: "pan-phillips-sts", image: "/images/products/screws/self tapping screws/slotted sts.png" },
+    { title: "STS CSK Phillips", slug: "csk-phillips-sts", image: "/images/products/screws/self tapping screws/Phillips STS.png" },
+    { title: "STS WW Pan Phillips", slug: "ww-pan-phillips-sts", image: "/images/products/screws/self tapping screws/Hex sts.png" },
+    { title: "STS Pan B Type", slug: "pan-b-type-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
+    { title: "STS CSK B Type", slug: "csk-b-type-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
+    { title: "Torx STS", slug: "torx-sts", href: "/products/screws/self-tapping-screws/torx-sts", image: "/images/products/screws/self tapping screws/Torx STS.png" },
   ];
 
   return (
@@ -23,7 +24,7 @@ export default function SelfTappingScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/category/${screw.slug}`}
+            href={screw.href ?? `/category/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>
