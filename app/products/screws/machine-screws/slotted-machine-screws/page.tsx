@@ -5,9 +5,9 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function SlottedMachineScrewsPage() {
   const slottedScrews = [
-    { title: "CSK Slotted", slug: "csk-slotted", image: "/images/products/screws/machine screws/CSK Slotted.png" },
-    { title: "Cheese Head Slotted", slug: "cheese-head-slotted", image: "/images/products/screws/machine screws/Cheese Head Slotted.png" },
-    { title: "Round Head Slotted", slug: "round-head-slotted", image: "/images/products/screws/machine screws/Round Head Slotted.png" },
+    { title: "CSK Slotted", slug: "csk-slotted", image: "/images/products/screws/machine screws/slotted machine screws/CSK Slotted.png" },
+    { title: "Cheese Head Slotted", slug: "cheese-head-slotted", image: "/images/products/screws/machine screws/slotted machine screws/Cheese Head slotted.png" },
+    { title: "Round Head Slotted", slug: "round-head-slotted", image: "/images/products/screws/machine screws/slotted machine screws/Round Head Slotted.png" },
   ];
 
   return (

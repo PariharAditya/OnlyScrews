@@ -5,10 +5,10 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function PhillipMachineScrewsPage() {
   const phillipScrews = [
-    { title: "Pan Head Phillips", slug: "pan-head-phillips", image: "/images/products/screws/machine screws/Pan Head Phillips.png" },
-    { title: "CSK Head Phillips", slug: "csk-head-phillips", image: "/images/products/screws/machine screws/CSK Head Phillips.png" },
-    { title: "Truss Head Phillips", slug: "truss-head-phillips", image: "/images/products/screws/machine screws/Truss Head Phillips.png" },
-    { title: "WW Pan Phillips", slug: "ww-pan-phillips", image: "/images/products/screws/machine screws/WW Pan Phillips.png" },
+    { title: "Pan Head Phillips", slug: "pan-head-phillips", image: "/images/products/screws/machine screws/phillip machine screws/Pan head phillips.png" },
+    { title: "CSK Head Phillips", slug: "csk-head-phillips", image: "/images/products/screws/machine screws/phillip machine screws/CSK head phillips.png" },
+    { title: "Truss Head Phillips", slug: "truss-head-phillips", image: "/images/products/screws/machine screws/phillip machine screws/Truss head phillips.png" },
+    { title: "WW Pan Phillips", slug: "ww-pan-phillips", image: "/images/products/screws/machine screws/phillip machine screws/WW Pan head phillips.png" },
   ];
 
   return (

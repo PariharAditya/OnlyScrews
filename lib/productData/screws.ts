@@ -134,7 +134,7 @@ export const screwsData = {
   },
 
   "pan-torx": {
-    title: "Pan Phillips Machine Screw",
+    title: "Pan Torx Machine Screw",
 
     images: [
       "/images/productdata/screws/allen screws/Pan Torx  Machine Screw ht.png",
@@ -162,7 +162,7 @@ export const screwsData = {
   },
 
   "csk-torx": {
-    title: "CSK Phillips Machine Screw",
+    title: "CSK Torx Machine Screw",
 
     images: [
        "/images/productdata/screws/allen screws/CSK Torx Machine Screw ht.png",
@@ -577,6 +577,176 @@ export const screwsData = {
       { label: "Point Type", value: "Drill Point (Tek)" },
       { label: "Drive Type", value: "Phillips, Torx" },
       { label: "Application", value: "Thin Sheet Metal, Roofing" },
+    ],
+  },
+
+  // Phillip Machine Screws - Individual Head Variants
+  "pan-head-phillips": {
+    title: "Pan Head Phillips Machine Screw",
+    images: [
+      "/images/productdata/screws/phillip machine screws/Pan head Phillips ht.png",
+      "/images/productdata/screws/phillip machine screws/Pan head Phillips ss.png",
+      "/images/productdata/screws/phillip machine screws/Pan head Phillips nylon.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "Pan Head Phillips Machine Screws feature a rounded, low-profile pan head with a Phillips cross-recess drive. This classic design provides excellent torque transfer, easy alignment, and a neat appearance. Widely used in electronics, appliances, and general assembly applications where reliable fastening and accessibility are important.",
+    specifications: [
+      { label: "Application", value: "Used in electronics, appliances, and general industrial assemblies" },
+      { label: "Application", value: "Ideal for fastening metal, plastic, and light mechanical components" },
+      { label: "Application", value: "Suitable for panels, brackets, enclosures, and device housings" },
+      { label: "Application", value: "Common in automotive interiors, electrical equipment, and consumer products" },
+      { label: "Application", value: "Easy to install and remove using standard Phillips screwdrivers" },
+    ],
+  },
+
+  "csk-head-phillips": {
+    title: "CSK Head Phillips Machine Screw",
+    images: [
+      "/images/productdata/screws/phillip machine screws/CSK Head phillips ht.png",
+      "/images/productdata/screws/phillip machine screws/CSK Head phillips ss.png",
+      "/images/productdata/screws/phillip machine screws/CSK Head phillips nylon.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "CSK Head Phillips Machine Screws feature a flat, countersunk head that sits flush with the surface, combined with a Phillips cross-recess drive. This design provides a clean, streamlined finish while maintaining easy installation and reliable fastening. Perfect for applications requiring smooth, snag-free surfaces in electronics, furniture, and precision assemblies.",
+    specifications: [
+      { label: "Application", value: "Used where a flush, smooth surface finish is required after fastening" },
+      { label: "Application", value: "Ideal for electronics, appliances, furniture hardware, and precision assemblies" },
+      { label: "Application", value: "Suitable for metal, plastic, and wood components with countersunk holes" },
+      { label: "Application", value: "Common in panels, hinges, brackets, and structural fittings" },
+      { label: "Application", value: "Installs easily using a standard Phillips screwdriver for secure fastening" },
+    ],
+  },
+
+  "truss-head-phillips": {
+    title: "Truss Head Phillips Machine Screw",
+    images: [
+      "/images/productdata/screws/phillip machine screws/Truss head phillips ht.png",
+      "/images/productdata/screws/phillip machine screws/Truss head phillips ms.png",
+      "/images/productdata/screws/phillip machine screws/Truss head phillips ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "Truss Head Phillips Machine Screws feature an extra-wide, low-profile head with a larger bearing surface, combined with a Phillips cross-recess drive. The truss head design distributes load over a wider area, making it ideal for thin materials or applications where a broad, stable contact surface is needed without creating excessive protrusion.",
+    specifications: [
+      { label: "Application", value: "Used for fastening thin materials requiring wide load distribution" },
+      { label: "Application", value: "Ideal for sheet metal, plastic panels, and electrical enclosures" },
+      { label: "Application", value: "Suitable for applications where a low-profile, wide head is beneficial" },
+      { label: "Application", value: "Common in electronics, appliances, and automotive trim assemblies" },
+      { label: "Application", value: "Provides excellent surface contact to prevent material damage" },
+    ],
+  },
+
+  "ww-pan-phillips": {
+    title: "WW Pan Phillips Machine Screw",
+    images: [
+      "/images/productdata/screws/phillip machine screws/WW Pan head phillips ht.png",
+      "/images/productdata/screws/phillip machine screws/WW Pan head phillips ss.png",
+      "/images/productdata/screws/phillip machine screws/WW Pan head phillips ms.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "WW Pan Phillips (Wide Washer Pan) Machine Screws feature an extra-wide pan head that functions like an integrated washer, providing superior load distribution over a larger surface area. The Phillips cross-recess drive ensures easy installation. This design is ideal for soft materials, thin panels, or applications requiring enhanced clamping force without surface damage.",
+    specifications: [
+      { label: "Application", value: "Used for fastening thin or soft materials requiring wide load distribution" },
+      { label: "Application", value: "Ideal for plastic panels, fiberglass, and soft metal applications" },
+      { label: "Application", value: "Suitable for electrical enclosures, automotive trim, and appliance assembly" },
+      { label: "Application", value: "Common in applications where material damage prevention is critical" },
+      { label: "Application", value: "Provides integrated washer-like function for enhanced clamping" },
+    ],
+  },
+
+  // Slotted Machine Screws - Individual Head Variants
+  "csk-slotted": {
+    title: "CSK Slotted Machine Screw",
+    images: [
+      "/images/productdata/screws/slotted machine screws/CSK slotted ht.png",
+      "/images/productdata/screws/slotted machine screws/CSK slotted ms.png",
+      "/images/productdata/screws/slotted machine screws/CSK slotted ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "CSK Slotted Machine Screws feature a flat, countersunk head with a traditional slotted drive. The countersunk design allows the screw to sit flush with the surface, providing a clean, streamlined finish. The slotted drive offers universal compatibility with flat-blade screwdrivers. Perfect for vintage restorations, electrical equipment, and applications requiring a classic aesthetic.",
+    specifications: [
+      { label: "Application", value: "Used where a flush, smooth surface finish is required" },
+      { label: "Application", value: "Ideal for electrical equipment, vintage restorations, and precision assemblies" },
+      { label: "Application", value: "Suitable for metal, plastic, and wood components with countersunk holes" },
+      { label: "Application", value: "Common in switchgear, electrical panels, and classic machinery" },
+      { label: "Application", value: "Provides traditional appearance with reliable fastening" },
+    ],
+  },
+
+  "cheese-head-slotted": {
+    title: "Cheese Head Slotted Machine Screw",
+    images: [
+      "/images/productdata/screws/slotted machine screws/Cheese head ht.png",
+      "/images/productdata/screws/slotted machine screws/Cheese head ms.png",
+      "/images/productdata/screws/slotted machine screws/Cheese head ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "Cheese Head Slotted Machine Screws feature a cylindrical head with flat sides, resembling a wheel of cheese, combined with a traditional slotted drive. This distinctive design provides a larger bearing surface than a round head while maintaining a low profile. Commonly used in electrical equipment, machinery, and applications where a classic, industrial aesthetic is desired.",
+    specifications: [
+      { label: "Application", value: "Used in electrical equipment, control panels, and machinery assemblies" },
+      { label: "Application", value: "Ideal for applications requiring a low-profile head with good bearing surface" },
+      { label: "Application", value: "Suitable for metal and plastic components in industrial settings" },
+      { label: "Application", value: "Common in vintage machinery, switchgear, and electrical installations" },
+      { label: "Application", value: "Provides distinctive appearance with reliable fastening performance" },
+    ],
+  },
+
+  "round-head-slotted": {
+    title: "Round Head Slotted Machine Screw",
+    images: [
+      "/images/productdata/screws/slotted machine screws/Round head Slotted ht.png",
+      "/images/productdata/screws/slotted machine screws/Round head Slotted ms.png",
+      "/images/productdata/screws/slotted machine screws/Round head Slotted ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+    ],
+    about: "Round Head Slotted Machine Screws feature a domed, rounded head with a traditional slotted drive. The rounded head provides a classic appearance and good bearing surface for general fastening applications. The slotted drive offers universal compatibility with flat-blade screwdrivers. Widely used in electrical equipment, furniture assembly, and vintage machinery restorations.",
+    specifications: [
+      { label: "Application", value: "Used in electrical equipment, furniture, and general assemblies" },
+      { label: "Application", value: "Ideal for applications requiring a traditional rounded head appearance" },
+      { label: "Application", value: "Suitable for metal, plastic, and wood component fastening" },
+      { label: "Application", value: "Common in vintage machinery, electrical panels, and restoration work" },
+      { label: "Application", value: "Provides classic aesthetic with reliable holding power" },
     ],
   },
 };
