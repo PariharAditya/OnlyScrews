@@ -3,9 +3,9 @@ export const screwsData = {
   "shcs-machine-screws": {
     title: "Allen Cap Socket Head Cap Screw (SHCS)",
     images: [
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
+      "/images/productdata/screws/allen screws/Allen bolt ht.png",
+      "/images/productdata/screws/allen screws/Allen bolt ms.png",
+      "/images/productdata/screws/allen screws/Allen bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -32,9 +32,9 @@ export const screwsData = {
     title: "Allen Button Head Cap Screw (BHCS)",
 
     images: [
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
+      "/images/productdata/screws/allen screws/Button head bolt ht.png",
+      "/images/productdata/screws/allen screws/Button head bolt ms.png",
+      "/images/productdata/screws/allen screws/Button head bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -60,9 +60,9 @@ export const screwsData = {
     title: "Allen Countersunk Screw (CSK)",
 
     images: [
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
+      "/images/productdata/screws/allen screws/Allen csk bolt ht.png",
+      "/images/productdata/screws/allen screws/Allen csk bolt ms.png",
+      "/images/productdata/screws/allen screws/Allen csk bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -86,9 +86,9 @@ export const screwsData = {
   "grub-screws": {
     title: "Allen Grub Screw",
     images: [
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
-      "/images/products/screws/machine screws/Allen Button Head BHCS.png",
+      "/images/productdata/screws/allen screws/Grub ht.png",
+      "/images/productdata/screws/allen screws/grub ms.png",
+      "/images/productdata/screws/allen screws/Grub ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -113,9 +113,9 @@ export const screwsData = {
     title: "JCB Screw",
 
     images: [
-      "/images/products/screws/machine screws/JCB Screw.png",
-      "/images/products/screws/machine screws/JCB Screw.png",
-      "/images/products/screws/machine screws/JCB Screw.png",
+      "/images/productdata/screws/allen screws/JCB ht.png",
+      "/images/productdata/screws/allen screws/JCB ms.png",
+      "/images/productdata/screws/allen screws/JCB ss.png",
     ],
     materials: [
       { id: 1, name: "High Tensile Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -137,9 +137,9 @@ export const screwsData = {
     title: "Pan Phillips Machine Screw",
 
     images: [
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
+      "/images/productdata/screws/allen screws/Pan Torx  Machine Screw ht.png",
+      "/images/productdata/screws/allen screws/Pan Torx  Machine Screw ms.png",
+      "/images/productdata/screws/allen screws/Pan Torx Machine Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -165,9 +165,9 @@ export const screwsData = {
     title: "CSK Phillips Machine Screw",
 
     images: [
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
+       "/images/productdata/screws/allen screws/CSK Torx Machine Screw ht.png",
+      "/images/productdata/screws/allen screws/CSK Torx Machine Screw ms.png",
+      "/images/productdata/screws/allen screws/CSK Torx Machine Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -190,9 +190,9 @@ export const screwsData = {
   "security-pan-torx": {
     title: "Security Pan Torx Machine Screw",
     images: [
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
+      "/images/productdata/screws/allen screws/Security Pan Torx Machine Screw ht.png",
+      "/images/productdata/screws/allen screws/Security Pan Torx Machine Screw ms.png",
+      "/images/productdata/screws/allen screws/Security Pan Torx Machine Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -215,9 +215,9 @@ export const screwsData = {
   "security-csk-torx": {
     title: "Security CSK Torx Machine Screw",
     images: [
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
-      "/images/products/screws/machine screws/CSK Torx Machine Screw.png",
+       "/images/productdata/screws/allen screws/Security CSK Torx Machine Screw ht.png",
+      "/images/productdata/screws/allen screws/Security CSK Torx Machine Screw ms.png",
+      "/images/productdata/screws/allen screws/Security CSK Torx Machine Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -239,9 +239,9 @@ export const screwsData = {
   "pan-sem": {
     title: "Pan SEM Screws | Pre-assembled Washer | SEMS Assembly | Time-Saving Installation | Multiple Materials",
     images: [
-      "/images/products/screws/Machine Screw.png",
-      "/images/products/screws/Machine Screw.png",
-      "/images/products/screws/Machine Screw.png",
+      "/images/productdata/screws/allen screws/Pan SEMS ht.png",
+      "/images/productdata/screws/allen screws/Pan SEMS ms.png",
+      "/images/productdata/screws/allen screws/Pan SEMS ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
@@ -264,9 +264,9 @@ export const screwsData = {
   "hex-sem": {
     title: "Hex SEM Screws | Pre-assembled Washer | Hex Head | Wrench Drive | Time-Saving | Multiple Materials",
     images: [
-      "/images/products/screws/Machine Screw.png",
-      "/images/products/screws/Machine Screw.png",
-      "/images/products/screws/Machine Screw.png",
+      "/images/productdata/screws/allen screws/Hex SEMS ht.png",
+      "/images/productdata/screws/allen screws/Hex SEMS ms.png",
+      "/images/productdata/screws/allen screws/Hex SEMS ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },

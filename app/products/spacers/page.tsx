@@ -12,7 +12,7 @@ export default function SpacersPage() {
     { title: "Hex ET Spacer", slug: "hex-et-spacer" , image: "/images/products/spacers/Hex ET Spacer.png" },
     { title: "Nylon Round Plain Spacer", slug: "nylon-round-plain-spacer" , image: "/images/products/spacers/Nylon Round Plain Spacer.png" },
     { title: "Nylon Hex Spacer", slug: "nylon-hex-spacer" , image: "/images/products/spacers/Nylon Hex Spacer.png" },
-    { title: "Nylon ET Spacer", slug: "nylon-et-spacer" , imgage: "/images/products/spacers/Nylon ET Spacer.png" },
+    { title: "Nylon ET Spacer", slug: "nylon-et-spacer" , imgage: "/images/productdata/spacers/Nylon ET Spacer.png" },
   ];
 
   return (
