@@ -510,9 +510,9 @@ export const screwsData = {
   "pan-sds": {
     title: "Pan Self-Drilling Screws",
     images: [
-      "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png",
+      "/images/productdata/screws/self drilling screws/Pan Self-Drilling Screw ht.png",
+      "/images/productdata/screws/self drilling screws/Pan Self-Drilling Screw ms.png",
+      "/images/productdata/screws/self drilling screws/Pan Self-Drilling Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -534,9 +534,9 @@ export const screwsData = {
   "hex-sds": {
     title: "Hex Self-Drilling Screws",
     images: [
-      "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png",
+      "/images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ht.png",
+      "/images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ms.png",
+      "/images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -557,9 +557,9 @@ export const screwsData = {
   "csk-sds": {
     title: "CSK Self-Drilling Screws",
     images: [
-      "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png",
+      "/images/productdata/screws/self drilling screws/CSK Self-Drilling Screw ht.png",
+      "/images/productdata/screws/self drilling screws/CSK Self-Drilling Screw ms.png",
+      "/images/productdata/screws/self drilling screws/CSK Self-Drilling Screw ss.png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },

@@ -5,11 +5,11 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function SelfTappingScrewsPage() {
   const selfTappingScrews = [
-    { title: "STS Pan Phillips", slug: "pan-phillips-sts", image: "/images/products/screws/self tapping screws/slotted sts.png" },
-    { title: "STS CSK Phillips", slug: "csk-phillips-sts", image: "/images/products/screws/self tapping screws/Phillips STS.png" },
-    { title: "STS WW Pan Phillips", slug: "ww-pan-phillips-sts", image: "/images/products/screws/self tapping screws/Hex sts.png" },
-    { title: "STS Pan B Type", slug: "pan-b-type-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
-    { title: "STS CSK B Type", slug: "csk-b-type-sts", image: "/images/products/screws/self tapping screws/Allen STS.png" },
+    { title: "STS Pan Phillips", slug: "pan-phillips-sts", image: "/images/products/screws/self tapping screws/STS Pan (+).png" },
+    { title: "STS CSK Phillips", slug: "csk-phillips-sts", image: "/images/products/screws/self tapping screws/STS CSK (+).png" },
+    { title: "STS WW Pan Phillips", slug: "ww-pan-phillips-sts", image: "/images/products/screws/self tapping screws/STS WW Pan (+).png" },
+    { title: "STS Pan B Type", slug: "pan-b-type-sts", image: "/images/products/screws/self tapping screws/STS Pan B type.png" },
+    { title: "STS CSK B Type", slug: "csk-b-type-sts", image: "/images/products/screws/self tapping screws/STS CSK B Type.png" },
     { title: "Torx STS", slug: "torx-sts", href: "/products/screws/self-tapping-screws/torx-sts", image: "/images/products/screws/self tapping screws/Torx STS.png" },
   ];
 
