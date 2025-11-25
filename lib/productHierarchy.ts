@@ -96,89 +96,35 @@ export const productHierarchy: ProductHierarchy[] = [
         slug: 'bolts',
         categories: [
             {
-                name: 'Hex Bolts',
-                slug: 'hex-bolts',
+                name: 'Bolts',
+                slug: 'bolts',
                 subcategories: [
                     {
-                        name: 'Hex Bolt',
-                        slug: 'hex-bolt',
-                    },
-                    {
-                        name: 'Hex Bolt Half Threaded',
-                        slug: 'hex-bolt-half-threaded',
-                    },
+                        name: 'Bolt',
+                        slug: 'bolt',
+                        types: [
+                            'Hex Bolt',
+                            'Hex Bolt Half Threaded',
+                            'Dome Bolt',
+                            'Flange Button Head Bolt',
+                            'Wing Bolt',
+                            'Allen Bolt',
+                            'Shoulder Bolt',
+                            'Coaach Bolt',
+                            'Flange Bolt',
+                            'Allen CSK Bolt',
+                            'U-Bolt',
+                            'T-Bolt',
+                            'Carriage Bolt',
+                            'Button Head Bolt',
+                            'Eye Bolt',
+                            'J-Bolt',
+                            'Hook Bolt',
+                            'Nylon Hex Bolt'
+                        ]
+                    }
                 ],
-            },
-            {
-                name: 'Specialty Bolts',
-                slug: 'specialty-bolts',
-                subcategories: [
-                    {
-                        name: 'Dome Bolt',
-                        slug: 'dome-bolt',
-                    },
-                    {
-                        name: 'Flange Button Head Bolt',
-                        slug: 'flange-button-head-bolt',
-                    },
-                    {
-                        name: 'Wing Bolt',
-                        slug: 'wing-bolt',
-                    },
-                    {
-                        name: 'Allen Bolt',
-                        slug: 'allen-bolt',
-                    },
-                    {
-                        name: 'Shoulder Bolt',
-                        slug: 'shoulder-bolt',
-                    },
-                    {
-                        name: 'Coaach Bolt',
-                        slug: 'coaach-bolt',
-                    },
-                    {
-                        name: 'Flange Bolt',
-                        slug: 'flange-bolt',
-                    },
-                    {
-                        name: 'Allen CSK Bolt',
-                        slug: 'allen-csk-bolt',
-                    },
-                    {
-                        name: 'U-Bolt',
-                        slug: 'u-bolt',
-                    },
-                    {
-                        name: 'T-Bolt',
-                        slug: 't-bolt',
-                    },
-                    {
-                        name: 'Carriage Bolt',
-                        slug: 'carriage-bolt',
-                    },
-                    {
-                        name: 'Button Head Bolt',
-                        slug: 'button-head-bolt',
-                    },
-                    {
-                        name: 'Eye Bolt',
-                        slug: 'eye-bolt',
-                    },
-                    {
-                        name: 'J-Bolt',
-                        slug: 'j-bolt',
-                    },
-                    {
-                        name: 'Hook Bolt',
-                        slug: 'hook-bolt',
-                    },
-                    {
-                        name: 'Nylon Hex Bolt',
-                        slug: 'nylon-hex-bolt',
-                    },
-                ],
-            },
+            }
         ],
     },
     {
@@ -273,37 +219,22 @@ export const productHierarchy: ProductHierarchy[] = [
         slug: 'spacers',
         categories: [
             {
-                name: 'Metal Spacers',
-                slug: 'metal-spacers',
+                name: 'Spacers',
+                slug: 'spacers',
                 subcategories: [
                     {
-                        name: 'Hex Spacer',
-                        slug: 'hex-spacer',
-                    },
-                    {
-                        name: 'Hex ET Spacer',
-                        slug: 'hex-et-spacer',
-                    },
+                        name: 'Spacer',
+                        slug: 'spacer',
+                        types: [
+                            'Hex Spacer',
+                            'Hex ET Spacer',
+                            'Nylon Round Plain Spacer',
+                            'Nylon Hex Spacer',
+                            'Nylon ET Spacer'
+                        ]
+                    }
                 ],
-            },
-            {
-                name: 'Nylon Spacers',
-                slug: 'nylon-spacers',
-                subcategories: [
-                    {
-                        name: 'Nylon Round Plain Spacer',
-                        slug: 'nylon-round-plain-spacer',
-                    },
-                    {
-                        name: 'Nylon Hex Spacer',
-                        slug: 'nylon-hex-spacer',
-                    },
-                    {
-                        name: 'Nylon ET Spacer',
-                        slug: 'nylon-et-spacer',
-                    },
-                ],
-            },
+            }
         ],
     },
     {
@@ -311,16 +242,16 @@ export const productHierarchy: ProductHierarchy[] = [
         slug: 'stand-offs',
         categories: [
             {
-                name: 'Mounting Stand-Offs',
-                slug: 'mounting-stand-offs',
+                name: 'Stand-Offs',
+                slug: 'stand-offs',
                 subcategories: [
                     {
-                        name: 'Blind Stand Off',
-                        slug: 'blind-stand-off',
-                    },
-                    {
-                        name: 'Through Hole Stand Off',
-                        slug: 'through-hole-stand-off',
+                        name: 'Stand Off',
+                        slug: 'stand-off',
+                        types: [
+                            'Blind Stand Off',
+                            'Through Hole Stand Off'
+                        ]
                     },
                 ],
             },
@@ -331,8 +262,8 @@ export const productHierarchy: ProductHierarchy[] = [
         slug: 'rivets',
         categories: [
             {
-                name: 'Solid Rivets',
-                slug: 'solid-rivets',
+                name: 'Rivets',
+                slug: 'rivets',
                 subcategories: [
                     {
                         name: 'Solid Dowel Pin',
@@ -359,83 +290,32 @@ export const productHierarchy: ProductHierarchy[] = [
         slug: 'washers',
         categories: [
             {
-                name: 'Standard Washers',
-                slug: 'standard-washers',
+                name: 'Washers',
+                slug: 'washers',
                 subcategories: [
                     {
-                        name: 'Plain Washer',
-                        slug: 'plain-washer',
-                    },
-                    {
-                        name: 'Fibre Washer',
-                        slug: 'fibre-washer',
-                    },
-                    {
-                        name: 'Nylon Plain Washer',
-                        slug: 'nylon-plain-washer',
-                    },
-                    {
-                        name: 'Taper Washer',
-                        slug: 'taper-washer',
-                    },
-                    {
-                        name: 'Spring Washer',
-                        slug: 'spring-washer',
-                    },
-                    {
-                        name: 'Chakri Washer',
-                        slug: 'chakri-washer',
-                    },
-                    {
-                        name: 'Conical Disc Washer',
-                        slug: 'conical-disc-washer',
-                    },
-                ],
-            },
-            {
-                name: 'Specialty Washers',
-                slug: 'specialty-washers',
-                subcategories: [
-                    {
-                        name: 'Conical-Disk Washer',
-                        slug: 'conical-disk-washer',
-                    },
-                    {
-                        name: 'Ext-Tooth Washer',
-                        slug: 'ext-tooth-washer',
-                    },
-                    {
-                        name: 'Wave Washer',
-                        slug: 'wave-washer',
-                    },
-                    {
-                        name: 'Int-Tooth Washer',
-                        slug: 'int-tooth-washer',
-                    },
-                    {
-                        name: 'Ext-Star Washer',
-                        slug: 'ext-star-washer',
-                    },
-                    {
-                        name: 'Int-Star Washer',
-                        slug: 'int-star-washer',
-                    },
-                    {
-                        name: 'Wedge Lock Washer',
-                        slug: 'wedge-lock-washer',
-                    },
-                    {
-                        name: 'Circlip type A',
-                        slug: 'circlip-type-a',
-                    },
-                    {
-                        name: 'Circlip type B',
-                        slug: 'circlip-type-b',
-                    },
-                    {
-                        name: 'Circlip type E',
-                        slug: 'circlip-type-e',
-                    },
+                        name: 'Washer',
+                        slug: 'washer',
+                        types: [
+                            'Plain Washer',
+                            'Fibre Washer',
+                            'Nylon Plain Washer',
+                            'Taper Washer',
+                            'Spring Washer',
+                            'Chakri Washer',
+                            'Conical Disc Washer',
+                            'Conical-Disk Washer',
+                            'Ext-Tooth Washer',
+                            'Wave Washer',
+                            'Int-Tooth Washer',
+                            'Ext-Star Washer',
+                            'Int-Star Washer',
+                            'Wedge Lock Washer',
+                            'Circlip type A',
+                            'Circlip type B',
+                            'Circlip type E'
+                        ]
+                    }
                 ],
             },
         ],
