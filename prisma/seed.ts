@@ -54,11 +54,12 @@ async function main() {
                     },
                 });
 
-                // If there are types, create them as products
+                // For flat structures, the subcategory itself is the product
+                // For hierarchical structures, create products from types
                 if (subcat.types && subcat.types.length > 0) {
                     let typeOrder = 0;
                     for (const type of subcat.types) {
-                        const typeSlug = type.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-');
+                        const typeSlug = type.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '-').replace(/\(/g, '').replace(/\)/g, '');
                         console.log(`      🔩 Creating product: ${type}`);
 
                         await prisma.product.create({
@@ -70,6 +71,18 @@ async function main() {
                             },
                         });
                     }
+                } else {
+                    // For flat structures, create a product from the subcategory itself
+                    console.log(`      🔩 Creating product: ${subcat.name}`);
+                    
+                    await prisma.product.create({
+                        data: {
+                            name: subcat.name,
+                            slug: subcat.slug,
+                            subcategoryId: createdSubcategory.id,
+                            sortOrder: 0,
+                        },
+                    });
                 }
             }
         }
