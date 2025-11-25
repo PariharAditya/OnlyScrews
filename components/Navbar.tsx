@@ -110,7 +110,7 @@ export default function Navbar() {
                     <ProductDropdown key={link.href} />
                   ) : (
                     <div key={link.href} className="relative group">
-                      <button className="font-sans text-gray-700 hover:text-purple-600 transition-colors">
+                      <button className="font-sans text-gray-700 hover:text-[#BCFF83] transition-colors">
                         {link.label}
                       </button>
                       <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -119,7 +119,7 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors"
+                              className="block px-4 py-2 text-gray-700 hover:bg-[#BCFF83] hover:text-black transition-colors"
                             >
                               {child.label}
                             </Link>
@@ -132,7 +132,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="font-sans text-gray-700 hover:text-purple-600 transition-colors"
+                    className="font-sans text-gray-700 hover:text-[#BCFF83] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -143,7 +143,7 @@ export default function Navbar() {
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
               <button
-                className="hover:text-purple-600"
+                className="hover:text-[#BCFF83]"
                 aria-label="Search"
                 onClick={() => setIsSearchOpen(true)}
               >
@@ -152,7 +152,7 @@ export default function Navbar() {
 
               <Link
                 href="/login"
-                className="hover:text-purple-600"
+                className="hover:text-[#BCFF83]"
                 aria-label="Login"
               >
                 <FiUser className="w-5 h-5" />
@@ -215,7 +215,7 @@ export default function Navbar() {
                         hoveredMenu === link.label ? null : link.label
                       )
                     }
-                    className="font-sans text-gray-700 hover:text-purple-600 font-medium flex items-center justify-between w-full"
+                    className="font-sans text-gray-700 hover:text-[#BCFF83] font-medium flex items-center justify-between w-full"
                   >
                     {link.label}
                     <svg
@@ -246,7 +246,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={link.href}
-                  className="font-sans text-gray-700 hover:text-purple-600 font-medium block"
+                  className="font-sans text-gray-700 hover:text-[#BCFF83] font-medium block"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
