@@ -4,7 +4,7 @@ export interface ProductSubCategory {
     id: string;
     name: string;
     slug: string;
-    parentId: string;
+    types?: string[];
 }
 
 export interface ProductCategory {
@@ -20,13 +20,6 @@ export interface ProductCategory {
 export interface ProductHierarchy {
     mainCategory: string;
     slug: string;
-    categories: {
-        name: string;
-        slug: string;
-        subcategories: {
-            name: string;
-            slug: string;
-            types?: string[];
-        }[];
-    }[];
+    categories: ProductCategory[];
+    isFlat?: boolean;
 }

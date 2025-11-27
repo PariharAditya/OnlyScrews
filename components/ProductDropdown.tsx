@@ -17,7 +17,9 @@ export default function ProductDropdown({
 }: ProductDropdownProps) {
   const [hierarchy, setHierarchy] = useState<ProductHierarchy[]>([]);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
-  const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(null);
+  const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(
+    null
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [expandedMainCat, setExpandedMainCat] = useState<string | null>(null);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
@@ -43,165 +45,120 @@ export default function ProductDropdown({
     { label: "Rivets and Dowels", href: "/products/rivets" },
   ];
 
-  // Mobile version (accordion style)
+  // Mobile version
   if (isMobile) {
-    // Show fallback if no hierarchy data
-    if (hierarchy.length === 0) {
-      return (
-        <div className="space-y-2">
-          {fallbackMenu.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block text-gray-700 hover:text-purple-600 text-sm py-2"
-              onClick={onItemClick}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href="/products"
-            className="block text-sm text-purple-600 hover:text-purple-700 font-medium pt-2"
-            onClick={onItemClick}
-          >
-            View All Products →
-          </Link>
-        </div>
-      );
-    }
-
     return (
       <div className="space-y-2">
-        {hierarchy.map((mainCat) => (
-          <div key={mainCat.slug} className="border-b border-gray-100 pb-2">
-            <div className="flex items-center justify-between">
-              <Link
-                href={`/products/${mainCat.slug}`}
-                className="text-gray-700 hover:text-purple-600 text-sm flex-1"
-                onClick={onItemClick}
-              >
-                {mainCat.mainCategory}
-              </Link>
-              {mainCat.categories.length > 0 && (
-                <button
-                  onClick={() =>
-                    setExpandedMainCat(
-                      expandedMainCat === mainCat.slug ? null : mainCat.slug
-                    )
-                  }
-                  className="p-1"
-                  aria-label={`Toggle ${mainCat.mainCategory} submenu`}
+        {hierarchy.map((mainCat) => {
+          // Check if category should be flattened
+          const shouldFlatten =
+            mainCat.isFlat ||
+            (mainCat.categories.length === 1 &&
+              mainCat.categories[0].name === mainCat.mainCategory);
+
+          // Get subcategories directly if flattened
+          const subcategories = shouldFlatten
+            ? mainCat.categories[0].subcategories
+            : null;
+
+          return (
+            <div key={mainCat.slug} className="border-b border-gray-100 pb-2">
+              <div className="flex items-center justify-between">
+                <Link
+                  href={`/products/${mainCat.slug}`}
+                  className="text-gray-700 hover:text-purple-600 text-sm flex-1"
+                  onClick={onItemClick}
                 >
-                  <ChevronRight
-                    className={`w-4 h-4 transition-transform ${
-                      expandedMainCat === mainCat.slug ? "rotate-90" : ""
-                    }`}
-                  />
-                </button>
-              )}
-            </div>
+                  {mainCat.mainCategory}
+                </Link>
+                {(subcategories || mainCat.categories.length > 0) && (
+                  <button
+                    onClick={() =>
+                      setExpandedMainCat(
+                        expandedMainCat === mainCat.slug ? null : mainCat.slug
+                      )
+                    }
+                    className="p-1"
+                    aria-label={`Toggle ${mainCat.mainCategory} submenu`}
+                  >
+                    <ChevronRight
+                      className={`w-4 h-4 transition-transform ${
+                        expandedMainCat === mainCat.slug ? "rotate-90" : ""
+                      }`}
+                    />
+                  </button>
+                )}
+              </div>
 
-            {/* Categories */}
-            {expandedMainCat === mainCat.slug && (
-              <div className="pl-4 mt-2 space-y-2">
-                {mainCat.categories.map((category) => (
-                  <div key={category.slug}>
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={`/products/${mainCat.slug}/${category.slug}`}
-                        className="text-gray-600 hover:text-purple-600 text-sm flex-1"
-                        onClick={onItemClick}
-                      >
-                        {category.name}
-                      </Link>
-                      {category.subcategories.length > 0 && (
-                        <button
-                          onClick={() =>
-                            setExpandedCategory(
-                              expandedCategory === category.slug
-                                ? null
-                                : category.slug
-                            )
-                          }
-                          className="p-1"
-                          aria-label={`Toggle ${category.name} submenu`}
+              {expandedMainCat === mainCat.slug && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {/* Flat structure - show subcategories directly */}
+                  {shouldFlatten
+                    ? subcategories?.map((subcat) => (
+                        <Link
+                          key={subcat.slug}
+                          href={`/category/${subcat.slug}`}
+                          className="block text-gray-600 hover:text-purple-600 text-sm py-1"
+                          onClick={onItemClick}
                         >
-                          <ChevronRight
-                            className={`w-3 h-3 transition-transform ${
-                              expandedCategory === category.slug
-                                ? "rotate-90"
-                                : ""
-                            }`}
-                          />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Subcategories */}
-                    {expandedCategory === category.slug && (
-                      <div className="pl-4 mt-2 space-y-2">
-                        {category.subcategories.map((subcat) => (
-                          <div key={subcat.slug}>
-                            <div className="flex items-center justify-between">
-                              <Link
-                                href={`/products/${mainCat.slug}/${category.slug}/${subcat.slug}`}
-                                className="text-gray-500 hover:text-purple-600 text-xs flex-1"
-                                onClick={onItemClick}
+                          {subcat.name}
+                        </Link>
+                      ))
+                    : /* Hierarchical structure - show categories then subcategories */
+                      mainCat.categories.map((category) => (
+                        <div key={category.slug}>
+                          <div className="flex items-center justify-between">
+                            <Link
+                              href={`/products/${mainCat.slug}/${category.slug}`}
+                              className="text-gray-600 hover:text-purple-600 text-sm flex-1"
+                              onClick={onItemClick}
+                            >
+                              {category.name}
+                            </Link>
+                            {category.subcategories.length > 0 && (
+                              <button
+                                onClick={() =>
+                                  setExpandedCategory(
+                                    expandedCategory === category.slug
+                                      ? null
+                                      : category.slug
+                                  )
+                                }
+                                className="p-1"
                               >
-                                {subcat.name}
-                              </Link>
-                              {subcat.types && subcat.types.length > 0 && (
-                                <button
-                                  onClick={() =>
-                                    setExpandedSubcat(
-                                      expandedSubcat === subcat.slug
-                                        ? null
-                                        : subcat.slug
-                                    )
-                                  }
-                                  className="p-1"
-                                  aria-label={`Toggle ${subcat.name} types`}
-                                >
-                                  <ChevronRight
-                                    className={`w-3 h-3 transition-transform ${
-                                      expandedSubcat === subcat.slug
-                                        ? "rotate-90"
-                                        : ""
-                                    }`}
-                                  />
-                                </button>
-                              )}
-                            </div>
-
-                            {/* Types */}
-                            {expandedSubcat === subcat.slug && subcat.types && (
-                              <div className="pl-4 mt-1 space-y-1">
-                                {subcat.types.map((type, idx) => (
-                                  <Link
-                                    key={idx}
-                                    href={`/products/${mainCat.slug}/${
-                                      category.slug
-                                    }/${subcat.slug}?type=${type
-                                      .toLowerCase()
-                                      .replace(/\s+/g, "-")}`}
-                                    className="block text-gray-400 hover:text-purple-600 text-xs"
-                                    onClick={onItemClick}
-                                  >
-                                    • {type}
-                                  </Link>
-                                ))}
-                              </div>
+                                <ChevronRight
+                                  className={`w-3 h-3 transition-transform ${
+                                    expandedCategory === category.slug
+                                      ? "rotate-90"
+                                      : ""
+                                  }`}
+                                />
+                              </button>
                             )}
                           </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+
+                          {/* Subcategories */}
+                          {expandedCategory === category.slug && (
+                            <div className="pl-4 mt-2 space-y-2">
+                              {category.subcategories.map((subcat) => (
+                                <Link
+                                  key={subcat.slug}
+                                  href={`/category/${subcat.slug}`}
+                                  className="block text-gray-500 hover:text-purple-600 text-xs py-1"
+                                  onClick={onItemClick}
+                                >
+                                  {subcat.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
 
         <Link
           href="/products"
@@ -220,7 +177,6 @@ export default function ProductDropdown({
       className="relative group"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => {
-        // Add delay before closing to prevent flickering
         setTimeout(() => {
           setIsOpen(false);
           setHoveredCategory(null);
@@ -228,7 +184,6 @@ export default function ProductDropdown({
         }, 100);
       }}
     >
-      {/* Main Products Link */}
       <Link
         href="/products"
         className="text-gray-700 hover:text-[#1a5f7a] transition-colors duration-300 font-medium"
@@ -236,7 +191,6 @@ export default function ProductDropdown({
         Products
       </Link>
 
-      {/* Dropdown Menu */}
       {isOpen && (
         <div
           className="absolute left-0 top-full pt-2 z-50"
@@ -244,149 +198,123 @@ export default function ProductDropdown({
         >
           <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200">
             <div className="py-2">
-              {/* Show fallback menu if no hierarchy data */}
-              {hierarchy.length === 0 ? (
-                <>
-                  {fallbackMenu.map((item) => (
+              {hierarchy.map((mainCat) => {
+                const shouldFlatten =
+                  mainCat.isFlat ||
+                  (mainCat.categories.length === 1 &&
+                    mainCat.categories[0].name === mainCat.mainCategory);
+
+                const subcategories = shouldFlatten
+                  ? mainCat.categories[0].subcategories
+                  : null;
+
+                return (
+                  <div
+                    key={mainCat.slug}
+                    className="relative group/item"
+                    onMouseEnter={() => {
+                      setHoveredCategory(mainCat.slug);
+                      setHoveredSubcategory(null);
+                    }}
+                  >
                     <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-3 hover:bg-gray-50 transition-colors"
+                      href={`/products/${mainCat.slug}`}
+                      className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
                     >
                       <span className="text-gray-700 font-medium">
-                        {item.label}
+                        {mainCat.mainCategory}
                       </span>
+                      {(subcategories || mainCat.categories.length > 0) && (
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                      )}
                     </Link>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {hierarchy.map((mainCat) => (
-                    <div
-                      key={mainCat.slug}
-                      className="relative group/item"
-                      onMouseEnter={() => {
-                        setHoveredCategory(mainCat.slug);
-                        setHoveredSubcategory(null);
-                      }}
-                    >
-                      <Link
-                        href={`/products/${mainCat.slug}`}
-                        className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
+
+                    {hoveredCategory === mainCat.slug && (
+                      <div
+                        className="absolute left-full top-0 pl-2 z-50"
+                        onMouseEnter={() => setHoveredCategory(mainCat.slug)}
                       >
-                        <span className="text-gray-700 font-medium">
-                          {mainCat.mainCategory}
-                        </span>
-                        {mainCat.categories.length > 0 && (
-                          <ChevronRight className="w-4 h-4 text-gray-400" />
-                        )}
-                      </Link>
-
-                      {/* Subcategory Menu with gap bridge */}
-                      {hoveredCategory === mainCat.slug &&
-                        mainCat.categories.length > 0 && (
-                          <div
-                            className="absolute left-full top-0 pl-2 z-50"
-                            onMouseEnter={() =>
-                              setHoveredCategory(mainCat.slug)
-                            }
-                          >
-                            <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200">
-                              <div className="py-2">
-                                {mainCat.categories.map((category) => (
-                                  <div
-                                    key={category.slug}
-                                    className="relative group/subitem"
-                                    onMouseEnter={() =>
-                                      setHoveredSubcategory(category.slug)
-                                    }
+                        {/* Flat structure - show subcategories directly */}
+                        {shouldFlatten ? (
+                          <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+                            <div className="py-2">
+                              {subcategories?.map((subcat) => (
+                                <Link
+                                  key={subcat.slug}
+                                  href={`/category/${subcat.slug}`}
+                                  className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                                >
+                                  <span className="text-gray-700 text-sm">
+                                    {subcat.name}
+                                  </span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          /* Hierarchical structure - existing nested menu */
+                          <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200">
+                            <div className="py-2">
+                              {mainCat.categories.map((category) => (
+                                <div
+                                  key={category.slug}
+                                  className="relative group/subitem"
+                                  onMouseEnter={() =>
+                                    setHoveredSubcategory(category.slug)
+                                  }
+                                >
+                                  <Link
+                                    href={`/products/${mainCat.slug}/${category.slug}`}
+                                    className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
                                   >
-                                    <Link
-                                      href={`/products/${mainCat.slug}/${category.slug}`}
-                                      className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
-                                    >
-                                      <span className="text-gray-700 text-sm">
-                                        {category.name}
-                                      </span>
-                                      {category.subcategories.length > 0 && (
-                                        <ChevronRight className="w-3 h-3 text-gray-400" />
-                                      )}
-                                    </Link>
+                                    <span className="text-gray-700 text-sm">
+                                      {category.name}
+                                    </span>
+                                    {category.subcategories.length > 0 && (
+                                      <ChevronRight className="w-3 h-3 text-gray-400" />
+                                    )}
+                                  </Link>
 
-                                    {/* Third Level Menu with gap bridge */}
-                                    {hoveredSubcategory === category.slug &&
-                                      category.subcategories.length > 0 && (
-                                        <div
-                                          className="absolute left-full top-0 pl-2 z-50"
-                                          onMouseEnter={() =>
-                                            setHoveredSubcategory(category.slug)
-                                          }
-                                        >
-                                          <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
-                                            <div className="py-2">
-                                              {category.subcategories.map(
-                                                (subcat) => (
-                                                  <div key={subcat.slug}>
-                                                    <Link
-                                                      href={`/products/${mainCat.slug}/${category.slug}/${subcat.slug}`}
-                                                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                                                    >
-                                                      <span className="text-gray-700 text-sm font-medium">
-                                                        {subcat.name}
-                                                      </span>
-                                                    </Link>
-
-                                                    {/* Types (if any) */}
-                                                    {subcat.types &&
-                                                      subcat.types.length >
-                                                        0 && (
-                                                        <div className="pl-6 pb-2">
-                                                          {subcat.types.map(
-                                                            (type, idx) => (
-                                                              <Link
-                                                                key={idx}
-                                                                href={`/products/${
-                                                                  mainCat.slug
-                                                                }/${
-                                                                  category.slug
-                                                                }/${
-                                                                  subcat.slug
-                                                                }?type=${type
-                                                                  .toLowerCase()
-                                                                  .replace(
-                                                                    /\s+/g,
-                                                                    "-"
-                                                                  )}`}
-                                                                className="block px-4 py-1.5 hover:bg-gray-50 transition-colors"
-                                                              >
-                                                                <span className="text-gray-600 text-xs">
-                                                                  • {type}
-                                                                </span>
-                                                              </Link>
-                                                            )
-                                                          )}
-                                                        </div>
-                                                      )}
-                                                  </div>
-                                                )
-                                              )}
-                                            </div>
+                                  {/* Third Level Menu */}
+                                  {hoveredSubcategory === category.slug &&
+                                    category.subcategories.length > 0 && (
+                                      <div
+                                        className="absolute left-full top-0 pl-2 z-50"
+                                        onMouseEnter={() =>
+                                          setHoveredSubcategory(category.slug)
+                                        }
+                                      >
+                                        <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+                                          <div className="py-2">
+                                            {category.subcategories.map(
+                                              (subcat) => (
+                                                <Link
+                                                  key={subcat.slug}
+                                                  href={`/category/${subcat.slug}`}
+                                                  className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                                                >
+                                                  <span className="text-gray-700 text-sm">
+                                                    {subcat.name}
+                                                  </span>
+                                                </Link>
+                                              )
+                                            )}
                                           </div>
                                         </div>
-                                      )}
-                                  </div>
-                                ))}
-                              </div>
+                                      </div>
+                                    )}
+                                </div>
+                              ))}
                             </div>
                           </div>
                         )}
-                    </div>
-                  ))}
-                </>
-              )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
-            {/* View All Products Link */}
             <div className="border-t border-gray-200 px-4 py-3">
               <Link
                 href="/products"
