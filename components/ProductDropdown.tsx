@@ -36,6 +36,21 @@ export default function ProductDropdown({
     loadHierarchy();
   }, []);
 
+  // Helper function to generate correct URL based on structure
+  const getSubcategoryUrl = (
+    mainCatSlug: string,
+    categorySlug: string | undefined,
+    subcatSlug: string,
+    hasTypes: boolean
+  ) => {
+    // If subcategory has types, it's a hierarchical product page
+    if (hasTypes && categorySlug) {
+      return `/products/${mainCatSlug}/${categorySlug}/${subcatSlug}`;
+    }
+    // Otherwise it's a product detail page (flat)
+    return `/category/${subcatSlug}`;
+  };
+
   // Mobile version
   if (isMobile) {
     return (
@@ -126,66 +141,75 @@ export default function ProductDropdown({
                           </div>
 
                           {expandedCategory === category.slug && (
-                            <div className="pl-4 mt-2 space-y-2">
-                              {category.subcategories?.map((subcat) => (
-                                <div key={subcat.slug}>
-                                  <div className="flex items-center justify-between">
-                                    <Link
-                                      href={`/category/${subcat.slug}`}
-                                      className="block text-gray-500 hover:text-purple-600 text-xs py-1"
-                                      onClick={onItemClick}
-                                    >
-                                      {subcat.name}
-                                    </Link>
-                                    {subcat.types &&
-                                      subcat.types.length > 0 && (
-                                        <button
-                                          onClick={() =>
-                                            setExpandedSubcat(
-                                              expandedSubcat === subcat.slug
-                                                ? null
-                                                : subcat.slug
-                                            )
-                                          }
-                                          className="p-1"
-                                        >
-                                          <ChevronRight
-                                            className={`w-3 h-3 transition-transform ${
-                                              expandedSubcat === subcat.slug
-                                                ? "rotate-90"
-                                                : ""
-                                            }`}
-                                          />
-                                        </button>
+                            <div className="pl-4 mt-2 space-y-">
+                              {category.subcategories?.map((subcat) => {
+                                const subcatUrl = getSubcategoryUrl(
+                                  mainCat.slug,
+                                  category.slug,
+                                  subcat.slug,
+                                  !!subcat.types && subcat.types.length > 0
+                                );
+
+                                return (
+                                  <div key={subcat.slug}>
+                                    <div className="flex items-center justify-between">
+                                      <Link
+                                        href={subcatUrl}
+                                        className="block text-gray-500 hover:text-purple-600 text-xs py-1"
+                                        onClick={onItemClick}
+                                      >
+                                        {subcat.name}
+                                      </Link>
+                                      {subcat.types &&
+                                        subcat.types.length > 0 && (
+                                          <button
+                                            onClick={() =>
+                                              setExpandedSubcat(
+                                                expandedSubcat === subcat.slug
+                                                  ? null
+                                                  : subcat.slug
+                                              )
+                                            }
+                                            className="p-1"
+                                          >
+                                            <ChevronRight
+                                              className={`w-3 h-3 transition-transform ${
+                                                expandedSubcat === subcat.slug
+                                                  ? "rotate-90"
+                                                  : ""
+                                              }`}
+                                            />
+                                          </button>
+                                        )}
+                                    </div>
+
+                                    {/* Show types if they exist */}
+                                    {expandedSubcat === subcat.slug &&
+                                      subcat.types && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {subcat.types.map((type) => {
+                                            const typeSlug = type
+                                              .toLowerCase()
+                                              .replace(/\s+/g, "-")
+                                              .replace(/\//g, "-")
+                                              .replace(/\(/g, "")
+                                              .replace(/\)/g, "");
+                                            return (
+                                              <Link
+                                                key={typeSlug}
+                                                href={`/category/${typeSlug}`}
+                                                className="block text-gray-400 hover:text-purple-600 text-xs py-1"
+                                                onClick={onItemClick}
+                                              >
+                                                • {type}
+                                              </Link>
+                                            );
+                                          })}
+                                        </div>
                                       )}
                                   </div>
-
-                                  {/* Show types if they exist */}
-                                  {expandedSubcat === subcat.slug &&
-                                    subcat.types && (
-                                      <div className="pl-4 mt-1 space-y-1">
-                                        {subcat.types.map((type) => {
-                                          const typeSlug = type
-                                            .toLowerCase()
-                                            .replace(/\s+/g, "-")
-                                            .replace(/\//g, "-")
-                                            .replace(/\(/g, "")
-                                            .replace(/\)/g, "");
-                                          return (
-                                            <Link
-                                              key={typeSlug}
-                                              href={`/category/${typeSlug}`}
-                                              className="block text-gray-400 hover:text-purple-600 text-xs py-1"
-                                              onClick={onItemClick}
-                                            >
-                                              • {type}
-                                            </Link>
-                                          );
-                                        })}
-                                      </div>
-                                    )}
-                                </div>
-                              ))}
+                                );
+                              })}
                             </div>
                           )}
                         </div>
@@ -227,7 +251,6 @@ export default function ProductDropdown({
       >
         Products
       </Link>
-
       {isOpen && (
         <div
           className="absolute left-0 top-full pt-2 z-50"
@@ -336,8 +359,14 @@ export default function ProductDropdown({
                                                   }
                                                 >
                                                   <Link
-                                                    href={`/category/${subcat.slug}`}
-                                                    className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
+                                                    href={getSubcategoryUrl(
+                                                      mainCat.slug,
+                                                      category.slug,
+                                                      subcat.slug,
+                                                      !!subcat.types &&
+                                                        subcat.types.length > 0
+                                                    )}
+                                                    className="flex items-center justify-between px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-200"
                                                   >
                                                     <span className="text-gray-700 text-sm">
                                                       {subcat.name}
@@ -434,6 +463,6 @@ export default function ProductDropdown({
           </div>
         </div>
       )}
-    </div>
-  );
+    </div>
+  );
 }
