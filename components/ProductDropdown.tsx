@@ -141,7 +141,7 @@ export default function ProductDropdown({
                           </div>
 
                           {expandedCategory === category.slug && (
-                            <div className="pl-4 mt-2 space-y-">
+                            <div className="pl-4 mt-2 space-y-1">
                               {category.subcategories?.map((subcat) => {
                                 const subcatUrl = getSubcategoryUrl(
                                   mainCat.slug,
