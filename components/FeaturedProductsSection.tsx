@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Product {
@@ -165,19 +166,134 @@ const FeaturedProductsSection = () => {
     {
       id: 23,
       image:
-        "images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
-      title: "Hex Self-Drilling Screws",
+        "images/productdata/nuts/Wafer Head Self-Drilling Screw ss.png",
+      title: "Truss Phillips Head Self-Drilling Screws",
     },
 
     {
       id: 24,
       image:
-        "images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
-      title: "Hex Self-Drilling Screws",
+        "images/productdata/screws/phillip machine screws/Pan head Phillips nylon.png",
+      title: "Nylon Pan Head Phillips",
     },
 
+    {
+      id: 25,
+      image:
+        "images/productdata/screws/phillip machine screws/CSK Head phillips nylon.png",
+      title: "Nylon CSK Head Phillips",
+    },
+
+    {
+      id: 26,
+      image:
+        "images/productdata/spacers/Nylon ET Spacer.png",
+      title: "Nylon ET Spacer",
+    },
+
+    {
+      id: 27,
+      image:
+        "images/productdata/spacers/Nylon Hex Spacer.png",
+      title: "Nylon Hex Spacer",
+    },
+
+    {
+      id: 28,
+      image:
+        "images/productdata/spacers/Nylon Round Plain Spacer.png",
+      title: "Nylon Round Plain Spacer",
+    },
+
+    {
+      id: 29,
+      image:
+        "images/productdata/nuts/Hex Nut ss.png",
+      title: "Stainless Steel Hex Nut",
+    },
+
+    {
+      id: 30,
+      image:
+        "images/productdata/nuts/Hex Nut Nylon.png",
+      title: "Nylon Hex Nut",
+    },
+
+    {
+      id: 31,
+      image:
+        "images/productdata/nuts/Nyloc Nut ss.png",
+      title: "Nyloc Nut",
+    },
+
+    {
+      id: 32,
+      image:
+        "images/productdata/nuts/Flange Nut ss.png",
+      title: "Flange Nut",
+    },
+
+    {
+      id: 33,
+      image:
+        "images/productdata/washers/Spring Washer ss.png",
+      title: "Spring Washer",
+    },
+
+    {
+      id: 34,
+      image:
+        "images/productdata/washers/Plain Washer.png",
+      title: "Plain Washer",
+    },
+
+ 
+
+    {
+      id: 35,
+      image:
+        "images/productdata/bolts/Blind Stand Off ss.png",
+      title: "Blind Stand Off",
+    },
+
+    {
+      id: 36,
+      image:
+        "images/productdata/bolts/Through Hole Stand Off ss.png",
+      title: "Through Hole Stand Off",
+    },
+
+    {
+      id: 37,
+      image:
+        "images/productdata/rivets&dowels/Blind POP Rivet ss.png",
+      title: "Blind POP Rivet",
+    },
+
+    {
+      id: 38,
+      image:
+        "images/productdata/anchors/Wedge Anchor ss.png",
+      title: "Wedge Anchor",
+    },
+
+    {
+      id: 39,
+      image:
+        "images/productdata/anchors/Pin-Type Anchor ss.png",
+      title: "Pin-Type Anchor",
+    },
+
+    {
+      id: 40,
+      image:
+        "images/productdata/screws/allen screws/CSK Torx Machine Screw ss.png",
+      title: "CSK Torx Machine Screw",
+    },
+
+
     
-  ];
+];
 
   // Group products into slides (8 products per slide - 2 rows of 4)
   const productsPerSlide = 8;
@@ -243,12 +359,13 @@ const FeaturedProductsSection = () => {
               <div key={slideIndex} className="flex-shrink-0 w-full">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   {slideProducts.map((product) => (
-                    <div
+                    <Link
                       key={product.id}
-                      className="flex flex-col items-center"
+                      href="/products"
+                      className="flex flex-col items-center group"
                     >
                       {/* Card container for image only (dark background to match grid) */}
-                      <div className="w-[280px] rounded-lg bg-black shadow-[0_6px_20px_rgba(0,0,0,0.6)] border border-neutral-800 overflow-hidden">
+                      <div className="w-[280px] rounded-lg bg-black shadow-[0_6px_20px_rgba(0,0,0,0.6)] border border-neutral-800 overflow-hidden transition-all duration-300 group-hover:shadow-[0_8px_30px_rgba(188,255,131,0.3)] group-hover:border-[#BCFF83] group-hover:scale-105">
                         <img
                           src={product.image}
                           alt={product.title}
@@ -257,10 +374,10 @@ const FeaturedProductsSection = () => {
                       </div>
 
                       {/* Text separate below the card */}
-                      <div className="mt-3 px-4 text-[15px] text-white font-medium max-w-[280px] text-center">
+                      <div className="mt-3 px-4 text-[15px] text-white font-medium max-w-[280px] text-center group-hover:text-[#BCFF83] transition-colors duration-300">
                         {product.title}
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -269,9 +386,12 @@ const FeaturedProductsSection = () => {
         </div>
 
         <div className="text-center mt-8 md:mt-12">
-          <button className="px-8 py-3 border-2 border-[#BCFF83] bg-[#BCFF83] text-black rounded-lg font-semibold hover:bg-transparent hover:text-[#BCFF83] transition-all duration-300">
+          <Link 
+            href="/products"
+            className="inline-block px-8 py-3 border-2 border-[#BCFF83] bg-[#BCFF83] text-black rounded-lg font-semibold hover:bg-transparent hover:text-[#BCFF83] hover:scale-105 transition-all duration-300"
+          >
             View all
-          </button>
+          </Link>
         </div>
       </div>
     </section>
