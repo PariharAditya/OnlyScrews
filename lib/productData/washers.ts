@@ -161,12 +161,12 @@ export const washersData = {
     ],
   },
 
-  "belleville-washer": {
-    title: "Conical-Disk Washer",
+  "conical-disc-washer": {
+    title: "Conical-Disc Washer",
     images: [
-      "/images/products/washers/BELLEVILLE WASHER.png",
-      "/images/products/washers/BELLEVILLE WASHER.png",
-      "/images/products/washers/BELLEVILLE WASHER.png",
+      "/images/products/washers/conical disc washer ht.png",
+      "/images/products/washers/conical disc washer ms.png",
+      "/images/products/washers/conical disc washer ss.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -523,7 +523,7 @@ export const washersData = {
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
       { id: 2, name: "Stainless Steel", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
     ],
-    about: "Circlip Type B is an internal retaining ring designed to fit tightly into a machined groove inside a bore. Once installed, it forms a strong shoulder that holds components firmly in place, preventing displacement during operation. Known for its durability and compact design, Type B circlips are essential in mechanical and automotive systems that require secure internal retention and dependable long-term performance.",
+    about: "Conical Disc Washers (also called Belleville washers) are conically shaped spring washers that deliver compact, high-load spring action when compressed. Their conical geometry provides controlled axial deflection to maintain bolt preload, absorb shock, compensate for thermal expansion or settlement, and reduce loosening under vibration. They are available in multiple materials and thicknesses and can be stacked in series or parallel to tune deflection and load characteristics. Common applications include bolted joints, clamps, electrical connections, pumps, and machinery where reliable preload and vibration resistance are required.",
     specifications: [
       { label: "Application", value: "Used to retain components on shafts or inside bores, preventing axial movement" },
       { label: "Application", value: "Ideal for machinery, automotive assemblies, pumps, gearboxes, and precision equipment" },

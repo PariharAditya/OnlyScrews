@@ -17,65 +17,166 @@ const FeaturedProductsSection = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=400&h=400&fit=crop",
-      title: "M2 & M2.5 3D Printing assorted screw pack",
+        "images/products/bolts/NYLON HEX BOLT.png",
+      title: "Nylon Hex Bolt",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=400&fit=crop",
+        "images/productdata/bolts/Hex bolt ss.png",
       title:
-        "M3 & M4 3D Printing assorted screw pack (Allen socket heads, hex nuts, washers & M3 brass inserts)",
+        "Stainless Steel Hex Bolt",
     },
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=400&h=400&fit=crop",
+        "images/productdata/bolts/Flange bolt ss.png",
       title:
-        "Hex(Allen) Socket Head Assorted Screw Pack M3, M4 Pack M3, M4 & M5 (SS304)",
+        "Flange Bolt",
     },
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop",
-      title: "Phillips CSK Assorted Screw Pack M3, M4 & M5 (SS304)",
+        "images/productdata/bolts/wing bolt ss.png",
+      title: "Wing Bolt",
     },
     {
       id: 5,
       image:
-        "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=400&fit=crop",
-      title: "Hex(Allen) Button Head Assorted Screw Pack M3, M4 & M5 (SS304)",
+        "images/productdata/bolts/dome bolt ss.png",
+      title: "Dome Bolt",
     },
     {
       id: 6,
       image:
-        "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?w=400&h=400&fit=crop",
-      title: "Hex(Allen) Socket(CSK) Assorted Screw Pack M3, M4 & M5 (SS304)",
+        "images/productdata/bolts/carriage  bolt ss.png",
+      title: "Carriage Bolt",
     },
     {
       id: 7,
       image:
-        "https://images.unsplash.com/photo-1581093458791-9f3c3250a33a?w=400&h=400&fit=crop",
-      title: "Screws Pan Head Assorted Screw Pack M3, M4 & M5 (SS304)",
+        "images/productdata/screws/allen screws/Allen bolt ss.png",
+      title: "SHCS Machine Screw",
     },
     {
       id: 8,
       image:
-        "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=400&fit=crop",
-      title: "Slotted cheese Head Assorted Screw Pack M3, M4 & M5 (SS304)",
+        "images/productdata/screws/allen screws/Allen csk bolt ms.png",
+      title: "Allen CSK Machine Screw",
     },
     {
       id: 9,
       image:
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop",
-      title: "M3 Allen Button Head SS304 Assorted Screw Pack",
+        "images/productdata/screws/allen screws/Button head bolt ms.png",
+      title: "Button Head Machine Screw",
     },
     {
       id: 10,
       image:
-        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=400&fit=crop",
-      title: "M4 Allen Button Head SS304 Assorted Screw Pack",
+        "images/productdata/screws/allen screws/Grub ss.png",
+      title: "GRUB Screw",
     },
+
+    
+  {
+      id: 11,
+      image:
+        "images/productdata/screws/allen screws/JCB ss.png",
+      title: "JCB Screw",
+    },
+
+    {
+      id: 12,
+      image:
+        "images/productdata/screws/allen screws/Pan Torx Machine Screw ss.png",
+      title: "Pan Torx Machine Screw",
+    },
+
+    {
+      id: 13,
+      image:
+        "images/productdata/screws/self tapping screws/STS CSK (+) ss.png",
+      title: "STS CSK (+)",
+    },
+
+    {
+      id: 14,
+      image:
+        "images/productdata/screws/self tapping screws/STS Pan (+) ss.png",
+      title: "STS PAN (+)",
+    },
+
+    {
+      id: 15,
+      image:
+        "images/productdata/screws/self tapping screws/STS CSK B Type ss.png",
+      title: "STS CSK B Type",
+    },
+
+    {
+      id: 16,
+      image:
+        "images/productdata/screws/self tapping screws/STS Pan B type ss.png",
+      title: "STS PAN B Type",
+    },
+
+     {
+      id: 17,
+      image:
+        "images/productdata/screws/self tapping screws/STS WW Pan (+) ss.png",
+      title: "STS WW Pan (+)",
+    },
+     
+    {
+      id: 18,
+      image:
+        "images/productdata/screws/self tapping screws/Pan Torx STS ss.png",
+      title: "Pan Torx STS",
+    },
+     
+    {
+      id: 19,
+      image:
+        "images/productdata/screws/self tapping screws/CSK Torx STS ss.png",
+      title: "CSK Torx STS",
+    },
+
+    {
+      id: 20,
+      image:
+        "images/productdata/screws/self drilling screws/Pan Self-Drilling Screw ss.png",
+      title: "Pan Self-Drilling Screws",
+    },
+
+     {
+      id: 21,
+      image:
+        "images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
+      title: "Hex Self-Drilling Screws",
+    },
+
+    {
+      id: 22,
+      image:
+        "images/productdata/screws/self drilling screws/CSK Self-Drilling Screw ss.png",
+      title: "CSK Self-Drilling Screws",
+    },
+
+    {
+      id: 23,
+      image:
+        "images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
+      title: "Hex Self-Drilling Screws",
+    },
+
+    {
+      id: 24,
+      image:
+        "images/productdata/screws/self drilling screws/Hex Self-Drilling Screw ss.png",
+      title: "Hex Self-Drilling Screws",
+    },
+
+    
   ];
 
   // Group products into slides (8 products per slide - 2 rows of 4)
