@@ -1,14 +1,14 @@
 // Product Type Definitions
 
 export interface ProductSubCategory {
-    id: string;
+    id?: string; // Optional - only present in API responses
     name: string;
     slug: string;
     types?: string[];
 }
 
 export interface ProductCategory {
-    id: string;
+    id?: string; // Optional - only present in API responses
     name: string;
     slug: string;
     description?: string;
