@@ -281,6 +281,54 @@ export const nutsData = {
     ],
   },
 
+  "barrel-nut": {
+    title: "Barrel Nut",
+    images: [
+      "/images/productdata/nuts/Barrel Nut ht.png",
+      "/images/productdata/nuts/Barrel Nut ms.png",
+      "/images/productdata/nuts/Barrel Nut ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 4, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+    ],
+    about: "Lock Nuts provide prevailing torque through methods like nylon inserts, deformed threads, or all-metal locking features. They are essential where vibration or movement might otherwise loosen conventional nuts, ensuring long-term joint integrity.",
+    specifications: [
+      { label: "Application", value: "Commonly used in automotive systems, machinery, and equipment exposed to vibration" },
+      { label: "Application", value: "Ideal for applications where a self-locking feature is required for added safety" },
+      { label: "Application", value: "Suitable for metal fabrication, mechanical assemblies, and rotating components" },
+      { label: "Application", value: "Frequently used in appliances, electronics, and general industrial fastening" },
+      { label: "Application", value: "Preferred in assemblies requiring repeated vibration resistance without additional lock washers" },
+      { label: "Application", value: "Used in both light-duty and heavy-duty connections to ensure stable, secure joints" },
+    ],
+  },
+
+  "clinch-nut": {
+    title: "Clinch Nut",
+    images: [
+      "/images/productdata/nuts/Clinch nut ht.png",
+      "/images/productdata/nuts/Clinch nut ms.png",
+      "/images/productdata/nuts/Clinch nut ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 3, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 4, name: "Zinc Plated", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+    ],
+    about: "Lock Nuts provide prevailing torque through methods like nylon inserts, deformed threads, or all-metal locking features. They are essential where vibration or movement might otherwise loosen conventional nuts, ensuring long-term joint integrity.",
+    specifications: [
+      { label: "Application", value: "Commonly used in automotive systems, machinery, and equipment exposed to vibration" },
+      { label: "Application", value: "Ideal for applications where a self-locking feature is required for added safety" },
+      { label: "Application", value: "Suitable for metal fabrication, mechanical assemblies, and rotating components" },
+      { label: "Application", value: "Frequently used in appliances, electronics, and general industrial fastening" },
+      { label: "Application", value: "Preferred in assemblies requiring repeated vibration resistance without additional lock washers" },
+      { label: "Application", value: "Used in both light-duty and heavy-duty connections to ensure stable, secure joints" },
+    ],
+  },
+
   "prongs-tee-nut": {
     title: "Prong Tee Nut",
     images: [

@@ -14,6 +14,8 @@ export default function NutsPage() {
     { title: "Flange Nut", slug: "flange-nut" , image : "/images/products/nuts/Flange Nut.png" },
     { title: "Wing Nut", slug: "wing-nut" , image : "/images/products/nuts/Wing Nut.png" },
     { title: "Square Nut", slug: "square-nut" , image : "/images/products/nuts/Sqaure Nut.png" },
+    { title: "Barrel Nut", slug: "barrel-nut" , image : "/images/products/nuts/Barrel Nut.png" },
+    { title: "Clinch Nut", slug: "clinch-nut" , image : "/images/products/nuts/Clinch nut.png" },
     { title: "Dome Nut", slug: "dome-nut" , image : "/images/products/nuts/Dome Nut.png" },
     { title: "Insert Nut (LF)", slug: "insert-nut-lf" , image : "/images/products/nuts/Insert Nut (LF).png" },
     { title: "Insert Nut (RF)", slug: "insert-nut-rf" , image : "/images/products/nuts/Insert Nut (RF).png" },
