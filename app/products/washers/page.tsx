@@ -21,6 +21,7 @@ export default function WashersPage() {
     { title: "Circlip type A ", slug: "circlip-type-a" , image:"/images/products/washers/Circlip Type A.png"  },
     { title: "Circlip type B", slug: "circlip-type-b" , image:"/images/products/washers/Circlip Type B.png"  },
     { title: "Circlip type E", slug: "circlip-type-e" , image:"/images/products/washers/Circlip Type E.png"  },
+     { title: "Conical Disc Washer", slug: "conical-disc-washer" , image:"/images/products/washers/conical disc washer.png"  },
    
     ];
 

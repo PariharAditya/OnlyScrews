@@ -553,4 +553,26 @@ export const washersData = {
       { label: "Application", value: "Provides reliable retention and easy installation with pliers or manual pressure" },
     ],
   },
+
+  
+  "conical-disc-washer": {
+    title: "Conical Disc Washer",
+    images: [
+      "/images/products/washers/conical disc washer ht.png",
+      "/images/products/washers/conical disc washer ms.png",
+      "/images/products/washers/conical disc washer ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+    ],
+    about: "Circlip Type B is an internal retaining ring designed to fit tightly into a machined groove inside a bore. Once installed, it forms a strong shoulder that holds components firmly in place, preventing displacement during operation. Known for its durability and compact design, Type B circlips are essential in mechanical and automotive systems that require secure internal retention and dependable long-term performance.",
+    specifications: [
+      { label: "Application", value: "Used to retain components on shafts or inside bores, preventing axial movement" },
+      { label: "Application", value: "Ideal for machinery, automotive assemblies, pumps, gearboxes, and precision equipment" },
+      { label: "Application", value: "Commonly used in bearings, gears, pulleys, and rotating or sliding mechanisms" },
+      { label: "Application", value: "Suitable for applications requiring strong, reliable retention with easy installation and removal" },
+      { label: "Application", value: "Provides secure locking in internal grooves where compact, efficient fastening is needed" },
+    ],
+  },
 };
