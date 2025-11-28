@@ -207,7 +207,7 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'insert-nut-rf',
                     },
                     {
-                        name: 'Keps(K) Nut',
+                        name: 'Keps (K) Nut',
                         slug: 'keps-k-nut',
                     },
                     {
@@ -219,8 +219,8 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'lock-nut',
                     },
                     {
-                        name: 'Pronge Tee Nut',
-                        slug: 'pronge-tee-nut',
+                        name: 'Prongs Tee Nut',
+                        slug: 'prongs-tee-nut',
                     },
                     {
                         name: 'Long Nut',
@@ -235,8 +235,8 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'weld-nut',
                     },
                     {
-                        name: 'Profilp side Nut',
-                        slug: 'profilp-side-nut',
+                        name: 'Profile side Nut',
+                        slug: 'profile-side-nut',
                     },
                     {
                         name: 'Semi Hex Nut (RF)',
@@ -275,12 +275,8 @@ export const productHierarchy: ProductHierarchy[] = [
                         slug: 'metal-lock-nut',
                     },
                     {
-                        name: 'Mosflo (T) Nut',
-                        slug: 'mosflo-t-nut',
-                    },
-                    {
-                        name: 'Profilp (T) Nut',
-                        slug: 'profilp-t-nut',
+                        name: 'Profile (T) Nut',
+                        slug: 'profile-t-nut',
                     },
                     {
                         name: 'Shear Nut',
