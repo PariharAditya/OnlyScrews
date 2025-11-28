@@ -83,6 +83,35 @@ export const screwsData = {
     ],
   },
 
+    
+  "allen-flange-button-head-machine-screws": {
+    title: "Allen Flange Button Head Screw",
+
+    images: [
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ht.png",
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ms.png",
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ss.png",
+    ],
+    materials: [
+      { id: 1, name: "Stainless Steel 202", color: "from-blue-300 to-green-400", image: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=600&h=400&fit=crop" },
+      { id: 2, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 3, name: "Stainless Steel 316", color: "from-orange-300 to-yellow-400", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop" },
+      { id: 4, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+      { id: 5, name: "Brass", color: "from-yellow-200 to-amber-400", image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=600&h=400&fit=crop" },
+      { id: 6, name: "Nylon", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
+      { id: 7, name: "Black Oxide", color: "from-slate-400 to-gray-600", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
+    ],
+    about: "The Allen Flange Button Head Screw combines a low-profile, rounded button head with an integrated flange that acts like a built-in washer. With an internal hex (Allen) drive, it allows precise torque control in confined spaces while the flange provides a larger bearing surface to distribute load, reduce material damage, and improve vibration resistance. This makes it ideal for panel assemblies, covers, and applications where a neat, flush appearance and reliable clamping are required.",
+    specifications: [
+      { label: "Application", value: "Fastening panels, covers, and thin-sheet materials where a low-profile finished appearance is desired" },
+      { label: "Feature", value: "Integrated flange provides extra bearing surface and often removes the need for a separate washer" },
+      { label: "Drive", value: "Internal hex (Allen) drive for precise torque and compact access" },
+      { label: "Material", value: "Available in Stainless Steel, Mild Steel, Brass, Nylon, and Black Oxide finishes" },
+      { label: "Benefit", value: "Improved load distribution, resistance to loosening from vibration, and a clean aesthetic finish" },
+      { label: "Installation", value: "Installed using an Allen key; flange reduces the risk of material deformation and provides more secure clamping" },
+    ],
+  },
+
   "grub-screws": {
     title: "Allen Grub Screw",
     images: [
