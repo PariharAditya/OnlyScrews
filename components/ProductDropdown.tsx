@@ -11,6 +11,9 @@ interface ProductDropdownProps {
   onItemClick?: () => void;
 }
 
+// Categories that should be flat (subcategories go to /category/ URL)
+const FLAT_CATEGORIES = ["self-drilling-screws", "self-tapping-screws"];
+
 export default function ProductDropdown({
   isMobile = false,
   onItemClick,
@@ -36,18 +39,30 @@ export default function ProductDropdown({
     loadHierarchy();
   }, []);
 
+  // Helper function to check if category is flat
+  const isCategoryFlat = (categorySlug: string, categoryIsFlat?: boolean) => {
+    return categoryIsFlat || FLAT_CATEGORIES.includes(categorySlug);
+  };
+
   // Helper function to generate correct URL based on structure
   const getSubcategoryUrl = (
     mainCatSlug: string,
     categorySlug: string | undefined,
     subcatSlug: string,
-    hasTypes: boolean
+    hasTypes: boolean,
+    categoryIsFlat?: boolean
   ) => {
+    const isFlat = isCategoryFlat(categorySlug || "", categoryIsFlat);
+
+    // If category is flat OR subcategory has no types, go to /category/
+    if (isFlat || !hasTypes) {
+      return `/category/${subcatSlug}`;
+    }
     // If subcategory has types, it's a hierarchical product page
     if (hasTypes && categorySlug) {
       return `/products/${mainCatSlug}/${categorySlug}/${subcatSlug}`;
     }
-    // Otherwise it's a product detail page (flat)
+    // Default fallback
     return `/category/${subcatSlug}`;
   };
 
@@ -107,61 +122,70 @@ export default function ProductDropdown({
                           {subcat.name}
                         </Link>
                       ))
-                    : mainCat.categories.map((category) => (
-                        <div key={category.slug}>
-                          <div className="flex items-center justify-between">
-                            <Link
-                              href={`/products/${mainCat.slug}/${category.slug}`}
-                              className="text-gray-600 hover:text-purple-600 text-sm flex-1"
-                              onClick={onItemClick}
-                            >
-                              {category.name}
-                            </Link>
-                            {category.subcategories &&
-                              category.subcategories.length > 0 && (
-                                <button
-                                  onClick={() =>
-                                    setExpandedCategory(
-                                      expandedCategory === category.slug
-                                        ? null
-                                        : category.slug
-                                    )
-                                  }
-                                  className="p-1"
-                                >
-                                  <ChevronRight
-                                    className={`w-3 h-3 transition-transform ${
-                                      expandedCategory === category.slug
-                                        ? "rotate-90"
-                                        : ""
-                                    }`}
-                                  />
-                                </button>
-                              )}
-                          </div>
+                    : mainCat.categories.map((category) => {
+                        const isFlat = isCategoryFlat(
+                          category.slug,
+                          category.isFlat
+                        );
 
-                          {expandedCategory === category.slug && (
-                            <div className="pl-4 mt-2 space-y-1">
-                              {category.subcategories?.map((subcat) => {
-                                const subcatUrl = getSubcategoryUrl(
-                                  mainCat.slug,
-                                  category.slug,
-                                  subcat.slug,
-                                  !!subcat.types && subcat.types.length > 0
-                                );
+                        return (
+                          <div key={category.slug}>
+                            <div className="flex items-center justify-between">
+                              <Link
+                                href={`/products/${mainCat.slug}/${category.slug}`}
+                                className="text-gray-600 hover:text-purple-600 text-sm flex-1"
+                                onClick={onItemClick}
+                              >
+                                {category.name}
+                              </Link>
+                              {category.subcategories &&
+                                category.subcategories.length > 0 && (
+                                  <button
+                                    onClick={() =>
+                                      setExpandedCategory(
+                                        expandedCategory === category.slug
+                                          ? null
+                                          : category.slug
+                                      )
+                                    }
+                                    className="p-1"
+                                  >
+                                    <ChevronRight
+                                      className={`w-3 h-3 transition-transform ${
+                                        expandedCategory === category.slug
+                                          ? "rotate-90"
+                                          : ""
+                                      }`}
+                                    />
+                                  </button>
+                                )}
+                            </div>
 
-                                return (
-                                  <div key={subcat.slug}>
-                                    <div className="flex items-center justify-between">
-                                      <Link
-                                        href={subcatUrl}
-                                        className="block text-gray-500 hover:text-purple-600 text-xs py-1"
-                                        onClick={onItemClick}
-                                      >
-                                        {subcat.name}
-                                      </Link>
-                                      {subcat.types &&
-                                        subcat.types.length > 0 && (
+                            {expandedCategory === category.slug && (
+                              <div className="pl-4 mt-2 space-y-1">
+                                {category.subcategories?.map((subcat) => {
+                                  const hasTypes =
+                                    !!subcat.types && subcat.types.length > 0;
+                                  const subcatUrl = getSubcategoryUrl(
+                                    mainCat.slug,
+                                    category.slug,
+                                    subcat.slug,
+                                    hasTypes,
+                                    category.isFlat
+                                  );
+
+                                  return (
+                                    <div key={subcat.slug}>
+                                      <div className="flex items-center justify-between">
+                                        <Link
+                                          href={subcatUrl}
+                                          className="block text-gray-600 hover:text-purple-600 text-xs flex-1 py-1.5 px-2 rounded hover:bg-gray-50"
+                                          onClick={onItemClick}
+                                        >
+                                          {subcat.name}
+                                        </Link>
+                                        {/* Only show expand button if has types AND category is NOT flat */}
+                                        {hasTypes && !isFlat && (
                                           <button
                                             onClick={() =>
                                               setExpandedSubcat(
@@ -170,10 +194,10 @@ export default function ProductDropdown({
                                                   : subcat.slug
                                               )
                                             }
-                                            className="p-1"
+                                            className="p-1.5 hover:bg-gray-50 rounded"
                                           >
                                             <ChevronRight
-                                              className={`w-3 h-3 transition-transform ${
+                                              className={`w-3 h-3 text-gray-400 transition-transform ${
                                                 expandedSubcat === subcat.slug
                                                   ? "rotate-90"
                                                   : ""
@@ -181,39 +205,41 @@ export default function ProductDropdown({
                                             />
                                           </button>
                                         )}
-                                    </div>
+                                      </div>
 
-                                    {/* Show types if they exist */}
-                                    {expandedSubcat === subcat.slug &&
-                                      subcat.types && (
-                                        <div className="pl-4 mt-1 space-y-1">
-                                          {subcat.types.map((type) => {
-                                            const typeSlug = type
-                                              .toLowerCase()
-                                              .replace(/\s+/g, "-")
-                                              .replace(/\//g, "-")
-                                              .replace(/\(/g, "")
-                                              .replace(/\)/g, "");
-                                            return (
-                                              <Link
-                                                key={typeSlug}
-                                                href={`/category/${typeSlug}`}
-                                                className="block text-gray-400 hover:text-purple-600 text-xs py-1"
-                                                onClick={onItemClick}
-                                              >
-                                                • {type}
-                                              </Link>
-                                            );
-                                          })}
-                                        </div>
-                                      )}
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          )}
-                        </div>
-                      ))}
+                                      {/* Types accordion - Only render if has types AND category is NOT flat */}
+                                      {expandedSubcat === subcat.slug &&
+                                        hasTypes &&
+                                        !isFlat && (
+                                          <div className="pl-3 mt-1 space-y-0.5 border-l border-gray-200 ml-2">
+                                            {subcat.types?.map((type) => {
+                                              const typeSlug = type
+                                                .toLowerCase()
+                                                .replace(/\s+/g, "-")
+                                                .replace(/\//g, "-")
+                                                .replace(/\(/g, "")
+                                                .replace(/\)/g, "");
+                                              return (
+                                                <Link
+                                                  key={typeSlug}
+                                                  href={`/category/${typeSlug}`}
+                                                  className="block text-gray-400 hover:text-purple-600 text-xs py-1"
+                                                  onClick={onItemClick}
+                                                >
+                                                  • {type}
+                                                </Link>
+                                              );
+                                            })}
+                                          </div>
+                                        )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                 </div>
               )}
             </div>
@@ -314,134 +340,149 @@ export default function ProductDropdown({
                         ) : (
                           <div className="w-72 bg-white shadow-xl rounded-lg border border-gray-200">
                             <div className="py-2">
-                              {mainCat.categories.map((category) => (
-                                <div
-                                  key={category.slug}
-                                  className="relative group/subitem"
-                                  onMouseEnter={() => {
-                                    setHoveredSubcategory(category.slug);
-                                    setHoveredSubcategoryItem(null);
-                                  }}
-                                >
-                                  <Link
-                                    href={`/products/${mainCat.slug}/${category.slug}`}
-                                    className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
-                                  >
-                                    <span className="text-gray-700 text-sm">
-                                      {category.name}
-                                    </span>
-                                    {category.subcategories &&
-                                      category.subcategories.length > 0 && (
-                                        <ChevronRight className="w-3 h-3 text-gray-400" />
-                                      )}
-                                  </Link>
+                              {mainCat.categories.map((category) => {
+                                const isFlat = isCategoryFlat(
+                                  category.slug,
+                                  category.isFlat
+                                );
 
-                                  {hoveredSubcategory === category.slug &&
-                                    category.subcategories &&
-                                    category.subcategories.length > 0 && (
-                                      <div
-                                        className="absolute left-full top-0 pl-2 z-50"
-                                        onMouseEnter={() =>
-                                          setHoveredSubcategory(category.slug)
-                                        }
-                                      >
-                                        <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
-                                          <div className="py-2">
-                                            {category.subcategories.map(
-                                              (subcat) => (
-                                                <div
-                                                  key={subcat.slug}
-                                                  className="relative group/typeitem"
-                                                  onMouseEnter={() =>
-                                                    setHoveredSubcategoryItem(
-                                                      subcat.slug
-                                                    )
-                                                  }
-                                                >
-                                                  <Link
-                                                    href={getSubcategoryUrl(
+                                return (
+                                  <div
+                                    key={category.slug}
+                                    className="relative group/subitem"
+                                    onMouseEnter={() => {
+                                      setHoveredSubcategory(category.slug);
+                                      setHoveredSubcategoryItem(null);
+                                    }}
+                                  >
+                                    <Link
+                                      href={`/products/${mainCat.slug}/${category.slug}`}
+                                      className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 transition-colors"
+                                    >
+                                      <span className="text-gray-700 text-sm">
+                                        {category.name}
+                                      </span>
+                                      {category.subcategories &&
+                                        category.subcategories.length > 0 && (
+                                          <ChevronRight className="w-3 h-3 text-gray-400" />
+                                        )}
+                                    </Link>
+
+                                    {hoveredSubcategory === category.slug &&
+                                      category.subcategories &&
+                                      category.subcategories.length > 0 && (
+                                        <div
+                                          className="absolute left-full top-0 pl-2 z-50"
+                                          onMouseEnter={() =>
+                                            setHoveredSubcategory(category.slug)
+                                          }
+                                        >
+                                          <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+                                            <div className="py-2">
+                                              {category.subcategories.map(
+                                                (subcat) => {
+                                                  const hasTypes =
+                                                    !!subcat.types &&
+                                                    subcat.types.length > 0;
+                                                  const subcatUrl =
+                                                    getSubcategoryUrl(
                                                       mainCat.slug,
                                                       category.slug,
                                                       subcat.slug,
-                                                      !!subcat.types &&
-                                                        subcat.types.length > 0
-                                                    )}
-                                                    className="flex items-center justify-between px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-200"
-                                                  >
-                                                    <span className="text-gray-700 text-sm">
-                                                      {subcat.name}
-                                                    </span>
-                                                    {subcat.types &&
-                                                      subcat.types.length >
-                                                        0 && (
-                                                        <ChevronRight className="w-3 h-3 text-gray-400" />
-                                                      )}
-                                                  </Link>
+                                                      hasTypes,
+                                                      category.isFlat
+                                                    );
 
-                                                  {/* Fourth Level - Types */}
-                                                  {hoveredSubcategoryItem ===
-                                                    subcat.slug &&
-                                                    subcat.types &&
-                                                    subcat.types.length > 0 && (
-                                                      <div
-                                                        className="py-2"
-                                                        onMouseEnter={() =>
-                                                          setHoveredSubcategoryItem(
-                                                            subcat.slug
-                                                          )
-                                                        }
+                                                  return (
+                                                    <div
+                                                      key={subcat.slug}
+                                                      className="relative group/typeitem"
+                                                      onMouseEnter={() =>
+                                                        setHoveredSubcategoryItem(
+                                                          subcat.slug
+                                                        )
+                                                      }
+                                                    >
+                                                      <Link
+                                                        href={subcatUrl}
+                                                        className="flex items-center justify-between px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent transition-all duration-200"
                                                       >
-                                                        <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
-                                                          <div className="py-2">
-                                                            {subcat.types.map(
-                                                              (type) => {
-                                                                const typeSlug =
-                                                                  type
-                                                                    .toLowerCase()
-                                                                    .replace(
-                                                                      /\s+/g,
-                                                                      "-"
-                                                                    )
-                                                                    .replace(
-                                                                      /\//g,
-                                                                      "-"
-                                                                    )
-                                                                    .replace(
-                                                                      /\(/g,
-                                                                      ""
-                                                                    )
-                                                                    .replace(
-                                                                      /\)/g,
-                                                                      ""
+                                                        <span className="text-gray-700 text-sm">
+                                                          {subcat.name}
+                                                        </span>
+                                                        {/* Only show chevron if has types AND category is NOT flat */}
+                                                        {hasTypes &&
+                                                          !isFlat && (
+                                                            <ChevronRight className="w-3 h-3 text-gray-400" />
+                                                          )}
+                                                      </Link>
+
+                                                      {/* Fourth Level - Types - Only show if has types AND category is NOT flat */}
+                                                      {hoveredSubcategoryItem ===
+                                                        subcat.slug &&
+                                                        hasTypes &&
+                                                        !isFlat && (
+                                                          <div
+                                                        className="py-2"
+                                                            onMouseEnter={() =>
+                                                              setHoveredSubcategoryItem(
+                                                                subcat.slug
+                                                              )
+                                                            }
+                                                          >
+                                                            <div className="w-64 bg-white shadow-xl rounded-lg border border-gray-200 max-h-96 overflow-y-auto">
+                                                              <div className="py-2">
+                                                                {subcat.types?.map(
+                                                                  (type) => {
+                                                                    const typeSlug =
+                                                                      type
+                                                                        .toLowerCase()
+                                                                        .replace(
+                                                                          /\s+/g,
+                                                                          "-"
+                                                                        )
+                                                                        .replace(
+                                                                          /\//g,
+                                                                          "-"
+                                                                        )
+                                                                        .replace(
+                                                                          /\(/g,
+                                                                          ""
+                                                                        )
+                                                                        .replace(
+                                                                          /\)/g,
+                                                                          ""
+                                                                        );
+                                                                    return (
+                                                                      <Link
+                                                                        key={
+                                                                          typeSlug
+                                                                        }
+                                                                        href={`/category/${typeSlug}`}
+                                                                        className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                                                                      >
+                                                                        <span className="text-gray-700 text-sm">
+                                                                          {type}
+                                                                        </span>
+                                                                      </Link>
                                                                     );
-                                                                return (
-                                                                  <Link
-                                                                    key={
-                                                                      typeSlug
-                                                                    }
-                                                                    href={`/category/${typeSlug}`}
-                                                                    className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                                                                  >
-                                                                    <span className="text-gray-700 text-sm">
-                                                                      {type}
-                                                                    </span>
-                                                                  </Link>
-                                                                );
-                                                              }
-                                                            )}
+                                                                  }
+                                                                )}
+                                                              </div>
+                                                            </div>
                                                           </div>
-                                                        </div>
-                                                      </div>
-                                                    )}
-                                                </div>
-                                              )
-                                            )}
+                                                        )}
+                                                    </div>
+                                                  );
+                                                }
+                                              )}
+                                            </div>
                                           </div>
                                         </div>
-                                      </div>
-                                    )}
-                                </div>
-                              ))}
+                                      )}
+                                  </div>
+                                );
+                              })}
                             </div>
                           </div>
                         )}
