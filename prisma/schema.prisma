@@ -93,7 +93,45 @@ model Product {
   
   subcategoryId String
   subcategory   Subcategory @relation(fields: [subcategoryId], references: [id], onDelete: Cascade)
+  
+  // Size availability relation
+  sizeAvailability ProductSizeAvailability[]
 
   @@unique([subcategoryId, slug])
   @@map("products")
+}
+
+// Materials available for products (Stainless Steel 304, Mild Steel, etc.)
+model Material {
+  id          String   @id @default(cuid())
+  name        String   @unique  // e.g., "Stainless Steel 304"
+  slug        String   @unique  // e.g., "stainless-steel-304"
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  sizeAvailability ProductSizeAvailability[]
+
+  @@map("materials")
+}
+
+// Product size availability per material
+model ProductSizeAvailability {
+  id          String   @id @default(cuid())
+  productId   String
+  materialId  String
+  size        String   // e.g., "M-4 X 8", "M-5 X 16 OD WSR"
+  available   Boolean  @default(true)  // true = green, false = red
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  material    Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, materialId, size])
+  @@index([productId])
+  @@index([materialId])
+  @@map("product_size_availability")
 }

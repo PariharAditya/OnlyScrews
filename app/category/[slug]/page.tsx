@@ -6,7 +6,9 @@ import ProductDetail from "@/components/ProductDetail";
 import Footer from "@/components/Footer";
 import { productData } from "@/lib/productData";
 
-export default function CategoryPage({ params }: Readonly<{ params: Promise<{ slug: string }> }>) {
+export default function CategoryPage({
+  params,
+}: Readonly<{ params: Promise<{ slug: string }> }>) {
   const { slug } = use(params);
   const product = productData[slug];
 
@@ -18,6 +20,7 @@ export default function CategoryPage({ params }: Readonly<{ params: Promise<{ sl
     <>
       <ProductDetail
         title={product.title}
+        slug={slug}
         images={product.images}
         materials={product.materials}
         about={product.about}
