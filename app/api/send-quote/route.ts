@@ -41,9 +41,11 @@ export async function POST(request: NextRequest) {
       subject: `🔩 New Quote Request: ${product}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
-          <div style="background-color: #1a1a1a; color: #A3F61E; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 24px;">New Quote Request</h1>
-            <p style="margin: 5px 0 0; color: #ffffff;">OnlyScrews - Industrial Fasteners</p>
+          <div style="background-color: #1a1a1a; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
+            <h1 style="margin: 0 0 15px 0; font-size: 22px; color: #BCFF83;">New Quote Request</h1>
+            <div style="display: inline-block; background-color: #ffffff; padding: 12px 25px; border-radius: 8px;">
+              <span style="font-size: 24px; font-weight: 900; color: #000000;">SCREW</span><span style="font-size: 24px; font-weight: 300; color: #000000;">BAZAR</span>
+            </div>
           </div>
           
           <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
@@ -85,7 +87,7 @@ export async function POST(request: NextRequest) {
             ` : ''}
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 12px;">
-              <p>This quote request was submitted from the OnlyScrews website.</p>
+              <p>This quote request was submitted from the <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span> website.</p>
               <p>Timestamp: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
             </div>
           </div>
@@ -93,7 +95,7 @@ export async function POST(request: NextRequest) {
       `,
       // Plain text version for email clients that don't support HTML
       text: `
-New Quote Request - OnlyScrews
+New Quote Request - SCREWBAZAR
 
 PRODUCT DETAILS:
 - Product: ${product}
@@ -116,12 +118,14 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
     const customerMailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: `Thank you for your quote request - OnlyScrews`,
+      subject: `Thank you for your quote request - SCREWBAZAR`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
-          <div style="background-color: #1a1a1a; color: #A3F61E; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0; font-size: 24px;">Thank You!</h1>
-            <p style="margin: 5px 0 0; color: #ffffff;">OnlyScrews - Industrial Fasteners</p>
+          <div style="background-color: #1a1a1a; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
+            <h1 style="margin: 0 0 15px 0; font-size: 22px; color: #BCFF83;">Thank You!</h1>
+            <div style="display: inline-block; background-color: #ffffff; padding: 12px 25px; border-radius: 8px;">
+              <span style="font-size: 24px; font-weight: 900; color: #000000;">SCREW</span><span style="font-size: 24px; font-weight: 300; color: #000000;">BAZAR</span>
+            </div>
           </div>
           
           <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
@@ -143,7 +147,7 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
             
             <p style="font-size: 14px; color: #555; margin-top: 20px;">
               Best regards,<br>
-              <strong>Team OnlyScrews</strong>
+              <strong>Team <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span></strong>
             </p>
           </div>
         </div>
