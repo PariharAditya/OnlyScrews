@@ -38,6 +38,8 @@ export default function ProductDetail({
     quantity: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const mainFrameRef = useRef<HTMLDivElement | null>(null);
   const availabilityRef = useRef<HTMLButtonElement | null>(null);
   
@@ -266,39 +268,58 @@ export default function ProductDetail({
               <h2 className="text-lg font-heading font-bold text-gray-900 mb-3">Request a Quote</h2>
 
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  // Save to localStorage
-                  const existingQuotes = JSON.parse(
-                    localStorage.getItem("quoteRequests") || "[]"
-                  );
-                  existingQuotes.push({
-                    ...quoteFormData,
-                    product: title,
-                    material: materials[selectedMaterial].name,
-                    id: Date.now(),
-                    timestamp: new Date().toISOString(),
-                  });
-                  localStorage.setItem(
-                    "quoteRequests",
-                    JSON.stringify(existingQuotes)
-                  );
+                  setIsSubmitting(true);
+                  setSubmitStatus(null);
 
-                  // Reset form and close modal
-                  setQuoteFormData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    quantity: "",
-                    message: "",
-                  });
-                  setShowQuoteModal(false);
+                  try {
+                    const response = await fetch('/api/send-quote', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        ...quoteFormData,
+                        product: title,
+                        material: materials[selectedMaterial].name,
+                      }),
+                    });
 
-                  // Show success (optional)
-                  alert("Quote request submitted successfully!");
+                    const data = await response.json();
+
+                    if (response.ok) {
+                      setSubmitStatus({ type: 'success', message: 'Quote request sent successfully! Check your email for confirmation.' });
+                      // Reset form after success
+                      setQuoteFormData({
+                        name: "",
+                        email: "",
+                        phone: "",
+                        quantity: "",
+                        message: "",
+                      });
+                      // Close modal after 2 seconds on success
+                      setTimeout(() => {
+                        setShowQuoteModal(false);
+                        setSubmitStatus(null);
+                      }, 2000);
+                    } else {
+                      setSubmitStatus({ type: 'error', message: data.error || 'Failed to send quote request. Please try again.' });
+                    }
+                  } catch {
+                    setSubmitStatus({ type: 'error', message: 'Network error. Please check your connection and try again.' });
+                  } finally {
+                    setIsSubmitting(false);
+                  }
                 }}
                 className="space-y-2"
               >
+                {/* Status Message */}
+                {submitStatus && (
+                  <div className={`p-2 rounded text-sm ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {submitStatus.message}
+                  </div>
+                )}
                 <div>
                   <label htmlFor="quote-name" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
                     Name *
@@ -398,9 +419,14 @@ export default function ProductDetail({
 
                 <button
                   type="submit"
-                  className="w-full bg-[#A3F61E] text-black py-1.5 rounded font-heading text-sm font-semibold hover:bg-[#8FD919] transition cursor-pointer"
+                  disabled={isSubmitting}
+                  className={`w-full py-1.5 rounded font-heading text-sm font-semibold transition cursor-pointer ${
+                    isSubmitting 
+                      ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
+                      : 'bg-[#A3F61E] text-black hover:bg-[#8FD919]'
+                  }`}
                 >
-                  Submit Quote Request
+                  {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
                 </button>
               </form>
             </div>
