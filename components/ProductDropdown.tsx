@@ -44,6 +44,16 @@ export default function ProductDropdown({
     return categoryIsFlat || FLAT_CATEGORIES.includes(categorySlug);
   };
 
+  // NEW: Helper function to check if a specific subcategory should show types
+  const shouldShowTypes = (
+    categorySlug: string,
+    subcategory: { types?: string[] },
+    categoryIsFlat?: boolean
+  ) => {
+    // If subcategory has types, always show them regardless of flat category
+    return !!subcategory.types && subcategory.types.length > 0;
+  };
+
   // Helper function to generate correct URL based on structure
   const getSubcategoryUrl = (
     mainCatSlug: string,
@@ -54,15 +64,11 @@ export default function ProductDropdown({
   ) => {
     const isFlat = isCategoryFlat(categorySlug || "", categoryIsFlat);
 
-    // If category is flat OR subcategory has no types, go to /category/
-    if (isFlat || !hasTypes) {
-      return `/category/${subcatSlug}`;
-    }
-    // If subcategory has types, it's a hierarchical product page
+    // If subcategory has types, it should go to the hierarchical product page
     if (hasTypes && categorySlug) {
       return `/products/${mainCatSlug}/${categorySlug}/${subcatSlug}`;
     }
-    // Default fallback
+    // Otherwise go to /category/
     return `/category/${subcatSlug}`;
   };
 
@@ -124,8 +130,7 @@ export default function ProductDropdown({
                       ))
                     : mainCat.categories.map((category) => {
                         const isFlat = isCategoryFlat(
-                          category.slug,
-                          category.isFlat
+                          category.slug                          
                         );
 
                         return (
@@ -171,7 +176,6 @@ export default function ProductDropdown({
                                     category.slug,
                                     subcat.slug,
                                     hasTypes,
-                                    category.isFlat
                                   );
 
                                   return (
@@ -342,8 +346,7 @@ export default function ProductDropdown({
                             <div className="py-2">
                               {mainCat.categories.map((category) => {
                                 const isFlat = isCategoryFlat(
-                                  category.slug,
-                                  category.isFlat
+                                  category.slug
                                 );
 
                                 return (
@@ -389,8 +392,7 @@ export default function ProductDropdown({
                                                       mainCat.slug,
                                                       category.slug,
                                                       subcat.slug,
-                                                      hasTypes,
-                                                      category.isFlat
+                                                      hasTypes
                                                     );
 
                                                   return (
@@ -423,7 +425,7 @@ export default function ProductDropdown({
                                                         hasTypes &&
                                                         !isFlat && (
                                                           <div
-                                                        className="py-2"
+                                                            className="py-2"
                                                             onMouseEnter={() =>
                                                               setHoveredSubcategoryItem(
                                                                 subcat.slug
