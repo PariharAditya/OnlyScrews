@@ -7,11 +7,11 @@ import { H1, H3, Body } from "./ui/Typography";
 import StandardCard from "./ui/StandardCard";
 
 const products = [
-  { id: 1, name: "Nylon Spacers", image: "/images/products/nylon-spacers.png" },
-  { id: 2, name: "Nylon Washers", image: "/images/products/nylon-washers.png" },
-  { id: 3, name: "Nylon Nuts", image: "/images/products/nylon-nuts.png" },
-  { id: 4, name: "Nylon Bolts", image: "/images/products/nylon-bolts.png" },
-  { id: 5, name: "Nylon Machine Screws", image: "/images/products/nylon-machine-screws.png"},
+  { id: 1, name: "Nylon Spacers", image: "/images/products/nylon-spacers.png", href: "/products/spacers" },
+  { id: 2, name: "Nylon Washers", image: "/images/products/nylon-washers.png", href: "/products/washers" },
+  { id: 3, name: "Nylon Nuts", image: "/images/products/nylon-nuts.png", href: "/products/nuts" },
+  { id: 4, name: "Nylon Bolts", image: "/images/products/nylon-bolts.png", href: "/products/bolts" },
+  { id: 5, name: "Nylon Machine Screws", image: "/images/products/nylon-machine-screws.png", href: "/products/screws/machine-screws" },
 ];
 
 export default function NylonRangeSection() {
@@ -94,6 +94,7 @@ export default function NylonRangeSection() {
               key={product.id}
               image={product.image}
               title={product.name}
+              href={product.href}
             />
           ))}
         </div>

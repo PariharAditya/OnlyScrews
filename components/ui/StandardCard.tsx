@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import { COLORS } from "@/lib/theme";
 
 interface StandardCardProps {
   image: string;
   title: string;
+  href?: string;
   onClick?: () => void;
   className?: string;
 }
@@ -11,13 +13,18 @@ interface StandardCardProps {
 export default function StandardCard({
   image,
   title,
+  href,
   onClick,
   className = "",
 }: StandardCardProps) {
+  const CardWrapper = href ? Link : 'div';
+  const wrapperProps = href ? { href } : {};
+  
   return (
-    <div
+    <CardWrapper
+      {...wrapperProps}
       onClick={onClick}
-      className={`relative cursor-pointer ${className}`}
+      className={`relative cursor-pointer block ${className}`}
       style={{
         width: "280px",
         padding: "14px",
@@ -105,6 +112,6 @@ export default function StandardCard({
       >
         {title}
       </div>
-    </div>
+    </CardWrapper>
   );
 }
