@@ -11,11 +11,11 @@ export default function CallButton() {
       {/* Floating Call Button */}
       <button
         onClick={() => setIsDialogOpen(true)}
-        className="fixed bottom-6 left-6 z-50 bg-orange-500 hover:bg-orange-600 text-white p-3.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center gap-2"
+        className="fixed bottom-6 left-6 z-50 bg-white hover:shadow-2xl text-gray-800 py-3 px-6 rounded-lg shadow-xl transition-all duration-300 flex items-center gap-2 cursor-pointer"
         aria-label="Call us"
       >
-        <FiPhone className="w-5 h-5" />
-        <span className="text-sm font-medium">Call Us</span>
+        <FiPhone className="w-6 h-6 text-green-500" />
+        <span className="text-base font-medium">Call Us</span>
       </button>
 
       {/* Call Dialog */}
