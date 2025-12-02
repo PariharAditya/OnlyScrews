@@ -13,7 +13,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     {
                         name: 'Allen Screws',
                         slug: 'allen-screws',
-                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws', 'Flange Button Head']
+                        types: ['SHCS Machine Screws', 'BHCS Machine Screws', 'CSK Machine Screws', 'GRUB Screws', 'JCB Screws', 'Allen Flange Button Head Machine Screws']
                     },
                     {
                         name: 'Torx Machine Screws',

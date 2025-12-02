@@ -266,7 +266,7 @@ export const screwsData = {
   },
 
   "pan-sem": {
-    title: "Pan SEM Screws | Pre-assembled Washer | SEMS Assembly | Time-Saving Installation | Multiple Materials",
+    title: "Pan SEM Screws",
     images: [
       "/images/productdata/screws/allen screws/Pan SEMS ht.png",
       "/images/productdata/screws/allen screws/Pan SEMS ms.png",
@@ -291,7 +291,7 @@ export const screwsData = {
   },
 
   "hex-sem": {
-    title: "Hex SEM Screws | Pre-assembled Washer | Hex Head | Wrench Drive | Time-Saving | Multiple Materials",
+    title: "Hex SEM Screws",
     images: [
       "/images/productdata/screws/allen screws/Hex SEMS ht.png",
       "/images/productdata/screws/allen screws/Hex SEMS ms.png",
