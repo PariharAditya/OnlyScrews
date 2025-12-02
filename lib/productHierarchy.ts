@@ -65,23 +65,23 @@ export const productHierarchy: ProductHierarchy[] = [
                 subcategories: [
                     {
                         name: 'STS Pan Phillips',
-                        slug: 'sts-pan-phillips',
+                        slug: 'pan-phillips-sts',
                     },
                     {
                         name: 'STS CSK Phillips',
-                        slug: 'sts-csk-phillips',
+                        slug: 'csk-phillips-sts',
                     },
                     {
                         name: 'STS WW Pan Phillips',
-                        slug: 'sts-ww-pan-phillips',
+                        slug: 'ww-pan-phillips-sts',
                     },
                     {
                         name: 'STS Pan B Type',
-                        slug: 'sts-pan-b-type',
+                        slug: 'pan-b-type-sts',
                     },
                     {
                         name: 'STS CSK B Type',
-                        slug: 'sts-csk-b-type',
+                        slug: 'csk-b-type-sts',
                     },
                     {
                         name: 'Torx STS',
@@ -412,11 +412,11 @@ export const productHierarchy: ProductHierarchy[] = [
                     },
                     {
                         name: 'Spring Dowel Pin',
-                        slug: 'spring-dowel-pin',
+                        slug: 'spring-dowel-pin-cotter',
                     },
                     {
                         name: 'Cotter Pin',
-                        slug: 'cotter-pin',
+                        slug: 'cotter-pin-blind-pop-rivet',
                     },
                     {
                         name: 'Blind / POP Rivet',
@@ -445,7 +445,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     },
                     {
                         name: 'Nylon Plain Washer',
-                        slug: 'nylon-plain-washer',
+                        slug: 'nylon-round-plain-washer',
                     },
                     {
                         name: 'Taper Washer',
@@ -457,7 +457,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     },
                     {
                         name: 'Chakri Washer',
-                        slug: 'chakri-washer',
+                        slug: 'star-washer',
                     },
                     {
                         name: 'Conical Disc Washer',
