@@ -606,12 +606,12 @@ export const screwsData = {
     ],
   },
 
-  "water-head-sds": {
-    title: "Wafer Head SDS | Wafer Head Self-Drilling Screws | Large Bearing Surface | Sheet Metal | Multiple Materials",
+  "truss-phillips-sds": {
+    title: "Truss Phillips SDS",
     images: [
-      "/images/products/screws/self drilling screws/Wafer Head Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Wafer Head Self-Drilling Screw.png",
-      "/images/products/screws/self drilling screws/Wafer Head Self-Drilling Screw.png",
+      "/images/productdata/screws/self drilling screws/Wafer Head Self-Drilling Screw ht.png",
+      "/images/productdata/screws/self drilling screws/Wafer Head Self-Drilling Screw ms.png",
+      "/images/productdata/screws/self drilling screws/Wafer Head Self-Drilling Screw ss (1).png",
     ],
     materials: [
       { id: 1, name: "Carbon Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },

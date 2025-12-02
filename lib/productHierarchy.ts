@@ -55,7 +55,7 @@ export const productHierarchy: ProductHierarchy[] = [
                     },
                     {
                         name: 'Truss Phillips',
-                        slug: 'truss-phillips',
+                        slug: 'truss-phillips-sds',
                     },
                 ],
             },
