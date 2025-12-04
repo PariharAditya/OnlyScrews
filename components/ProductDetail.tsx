@@ -100,6 +100,9 @@ export default function ProductDetail({
               <img
                 src={images[mainImageIndex]}
                 alt="Product"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-contain p-4"
               />
             </div>
@@ -126,6 +129,8 @@ export default function ProductDetail({
                     <img
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </button>

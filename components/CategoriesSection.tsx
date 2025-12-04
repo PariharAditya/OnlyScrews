@@ -70,6 +70,7 @@ export default function CategoriesSection() {
           src="https://cdn.builder.io/api/v1/image/assets%2F61feb74e32ed4195a4cbd55149a401bd%2Fb66521bb13234db2b75617a0f01640df"
           alt="Categories background"
           fill
+          priority
           style={{
             objectFit: "cover",
             objectPosition: "center",

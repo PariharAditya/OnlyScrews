@@ -86,6 +86,7 @@ export default function StandardCard({
           alt={title}
           fill
           sizes="280px"
+          loading="lazy"
           style={{
             objectFit: "contain",
             filter: "none",

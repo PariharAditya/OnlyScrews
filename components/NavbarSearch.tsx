@@ -185,6 +185,8 @@ export default function NavbarSearch() {
                     <img
                       src={product.image}
                       alt={product.title}
+                      loading="lazy"
+                      decoding="async"
                       className="max-w-full max-h-full object-contain p-1"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
