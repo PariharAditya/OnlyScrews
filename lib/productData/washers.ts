@@ -3,9 +3,9 @@ export const washersData = {
   "plain-washer": {
     title: "Plain Washer",
     images: [
-      "/images/products/washers/PLAIN WASHER.png",
-      "/images/products/washers/PLAIN WASHER.png",
-      "/images/products/washers/PLAIN WASHER.png",
+      "/images/productdata/washers/Plain Washer ht.png",
+      "/images/productdata/washers/Plain Washer ms.png",
+      "/images/productdata/washers/Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -27,8 +27,8 @@ export const washersData = {
   "spring-washer": {
     title: "Spring Washer",
     images: [
-      "/images/productdata/washers/Spring Washer ht.png",
-      "/images/productdata/washers/Spring Washer ms.png",
+      "/images/productdata/washers/Spring washer ht.png",
+      "/images/products/washers/Spring Washer.png",
       "/images/productdata/washers/Spring Washer ss.png",
     ],
     materials: [
@@ -71,9 +71,9 @@ export const washersData = {
   "fender-washer": {
     title: "Fender Washer | Large OD Washer | Extra Wide | Soft Material | Oversized Hole | Multiple Materials",
     images: [
-      "/images/products/washers/FENDER WASHER.png",
-      "/images/products/washers/FENDER WASHER.png",
-      "/images/products/washers/FENDER WASHER.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -94,9 +94,9 @@ export const washersData = {
   "countersunk-washer": {
     title: "Countersunk Washer | CSK Washer | Flush Mounting | Finishing Washer | Multiple Materials",
     images: [
-      "/images/products/washers/COUNTERSUNK WASHER.png",
-      "/images/products/washers/COUNTERSUNK WASHER.png",
-      "/images/products/washers/COUNTERSUNK WASHER.png",
+      "/images/products/washers/Conical-disk Washer.png",
+      "/images/products/washers/Conical-disk Washer.png",
+      "/images/products/washers/Conical-disk Washer.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -117,9 +117,9 @@ export const washersData = {
   "nylon-washer": {
     title: "Nylon Washer | Plastic Washer | Non-Metallic | Insulating | Corrosion Resistant | Multiple Types",
     images: [
-      "/images/products/washers/NYLON WASHER.png",
-      "/images/products/washers/NYLON WASHER.png",
-      "/images/products/washers/NYLON WASHER.png",
+      "/images/products/washers/Nylon Plain Washer.png",
+      "/images/products/washers/Nylon Plain Washer.png",
+      "/images/products/washers/Nylon Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Nylon 6/6", color: "from-green-300 to-teal-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -141,9 +141,9 @@ export const washersData = {
   "nord-lock-washer": {
     title: "Nord Lock Washer | Wedge Lock | Anti-Vibration | Pair System | High Security | Multiple Materials",
     images: [
-      "/images/products/washers/NORD LOCK WASHER.png",
-      "/images/products/washers/NORD LOCK WASHER.png",
-      "/images/products/washers/NORD LOCK WASHER.png",
+      "/images/products/washers/Wedge Lock Washer.png",
+      "/images/products/washers/Wedge Lock Washer.png",
+      "/images/products/washers/Wedge Lock Washer.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -186,9 +186,9 @@ export const washersData = {
   "tab-washer": {
     title: "Tab Washer | Lock Tab Washer | Mechanical Lock | Positive Locking | Multiple Configurations",
     images: [
-      "/images/products/washers/TAB WASHER.png",
-      "/images/products/washers/TAB WASHER.png",
-      "/images/products/washers/TAB WASHER.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -209,9 +209,9 @@ export const washersData = {
   "internal-tooth-lock-washer": {
     title: "Internal Tooth Lock Washer | Inside Tooth | Vibration Resistant | Concealed Teeth | Multiple Materials",
     images: [
-      "/images/products/washers/INTERNAL TOOTH LOCK WASHER.png",
-      "/images/products/washers/INTERNAL TOOTH LOCK WASHER.png",
-      "/images/products/washers/INTERNAL TOOTH LOCK WASHER.png",
+      "/images/products/washers/Int-Tooth Washer.png",
+      "/images/products/washers/Int-Tooth Washer.png",
+      "/images/products/washers/Int-Tooth Washer.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -232,9 +232,9 @@ export const washersData = {
   "c-washer": {
     title: "C-Washer | C-Clip Washer | Moon Washer | Crescent Washer | Limited Space | Multiple Materials",
     images: [
-      "/images/products/washers/C WASHER.png",
-      "/images/products/washers/C WASHER.png",
-      "/images/products/washers/C WASHER.png",
+      "/images/products/washers/Circlip type E.png",
+      "/images/products/washers/Circlip type E.png",
+      "/images/products/washers/Circlip type E.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -254,9 +254,9 @@ export const washersData = {
   "square-washer": {
     title: "Square Washer | Flat Square | Timber Bolts | Structural | Extra Load Distribution | Multiple Materials",
     images: [
-      "/images/products/washers/SQUARE WASHER.png",
-      "/images/products/washers/SQUARE WASHER.png",
-      "/images/products/washers/SQUARE WASHER.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
+      "/images/products/washers/Plain Washer.png",
     ],
     materials: [
       { id: 1, name: "Galvanized Steel", color: "from-slate-300 to-zinc-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -277,9 +277,9 @@ export const washersData = {
   "curved-washer": {
     title: "Curved Washer | Spherical Washer | Angle Compensation | Beveled | Channel Applications | Multiple Materials",
     images: [
-      "/images/products/washers/CURVED WASHER.png",
-      "/images/products/washers/CURVED WASHER.png",
-      "/images/products/washers/CURVED WASHER.png",
+      "/images/products/washers/Wave Washer.png",
+      "/images/products/washers/Wave Washer.png",
+      "/images/products/washers/Wave Washer.png",
     ],
     materials: [
       { id: 1, name: "Mild Steel", color: "from-gray-300 to-slate-400", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
@@ -300,9 +300,9 @@ export const washersData = {
   "star-washer": {
     title: "Chakri Washer",
     images: [
-      "/images/products/washers/STAR WASHER.png",
-      "/images/products/washers/STAR WASHER.png",
-      "/images/products/washers/STAR WASHER.png",
+      "/images/products/washers/Chakri Washer.png",
+      "/images/products/washers/Chakri Washer.png",
+      "/images/products/washers/Chakri Washer.png",
     ],
     materials: [
       { id: 1, name: "Spring Steel", color: "from-gray-400 to-slate-500", image: "https://images.unsplash.com/photo-1504907762671-07cfb4351d39?w=600&h=400&fit=crop" },
