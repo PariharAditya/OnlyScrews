@@ -34,44 +34,38 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white -mt-[144px] pt-[20px]">
+    <div className="relative min-h-screen bg-white pt-[50px]">
       {/* Main Content */}
       <div>
         {/* Contact Us Section */}
         <div className="max-w-4xl mx-auto px-6 py-16 md:px-8 md:py-24">
-          <h1 className="text-4xl font-bold text-center mb-16 text-black">
-            Contact us
+          <h1 className="text-4xl font-bold text-center mb-8 text-black">
+            Screw Bazar
           </h1>
 
           {/* Contact Information */}
           <div className="mb-20 space-y-12">
-            {/* Pelican Essentials Office */}
+            {/* About */}
             <div>
-              <h3 className="text-lg font-semibold text-black mb-2">
-                Pelican Essentials
-              </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                #201/A, First Floor, Kudlu Main Rd, Hosapalaiya, Muneshwara
-                Nagar, Bengaluru, Karnataka 560068
+                Screw Bazar is an online fastener and hardware store, dedicated to supplying a wide range of fastening solutions — from screws, bolts, rivets and dowel-pins to anchors, cotter-pins and more — for both individual and industrial needs. We aim to be a reliable, one-stop destination for quality hardware products, whether you're a DIY enthusiast, a contractor, or a professional in construction or manufacturing.
               </p>
             </div>
 
-            {/* Corporate Office */}
+            {/* Main Office */}
             <div>
-              <h3 className="text-lg font-semibold text-black mb-2">
-                Corporate Office
+            <div className="relative min-h-screen bg-white pt-2">
+                Main Office
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                1st floor, Workshala, NR Tower, HSR Layout, Bengaluru,
-                Karnataka 560102
+                1st Floor, RK Mansion, 124/1, Venkataramana Naik Ln, S.P Road Cross, Kumbarpet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002
               </p>
             </div>
 
             {/* Message */}
             <div>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Have any doubts, comments, or just like to say Hi, we are here
-                for you, and we are wearing our thinking caps!
+                Have any doubts, comments, or just like to say Hi, we are here for you, and we are wearing our thinking caps!
               </p>
             </div>
 
@@ -88,10 +82,10 @@ export default function Contact() {
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
                 You can also fill up the form below, or drop an email at{" "}
                 <a
-                  href="mailto:customercare@pelicanessentials.com"
+                  href="mailto:screwbazar@gmail.com"
                   className="text-gray-800 font-medium hover:underline"
                 >
-                  customercare@pelicanessentials.com
+                  screwbazar@gmail.com
                 </a>
                 , and we will get back to you within an hour
               </p>
@@ -100,25 +94,24 @@ export default function Contact() {
             {/* Feedback Message */}
             <div>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                If you have any suggestions, complaints or just want to drop a
-                message, you can drop a message to our founders directly here:
+                If you have any suggestions, feedback, or inquiries, you may reach our founding team directly at:
               </p>
               <p className="text-gray-800 text-sm mb-2">
-                <span className="font-medium">Pushpender Hooda:</span>{" "}
+                📩{" "}
                 <a
-                  href="tel:+918197295221"
+                  href="mailto:Screwbazar@gmail.com"
                   className="text-gray-700 hover:underline"
                 >
-                  hoods@pelicanessentials.com, 8197295221
+                  Screwbazar@gmail.com
                 </a>
               </p>
               <p className="text-gray-800 text-sm">
-                <span className="font-medium">Shahnawaz Aalam:</span>{" "}
+                📞{" "}
                 <a
-                  href="mailto:aalam@pelicanessentials.com"
+                  href="tel:+917007257245"
                   className="text-gray-700 hover:underline"
                 >
-                  aalam@pelicanessentials.com
+                  7007257245
                 </a>
               </p>
             </div>
@@ -143,7 +136,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-gray-900 placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#BCFF83] focus:ring-1 focus:ring-[#BCFF83] text-gray-900 placeholder-gray-500"
                 />
                 <input
                   type="email"
@@ -152,7 +145,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-gray-900 placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#BCFF83] focus:ring-1 focus:ring-[#BCFF83] text-gray-900 placeholder-gray-500"
                 />
               </div>
 
@@ -164,14 +157,15 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-gray-900 placeholder-gray-500 resize-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#BCFF83] focus:ring-1 focus:ring-[#BCFF83] text-gray-900 placeholder-gray-500 resize-none"
               />
 
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#BCFF83] hover:bg-[#a8e85c] disabled:bg-[#8fcc4a] text-black font-bold py-3 px-6 rounded transition-colors duration-200"
+                className="w-full bg-[#BCFF83] hover:bg-[#a8e85c] disabled:bg-[#8fcc4a] text-black font-bold py-3 px-6 rounded transition-colors duration-200 cursor-pointer"
+                aria-label="Send message"
               >
                 {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
               </button>
