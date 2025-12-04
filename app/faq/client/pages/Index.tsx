@@ -77,7 +77,7 @@ const FAQData = {
     {
       question: 'How do I contact technical or sales support?',
       answer:
-        'Use the Contact page, email us at sales@screwbazar.com or call the number in the site header. For urgent quote requests, use the product page quote button.',
+        'Use the Contact page, email us at screwbazar@gmail.com or call the number 7007257245 . For urgent quote requests, use the product page quote button.',
     },
     {
       question: 'What information should I provide for faster support?',
