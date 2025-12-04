@@ -63,14 +63,14 @@ export default function Navbar() {
   return (
     <nav className="w-full bg-white z-50 shadow-md">
       {/* Promo Banner */}
-      <div className="bg-black text-white py-2 px-4 text-center relative z-40">
+      <div className="bg-black text-white py-2 px-8 sm:px-12 text-center relative z-40">
         <button 
           onClick={() => setCurrentMessage(prev => prev === 0 ? 1 : 0)} 
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1 sm:p-1.5"
         >
           &lt;
         </button>
-        <p className="font-sans text-base md:text-lg transition-all duration-300 ease-in-out">
+        <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300 ease-in-out px-2">
           {currentMessage === 0 
             ? "Exclusive range of Nylon & Industrial Fasteners — Request a quote today 💡"
             : "Custom bulk orders & quotations available via WhatsApp and Call 📞"
@@ -90,7 +90,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <div className="relative w-[180px] h-[50px]">
+              <div className="relative w-[120px] h-[35px] sm:w-[150px] sm:h-[42px] md:w-[180px] md:h-[50px]">
                 <Image
                   src="/SB.jpg"
                   alt="Screw Bazar Logo"
@@ -245,14 +245,14 @@ export default function Navbar() {
       </div>
 
       {/* Secondary Banner */}
-      <div className="bg-black text-white py-2 px-4 text-center relative">
+      <div className="bg-black text-white py-2 px-8 sm:px-12 text-center relative">
         <button 
           onClick={() => setSecondMessage(prev => prev === 0 ? 1 : 0)}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1.5"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white hover:bg-gray-800 rounded-full p-1 sm:p-1.5"
         >
           &lt;
         </button>
-        <p className="font-sans text-base md:text-lg transition-all duration-300 ease-in-out">
+        <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300 ease-in-out px-2">
           {secondMessage === 0 
             ? "Quick Quotation Support | Nationwide Delivery | Quality Fasteners"
             : "Explore. Inquire. Get Quotation — Fasteners Made Simple"

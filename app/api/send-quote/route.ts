@@ -11,110 +11,34 @@ interface QuoteRequest {
   material: string;
 }
 
-// Email validation regex (RFC 5322 compliant)
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-// Phone validation (Indian format - 10 digits, optional +91)
-const PHONE_REGEX = /^(\+91[\-\s]?)?[6-9]\d{9}$/;
-
-// Sanitize input to prevent XSS
-function sanitizeInput(input: string): string {
-  return input
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
-    .trim();
-}
-
-// Validate and sanitize all inputs
-function validateAndSanitize(body: QuoteRequest): { valid: boolean; error?: string; data?: QuoteRequest } {
-  const { name, email, phone, quantity, message, product, material } = body;
-
-  // Check required fields
-  if (!name || !email || !phone || !quantity || !product) {
-    return { valid: false, error: 'Please fill in all required fields' };
-  }
-
-  // Validate name length
-  if (name.length < 2 || name.length > 100) {
-    return { valid: false, error: 'Name must be between 2 and 100 characters' };
-  }
-
-  // Validate email format
-  if (!EMAIL_REGEX.test(email)) {
-    return { valid: false, error: 'Please enter a valid email address' };
-  }
-
-  // Validate phone
-  if (!PHONE_REGEX.test(phone.replace(/\s/g, ''))) {
-    return { valid: false, error: 'Please enter a valid Indian phone number' };
-  }
-
-  // Validate quantity
-  if (!quantity || isNaN(Number(quantity.replace(/[,\s]/g, ''))) || Number(quantity.replace(/[,\s]/g, '')) <= 0) {
-    return { valid: false, error: 'Please enter a valid quantity' };
-  }
-
-  // Validate message length if provided
-  if (message && message.length > 5000) {
-    return { valid: false, error: 'Message must be less than 5000 characters' };
-  }
-
-  return {
-    valid: true,
-    data: {
-      name: sanitizeInput(name),
-      email: email.toLowerCase().trim(),
-      phone: sanitizeInput(phone),
-      quantity: sanitizeInput(quantity),
-      message: message ? sanitizeInput(message) : '',
-      product: sanitizeInput(product),
-      material: sanitizeInput(material || 'Not specified'),
-    },
-  };
-}
-
 export async function POST(request: NextRequest) {
-  const startTime = Date.now();
-  
   try {
-    // Parse request body
-    let body: QuoteRequest;
-    try {
-      body = await request.json();
-    } catch {
+    const body: QuoteRequest = await request.json();
+    const { name, email, phone, quantity, message, product, material } = body;
+
+    // Validate required fields
+    if (!name || !email || !phone || !quantity || !product) {
       return NextResponse.json(
-        { error: 'Invalid request format' },
+        { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    // Validate and sanitize inputs
-    const validation = validateAndSanitize(body);
-    if (!validation.valid || !validation.data) {
-      return NextResponse.json(
-        { error: validation.error },
-        { status: 400 }
-      );
-    }
-
-    const { name, email, phone, quantity, message, product, material } = validation.data;
-
-    // Get credentials (required for Netlify/Vercel serverless)
+    // Get credentials INSIDE the function (required for Netlify serverless)
     const emailUser = process.env.EMAIL_USER;
     const emailPass = process.env.EMAIL_PASS;
 
+    console.log('Email config check:', { hasUser: !!emailUser, hasPass: !!emailPass });
+
     if (!emailUser || !emailPass) {
-      console.error('[QUOTE API] Missing email credentials - EMAIL_USER or EMAIL_PASS not set');
+      console.error('Missing EMAIL_USER or EMAIL_PASS');
       return NextResponse.json(
-        { error: 'Email service temporarily unavailable. Please try again later or contact us directly at screwbazar@gmail.com' },
-        { status: 503 }
+        { error: 'Email service not configured' },
+        { status: 500 }
       );
     }
 
-    // Create transporter with production settings
+    // Create transporter INSIDE the function (critical for serverless!)
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 587,
@@ -124,31 +48,15 @@ export async function POST(request: NextRequest) {
         pass: emailPass,
       },
       tls: {
-        rejectUnauthorized: true, // Enable in production for security
+        rejectUnauthorized: false,
       },
-      connectionTimeout: 10000, // 10 seconds
-      greetingTimeout: 10000,
-      socketTimeout: 15000,
     });
 
-    // Verify SMTP connection before sending
-    try {
-      await transporter.verify();
-    } catch (verifyError) {
-      console.error('[QUOTE API] SMTP verification failed:', verifyError);
-      return NextResponse.json(
-        { error: 'Email service temporarily unavailable. Please try again later or contact us directly at screwbazar@gmail.com' },
-        { status: 503 }
-      );
-    }
-
-    const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-
-    // Email to screwbazar@gmail.com
+    // Email content sent to screwbazar@gmail.com
     const mailOptions = {
-      from: `"SCREWBAZAR Website" <${emailUser}>`,
+      from: emailUser,
       to: 'screwbazar@gmail.com',
-      replyTo: email,
+      replyTo: email, // So you can reply directly to the customer
       subject: `🔩 New Quote Request: ${product}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
@@ -163,7 +71,7 @@ export async function POST(request: NextRequest) {
             <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Product Details</h2>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666; width: 120px;">Product:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Product:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${product}</td>
               </tr>
               <tr>
@@ -172,14 +80,14 @@ export async function POST(request: NextRequest) {
               </tr>
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Quantity:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a; font-weight: bold;">${quantity} units</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${quantity} units</td>
               </tr>
             </table>
 
             <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Customer Information</h2>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666; width: 120px;">Name:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Name:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${name}</td>
               </tr>
               <tr>
@@ -194,16 +102,17 @@ export async function POST(request: NextRequest) {
 
             ${message ? `
             <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Additional Details</h2>
-            <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; color: #333; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+            <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; color: #333; line-height: 1.6;">${message}</p>
             ` : ''}
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 12px;">
               <p>This quote request was submitted from the <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span> website.</p>
-              <p>Timestamp: ${timestamp} IST</p>
+              <p>Timestamp: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
             </div>
           </div>
         </div>
       `,
+      // Plain text version for email clients that don't support HTML
       text: `
 New Quote Request - SCREWBAZAR
 
@@ -220,13 +129,13 @@ CUSTOMER INFORMATION:
 ${message ? `ADDITIONAL DETAILS:\n${message}` : ''}
 
 ---
-Submitted: ${timestamp} IST
+Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
       `,
     };
 
-    // Confirmation email to customer
+    // Send confirmation email to customer
     const customerMailOptions = {
-      from: `"SCREWBAZAR" <${emailUser}>`,
+      from: emailUser,
       to: email,
       subject: `Thank you for your quote request - SCREWBAZAR`,
       html: `
@@ -241,7 +150,7 @@ Submitted: ${timestamp} IST
           <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
             <p style="font-size: 16px; color: #333;">Dear ${name},</p>
             <p style="font-size: 14px; color: #555; line-height: 1.6;">
-              Thank you for your interest in <strong>${product}</strong>. We have received your quote request and our team will get back to you shortly with the best pricing.
+              Thank you for your interest in <strong>${product}</strong>. We have received your quote request and our team will get back to you shortly.
             </p>
             
             <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
@@ -252,41 +161,30 @@ Submitted: ${timestamp} IST
             </div>
             
             <p style="font-size: 14px; color: #555; line-height: 1.6;">
-              If you have any urgent queries, feel free to contact us directly at <a href="mailto:screwbazar@gmail.com" style="color: #0066cc;">screwbazar@gmail.com</a> or call us at <a href="tel:18008330066" style="color: #0066cc;">1800 833 0066</a>
+              If you have any urgent queries, feel free to contact us directly at <a href="mailto:screwbazar@gmail.com" style="color: #0066cc;">screwbazar@gmail.com</a>
             </p>
             
             <p style="font-size: 14px; color: #555; margin-top: 20px;">
               Best regards,<br>
               <strong>Team <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span></strong>
             </p>
-            
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #999; font-size: 11px;">
-              <p>This is an automated confirmation email. Please do not reply to this email.</p>
-            </div>
           </div>
         </div>
       `,
     };
 
-    // Send both emails in parallel for faster response
-    await Promise.all([
-      transporter.sendMail(mailOptions),
-      transporter.sendMail(customerMailOptions),
-    ]);
-
-    const duration = Date.now() - startTime;
-    console.log(`[QUOTE API] Success - ${product} from ${email} - ${duration}ms`);
+    // Send both emails
+    await transporter.sendMail(mailOptions);
+    await transporter.sendMail(customerMailOptions);
 
     return NextResponse.json(
       { message: 'Quote request sent successfully!' },
       { status: 200 }
     );
   } catch (error) {
-    const duration = Date.now() - startTime;
-    console.error(`[QUOTE API] Error after ${duration}ms:`, error);
-    
+    console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send quote request. Please try again later or contact us directly at screwbazar@gmail.com' },
+      { error: 'Failed to send quote request. Please try again later.' },
       { status: 500 }
     );
   }

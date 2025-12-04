@@ -136,7 +136,7 @@ export default function NavbarSearch() {
   };
 
   return (
-    <div className="relative flex-1 max-w-md mx-4">
+    <div className="relative w-full lg:flex-1 lg:max-w-md lg:mx-4">
       {/* Search Input */}
       <div className="relative">
         <input
@@ -147,7 +147,7 @@ export default function NavbarSearch() {
           onFocus={handleFocus}
           onKeyDown={handleKeyDown}
           placeholder="Search products..."
-          className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:border-[#BCFF83] focus:ring-1 focus:ring-[#BCFF83] text-gray-900 placeholder-gray-500"
+          className="w-full pl-9 sm:pl-10 pr-9 sm:pr-10 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg bg-white focus:outline-none focus:border-[#BCFF83] focus:ring-1 focus:ring-[#BCFF83] text-gray-900 placeholder-gray-500"
         />
         <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         {query && (
@@ -164,7 +164,7 @@ export default function NavbarSearch() {
       {isOpen && query.trim() && (
         <div
           ref={dropdownRef}
-          className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-[70vh] overflow-y-auto"
+          className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-[60vh] sm:max-h-[70vh] overflow-y-auto"
         >
           {suggestions.length > 0 ? (
             <div className="divide-y divide-gray-100">
@@ -176,12 +176,12 @@ export default function NavbarSearch() {
                     setIsOpen(false);
                     setQuery('');
                   }}
-                  className={`flex items-center gap-4 p-3 hover:bg-gray-50 transition-colors ${
+                  className={`flex items-center gap-2 sm:gap-4 p-2 sm:p-3 hover:bg-gray-50 transition-colors ${
                     index === selectedIndex ? 'bg-[#BCFF83]/20' : ''
                   }`}
                 >
                   {/* Product Image */}
-                  <div className="relative w-16 h-16 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                  <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
                     <img
                       src={product.image}
                       alt={product.title}
@@ -201,13 +201,13 @@ export default function NavbarSearch() {
                   
                   {/* Product Info */}
                   <div className="flex-1 min-w-0">
-                    <div className="font-medium text-gray-900 truncate">
+                    <div className="font-medium text-sm sm:text-base text-gray-900 truncate">
                       {product.title}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-xs sm:text-sm text-gray-500">
                       {product.category}
                     </div>
-                    <div className="text-xs text-gray-400 truncate mt-0.5">
+                    <div className="text-xs text-gray-400 truncate mt-0.5 hidden sm:block">
                       {product.description}
                     </div>
                   </div>

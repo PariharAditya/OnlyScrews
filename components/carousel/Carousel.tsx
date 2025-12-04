@@ -83,42 +83,42 @@ export default function Carousel({
           <div className="absolute inset-0 bg-gradient-to-br from-[#c4ff0d] via-transparent to-transparent"></div>
         </div>
 
-        <div className="relative px-6 py-12 md:px-16 lg:px-24 md:py-16">
+        <div className="relative px-4 sm:px-6 md:px-16 lg:px-24 py-8 sm:py-12 md:py-16">
           {/* Slides Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch auto-rows-fr">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 items-stretch auto-rows-fr">
             {/* Navigation Buttons */}
             <button
               onClick={handlePrev}
-              className="absolute left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all flex items-center justify-center hover:scale-110"
+              className="absolute left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all flex items-center justify-center hover:scale-110"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Visible Slides */}
             {visibleSlides.map((slide, idx) => (
               <div
                 key={slide.id}
-                className={`transition-all duration-300 h-full ${
+                className={`transition-all duration-300 h-full ${idx === 2 ? 'hidden md:block' : ''} ${
                   isTransitioning ? "opacity-75" : "opacity-100"
                 }`}
               >
-                <div className="bg-[#3a3a3a] backdrop-blur-sm rounded-2xl p-6 md:p-8 h-full border border-white/5 hover:border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:z-10 relative">
+                <div className="bg-[#3a3a3a] backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 h-full border border-white/5 hover:border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:z-10 relative">
                   {/* Title */}
                   <div
-                    className="inline-block bg-[#c4ff0d] text-black rounded-full px-5 py-2 mb-6 font-bold text-sm md:text-base whitespace-nowrap uppercase tracking-wide"
+                    className="inline-block bg-[#c4ff0d] text-black rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-4 sm:mb-6 font-bold text-xs sm:text-sm md:text-base whitespace-nowrap uppercase tracking-wide"
                   >
                     {slide.title}
                   </div>
 
                   {/* Icon */}
-                  <div className="w-16 h-16 md:w-20 md:h-20 mb-6 text-white/90 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 sm:mb-6 text-white/90 flex items-center justify-center">
                     {slide.icon}
                   </div>
 
                   {/* Description */}
                   <p
-                    className="text-white/90 text-sm md:text-base leading-relaxed"
+                    className="text-white/90 text-xs sm:text-sm md:text-base leading-relaxed"
                   >
                     {slide.description}
                   </p>
@@ -128,36 +128,36 @@ export default function Carousel({
 
             <button
               onClick={handleNext}
-              className="absolute right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all flex items-center justify-center hover:scale-110"
+              className="absolute right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/60 text-white transition-all flex items-center justify-center hover:scale-110"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-12 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-8 sm:mt-12 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
             {/* Heading and Description */}
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 leading-tight">
                 Your One-Stop Catalog for Every Fastening Need
               </h2>
-              <p className="text-white/60 text-sm md:text-base">
+              <p className="text-white/60 text-xs sm:text-sm md:text-base">
                 From bolts and screws to high-performance nylon fasteners — all
                 under one roof.
               </p>
             </div>
 
             {/* Dot Indicators */}
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-1.5 sm:gap-2 items-center">
               {slides.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx)}
-                  className={`h-2 rounded-full transition-all ${
+                  className={`h-1.5 sm:h-2 rounded-full transition-all ${
                     idx === currentIndex
-                      ? "bg-[#c4ff0d] w-8"
-                      : "bg-white/30 hover:bg-white/50 w-2"
+                      ? "bg-[#c4ff0d] w-6 sm:w-8"
+                      : "bg-white/30 hover:bg-white/50 w-1.5 sm:w-2"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -166,7 +166,7 @@ export default function Carousel({
 
             {/* View All Button */}
             <Link href="/products">
-              <button className="px-8 md:px-10 py-3 rounded-full border-2 border-[#c4ff0d] text-[#c4ff0d] font-semibold hover:bg-[#c4ff0d] hover:text-black transition-all whitespace-nowrap text-sm md:text-base cursor-pointer">
+              <button className="px-5 sm:px-8 md:px-10 py-2 sm:py-3 rounded-full border-2 border-[#c4ff0d] text-[#c4ff0d] font-semibold hover:bg-[#c4ff0d] hover:text-black transition-all whitespace-nowrap text-xs sm:text-sm md:text-base cursor-pointer">
                 View All
               </button>
             </Link>

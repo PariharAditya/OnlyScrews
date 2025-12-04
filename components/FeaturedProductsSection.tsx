@@ -291,24 +291,24 @@ const FeaturedProductsSection = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="container mx-auto px-4">
-        <div className="mb-8 md:mb-12 flex items-center justify-between">
-          <h2 className="flex-1 text-4xl md:text-5xl font-bold text-[#BCFF83] text-center">
+        <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <h2 className="flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#BCFF83] text-center">
             Our Featured Products
           </h2>
           <div className="flex gap-2">
             <button
               onClick={scrollPrev}
-              className="p-2 border border-gray-700 rounded-md hover:border-[#BCFF83] hover:bg-[#BCFF83] hover:text-black transition-all duration-300"
+              className="p-1.5 sm:p-2 border border-gray-700 rounded-md hover:border-[#BCFF83] hover:bg-[#BCFF83] hover:text-black transition-all duration-300"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
             <button
               onClick={scrollNext}
-              className="p-2 border border-gray-700 rounded-md hover:border-[#BCFF83] hover:bg-[#BCFF83] hover:text-black transition-all duration-300"
+              className="p-1.5 sm:p-2 border border-gray-700 rounded-md hover:border-[#BCFF83] hover:bg-[#BCFF83] hover:text-black transition-all duration-300"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
         </div>
@@ -319,8 +319,8 @@ const FeaturedProductsSection = () => {
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
             {slides.map((slideProducts, slideIndex) => (
-              <div key={slideIndex} className="flex-shrink-0 w-full">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              <div key={slideIndex} className="flex-shrink-0 w-full px-2 sm:px-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                   {slideProducts.map((product) => (
                     <Link
                       key={product.id}
@@ -328,16 +328,16 @@ const FeaturedProductsSection = () => {
                       className="flex flex-col items-center group"
                     >
                       {/* Card container for image only (dark background to match grid) */}
-                      <div className="w-[280px] rounded-lg bg-black shadow-[0_6px_20px_rgba(0,0,0,0.6)] border border-neutral-800 overflow-hidden transition-all duration-300 group-hover:shadow-[0_8px_30px_rgba(188,255,131,0.3)] group-hover:border-[#BCFF83] group-hover:scale-105">
+                      <div className="w-full max-w-[280px] rounded-lg bg-black shadow-[0_6px_20px_rgba(0,0,0,0.6)] border border-neutral-800 overflow-hidden transition-all duration-300 group-hover:shadow-[0_8px_30px_rgba(188,255,131,0.3)] group-hover:border-[#BCFF83] group-hover:scale-105">
                         <img
                           src={product.image}
                           alt={product.title}
-                          className="w-full h-[160px] object-contain block bg-transparent"
+                          className="w-full h-[100px] sm:h-[130px] md:h-[160px] object-contain block bg-transparent"
                         />
                       </div>
 
                       {/* Text separate below the card */}
-                      <div className="mt-3 px-4 text-[15px] text-white font-medium max-w-[280px] text-center group-hover:text-[#BCFF83] transition-colors duration-300">
+                      <div className="mt-2 sm:mt-3 px-2 sm:px-4 text-xs sm:text-sm md:text-[15px] text-white font-medium max-w-full text-center group-hover:text-[#BCFF83] transition-colors duration-300 line-clamp-2">
                         {product.title}
                       </div>
                     </Link>

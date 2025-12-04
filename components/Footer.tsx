@@ -6,13 +6,13 @@ export default function Footer() {
 
   return (
     <footer className="bg-white text-gray-600 border-t">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="md:col-span-2">
-            <Link href="/" className="block mb-6">
+          <div className="sm:col-span-2 lg:col-span-2">
+            <Link href="/" className="block mb-4 sm:mb-6">
               <div className="flex flex-col space-y-2">
-                <div className="relative w-[180px] h-[50px]">
+                <div className="relative w-[140px] h-[40px] sm:w-[160px] sm:h-[45px] md:w-[180px] md:h-[50px]">
                   <Image
                     src="/SB.jpg"
                     alt="Screw Bazar Logo"

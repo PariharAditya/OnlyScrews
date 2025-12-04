@@ -24,11 +24,10 @@ export default function StandardCard({
     <CardWrapper
       {...wrapperProps}
       onClick={onClick}
-      className={`relative cursor-pointer block ${className}`}
+      className={`relative cursor-pointer block w-full max-w-[280px] ${className}`}
       style={{
-        width: "280px",
-        padding: "14px",
-        borderRadius: "20px",
+        padding: "10px",
+        borderRadius: "16px",
         background: "#000000",
         boxShadow: "0 6px 18px rgba(0,0,0,0.6)",
         border: `3px solid ${COLORS.primary}`,
@@ -49,7 +48,7 @@ export default function StandardCard({
         style={{
           position: "absolute",
           inset: "2px",
-          borderRadius: "calc(20px - 2px)",
+          borderRadius: "calc(16px - 2px)",
           pointerEvents: "none",
           boxShadow: `inset 0 0 0 2px rgba(188,255,131,0.18)`,
         }}
@@ -57,27 +56,28 @@ export default function StandardCard({
 
       {/* Corner glow */}
       <div
+        className="hidden sm:block"
         style={{
           position: "absolute",
           right: "6px",
           top: "6px",
-          width: "12px",
-          height: "12px",
-          borderRadius: "6px",
+          width: "10px",
+          height: "10px",
+          borderRadius: "5px",
           background: "rgba(188,255,131,0.08)",
         }}
       />
 
       {/* Image wrapper */}
       <div
+        className="h-[120px] sm:h-[140px] md:h-[160px]"
         style={{
           background: "#000000",
-          borderRadius: "14px",
-          padding: "8px",
+          borderRadius: "12px",
+          padding: "6px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          height: "160px",
           position: "relative",
         }}
       >
@@ -85,7 +85,7 @@ export default function StandardCard({
           src={image}
           alt={title}
           fill
-          sizes="280px"
+          sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 280px"
           loading="lazy"
           style={{
             objectFit: "contain",
@@ -97,18 +97,22 @@ export default function StandardCard({
 
       {/* Badge bottom-left */}
       <div
+        className="text-xs sm:text-sm md:text-[15px]"
         style={{
           position: "absolute",
-          left: "10px",
-          bottom: "10px",
+          left: "6px",
+          bottom: "6px",
           background: `rgba(188,255,131,0.95)`,
           color: "#0b0b0b",
-          padding: "8px 14px",
+          padding: "5px 10px",
           borderRadius: "999px",
           fontWeight: 700,
-          fontSize: "15px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
           fontFamily: '"Nunito Sans", system-ui, sans-serif',
+          maxWidth: "calc(100% - 12px)",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
         }}
       >
         {title}

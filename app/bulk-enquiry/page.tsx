@@ -72,26 +72,26 @@ export default function BulkEnquiry() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-5 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-4 sm:py-5 px-3 sm:px-4 md:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">
             For Bulk orders and Your feedback!
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             Kindly fill the form up and share your requirements.
           </p>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-sm">
+        <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-sm">
           {submitStatus && (
             <div className={`mb-6 p-4 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-red-100 text-red-800 border border-red-300'}`}>
               {submitStatus.message}
             </div>
           )}
           
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Name Input */}
               <div>
                 <input
@@ -100,7 +100,7 @@ export default function BulkEnquiry() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                   required
                 />
               </div>
@@ -113,7 +113,7 @@ export default function BulkEnquiry() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email *"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                   required
                 />
               </div>
@@ -127,7 +127,7 @@ export default function BulkEnquiry() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone number"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all"
                 required
               />
             </div>
@@ -139,8 +139,8 @@ export default function BulkEnquiry() {
                 value={formData.comment}
                 onChange={handleChange}
                 placeholder="Comment"
-                rows={6}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all resize-none"
+                rows={5}
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:border-[#BCFF83] focus:ring-2 focus:ring-[#BCFF83]/30 outline-none transition-all resize-none"
                 required
               />
             </div>
@@ -150,7 +150,7 @@ export default function BulkEnquiry() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mx-auto block bg-[#BCFF83] text-black px-8 py-3 rounded-lg font-bold hover:brightness-95 transition duration-200 cursor-pointer disabled:opacity-70"
+                className="mx-auto block bg-[#BCFF83] text-black px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg font-bold hover:brightness-95 transition duration-200 cursor-pointer disabled:opacity-70"
                 style={{ boxShadow: '0 6px 18px rgba(188,255,131,0.12)' }}
               >
                 {isSubmitting ? "Sending..." : "Send"}

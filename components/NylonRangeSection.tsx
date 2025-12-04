@@ -87,7 +87,7 @@ export default function NylonRangeSection() {
 
         {/* Product Grid */}
         <div
-          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 ${SPACING.gap.lg} justify-items-center`}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 px-2 sm:px-0"
         >
           {products.map((product) => (
             <StandardCard
