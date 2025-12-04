@@ -11,23 +11,55 @@ export default function BulkEnquiry() {
     phone: '',
     comment: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
     try {
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        comment: ''
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.comment,
+          type: "bulk-enquiry",
+        }),
       });
-      alert('Thank you for your inquiry! We will get back to you soon.');
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: "Thank you for your inquiry! We will get back to you soon.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          comment: ''
+        });
+      } else {
+        const data = await response.json();
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || "Failed to send inquiry. Please try again.",
+        });
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('There was an error submitting your form. Please try again.');
+      setSubmitStatus({
+        type: 'error',
+        message: "There was an error submitting your form. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -52,6 +84,12 @@ export default function BulkEnquiry() {
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-sm">
+          {submitStatus && (
+            <div className={`mb-6 p-4 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-red-100 text-red-800 border border-red-300'}`}>
+              {submitStatus.message}
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name Input */}
@@ -111,10 +149,11 @@ export default function BulkEnquiry() {
             <div className="text-center">
               <button
                 type="submit"
-                className="mx-auto block bg-[#BCFF83] text-black px-8 py-3 rounded-lg font-bold hover:brightness-95 transition duration-200 cursor-pointer"
+                disabled={isSubmitting}
+                className="mx-auto block bg-[#BCFF83] text-black px-8 py-3 rounded-lg font-bold hover:brightness-95 transition duration-200 cursor-pointer disabled:opacity-70"
                 style={{ boxShadow: '0 6px 18px rgba(188,255,131,0.12)' }}
               >
-                Send
+                {isSubmitting ? "Sending..." : "Send"}
               </button>
             </div>
           </form>

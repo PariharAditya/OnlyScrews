@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-interface QuoteRequest {
+interface ContactRequest {
   name: string;
   email: string;
-  phone: string;
-  quantity: string;
+  phone?: string;
   message: string;
-  product: string;
-  material: string;
+  type: 'contact' | 'bulk-enquiry';
 }
 
 // Email validation regex (RFC 5322 compliant)
@@ -29,12 +27,12 @@ function sanitizeInput(input: string): string {
 }
 
 // Validate and sanitize all inputs
-function validateAndSanitize(body: QuoteRequest): { valid: boolean; error?: string; data?: QuoteRequest } {
-  const { name, email, phone, quantity, message, product, material } = body;
+function validateAndSanitize(body: ContactRequest): { valid: boolean; error?: string; data?: ContactRequest } {
+  const { name, email, phone, message, type } = body;
 
   // Check required fields
-  if (!name || !email || !phone || !quantity || !product) {
-    return { valid: false, error: 'Please fill in all required fields' };
+  if (!name || !email || !message) {
+    return { valid: false, error: 'Name, email, and message are required' };
   }
 
   // Validate name length
@@ -47,19 +45,19 @@ function validateAndSanitize(body: QuoteRequest): { valid: boolean; error?: stri
     return { valid: false, error: 'Please enter a valid email address' };
   }
 
-  // Validate phone
-  if (!PHONE_REGEX.test(phone.replace(/\s/g, ''))) {
+  // Validate phone if provided
+  if (phone && phone.trim() && !PHONE_REGEX.test(phone.replace(/\s/g, ''))) {
     return { valid: false, error: 'Please enter a valid Indian phone number' };
   }
 
-  // Validate quantity
-  if (!quantity || isNaN(Number(quantity.replace(/[,\s]/g, ''))) || Number(quantity.replace(/[,\s]/g, '')) <= 0) {
-    return { valid: false, error: 'Please enter a valid quantity' };
+  // Validate message length
+  if (message.length < 10 || message.length > 5000) {
+    return { valid: false, error: 'Message must be between 10 and 5000 characters' };
   }
 
-  // Validate message length if provided
-  if (message && message.length > 5000) {
-    return { valid: false, error: 'Message must be less than 5000 characters' };
+  // Validate type
+  if (type !== 'contact' && type !== 'bulk-enquiry') {
+    return { valid: false, error: 'Invalid form type' };
   }
 
   return {
@@ -67,11 +65,9 @@ function validateAndSanitize(body: QuoteRequest): { valid: boolean; error?: stri
     data: {
       name: sanitizeInput(name),
       email: email.toLowerCase().trim(),
-      phone: sanitizeInput(phone),
-      quantity: sanitizeInput(quantity),
-      message: message ? sanitizeInput(message) : '',
-      product: sanitizeInput(product),
-      material: sanitizeInput(material || 'Not specified'),
+      phone: phone ? sanitizeInput(phone) : undefined,
+      message: sanitizeInput(message),
+      type,
     },
   };
 }
@@ -81,7 +77,7 @@ export async function POST(request: NextRequest) {
   
   try {
     // Parse request body
-    let body: QuoteRequest;
+    let body: ContactRequest;
     try {
       body = await request.json();
     } catch {
@@ -100,14 +96,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, phone, quantity, message, product, material } = validation.data;
+    const { name, email, phone, message, type } = validation.data;
 
     // Get credentials (required for Netlify/Vercel serverless)
     const emailUser = process.env.EMAIL_USER;
     const emailPass = process.env.EMAIL_PASS;
 
     if (!emailUser || !emailPass) {
-      console.error('[QUOTE API] Missing email credentials - EMAIL_USER or EMAIL_PASS not set');
+      console.error('[CONTACT API] Missing email credentials - EMAIL_USER or EMAIL_PASS not set');
       return NextResponse.json(
         { error: 'Email service temporarily unavailable. Please try again later or contact us directly at screwbazar@gmail.com' },
         { status: 503 }
@@ -135,13 +131,15 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.verify();
     } catch (verifyError) {
-      console.error('[QUOTE API] SMTP verification failed:', verifyError);
+      console.error('[CONTACT API] SMTP verification failed:', verifyError);
       return NextResponse.json(
         { error: 'Email service temporarily unavailable. Please try again later or contact us directly at screwbazar@gmail.com' },
         { status: 503 }
       );
     }
 
+    const isContact = type === 'contact';
+    const subjectPrefix = isContact ? '📬 New Contact Message' : '📦 New Bulk Enquiry';
     const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
     // Email to screwbazar@gmail.com
@@ -149,33 +147,17 @@ export async function POST(request: NextRequest) {
       from: `"SCREWBAZAR Website" <${emailUser}>`,
       to: 'screwbazar@gmail.com',
       replyTo: email,
-      subject: `🔩 New Quote Request: ${product}`,
+      subject: `${subjectPrefix} from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
           <div style="background-color: #1a1a1a; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="margin: 0 0 15px 0; font-size: 22px; color: #BCFF83;">New Quote Request</h1>
+            <h1 style="margin: 0 0 15px 0; font-size: 22px; color: #BCFF83;">${isContact ? 'New Contact Message' : 'New Bulk Enquiry'}</h1>
             <div style="display: inline-block; background-color: #ffffff; padding: 12px 25px; border-radius: 8px;">
               <span style="font-size: 24px; font-weight: 900; color: #000000;">SCREW</span><span style="font-size: 24px; font-weight: 300; color: #000000;">BAZAR</span>
             </div>
           </div>
           
           <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
-            <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Product Details</h2>
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666; width: 120px;">Product:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${product}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Material:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${material}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Quantity:</td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a; font-weight: bold;">${quantity} units</td>
-              </tr>
-            </table>
-
             <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Customer Information</h2>
             <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
               <tr>
@@ -186,38 +168,39 @@ export async function POST(request: NextRequest) {
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Email:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;"><a href="mailto:${email}" style="color: #0066cc;">${email}</a></td>
               </tr>
+              ${phone ? `
               <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Phone:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;"><a href="tel:${phone}" style="color: #0066cc;">${phone}</a></td>
               </tr>
+              ` : ''}
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Type:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${isContact ? 'Contact Form' : 'Bulk Enquiry'}</td>
+              </tr>
             </table>
 
-            ${message ? `
-            <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Additional Details</h2>
+            <h2 style="color: #1a1a1a; border-bottom: 2px solid #A3F61E; padding-bottom: 10px;">Message</h2>
             <p style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; color: #333; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-            ` : ''}
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666; font-size: 12px;">
-              <p>This quote request was submitted from the <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span> website.</p>
+              <p>This message was submitted from the <span style="font-weight: 900; color: #000000;">SCREW</span><span style="font-weight: 300; color: #000000;">BAZAR</span> website.</p>
               <p>Timestamp: ${timestamp} IST</p>
             </div>
           </div>
         </div>
       `,
       text: `
-New Quote Request - SCREWBAZAR
-
-PRODUCT DETAILS:
-- Product: ${product}
-- Material: ${material}
-- Quantity: ${quantity} units
+${isContact ? 'New Contact Message' : 'New Bulk Enquiry'} - SCREWBAZAR
 
 CUSTOMER INFORMATION:
 - Name: ${name}
 - Email: ${email}
-- Phone: ${phone}
+${phone ? `- Phone: ${phone}` : ''}
+- Type: ${isContact ? 'Contact Form' : 'Bulk Enquiry'}
 
-${message ? `ADDITIONAL DETAILS:\n${message}` : ''}
+MESSAGE:
+${message}
 
 ---
 Submitted: ${timestamp} IST
@@ -228,7 +211,7 @@ Submitted: ${timestamp} IST
     const customerMailOptions = {
       from: `"SCREWBAZAR" <${emailUser}>`,
       to: email,
-      subject: `Thank you for your quote request - SCREWBAZAR`,
+      subject: `Thank you for contacting SCREWBAZAR`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
           <div style="background-color: #1a1a1a; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -241,14 +224,12 @@ Submitted: ${timestamp} IST
           <div style="background-color: #ffffff; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e0e0e0;">
             <p style="font-size: 16px; color: #333;">Dear ${name},</p>
             <p style="font-size: 14px; color: #555; line-height: 1.6;">
-              Thank you for your interest in <strong>${product}</strong>. We have received your quote request and our team will get back to you shortly with the best pricing.
+              Thank you for reaching out to us! We have received your ${isContact ? 'message' : 'bulk enquiry'} and our team will get back to you within an hour.
             </p>
             
             <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
-              <h3 style="margin: 0 0 10px; color: #1a1a1a;">Your Request Summary:</h3>
-              <p style="margin: 5px 0; color: #555;"><strong>Product:</strong> ${product}</p>
-              <p style="margin: 5px 0; color: #555;"><strong>Material:</strong> ${material}</p>
-              <p style="margin: 5px 0; color: #555;"><strong>Quantity:</strong> ${quantity} units</p>
+              <h3 style="margin: 0 0 10px; color: #1a1a1a;">Your Message:</h3>
+              <p style="margin: 5px 0; color: #555; white-space: pre-wrap;">${message}</p>
             </div>
             
             <p style="font-size: 14px; color: #555; line-height: 1.6;">
@@ -268,25 +249,25 @@ Submitted: ${timestamp} IST
       `,
     };
 
-    // Send both emails in parallel for faster response
+    // Send both emails
     await Promise.all([
       transporter.sendMail(mailOptions),
       transporter.sendMail(customerMailOptions),
     ]);
 
     const duration = Date.now() - startTime;
-    console.log(`[QUOTE API] Success - ${product} from ${email} - ${duration}ms`);
+    console.log(`[CONTACT API] Success - ${type} from ${email} - ${duration}ms`);
 
     return NextResponse.json(
-      { message: 'Quote request sent successfully!' },
+      { message: 'Message sent successfully!' },
       { status: 200 }
     );
   } catch (error) {
     const duration = Date.now() - startTime;
-    console.error(`[QUOTE API] Error after ${duration}ms:`, error);
+    console.error(`[CONTACT API] Error after ${duration}ms:`, error);
     
     return NextResponse.json(
-      { error: 'Failed to send quote request. Please try again later or contact us directly at screwbazar@gmail.com' },
+      { error: 'Failed to send message. Please try again later or contact us directly at screwbazar@gmail.com' },
       { status: 500 }
     );
   }
