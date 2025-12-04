@@ -2,9 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
-import { FiUser, FiSearch } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import Logo from './Logo';
-import SearchModal from './SearchModal';
+import NavbarSearch from './NavbarSearch';
 import CallButton from './CallButton';
 import ProductDropdown from './ProductDropdown';
 
@@ -58,7 +58,6 @@ export default function Navbar() {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   return (
@@ -140,31 +139,14 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Right Icons */}
-            <div className="flex items-center space-x-6">
-              <button
-                className="hover:text-[#BCFF83]"
-                aria-label="Search"
-                onClick={() => setIsSearchOpen(true)}
-              >
-                <FiSearch className="w-5 h-5" />
-              </button>
+            {/* Right section: Search Bar (desktop) + Mobile Menu Button */}
+            <div className="flex items-center space-x-4">
+              {/* Inline Search Bar (desktop only) */}
+              <div className="hidden lg:block">
+                <NavbarSearch />
+              </div>
 
-              <Link
-                href="/login"
-                className="hover:text-[#BCFF83]"
-                aria-label="Login"
-              >
-                <FiUser className="w-5 h-5" />
-              </Link>
-
-              {/* Search Modal */}
-              <SearchModal
-                isOpen={isSearchOpen}
-                onClose={() => setIsSearchOpen(false)}
-              />
-
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button (hidden on lg) */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden"
@@ -205,6 +187,11 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
+          {/* Mobile Search Bar */}
+          <div className="pb-4 border-b border-gray-100">
+            <NavbarSearch />
+          </div>
+          
           {mainLinks.map((link) => (
             <div key={link.href}>
               {link.isDropdown ? (

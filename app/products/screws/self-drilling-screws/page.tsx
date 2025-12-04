@@ -8,7 +8,7 @@ export default function SelfDrillingScrewsPage() {
     { title: "PAN SDS", slug: "pan-sds", image: "/images/products/screws/self drilling screws/Pan Self-Drilling Screw.png" },
     { title: "Hex SDS", slug: "hex-sds", image: "/images/products/screws/self drilling screws/Hex Self-Drilling Screw.png" },
     { title: "CSK SDS", slug: "csk-sds", image: "/images/products/screws/self drilling screws/CSK Self-Drilling Screw.png" },
-    { title: "Water Head SDS", slug: "water-head-sds", image: "/images/products/screws/self drilling screws/Wafer Head Self-Drilling Screw.png" },
+    { title: "Truss Phillips SDS", slug: "truss-phillips-sds", image: "/images/products/screws/self drilling screws/Wafer Head Self-Drilling Screw.png" },
   ];
 
   return (

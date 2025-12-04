@@ -1,15 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Email configuration - uses environment variables for security
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER, // Your Gmail address (e.g., screwbazar@gmail.com)
-    pass: process.env.EMAIL_PASS, // Gmail App Password (NOT your regular password)
-  },
-});
-
 interface QuoteRequest {
   name: string;
   email: string;
@@ -33,9 +24,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Get credentials INSIDE the function (required for Netlify serverless)
+    const emailUser = process.env.EMAIL_USER;
+    const emailPass = process.env.EMAIL_PASS;
+
+    console.log('Email config check:', { hasUser: !!emailUser, hasPass: !!emailPass });
+
+    if (!emailUser || !emailPass) {
+      console.error('Missing EMAIL_USER or EMAIL_PASS');
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Create transporter INSIDE the function (critical for serverless!)
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: emailUser,
+        pass: emailPass,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
     // Email content sent to screwbazar@gmail.com
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: emailUser,
       to: 'screwbazar@gmail.com',
       replyTo: email, // So you can reply directly to the customer
       subject: `🔩 New Quote Request: ${product}`,
@@ -116,7 +135,7 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
 
     // Send confirmation email to customer
     const customerMailOptions = {
-      from: process.env.EMAIL_USER,
+      from: emailUser,
       to: email,
       subject: `Thank you for your quote request - SCREWBAZAR`,
       html: `

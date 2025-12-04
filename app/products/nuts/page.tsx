@@ -30,6 +30,7 @@ export default function NutsPage() {
     { title: "Rivet Nut", slug: "rivet-nut" , image : "/images/products/nuts/Rivet Nut.png" },
     { title: "Profile (T) Nut", slug: "profile-t-nut" , image : "/images/products/nuts/Profile (T) Nut.png" },
     { title: "Weld Nut", slug: "weld-nut" , image : "/images/products/nuts/Weld Nut.png" },
+     { title: "Eye Nut", slug: "eye-nut" , image : "/images/products/nuts/Eye Nut.png" },
     { title: "Shear Nut", slug: "shear-nut", image : "/images/products/nuts/Shear Nut.png" },
     { title: "Profile side Nut", slug: "profile-side-nut" , image : "/images/products/nuts/Profile side Nut.png" },
     { title: "Semi Hex Nut (LF)", slug: "semi-hex-nut-lf" , image : "/images/products/nuts/Semi Hex LF.png" },

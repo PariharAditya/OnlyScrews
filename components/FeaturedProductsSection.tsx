@@ -152,7 +152,7 @@ const FeaturedProductsSection = () => {
       id: 23,
       image: "images/productdata/nuts/Wafer Head Self-Drilling Screw ss.png",
       title: "Truss Phillips Head Self-Drilling Screws",
-      slug: "truss-phillips",
+      slug: "truss-phillips-sds",
     },
     {
       id: 24,

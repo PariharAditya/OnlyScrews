@@ -1,97 +1,88 @@
 import { useState } from "react";
 
 const FAQData = {
-  shipping: [
+  quotations: [
     {
-      question: "How much does Pelican shipping cost?",
+      question: 'How do I request a quote for a product?',
       answer:
-        "Shipping costs vary depending on your location and the size of your order. We offer free shipping on orders over $500.",
+        'Use the "Request a Quote" button on any product page and provide product details, quantity, and contact information. Our team will respond with pricing and lead time.',
     },
     {
-      question: "Where does Pelican ship?",
+      question: 'Can I get quotes for large or repeated orders?',
       answer:
-        "We ship throughout the continental United States and select international locations.",
+        'Yes — for bulk or repeat orders, provide estimated annual quantities, required tolerances, and any drawings/specs so we can give an accurate volume price.',
     },
     {
-      question: "When can I expect my Pelican sofa/table to arrive?",
+      question: 'How long does a quote remain valid?',
       answer:
-        "Most orders arrive within 2-4 weeks. Expedited shipping options are available at checkout.",
-    },
-    {
-      question: "What can I expect when my order is delivered?",
-      answer:
-        "Our delivery team will bring your furniture to your home, set it up, and remove all packaging materials.",
+        'Quotes are typically valid for 30 days unless otherwise stated. Lead times and material costs may affect validity.',
     },
   ],
-  discounts: [
+  products: [
     {
-      question: "Do you offer seasonal discounts?",
-      answer: "Yes, we offer seasonal sales during major holidays.",
+      question: 'What product specifications are available?',
+      answer:
+        'Each product page lists dimensions, materials, grades, and available finishes. Contact us for custom sizes, materials or technical datasheets.',
     },
     {
-      question: "Are there discounts for bulk orders?",
-      answer: "Yes, we offer volume discounts on bulk orders.",
+      question: 'Do you provide technical datasheets or certifications?',
+      answer:
+        'Yes. We can provide material certificates, test reports, and drawings on request for standard and custom parts.',
     },
   ],
-  returns: [
+  bulk_orders: [
     {
-      question: "What is your return policy?",
-      answer: "We offer a 30-day return policy on all items.",
+      question: 'Do you offer volume discounts?',
+      answer:
+        'Yes. Discounts depend on quantity, material, and order frequency. Request a formal quote to see volume pricing.',
     },
     {
-      question: "How do I return an item?",
-      answer: "Contact our customer service team to initiate a return.",
+      question: 'Can you handle ongoing supply agreements?',
+      answer:
+        'We support blanket orders and scheduled deliveries for recurring requirements. Contact our sales team to set this up.',
     },
   ],
-  warranty: [
+  lead_times: [
     {
-      question: "What warranty do you offer?",
+      question: 'What are typical lead times?',
       answer:
-        "All our furniture comes with a 5-year manufacturing warranty.",
+        'Lead times vary by product and quantity. Small orders are often shipped within days; larger or custom orders can take weeks. Your quote will include the expected lead time.',
     },
     {
-      question: "What does the warranty cover?",
+      question: 'Can lead times be expedited?',
       answer:
-        "The warranty covers defects in materials and workmanship. It does not cover wear and tear.",
-    },
-  ],
-  sofas: [
-    {
-      question: "What upholstery options are available?",
-      answer:
-        "We offer a variety of fabrics, leathers, and performance materials.",
-    },
-    {
-      question: "Can I customize my sofa?",
-      answer:
-        "Yes, you can customize color, size, and upholstery material.",
+        'Sometimes — expedited manufacturing or prioritized production may be available depending on material and capacity. Additional fees may apply.',
     },
   ],
-  tables: [
+  samples: [
     {
-      question: "What materials are your tables made from?",
+      question: 'Can I get a sample or small trial order?',
       answer:
-        "Our tables are made from solid wood, engineered wood, and metal combinations.",
+        'Yes. Small sample orders are available for many items. Contact us with the product code and required quantity for a sample quote.',
     },
   ],
-  assembly: [
+  custom_parts: [
     {
-      question: "Do you provide assembly services?",
-      answer: "Yes, assembly is included with all delivery orders.",
+      question: 'Do you manufacture custom parts from drawings?',
+      answer:
+        'We can manufacture to your drawings and specifications. Provide engineering drawings, tolerances, and material requirements when requesting a quote.',
+    },
+    {
+      question: 'What file formats do you accept for drawings?',
+      answer:
+        'We accept PDF, DXF, and STEP files. For detailed quoting we prefer fully dimensioned drawings.',
     },
   ],
-  financing: [
+  support: [
     {
-      question: "Do you offer financing options?",
+      question: 'How do I contact technical or sales support?',
       answer:
-        "Yes, we partner with major financing companies for flexible payment plans.",
+        'Use the Contact page, email us at screwbazar@gmail.com or call the number 7007257245 . For urgent quote requests, use the product page quote button.',
     },
-  ],
-  service: [
     {
-      question: "Do you offer post-purchase support?",
+      question: 'What information should I provide for faster support?',
       answer:
-        "Yes, our customer service team is available to assist you after purchase.",
+        'Provide product code, quantity, required material/grade, drawings (if any), and desired delivery timeframe.',
     },
   ],
 };
@@ -99,15 +90,13 @@ const FAQData = {
 type CategoryKey = keyof typeof FAQData;
 
 const categories: { key: CategoryKey; label: string }[] = [
-  { key: "shipping", label: "Shipping" },
-  { key: "discounts", label: "Discounts" },
-  { key: "returns", label: "Returns & Refunds" },
-  { key: "warranty", label: "Warranty" },
-  { key: "sofas", label: "Products - Sofas" },
-  { key: "tables", label: "Products - Tables" },
-  { key: "assembly", label: "Assembly" },
-  { key: "financing", label: "Financing" },
-  { key: "service", label: "Post-purchase Service" },
+  { key: 'quotations', label: 'Quotations & Quotes' },
+  { key: 'products', label: 'Product Specifications' },
+  { key: 'bulk_orders', label: 'Bulk Orders & Discounts' },
+  { key: 'lead_times', label: 'Lead Times & Availability' },
+  { key: 'samples', label: 'Samples' },
+  { key: 'custom_parts', label: 'Custom Parts' },
+  { key: 'support', label: 'Contact & Support' },
 ];
 
 interface FAQItem {
@@ -122,7 +111,7 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
     <div className="border-b border-neutral-200">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-4 flex items-center justify-between hover:opacity-70 transition-opacity"
+        className="w-full py-4 flex items-center justify-between hover:opacity-70 transition-opacity cursor-pointer"
       >
         <span className="text-neutral-900 text-left font-medium">
           {item.question}
@@ -142,15 +131,18 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
 
 export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>(
-    "shipping"
+    // default to the first available category key to avoid runtime errors
+    'quotations'
   );
 
   const currentFaqs = FAQData[selectedCategory];
   const currentCategoryLabel =
-    categories.find((c) => c.key === selectedCategory)?.label || "Shipping";
+    categories.find((c) => c.key === selectedCategory)?.label ||
+    // fallback to first category label if not found
+    (categories.length > 0 ? categories[0].label : '');
 
   return (
-    <div className="min-h-screen bg-white -mt-[144px] pt-[80px]">
+    <div className="min-h-screen bg-white pt-[40px] screw-typography">
       <div className="max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         {/* Page Title */}
         <h1 className="text-4xl font-bold text-center mb-16 text-neutral-900">
@@ -166,7 +158,7 @@ export default function Index() {
                 <button
                   key={category.key}
                   onClick={() => setSelectedCategory(category.key)}
-                  className={`text-left py-2.5 px-0 font-medium text-sm transition-colors whitespace-nowrap ${
+                  className={`text-left py-2.5 px-0 font-medium text-sm transition-colors whitespace-nowrap cursor-pointer ${
                     selectedCategory === category.key
                       ? "text-neutral-900 border-b-2 border-neutral-900"
                       : "text-neutral-600 hover:text-neutral-900"

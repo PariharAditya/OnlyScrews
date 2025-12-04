@@ -7,21 +7,22 @@ import { H2, Subtitle } from "./ui/Typography";
 import StandardCard from "./ui/StandardCard";
 
 const categories = [
-  { id: 1, name: "Bolts", image: "/images/categories/bolts.png" },
+  { id: 1, name: "Bolts", image: "/images/categories/bolts.png", href: "/products/bolts" },
   {
     id: 2,
     name: "Machine Screws",
     image: "/images/categories/machine-screws.png",
+    href: "/products/screws/machine-screws",
   },
   {
     id: 3,
     name: "Clinching Fasteners",
     image: "/images/categories/clinching-fasteners.png",
   },
-  { id: 4, name: "Allen Screws", image: "/images/categories/allen-screws.png" },
-  { id: 5, name: "Washers", image: "/images/Washers.png" },
+  { id: 4, name: "Allen Screws", image: "/images/categories/allen-screws.png", href: "/products/screws/machine-screws/allen-screws" },
+  { id: 5, name: "Washers", image: "/images/Washers.png", href: "/products/washers" },
   { id: 6, name: "Nylon", image: "/images/categories/nylon.png" },
-  { id: 7, name: "Nuts", image: "/images/categories/nuts.png" },
+  { id: 7, name: "Nuts", image: "/images/categories/nuts.png", href: "/products/nuts" },
   {
     id: 8,
     name: "PCB Fasteners",
@@ -69,6 +70,7 @@ export default function CategoriesSection() {
           src="https://cdn.builder.io/api/v1/image/assets%2F61feb74e32ed4195a4cbd55149a401bd%2Fb66521bb13234db2b75617a0f01640df"
           alt="Categories background"
           fill
+          priority
           style={{
             objectFit: "cover",
             objectPosition: "center",
@@ -97,6 +99,7 @@ export default function CategoriesSection() {
               key={category.id}
               image={category.image}
               title={category.name}
+              href={category.href}
             />
           ))}
         </div>
