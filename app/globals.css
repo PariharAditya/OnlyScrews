@@ -60,3 +60,24 @@ main,
 .animate-sparkle {
   animation: sparkle 2s ease-in-out infinite;
 }
+
+/* Route-specific typography for Contact & FAQ pages */
+.screw-typography h1, .screw-typography h2, .screw-typography h3, .screw-typography h4, .screw-typography h5, .screw-typography h6 {
+  font-family: var(--font-montserrat, 'Montserrat'), Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+}
+
+.screw-typography p, .screw-typography span, .screw-typography li, .screw-typography label {
+  font-family: var(--font-nunito-sans, 'Nunito Sans'), Arial, sans-serif;
+  color: #374151;
+}
+
+.screw-typography h1 { font-size: 2.25rem; }
+.screw-typography h2 { font-size: 1.875rem; }
+.screw-typography h3 { font-size: 1.5rem; }
+.screw-typography h4 { font-size: 1.25rem; }
+.screw-typography h5 { font-size: 1.125rem; }
+.screw-typography h6 { font-size: 1rem; }
+

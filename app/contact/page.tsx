@@ -4,7 +4,7 @@ import ContactForm from "./client/ContactForm";
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen bg-white pt-2">
+    <div className="relative min-h-screen bg-white pt-2 screw-typography">
       <div className="max-w-4xl mx-auto px-6 py-12 md:px-8 md:py-20">
         <h1 className="text-4xl font-bold text-center mb-8 text-black">Screw Bazar</h1>
 

@@ -142,29 +142,13 @@ export default function Navbar() {
 
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
-              <button
-                className="hover:text-[#BCFF83]"
-                aria-label="Search"
-                onClick={() => setIsSearchOpen(true)}
-              >
-                <FiSearch className="w-5 h-5" />
-              </button>
-
-              <Link
-                href="/login"
-                className="hover:text-[#BCFF83]"
-                aria-label="Login"
-              >
-                <FiUser className="w-5 h-5" />
-              </Link>
-
               {/* Search Modal */}
               <SearchModal
                 isOpen={isSearchOpen}
                 onClose={() => setIsSearchOpen(false)}
               />
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button (hidden on lg) */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="lg:hidden"
@@ -192,6 +176,15 @@ export default function Navbar() {
                     />
                   )}
                 </svg>
+              </button>
+
+              {/* Search button placed last so it sits flush right on large screens */}
+              <button
+                className="hover:text-[#BCFF83]"
+                aria-label="Search"
+                onClick={() => setIsSearchOpen(true)}
+              >
+                <FiSearch className="w-5 h-5" />
               </button>
             </div>
           </div>
