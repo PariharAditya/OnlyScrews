@@ -2,9 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import SizeAvailabilityGrid from "./SizeAvailabilityGrid";
 
 interface ProductDetailProps {
   readonly title: string;
+  readonly slug?: string; // Product slug for fetching size availability
   readonly images: readonly string[];
   readonly materials: readonly {
     readonly id: number;
@@ -21,6 +23,7 @@ interface ProductDetailProps {
 
 export default function ProductDetail({
   title,
+  slug,
   images,
   materials,
   about,
@@ -31,6 +34,7 @@ export default function ProductDetail({
   const [activeTab, setActiveTab] = useState<"about" | "applications">("about");
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [showMaterialImageModal, setShowMaterialImageModal] = useState(false);
+  const [hasSizeAvailability, setHasSizeAvailability] = useState(false);
   const [quoteFormData, setQuoteFormData] = useState({
     name: "",
     email: "",
@@ -39,11 +43,16 @@ export default function ProductDetail({
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const mainFrameRef = useRef<HTMLDivElement | null>(null);
   const availabilityRef = useRef<HTMLButtonElement | null>(null);
-  
-  const [availabilityMinHeight, setAvailabilityMinHeight] = useState<number | null>(null);
+
+  const [availabilityMinHeight, setAvailabilityMinHeight] = useState<
+    number | null
+  >(null);
 
   const nextImage = () => {
     setMainImageIndex((prev) => (prev + 1) % images.length);
@@ -96,7 +105,10 @@ export default function ProductDetail({
           {/* Left Column - Images */}
           <div className="flex flex-col gap-6">
             {/* Main Image */}
-            <div ref={mainFrameRef} className="bg-black rounded-xl aspect-square overflow-hidden flex items-center justify-center">
+            <div
+              ref={mainFrameRef}
+              className="bg-black rounded-xl aspect-square overflow-hidden flex items-center justify-center"
+            >
               <img
                 src={images[mainImageIndex]}
                 alt="Product"
@@ -125,7 +137,8 @@ export default function ProductDetail({
                       mainImageIndex === idx
                         ? "border-[#A3F61E] cursor-pointer"
                         : "border-gray-700 cursor-pointer"
-                    }`}>
+                    }`}
+                  >
                     <img
                       src={img}
                       alt={`Thumbnail ${idx + 1}`}
@@ -147,48 +160,68 @@ export default function ProductDetail({
           </div>
 
           {/* Right Column - Details */}
-            <div className="flex flex-col gap-8 h-full">
-            {/* Material Section */}
-            <div>
-              <h3 className="text-base font-heading font-semibold mb-4 text-[#BCFF83]">
-                material: <span className="text-white">{materials[selectedMaterial].name}</span>
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {materials.map((material, idx) => (
-                  <button
-                    key={material.id}
-                    onClick={() => setSelectedMaterial(idx)}
-                    className={`px-4 py-2 rounded-full font-sans font-medium text-sm transition ${
-                      selectedMaterial === idx
-                        ? "bg-[#A3F61E] text-black cursor-pointer"
-                        : "bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer"
-                    }`}
-                  >
-                    {material.name}
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-col gap-8 h-full">
+            {/* Size Availability Grid - Shows when database has size data */}
+            {slug && (
+              <SizeAvailabilityGrid
+                productSlug={slug}
+                selectedMaterialIndex={selectedMaterial}
+                onMaterialChange={(idx) => setSelectedMaterial(idx)}
+              />
+            )}
 
-            {/* Availability Section */}
-            <div>
-              <h3 className="text-base font-heading font-semibold mb-4 text-[#BCFF83]">
-                {materials[selectedMaterial].name}:
-              </h3>
-              <button
-                onClick={() => setShowMaterialImageModal(true)}
-                className="w-full rounded-lg overflow-hidden relative transition-all duration-500 hover:opacity-90 cursor-pointer border border-gray-700 bg-[#0f0f0f]"
-                aria-label={`${materials[selectedMaterial].name} image`}
-                ref={availabilityRef}
-                style={{ minHeight: availabilityMinHeight ? `${availabilityMinHeight}px` : undefined }}
-              >
-                <img
-                  src={materials[selectedMaterial].image}
-                  alt={materials[selectedMaterial].name}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            </div>
+            {/* Fallback Material Section - Shows when no slug or no size data */}
+            {!slug && (
+              <>
+                <div>
+                  <h3 className="text-base font-heading font-semibold mb-4 text-[#BCFF83]">
+                    material:{" "}
+                    <span className="text-white">
+                      {materials[selectedMaterial].name}
+                    </span>
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {materials.map((material, idx) => (
+                      <button
+                        key={material.id}
+                        onClick={() => setSelectedMaterial(idx)}
+                        className={`px-4 py-2 rounded-full font-sans font-medium text-sm transition ${
+                          selectedMaterial === idx
+                            ? "bg-[#A3F61E] text-black cursor-pointer"
+                            : "bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer"
+                        }`}
+                      >
+                        {material.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Availability Section - Fallback with image */}
+                <div>
+                  <h3 className="text-base font-heading font-semibold mb-4 text-[#BCFF83]">
+                    {materials[selectedMaterial].name}:
+                  </h3>
+                  <button
+                    onClick={() => setShowMaterialImageModal(true)}
+                    className="w-full rounded-lg overflow-hidden relative transition-all duration-500 hover:opacity-90 cursor-pointer border border-gray-700 bg-[#0f0f0f]"
+                    aria-label={`${materials[selectedMaterial].name} image`}
+                    ref={availabilityRef}
+                    style={{
+                      minHeight: availabilityMinHeight
+                        ? `${availabilityMinHeight}px`
+                        : undefined,
+                    }}
+                  >
+                    <img
+                      src={materials[selectedMaterial].image}
+                      alt={materials[selectedMaterial].name}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -209,20 +242,20 @@ export default function ProductDetail({
             <button
               onClick={() => setActiveTab("about")}
               className={`transition font-heading ${
-                  activeTab === "about"
-                    ? "bg-[#A3F61E] text-black px-4 py-2 rounded-full font-semibold text-sm sm:text-base cursor-pointer"
-                    : "text-white text-lg sm:text-xl font-semibold cursor-pointer"
-                }`}
+                activeTab === "about"
+                  ? "bg-[#A3F61E] text-black px-4 py-2 rounded-full font-semibold text-sm sm:text-base cursor-pointer"
+                  : "text-white text-lg sm:text-xl font-semibold cursor-pointer"
+              }`}
             >
               About this piece
             </button>
             <button
               onClick={() => setActiveTab("applications")}
               className={`transition font-heading ${
-                  activeTab === "applications"
-                    ? "bg-[#A3F61E] text-black px-4 py-2 rounded-full font-semibold text-sm sm:text-base cursor-pointer"
-                    : "text-white text-lg sm:text-xl font-semibold cursor-pointer"
-                }`}
+                activeTab === "applications"
+                  ? "bg-[#A3F61E] text-black px-4 py-2 rounded-full font-semibold text-sm sm:text-base cursor-pointer"
+                  : "text-white text-lg sm:text-xl font-semibold cursor-pointer"
+              }`}
             >
               Applications
             </button>
@@ -242,7 +275,10 @@ export default function ProductDetail({
             {activeTab === "applications" && (
               <ul className="text-white/80 font-sans text-sm sm:text-base space-y-3">
                 {specifications.map((spec) => (
-                  <li key={`${spec.label}-${spec.value}`} className="flex items-start gap-3">
+                  <li
+                    key={`${spec.label}-${spec.value}`}
+                    className="flex items-start gap-3"
+                  >
                     <span className="text-[#A3F61E] font-bold">•</span>
                     <span>
                       {spec.label && spec.label.toLowerCase() === "application"
@@ -270,7 +306,9 @@ export default function ProductDetail({
                 <X size={20} />
               </button>
 
-              <h2 className="text-lg font-heading font-bold text-gray-900 mb-3">Request a Quote</h2>
+              <h2 className="text-lg font-heading font-bold text-gray-900 mb-3">
+                Request a Quote
+              </h2>
 
               <form
                 onSubmit={async (e) => {
@@ -279,10 +317,10 @@ export default function ProductDetail({
                   setSubmitStatus(null);
 
                   try {
-                    const response = await fetch('/api/send-quote', {
-                      method: 'POST',
+                    const response = await fetch("/api/send-quote", {
+                      method: "POST",
                       headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                       },
                       body: JSON.stringify({
                         ...quoteFormData,
@@ -294,7 +332,11 @@ export default function ProductDetail({
                     const data = await response.json();
 
                     if (response.ok) {
-                      setSubmitStatus({ type: 'success', message: 'Quote request sent successfully! Check your email for confirmation.' });
+                      setSubmitStatus({
+                        type: "success",
+                        message:
+                          "Quote request sent successfully! Check your email for confirmation.",
+                      });
                       // Reset form after success
                       setQuoteFormData({
                         name: "",
@@ -309,10 +351,19 @@ export default function ProductDetail({
                         setSubmitStatus(null);
                       }, 2000);
                     } else {
-                      setSubmitStatus({ type: 'error', message: data.error || 'Failed to send quote request. Please try again.' });
+                      setSubmitStatus({
+                        type: "error",
+                        message:
+                          data.error ||
+                          "Failed to send quote request. Please try again.",
+                      });
                     }
                   } catch {
-                    setSubmitStatus({ type: 'error', message: 'Network error. Please check your connection and try again.' });
+                    setSubmitStatus({
+                      type: "error",
+                      message:
+                        "Network error. Please check your connection and try again.",
+                    });
                   } finally {
                     setIsSubmitting(false);
                   }
@@ -321,12 +372,21 @@ export default function ProductDetail({
               >
                 {/* Status Message */}
                 {submitStatus && (
-                  <div className={`p-2 rounded text-sm ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  <div
+                    className={`p-2 rounded text-sm ${
+                      submitStatus.type === "success"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                    }`}
+                  >
                     {submitStatus.message}
                   </div>
                 )}
                 <div>
-                  <label htmlFor="quote-name" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
+                  <label
+                    htmlFor="quote-name"
+                    className="block text-gray-700 font-sans text-xs font-semibold mb-1"
+                  >
                     Name *
                   </label>
                   <input
@@ -335,7 +395,10 @@ export default function ProductDetail({
                     required
                     value={quoteFormData.name}
                     onChange={(e) =>
-                      setQuoteFormData({ ...quoteFormData, name: e.target.value })
+                      setQuoteFormData({
+                        ...quoteFormData,
+                        name: e.target.value,
+                      })
                     }
                     className="w-full px-3 py-1.5 bg-white border border-gray-300 rounded text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#A3F61E] focus:ring-1 focus:ring-[#A3F61E]"
                     placeholder="Your name"
@@ -343,7 +406,10 @@ export default function ProductDetail({
                 </div>
 
                 <div>
-                  <label htmlFor="quote-email" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
+                  <label
+                    htmlFor="quote-email"
+                    className="block text-gray-700 font-sans text-xs font-semibold mb-1"
+                  >
                     Email *
                   </label>
                   <input
@@ -363,7 +429,10 @@ export default function ProductDetail({
                 </div>
 
                 <div>
-                  <label htmlFor="quote-phone" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
+                  <label
+                    htmlFor="quote-phone"
+                    className="block text-gray-700 font-sans text-xs font-semibold mb-1"
+                  >
                     Phone *
                   </label>
                   <input
@@ -383,7 +452,10 @@ export default function ProductDetail({
                 </div>
 
                 <div>
-                  <label htmlFor="quote-quantity" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
+                  <label
+                    htmlFor="quote-quantity"
+                    className="block text-gray-700 font-sans text-xs font-semibold mb-1"
+                  >
                     Quantity *
                   </label>
                   <input
@@ -404,7 +476,10 @@ export default function ProductDetail({
                 </div>
 
                 <div>
-                  <label htmlFor="quote-message" className="block text-gray-700 font-sans text-xs font-semibold mb-1">
+                  <label
+                    htmlFor="quote-message"
+                    className="block text-gray-700 font-sans text-xs font-semibold mb-1"
+                  >
                     Details of the product
                   </label>
                   <textarea
@@ -426,12 +501,12 @@ export default function ProductDetail({
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full py-1.5 rounded font-heading text-sm font-semibold transition cursor-pointer ${
-                    isSubmitting 
-                      ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
-                      : 'bg-[#A3F61E] text-black hover:bg-[#8FD919]'
+                    isSubmitting
+                      ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                      : "bg-[#A3F61E] text-black hover:bg-[#8FD919]"
                   }`}
                 >
-                  {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
+                  {isSubmitting ? "Sending..." : "Submit Quote Request"}
                 </button>
               </form>
             </div>
