@@ -89,7 +89,7 @@ export default function Navbar() {
         <div className="container mx-auto py-4 px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center mr-4 sm:mr-6 md:mr-8">
               <div className="relative w-[120px] h-[35px] sm:w-[150px] sm:h-[42px] md:w-[180px] md:h-[50px]">
                 <Image
                   src="/SB.jpg"
@@ -101,8 +101,8 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Desktop Navigation - centered */}
-            <div className="hidden lg:flex items-center space-x-8">
+            {/* Desktop/Tablet Navigation - centered */}
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {mainLinks.map((link) =>
                 link.isDropdown ? (
                   link.label === 'Products' ? (
@@ -140,16 +140,16 @@ export default function Navbar() {
             </div>
 
             {/* Right section: Search Bar (desktop) + Mobile Menu Button */}
-            <div className="flex items-center space-x-4">
-              {/* Inline Search Bar (desktop only) */}
-              <div className="hidden lg:block">
+            <div className="flex items-center space-x-4 md:space-x-6">
+              {/* Inline Search Bar (tablet+ and desktop) - reduced width on tablet */}
+              <div className="hidden md:block">
                 <NavbarSearch />
               </div>
 
-              {/* Mobile Menu Button (hidden on lg) */}
+              {/* Mobile Menu Button (hidden on md and up) */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden"
+                className="md:hidden"
                 aria-label="Toggle menu"
               >
                 <svg
@@ -182,7 +182,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ${
+        className={`md:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ${
           isOpen ? "max-h-screen" : "max-h-0"
         }`}
       >

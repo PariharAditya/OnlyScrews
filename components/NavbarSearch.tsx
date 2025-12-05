@@ -136,7 +136,7 @@ export default function NavbarSearch() {
   };
 
   return (
-    <div className="relative w-full lg:flex-1 lg:max-w-md lg:mx-4">
+    <div className="relative w-full md:flex-none md:max-w-[220px] lg:flex-1 lg:max-w-md lg:mx-4">
       {/* Search Input */}
       <div className="relative">
         <input
