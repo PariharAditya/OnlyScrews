@@ -18,15 +18,17 @@ const categories = [
     id: 3,
     name: "Clinching Fasteners",
     image: "/images/categories/clinching-fasteners.png",
+    href: "/products/clinching-fasteners",
   },
   { id: 4, name: "Allen Screws", image: "/images/categories/allen-screws.png", href: "/products/screws/machine-screws/allen-screws" },
   { id: 5, name: "Washers", image: "/images/Washers.png", href: "/products/washers" },
-  { id: 6, name: "Nylon", image: "/images/categories/nylon.png" },
+  { id: 6, name: "Nylon", image: "/images/categories/nylon.png", href: "/products/nylon" },
   { id: 7, name: "Nuts", image: "/images/categories/nuts.png", href: "/products/nuts" },
   {
     id: 8,
     name: "PCB Fasteners",
     image: "/images/categories/pcb-fasteners.png",
+    href: "/products/pcb-fasteners",
   },
 ];
 

@@ -8,10 +8,10 @@ import StandardCard from "./ui/StandardCard";
 
 const products = [
   { id: 1, name: "Nylon Spacers", image: "/images/products/nylon-spacers.png", href: "/products/spacers" },
-  { id: 2, name: "Nylon Washers", image: "/images/products/nylon-washers.png", href: "/products/washers" },
-  { id: 3, name: "Nylon Nuts", image: "/images/products/nylon-nuts.png", href: "/products/nuts" },
-  { id: 4, name: "Nylon Bolts", image: "/images/products/nylon-bolts.png", href: "/products/bolts" },
-  { id: 5, name: "Nylon Machine Screws", image: "/images/products/nylon-machine-screws.png", href: "/products/screws/machine-screws" },
+  { id: 2, name: "Nylon Washers", image: "/images/products/nylon-washers.png", href: "/category/plain-washer" },
+  { id: 3, name: "Nylon Nuts", image: "/images/products/nylon-nuts.png", href: "/products/nylon/nuts" },
+  { id: 4, name: "Nylon Bolts", image: "/images/products/nylon-bolts.png", href: "/category/hex-bolt" },
+  { id: 5, name: "Nylon Machine Screws", image: "/images/products/nylon-machine-screws.png", href: "/products/nylon/phillip-screws" },
 ];
 
 export default function NylonRangeSection() {

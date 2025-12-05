@@ -40,13 +40,13 @@ export function ProductCategoryCard({ title, imageSrc, href, className }: Catego
           )}
         </div>
 
-        <div className="absolute left-2 bottom-2 right-2 sm:left-3 sm:bottom-3 sm:right-auto md:left-4 md:bottom-4 lg:left-6 lg:bottom-6">
+        <div className="absolute left-2 bottom-2 right-2 sm:left-3 sm:bottom-3 sm:right-3 md:left-4 md:bottom-4 md:right-4 lg:left-6 lg:bottom-6 lg:right-6">
           <span
             className={cn(
-                "inline-flex items-center justify-center rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-semibold",
+                "inline-block rounded-full px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm md:text-base font-semibold",
                 "bg-[hsl(var(--brand))] text-[hsl(var(--brand-foreground))]",
                 "shadow-[inset_0_2px_0_rgba(0,0,0,0.25)]",
-                "whitespace-nowrap max-w-full truncate",
+                "whitespace-nowrap overflow-hidden text-ellipsis max-w-full",
             )}
           >
             {title}
