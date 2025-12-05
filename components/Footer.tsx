@@ -27,7 +27,6 @@ export default function Footer() {
             Engineered Fasteners for Unmatched Performance
             </p>
             <div className="space-y-2 text-sm font-sans">
-              <p>Screwbazar Manufacturing Private Limited</p>
               <p className="text-blue-600">screwbazar@gmail.com</p>
               <p className="mt-4">1800-833-2218</p>
               <p className="text-sm text-gray-500">(9am-5pm)</p>

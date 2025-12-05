@@ -108,24 +108,33 @@ export default function Navbar() {
                   link.label === 'Products' ? (
                     <ProductDropdown key={link.href} />
                   ) : (
-                    <div key={link.href} className="relative group">
-                      <button className="font-sans text-gray-700 hover:text-[#BCFF83] transition-colors">
-                        {link.label}
-                      </button>
-                      <div className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div className="py-2">
-                          {link.children?.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              className="block px-4 py-2 text-gray-700 hover:bg-[#BCFF83] hover:text-black transition-colors"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
+                      <div
+                        key={link.href}
+                        className="relative"
+                        onMouseEnter={() => setHoveredMenu(link.label)}
+                        onMouseLeave={() => setHoveredMenu(null)}
+                      >
+                        <button
+                          onClick={() => setHoveredMenu(prev => prev === link.label ? null : link.label)}
+                          className="font-sans text-gray-700 hover:text-[#BCFF83] transition-colors"
+                        >
+                          {link.label}
+                        </button>
+                        <div className={`absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg transition-all duration-200 z-50 ${hoveredMenu === link.label ? 'opacity-100 visible' : 'opacity-0 invisible'} group-hover:opacity-100 group-hover:visible`}>
+                          <div className="py-2">
+                            {link.children?.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="block px-4 py-2 text-gray-700 hover:bg-[#BCFF83] hover:text-black transition-colors"
+                                onClick={() => setHoveredMenu(null)}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
                   )
                 ) : (
                   <Link
@@ -222,11 +231,25 @@ export default function Navbar() {
                     </svg>
                   </button>
                   {hoveredMenu === link.label && (
-                    <div className="mt-2">
-                      <ProductDropdown
-                        isMobile
-                        onItemClick={() => setIsOpen(false)}
-                      />
+                    <div className="mt-2 ml-4 space-y-2">
+                      {link.label === 'Products' ? (
+                        <ProductDropdown
+                          isMobile
+                          onItemClick={() => setIsOpen(false)}
+                        />
+                      ) : (
+                        // Render Contact & FAQs children links
+                        link.children?.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="block font-sans text-gray-600 hover:text-[#BCFF83] py-1"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))
+                      )}
                     </div>
                   )}
                 </div>
