@@ -22,7 +22,7 @@ export default function SelfDrillingScrewsPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/category/${screw.slug}`}
+            href={`/products/screws/self-drilling-screws/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>

@@ -20,7 +20,7 @@ export default function TorxSTSPage() {
             key={screw.slug}
             title={screw.title}
             imageSrc={screw.image}
-            href={`/category/${screw.slug}`}
+            href={`/products/screws/self-tapping-screws/torx-sts/${screw.slug}`}
           />
         ))}
       </ProductCategoryLayout>
