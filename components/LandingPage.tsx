@@ -141,15 +141,15 @@ export default function LandingPage() {
       <div className="max-w-screen-2xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen items-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-0">
           {/* Left Section - Logo */}
-          <div className="flex items-center justify-center py-6 sm:py-8 lg:py-0 order-2 lg:order-1">
+          <div className="flex items-center justify-center py-6 sm:py-8 lg:py-0 order-1 lg:order-1">
             <div className="relative w-full max-w-[280px] sm:max-w-sm">
               <div className="relative flex items-center justify-center">
                 {/* Central Logo Block */}
                 <div className="bg-white rounded-[2rem] sm:rounded-[3rem] flex items-center justify-center shadow-2xl px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10">
                   <div className="text-center">
-                    <div className="font-montserrat text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black leading-tight tracking-tight whitespace-nowrap">
+                    <div className="font-montserrat text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black leading-tight tracking-tight whitespace-nowrap" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: '-0.8px' }}>
                       <span className="font-bold">SCREW</span>
-                      <span className="font-thin"> BAZAR</span>
+                      <span className="font-light ml-0.5" style={{ fontWeight: 300, letterSpacing: '0.5px' }}>BAZAR</span>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ export default function LandingPage() {
           </div>
 
           {/* Right Section - Headline & CTA */}
-          <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-4 sm:gap-6 py-6 sm:py-8 lg:py-0 lg:pl-8 order-1 lg:order-2">
+          <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left gap-4 sm:gap-6 py-6 sm:py-8 lg:py-0 lg:pl-8 order-2 lg:order-2">
             <div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-montserrat text-[#bcff83] leading-tight mb-2 sm:mb-4">
                 Engineered
