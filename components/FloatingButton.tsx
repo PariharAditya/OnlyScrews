@@ -4,7 +4,7 @@ export default function ContactButtons() {
   return (
     <div className="fixed bottom-6 right-6 z-40 cursor-pointer">
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/+91 8951934668"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center bg-white py-3 px-6 rounded-lg shadow-xl hover:shadow-2xl transition-all text-gray-800 outline-none focus:outline-none cursor-pointer"

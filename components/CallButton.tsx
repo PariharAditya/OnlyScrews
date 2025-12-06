@@ -4,7 +4,8 @@ import { FiPhone, FiX } from 'react-icons/fi';
 
 export default function CallButton() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const phoneNumber = "1800-833-0046"; // Replace with your phone number
+  // Use country code in display; tel link will keep the + prefix
+  const phoneNumber = "+91 89519 34668"; // Updated number
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function CallButton() {
               <p className="text-gray-600 text-xs mb-3">Please call us on:</p>
               
               <a
-                href={`tel:${phoneNumber.replace(/[^0-9]/g, '')}`}
+                href={`tel:${phoneNumber.replace(/[^0-9+]/g, '')}`}
                 className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-base py-2 px-4 rounded-lg w-full mb-2 transition-colors"
               >
                 {phoneNumber}
