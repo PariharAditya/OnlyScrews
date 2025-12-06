@@ -16,7 +16,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata = {
-  title: "OnlyScrews - Industrial Fasteners & Hardware Supplier",
+  title: "SCREWBAZAR - Industrial Fasteners & Hardware Supplier",
   description:
     "Your trusted partner for industrial fasteners, screws, nuts, bolts, washers, and anchors. Bulk orders with expert guidance.",
   icons: {
@@ -27,10 +27,10 @@ export const metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://screwbazar.com"),
   other: {
-    "msapplication-TileColor": "#1a5f7a",
+    "msapplication-TileColor": "#bcff1d",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
-    "apple-mobile-web-app-title": "Screw Bazar",
+    "apple-mobile-web-app-title": "ScrewBazar",
   },
 };
 

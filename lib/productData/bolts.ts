@@ -52,9 +52,9 @@ export const boltsData = {
   "flange-button-head-bolt": {
     title: "Flange Button Head Bolt",
     images: [
-      "/images/productdata/bolts/Flange Button Head Bolt ht.png",
-      "/images/productdata/bolts/Flange Button Head Bolt ms.png",
-      "/images/productdata/bolts/Flange Button Head Bolt ss.png",
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ht.png",
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ms.png",
+      "/images/products/screws/machine screws/allen screws/flange button head bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },
@@ -115,9 +115,9 @@ export const boltsData = {
   "allen-bolt": {
     title: "Allen Bolt",
     images: [
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
-      "/images/products/bolts/HEX BOLT HALF THREADED.png",
+      "/images/productdata/screws/allen screws/Allen bolt ht.png",
+      "/images/productdata/screws/allen screws/Allen bolt ms.png",
+      "/images/productdata/screws/allen screws/Allen bolt ss.png",
     ],
     materials: [
       { id: 1, name: "Stainless Steel 304", color: "from-purple-300 to-pink-400", image: "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" },

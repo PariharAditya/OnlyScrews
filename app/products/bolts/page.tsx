@@ -12,7 +12,7 @@ export default function BoltsPage() {
     { title: "Flange Button Head Bolt", slug: "flange-button-head-bolt", image: "/images/products/bolts/FLANGE BUTTON HEAD BOLT.png" },
     { title: "Wing Bolt", slug: "wing-bolt", image: "/images/products/bolts/WING BOLT.png" },
     { title: "Hex Bolt Half Threaded", slug: "hex-bolt-half-threaded", image: "/images/products/bolts/HEX BOLT HALF THREADED.png"},
-    { title: "Allen Bolt", slug: "allen-bolt", image: "/images/products/bolts/HEX BOLT HALF THREADED.png" },
+    { title: "Allen Bolt", slug: "allen-bolt", image: "/images/productdata/screws/allen screws/Allen bolt ms.png" },
     { title: "Shoulder Bolt", slug: "shoulder-bolt", image: "/images/products/bolts/SHOULDER BOLT.png" },
     { title: "Coach Bolt", slug: "coach-bolt", image: "/images/products/bolts/COACH BOLT.png" },
     { title: "Flange Bolt", slug: "flange-bolt", image: "/images/products/bolts/FLANGE BOLT.png" },

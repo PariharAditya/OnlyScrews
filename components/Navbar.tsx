@@ -73,7 +73,7 @@ export default function Navbar() {
         <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300 ease-in-out px-2">
           {currentMessage === 0 
             ? "Exclusive range of Nylon & Industrial Fasteners — Request a quote today 💡"
-            : "Custom bulk orders & quotations available via WhatsApp and Call 📞"
+            : "Custom bulk orders & quotations available via WhatsApp and Call 📞 +91 8951934668"
           }
         </p>
         <button 
