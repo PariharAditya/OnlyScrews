@@ -16,13 +16,13 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata = {
-  title: "SCREWBAZAR - Industrial Fasteners & Hardware Supplier",
+  title: "ScrewBazar - Industrial Fasteners & Hardware Supplier",
   description:
     "Your trusted partner for industrial fasteners, screws, nuts, bolts, washers, and anchors. Bulk orders with expert guidance.",
   icons: {
-    icon: "/SB.jpg",
-    shortcut: "/SB.jpg",
-    apple: "/SB.jpg",
+    icon: "/icon",
+    shortcut: "/icon",
+    apple: "/icon",
   },
   manifest: "/manifest.json",
   metadataBase: new URL("https://screwbazar.com"),
