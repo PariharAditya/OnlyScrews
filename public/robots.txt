@@ -1,0 +1,48 @@
+# robots.txt for ScrewBazar - Industrial Fasteners Supplier
+# https://screwbazar.com
+
+User-agent: *
+Allow: /
+Allow: /products/
+Allow: /products/screws/
+Allow: /products/nuts/
+Allow: /products/bolts/
+Allow: /products/washers/
+Allow: /products/anchors/
+Allow: /category/
+Allow: /blog/
+Allow: /contact
+Allow: /about
+Allow: /faq
+
+# Disallow admin and API routes from indexing
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login
+Disallow: /sign-in
+Disallow: /sign-up
+Disallow: /profile
+
+# Allow images and assets
+Allow: /images/
+Allow: /_next/static/
+Allow: /_next/image
+
+# Sitemap location
+Sitemap: https://screwbazar.com/sitemap.xml
+
+# Crawl-delay for polite crawling (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1

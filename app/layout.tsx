@@ -16,9 +16,10 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata = {
-  title: "ScrewBazar - Industrial Fasteners & Hardware Supplier",
+  title: "ScrewBazar - Buy Screws, Nuts, Bolts & Industrial Fasteners Online India",
   description:
-    "Your trusted partner for industrial fasteners, screws, nuts, bolts, washers, and anchors. Bulk orders with expert guidance.",
+    "Buy high-quality screws, nuts, bolts, washers, anchors & industrial fasteners online. Self-tapping screws, machine screws, nylon fasteners, PCB hardware. Fast delivery across India. Bulk orders available.",
+  keywords: "screws, nuts, bolts, fasteners, industrial fasteners, self-tapping screws, machine screws, hex bolts, washers, anchors, nylon fasteners, PCB fasteners, buy screws online, fasteners India, hardware supplier",
   icons: {
     icon: "/icon",
     shortcut: "/icon",
@@ -26,6 +27,42 @@ export const metadata = {
   },
   manifest: "/manifest.json",
   metadataBase: new URL("https://screwbazar.com"),
+  openGraph: {
+    title: "ScrewBazar - Buy Screws, Nuts, Bolts & Industrial Fasteners Online",
+    description: "India's trusted supplier for industrial fasteners, screws, nuts, bolts, washers & anchors. Fast delivery, bulk orders available.",
+    url: "https://screwbazar.com",
+    siteName: "ScrewBazar",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://screwbazar.com/icon",
+        width: 192,
+        height: 192,
+        alt: "ScrewBazar - Industrial Fasteners Supplier",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ScrewBazar - Buy Screws, Nuts, Bolts & Industrial Fasteners",
+    description: "India's trusted supplier for industrial fasteners. Fast delivery, bulk orders available.",
+    images: ["https://screwbazar.com/icon"],
+  },
+  alternates: {
+    canonical: "https://screwbazar.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   other: {
     "msapplication-TileColor": "#bcff1d",
     "apple-mobile-web-app-capable": "yes",
