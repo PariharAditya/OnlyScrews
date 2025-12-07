@@ -27,11 +27,18 @@ export async function POST(request: NextRequest) {
     // Get credentials INSIDE the function (required for Netlify serverless)
     const emailUser = process.env.EMAIL_USER;
     const emailPass = process.env.EMAIL_PASS;
+    const quoteRecipient = process.env.QUOTE_RECIPIENT_EMAIL || 'screwbazar@gmail.com';
 
-    console.log('Email config check:', { hasUser: !!emailUser, hasPass: !!emailPass });
+    console.log('Email config check:', { 
+      hasUser: !!emailUser, 
+      hasPass: !!emailPass,
+      recipient: quoteRecipient,
+      envKeys: Object.keys(process.env).filter(k => k.includes('EMAIL') || k.includes('QUOTE'))
+    });
 
     if (!emailUser || !emailPass) {
-      console.error('Missing EMAIL_USER or EMAIL_PASS');
+      console.error('Missing EMAIL_USER or EMAIL_PASS environment variables');
+      console.error('Available env keys:', Object.keys(process.env).filter(k => k.includes('EMAIL') || k.includes('QUOTE')));
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
@@ -55,7 +62,7 @@ export async function POST(request: NextRequest) {
     // Email content sent to screwbazar@gmail.com
     const mailOptions = {
       from: emailUser,
-      to: 'screwbazar@gmail.com',
+      to: quoteRecipient,
       replyTo: email, // So you can reply directly to the customer
       subject: `🔩 New Quote Request: ${product}`,
       html: `
@@ -161,7 +168,7 @@ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
             </div>
             
             <p style="font-size: 14px; color: #555; line-height: 1.6;">
-              If you have any urgent queries, feel free to contact us directly at <a href="mailto:screwbazar@gmail.com" style="color: #0066cc;">screwbazar@gmail.com</a>
+              If you have any urgent queries, feel free to contact us directly at <a href="mailto:${quoteRecipient}" style="color: #0066cc;">${quoteRecipient}</a>
             </p>
             
             <p style="font-size: 14px; color: #555; margin-top: 20px;">
