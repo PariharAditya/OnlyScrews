@@ -18,8 +18,8 @@ export async function GET() {
         >
           {/* Circular Background with Gradient */}
           <svg
-            width="192"
-            height="192"
+            width: "100%",
+            height: "100%",
             viewBox="0 0 192 192"
             style={{
               position: "absolute",
@@ -73,7 +73,7 @@ export async function GET() {
       }
     );
   } catch (error) {
-    console.error("Icon generation error:", error);
+    console.error("Favicon generation error:", error);
     return new Response(null, { status: 500 });
   }
 }

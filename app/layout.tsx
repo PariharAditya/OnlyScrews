@@ -21,9 +21,9 @@ export const metadata = {
     "Buy high-quality screws, nuts, bolts, washers, anchors & industrial fasteners online. Self-tapping screws, machine screws, nylon fasteners, PCB hardware. Fast delivery across India. Bulk orders available.",
   keywords: "screws, nuts, bolts, fasteners, industrial fasteners, self-tapping screws, machine screws, hex bolts, washers, anchors, nylon fasteners, PCB fasteners, buy screws online, fasteners India, hardware supplier",
   icons: {
-    icon: "/icon",
-    shortcut: "/icon",
-    apple: "/icon",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   metadataBase: new URL("https://screwbazar.com"),

@@ -18,9 +18,9 @@ export async function GET() {
         >
           {/* Circular Background with Gradient */}
           <svg
-            width="192"
-            height="192"
-            viewBox="0 0 192 192"
+            width="100%"
+            height="100%"
+            viewBox="0 0 180 180"
             style={{
               position: "absolute",
             }}
@@ -38,13 +38,13 @@ export async function GET() {
             </defs>
             
             {/* Main Circle - Dark Background */}
-            <circle cx="96" cy="96" r="98" fill="url(#bgGradient)" />
+            <circle cx="90" cy="90" r="88" fill="url(#bgGradient)" />
             
             {/* Accent Border */}
-            <circle cx="96" cy="96" r="98" fill="none" stroke="url(#borderGradient)" strokeWidth="3" />
+            <circle cx="90" cy="90" r="88" fill="none" stroke="url(#borderGradient)" strokeWidth="2" />
             
             {/* Inner accent circle */}
-            <circle cx="96" cy="96" r="92" fill="none" stroke="#bcff1d" strokeWidth="1" opacity="0.3" />
+            <circle cx="90" cy="90" r="83" fill="none" stroke="#bcff1d" strokeWidth="1" opacity="0.3" />
           </svg>
 
           {/* SB Text */}
@@ -53,7 +53,7 @@ export async function GET() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 88,
+              fontSize: 80,
               fontWeight: "900",
               fontFamily: "'Montserrat', 'Arial Black', sans-serif",
               letterSpacing: "-4px",
@@ -68,12 +68,12 @@ export async function GET() {
         </div>
       ),
       {
-        width: 192,
-        height: 192,
+        width: 180,
+        height: 180,
       }
     );
   } catch (error) {
-    console.error("Icon generation error:", error);
+    console.error("Apple touch icon generation error:", error);
     return new Response(null, { status: 500 });
   }
 }
