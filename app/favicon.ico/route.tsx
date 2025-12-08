@@ -18,8 +18,8 @@ export async function GET() {
         >
           {/* Circular Background with Gradient */}
           <svg
-            width: "100%",
-            height: "100%",
+            width="100%"
+            height="100%"
             viewBox="0 0 192 192"
             style={{
               position: "absolute",
