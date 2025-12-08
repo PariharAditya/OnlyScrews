@@ -1,12 +1,5 @@
-'use client';
-
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
-
-// Dynamically import the Index component
-const FAQContent = dynamic(() => import('./client/pages/Index'), {
-  ssr: false,
-});
+import FAQClientWrapper from './client-wrapper';
 
 // Metadata for FAQ page
 export const metadata: Metadata = {
@@ -77,7 +70,7 @@ export default function FAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <FAQContent />
+      <FAQClientWrapper />
     </>
   );
 }
