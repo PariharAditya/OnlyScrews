@@ -45,10 +45,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm ci --omit=optional
-        env:
-          npm_config_platform: linux
-          npm_config_arch: x64
+        run: npm ci
 
       - name: Run build
         run: npm run build
@@ -84,10 +81,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --omit=optional
-        env:
-          npm_config_platform: linux
-          npm_config_arch: x64
+        run: npm ci
 
       - name: Run ESLint
         run: npm run lint --if-present
@@ -107,10 +101,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci --omit=optional
-        env:
-          npm_config_platform: linux
-          npm_config_arch: x64
+        run: npm ci
 
       - name: Run TypeScript check
         run: npx tsc --noEmit
