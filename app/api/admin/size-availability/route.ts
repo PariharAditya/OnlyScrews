@@ -1,6 +1,8 @@
 // Admin API for managing Product Size Availability
 // POST /api/admin/size-availability - Create/Update size availability data
 // GET /api/admin/size-availability - List all products with size data
+// PUT /api/admin/size-availability - Update specific size availability
+// DELETE /api/admin/size-availability - Delete size availability for a product
 
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
@@ -193,6 +195,90 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error in GET /api/admin/size-availability:", error);
+    return NextResponse.json(
+      { error: "Internal server error", details: String(error) },
+      { status: 500 }
+    );
+  }
+}
+
+// PUT - Update specific size availability
+export async function PUT(request: NextRequest) {
+  try {
+    const body = await request.json();
+
+    // Validate required fields
+    if (!body.productSlug || !body.materialSlug || !body.size) {
+      return NextResponse.json(
+        { error: "productSlug, materialSlug, and size are required" },
+        { status: 400 }
+      );
+    }
+
+    // Find the product
+    const product = await prisma.product.findFirst({
+      where: { slug: body.productSlug },
+    });
+
+    if (!product) {
+      return NextResponse.json(
+        { error: `Product with slug '${body.productSlug}' not found` },
+        { status: 404 }
+      );
+    }
+
+    // Find the material
+    const material = await prisma.material.findFirst({
+      where: { slug: body.materialSlug },
+    });
+
+    if (!material) {
+      return NextResponse.json(
+        { error: `Material with slug '${body.materialSlug}' not found` },
+        { status: 404 }
+      );
+    }
+
+    // Find existing size availability
+    const existing = await prisma.productSizeAvailability.findFirst({
+      where: {
+        productId: product.id,
+        materialId: material.id,
+        size: body.size,
+      },
+    });
+
+    if (!existing) {
+      return NextResponse.json(
+        {
+          error: `Size availability record not found for product '${body.productSlug}', material '${body.materialSlug}', size '${body.size}'`,
+        },
+        { status: 404 }
+      );
+    }
+
+    // Update the record
+    const updated = await prisma.productSizeAvailability.update({
+      where: { id: existing.id },
+      data: {
+        available: body.available !== undefined ? body.available : existing.available,
+        sortOrder: body.sortOrder !== undefined ? body.sortOrder : existing.sortOrder,
+      },
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: `Updated size availability for ${product.name} - ${material.name} - ${body.size}`,
+      data: {
+        productName: product.name,
+        materialName: material.name,
+        size: updated.size,
+        available: updated.available,
+        sortOrder: updated.sortOrder,
+      },
+    });
+  } catch (error) {
+    console.error("Error in PUT /api/admin/size-availability:", error);
     return NextResponse.json(
       { error: "Internal server error", details: String(error) },
       { status: 500 }
