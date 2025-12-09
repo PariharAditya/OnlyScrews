@@ -5,45 +5,45 @@ import { ProductCategoryCard } from "@/components/product-categories/ProductCate
 
 export default function ProductsPage() {
   const productCategories = [
-    { 
-      title: "Screws", 
-      slug: "screws", 
-      image: "/images/products/screws/Machine Screw.png" 
+    {
+      title: "Screws",
+      slug: "screws",
+      image: "/images/products/screws/Machine Screw.png",
     },
-    { 
-      title: "Bolts", 
-      slug: "bolts", 
-      image: "/images/products/bolts/FLANGE BOLT.png" 
+    {
+      title: "Bolts",
+      slug: "bolts",
+      image: "/images/products/bolts/FLANGE BOLT.png",
     },
-    { 
-      title: "Nuts", 
-      slug: "nuts", 
-      image: "/images/products/nuts/Flange Nut.png" 
+    {
+      title: "Nuts",
+      slug: "nuts",
+      image: "/images/products/nuts/Flange Nut.png",
     },
-    { 
-      title: "Anchors", 
-      slug: "anchors", 
-      image: "/images/products/anchors/Shield Anchor.png" 
+    {
+      title: "Anchors",
+      slug: "anchors",
+      image: "/images/products/anchors/Shield Anchor.png",
     },
-    { 
-      title: "Spacers", 
-      slug: "spacers", 
-      image: "/images/products/spacers/Hex Spacer.png" 
+    {
+      title: "Spacers",
+      slug: "spacers",
+      image: "/images/products/spacers/Hex Spacer.png",
     },
-    { 
-      title: "Stand-Offs", 
-      slug: "stand-offs", 
-      image: "/images/products/standoffs/Blind Stand Off.png" 
+    {
+      title: "Stand-Offs",
+      slug: "stand-offs",
+      image: "/images/products/standoffs/Blind Stand Off.png",
     },
-    { 
-      title: "Rivets and Dowels", 
-      slug: "rivets", 
-      image: "/images/products/rivets/Blind.png" 
+    {
+      title: "Rivets and Dowels",
+      slug: "rivets",
+      image: "/images/products/rivets/Blind.png",
     },
-    { 
-      title: "Washers", 
-      slug: "washers", 
-      image: "/images/products/washers/Circlip type A.png" 
+    {
+      title: "Washers",
+      slug: "washers",
+      image: "/images/products/washers/Circlip type A.png",
     },
   ];
 

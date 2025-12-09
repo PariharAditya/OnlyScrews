@@ -6,6 +6,9 @@ import ProductDetail from "@/components/ProductDetail";
 import Footer from "@/components/Footer";
 import { productData } from "@/lib/productData";
 
+// Note: Dynamic metadata should be added via a server component wrapper or middleware
+// For client components, consider creating a separate route.tsx file
+
 export default function CategoryPage({
   params,
 }: Readonly<{ params: Promise<{ slug: string }> }>) {

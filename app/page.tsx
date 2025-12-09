@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Footer from "../components/Footer";
 import ContactButtons from "../components/FloatingButton";
 import LandingPage from "../components/LandingPage";
@@ -8,6 +9,63 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import BlogSection from "../components/BlogSection";
 import CTAButton from "../components/ui/CTAButton";
 
+export const metadata: Metadata = {
+  title:
+    "Screw Bazar - Premium Fasteners, Screws, Bolts & Hardware | OnlyScrews",
+  description:
+    "India's leading online fastener store. Shop high-quality screws, bolts, nuts, anchors, rivets, washers, spacers & more. SS304, MS, brass, nylon fasteners. Fast delivery across India.",
+  keywords: [
+    "screws online India",
+    "buy fasteners online",
+    "stainless steel screws",
+    "machine screws",
+    "hex bolts",
+    "nylon fasteners",
+    "industrial hardware",
+    "self-tapping screws",
+    "anchor bolts",
+    "screw bazar",
+    "OnlyScrews",
+  ],
+  openGraph: {
+    title: "Screw Bazar - Premium Fasteners & Hardware Store",
+    description:
+      "Shop high-quality screws, bolts, nuts, and fasteners online. Trusted supplier for industrial and DIY projects across India.",
+    url: "https://www.screwbazar.com",
+    siteName: "Screw Bazar",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Screw Bazar - Premium Fasteners",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Screw Bazar - Premium Fasteners & Hardware",
+    description:
+      "India's leading online fastener store. Shop screws, bolts, nuts & more.",
+    images: ["/images/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.screwbazar.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
 export default function Home() {
   return (
     <div>
@@ -15,7 +73,6 @@ export default function Home() {
       <LandingPage />
 
       <main className="flex min-h-screen flex-col items-center justify-between">
-       
         {/* Categories Section */}
         <CategoriesSection />
 
