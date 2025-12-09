@@ -46,6 +46,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --omit=optional
+        env:
+          npm_config_platform: linux
+          npm_config_arch: x64
 
       - name: Run build
         run: npm run build
@@ -82,6 +85,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --omit=optional
+        env:
+          npm_config_platform: linux
+          npm_config_arch: x64
 
       - name: Run ESLint
         run: npm run lint --if-present
@@ -102,6 +108,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --omit=optional
+        env:
+          npm_config_platform: linux
+          npm_config_arch: x64
 
       - name: Run TypeScript check
         run: npx tsc --noEmit
