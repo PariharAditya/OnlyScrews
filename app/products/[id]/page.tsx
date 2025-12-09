@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductTabs from "./ProductTabs";
+import { Metadata } from "next";
 
 interface ProductSpec {
   label: string;
@@ -114,6 +115,75 @@ const getProductInfo = (id: string): ProductInfo | null => {
     standards: ["ISO 4014", "DIN 931", "ASME B18.2.3.1M", "IS 1364"],
   };
 };
+
+export async function generateMetadata(props: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const { id } = params;
+
+  // Check if it's a category
+  if (isCategory(id)) {
+    const categoryInfo = getCategoryInfo(id);
+    if (categoryInfo) {
+      return {
+        title: `${categoryInfo.name} - Quality Fasteners | Screw Bazar`,
+        description: categoryInfo.description,
+        keywords: [
+          categoryInfo.name.toLowerCase(),
+          "fasteners",
+          "hardware",
+          "industrial",
+          "online store",
+        ],
+        openGraph: {
+          title: `${categoryInfo.name} | Screw Bazar`,
+          description: categoryInfo.description,
+          url: `https://www.screwbazar.com/products/${id}`,
+          type: "website",
+          images: categoryInfo.image
+            ? [{ url: categoryInfo.image, alt: categoryInfo.name }]
+            : [],
+        },
+        alternates: {
+          canonical: `https://www.screwbazar.com/products/${id}`,
+        },
+      };
+    }
+  }
+
+  // For individual products
+  const productInfo = getProductInfo(id);
+  if (productInfo) {
+    return {
+      title: `${productInfo.name} - ${productInfo.category} | Screw Bazar`,
+      description: productInfo.description,
+      keywords: [
+        productInfo.name.toLowerCase(),
+        productInfo.category.toLowerCase(),
+        "fasteners",
+        "buy online",
+        "quality hardware",
+      ],
+      openGraph: {
+        title: `${productInfo.name} | Screw Bazar`,
+        description: productInfo.description,
+        url: `https://www.screwbazar.com/products/${id}`,
+        type: "product",
+        images: productInfo.image
+          ? [{ url: productInfo.image, alt: productInfo.name }]
+          : [],
+      },
+      alternates: {
+        canonical: `https://www.screwbazar.com/products/${id}`,
+      },
+    };
+  }
+
+  return {
+    title: "Product Not Found | Screw Bazar",
+  };
+}
 
 export default async function ProductPage(props: {
   params: Promise<{ id: string }>;

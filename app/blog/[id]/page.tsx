@@ -3,11 +3,55 @@ import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 import { BLOG_POSTS, BLOG_CONTENT } from "../blogData";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 interface BlogDetailProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: BlogDetailProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = BLOG_POSTS.find((p) => p.id === id);
+
+  if (!post) {
+    return {
+      title: "Blog Post Not Found | Screw Bazar",
+    };
+  }
+
+  return {
+    title: `${post.title} | Screw Bazar Blog`,
+    description: post.excerpt,
+    keywords: [
+      post.category.toLowerCase(),
+      "fasteners",
+      "screws",
+      "bolts",
+      "hardware",
+      "blog",
+      "guide",
+    ],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `https://www.screwbazar.com/blog/${id}`,
+      type: "article",
+      images: post.image ? [{ url: post.image, alt: post.title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : [],
+    },
+    alternates: {
+      canonical: `https://www.screwbazar.com/blog/${id}`,
+    },
+  };
 }
 
 export default async function BlogDetail({ params }: BlogDetailProps) {
