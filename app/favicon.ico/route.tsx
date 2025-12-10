@@ -1,59 +1,65 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 export async function GET() {
-  try {
-    return new ImageResponse(
-      (
-        <svg
-          width="192"
-          height="192"
-          viewBox="0 0 192 192"
-          xmlns="http://www.w3.org/2000/svg"
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%)",
+          position: "relative",
+        }}
+      >
+        {/* Circular border */}
+        <div
+          style={{
+            width: "196px",
+            height: "196px",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #bcff1d 0%, #a8e600 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "absolute",
+          }}
         >
-          <defs>
-            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1a1a1a" />
-              <stop offset="100%" stopColor="#0d0d0d" />
-            </linearGradient>
-            <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#bcff1d" />
-              <stop offset="100%" stopColor="#a8e600" />
-            </linearGradient>
-          </defs>
-          
-          {/* Main Circle - Dark Background */}
-          <circle cx="96" cy="96" r="98" fill="url(#bgGradient)" />
-          
-          {/* Accent Border */}
-          <circle cx="96" cy="96" r="98" fill="none" stroke="url(#borderGradient)" strokeWidth="3" />
-          
-          {/* Inner accent circle */}
-          <circle cx="96" cy="96" r="92" fill="none" stroke="#bcff1d" strokeWidth="1" opacity="0.3" />
-          
-          {/* SB Text */}
-          <text
-            x="96"
-            y="120"
-            fontSize="88"
-            fontWeight="900"
-            fontFamily="serif"
-            fill="#bcff1d"
-            textAnchor="middle"
-            dominantBaseline="middle"
+          <div
+            style={{
+              width: "190px",
+              height: "190px",
+              borderRadius: "50%",
+              background: "linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            SB
-          </text>
-        </svg>
-      ),
-      {
-        width: 192,
-        height: 192,
-      }
-    )
-  } catch (error) {
-    console.error('Favicon generation error:', error)
-    return new Response(null, { status: 500 })
-  }
+            {/* SB Text */}
+            <div
+              style={{
+                fontSize: "88px",
+                fontWeight: 900,
+                fontFamily: "serif",
+                color: "#bcff1d",
+                letterSpacing: "-4px",
+                display: "flex",
+              }}
+            >
+              SB
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    {
+      width: 192,
+      height: 192,
+    }
+  )
 }
