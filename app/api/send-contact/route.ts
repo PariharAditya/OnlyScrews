@@ -86,6 +86,10 @@ export async function POST(request: NextRequest) {
               </tr>
               ` : ''}
               <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Contact Number:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;"><a href="tel:+918951934668" style="color: #0066cc;">+91 8951934668</a></td>
+              </tr>
+              <tr>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; color: #666;">Type:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee; color: #1a1a1a;">${isContact ? 'Contact Form' : 'Bulk Enquiry'}</td>
               </tr>
