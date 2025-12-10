@@ -28,7 +28,7 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm font-sans">
               <p className="text-blue-600">screwbazar@gmail.com</p>
-              <p className="mt-4">1800-833-2218</p>
+              <p className="mt-4">+91 8951934668</p>
               <p className="text-sm text-gray-500">(9am-5pm)</p>
             </div>
           </div>
