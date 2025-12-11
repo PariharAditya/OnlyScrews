@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import {
   Trash2,
   Edit2,
@@ -9,7 +9,9 @@ import {
   Upload,
   RefreshCw,
   Search,
+  Zap,
 } from "lucide-react";
+import MaterialDropdown from "@/components/MaterialDropdown";
 import {
   QueryClient,
   QueryClientProvider,
@@ -79,6 +81,18 @@ function SizeAvailabilityAdmin() {
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedMaterialIndex, setSelectedMaterialIndex] = useState(0);
+  const [hoveredMaterial, setHoveredMaterial] = useState<number | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Size grid filter and pagination
+  const [sizeFilter, setSizeFilter] = useState<
+    "all" | "available" | "unavailable"
+  >("all");
+  const [sizeSearch, setSizeSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
 
   // TanStack Query for products
   const { data: productsData, refetch: refetchProducts } = useQuery({
@@ -183,11 +197,11 @@ function SizeAvailabilityAdmin() {
       data.materials?.forEach((mat: any) => {
         mat.sizes?.forEach((size: any, index: number) => {
           transformed.push({
-            id: `${productSlug}-${mat.slug}-${size.size}`,
+            id: mat.materialId,
             productSlug,
             productName: data.productName || productSlug,
-            materialSlug: mat.slug,
-            materialName: mat.name,
+            materialSlug: mat.materialSlug,
+            materialName: mat.materialName,
             size: size.size,
             available: size.available,
             sortOrder: index,
@@ -206,6 +220,16 @@ function SizeAvailabilityAdmin() {
     if (selectedProduct) {
       loadSizeData(selectedProduct);
     }
+  }, [selectedProduct]);
+
+  // Reset material selection when product changes
+  useEffect(() => {
+    setSelectedMaterialIndex(0);
+    setIsDropdownOpen(false);
+    setHoveredMaterial(null);
+    setSizeFilter("all");
+    setSizeSearch("");
+    setCurrentPage(1);
   }, [selectedProduct]);
 
   const handleImport = async () => {
@@ -548,112 +572,522 @@ hex-sem	Mild Steel	M-4 X 10	N`;
                 ) : selectedProduct && sizeData.length === 0 ? (
                   <p className="text-gray-500">No size data found</p>
                 ) : selectedProduct ? (
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead className="text-left text-gray-400 border-b border-gray-800">
-                        <tr>
-                          <th className="pb-3">Material</th>
-                          <th className="pb-3">Size</th>
-                          <th className="pb-3">Available</th>
-                          <th className="pb-3">Order</th>
-                          <th className="pb-3">Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-800/50">
-                        {sizeData.map((item) => (
-                          <tr key={item.id} className="hover:bg-gray-900/50">
-                            <td className="py-3">{item.materialName}</td>
-                            <td className="py-3">
-                              <code className="bg-black/50 px-2 py-1 rounded text-[#A3F61E]">
-                                {item.size}
-                              </code>
-                            </td>
-                            <td className="py-3">
-                              {editingId === item.id ? (
-                                <select
-                                  value={
-                                    editData.available !== undefined
-                                      ? editData.available
-                                        ? "true"
-                                        : "false"
-                                      : item.available
-                                      ? "true"
-                                      : "false"
-                                  }
-                                  onChange={(e) =>
-                                    setEditData({
-                                      ...editData,
-                                      available: e.target.value === "true",
-                                    })
-                                  }
-                                  className="bg-black border border-gray-700 rounded px-2 py-1"
-                                >
-                                  <option value="true">Yes</option>
-                                  <option value="false">No</option>
-                                </select>
-                              ) : (
-                                <span
-                                  className={`px-2 py-1 rounded text-xs ${
-                                    item.available
-                                      ? "bg-green-500/20 text-green-400"
-                                      : "bg-red-500/20 text-red-400"
-                                  }`}
-                                >
-                                  {item.available ? "Yes" : "No"}
-                                </span>
-                              )}
-                            </td>
-                            <td className="py-3">
-                              {editingId === item.id ? (
-                                <input
-                                  type="number"
-                                  value={editData.sortOrder ?? item.sortOrder}
-                                  onChange={(e) =>
-                                    setEditData({
-                                      ...editData,
-                                      sortOrder: parseInt(e.target.value),
-                                    })
-                                  }
-                                  className="w-16 bg-black border border-gray-700 rounded px-2 py-1"
-                                />
-                              ) : (
-                                item.sortOrder
-                              )}
-                            </td>
-                            <td className="py-3">
-                              <div className="flex gap-2">
-                                {editingId === item.id ? (
-                                  <>
-                                    <button
-                                      onClick={() => handleUpdate(item)}
-                                      className="text-green-500 hover:text-green-400 p-1"
+                  <div className="space-y-4">
+                    {/* Group by Material */}
+                    {(() => {
+                      // Group items by material
+                      const groups: Record<
+                        string,
+                        { name: string; slug: string; items: any[] }
+                      > = {};
+
+                      sizeData.forEach((item) => {
+                        const key =
+                          item.materialSlug || item.materialName || "unknown";
+                        if (!groups[key]) {
+                          groups[key] = {
+                            name:
+                              item.materialName ||
+                              item.materialSlug ||
+                              "Unknown Material",
+                            slug: item.materialSlug || "unknown",
+                            items: [],
+                          };
+                        }
+                        groups[key].items.push(item);
+                      });
+
+                      const materialGroups = Object.values(groups);
+
+                      if (materialGroups.length === 0) {
+                        return (
+                          <p className="text-gray-500">No data to display</p>
+                        );
+                      }
+
+                      // Get current material (selected or hovered)
+                      const currentMaterialIndex =
+                        selectedMaterialIndex < materialGroups.length
+                          ? selectedMaterialIndex
+                          : 0;
+                      const previewMaterialIndex =
+                        hoveredMaterial !== null
+                          ? hoveredMaterial
+                          : currentMaterialIndex;
+                      const currentMaterial =
+                        materialGroups[currentMaterialIndex];
+                      const previewMaterial =
+                        materialGroups[previewMaterialIndex];
+
+                      const handleMaterialChange = (index: number) => {
+                        setSelectedMaterialIndex(index);
+                        setIsDropdownOpen(false);
+                        setHoveredMaterial(null);
+                      };
+
+                      const handleMaterialHover = (index: number) => {
+                        if (hoverTimeoutRef.current) {
+                          clearTimeout(hoverTimeoutRef.current);
+                        }
+                        setHoveredMaterial(index);
+                      };
+
+                      const handleMaterialLeave = () => {
+                        hoverTimeoutRef.current = setTimeout(() => {
+                          setHoveredMaterial(null);
+                        }, 150);
+                      };
+
+                      const inStockCount = currentMaterial.items.filter(
+                        (item: any) => item.available
+                      ).length;
+                      const availabilityPercent = Math.round(
+                        (inStockCount / currentMaterial.items.length) * 100
+                      );
+
+                      return (
+                        <>
+                          {/* Material Dropdown */}
+                          <MaterialDropdown
+                            materials={materialGroups}
+                            selectedIndex={currentMaterialIndex}
+                            hoveredIndex={hoveredMaterial}
+                            isOpen={isDropdownOpen}
+                            onToggle={() => setIsDropdownOpen(!isDropdownOpen)}
+                            onSelect={handleMaterialChange}
+                            onHover={handleMaterialHover}
+                            onLeave={handleMaterialLeave}
+                          />
+
+                          {/* Size Availability Table */}
+                          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#0d0d0d] to-[#080808] border border-gray-800/50">
+                            {/* Decorative corner accents */}
+                            <div className="absolute top-0 left-0 w-20 h-20 border-l-2 border-t-2 border-[#A3F61E]/20 rounded-tl-2xl"></div>
+                            <div className="absolute top-0 right-0 w-20 h-20 border-r-2 border-t-2 border-[#A3F61E]/20 rounded-tr-2xl"></div>
+
+                            {/* Header */}
+                            <div className="relative px-5 py-4 border-b border-gray-800/50 bg-gradient-to-r from-black/50 to-transparent">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                  <div className="flex items-center gap-2">
+                                    <Zap className="w-4 h-4 text-[#A3F61E]" />
+                                    <h4 className="text-base font-bold text-white tracking-wide">
+                                      {previewMaterial.name}
+                                    </h4>
+                                  </div>
+                                  {hoveredMaterial !== null &&
+                                    hoveredMaterial !==
+                                      currentMaterialIndex && (
+                                      <span className="text-[10px] px-2 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-wider font-bold animate-pulse">
+                                        Preview Mode
+                                      </span>
+                                    )}
+                                </div>
+
+                                {/* Availability Progress Ring */}
+                                <div className="flex items-center gap-4">
+                                  <div className="relative w-12 h-12">
+                                    <svg
+                                      className="w-12 h-12 -rotate-90"
+                                      viewBox="0 0 36 36"
                                     >
-                                      <Save className="w-4 h-4" />
-                                    </button>
-                                    <button
-                                      onClick={() => {
-                                        setEditingId(null);
-                                        setEditData({});
-                                      }}
-                                      className="text-gray-500 hover:text-gray-400 p-1"
-                                    >
-                                      <X className="w-4 h-4" />
-                                    </button>
-                                  </>
-                                ) : (
-                                  <button
-                                    onClick={() => setEditingId(item.id)}
-                                    className="text-blue-500 hover:text-blue-400 p-1"
-                                  >
-                                    <Edit2 className="w-4 h-4" />
-                                  </button>
-                                )}
+                                      <path
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none"
+                                        stroke="rgba(255,255,255,0.1)"
+                                        strokeWidth="2"
+                                      />
+                                      <path
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        fill="none"
+                                        stroke="url(#gradient)"
+                                        strokeWidth="2"
+                                        strokeDasharray={`${availabilityPercent}, 100`}
+                                        strokeLinecap="round"
+                                      />
+                                      <defs>
+                                        <linearGradient
+                                          id="gradient"
+                                          x1="0%"
+                                          y1="0%"
+                                          x2="100%"
+                                          y2="0%"
+                                        >
+                                          <stop
+                                            offset="0%"
+                                            stopColor="#A3F61E"
+                                          />
+                                          <stop
+                                            offset="100%"
+                                            stopColor="#22c55e"
+                                          />
+                                        </linearGradient>
+                                      </defs>
+                                    </svg>
+                                    <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">
+                                      {availabilityPercent}%
+                                    </span>
+                                  </div>
+
+                                  <div className="hidden sm:flex flex-col gap-1 text-xs">
+                                    <div className="flex items-center gap-2">
+                                      <div className="w-2 h-2 rounded-full bg-[#A3F61E] shadow-[0_0_10px_rgba(163,246,30,0.5)]"></div>
+                                      <span className="text-gray-400">
+                                        In Stock
+                                      </span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <div className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
+                                      <span className="text-gray-400">
+                                        Out of Stock
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                            </div>
+
+                            {/* Filter and Search Controls */}
+                            <div className="px-5 py-3 border-b border-gray-800/50 bg-black/20">
+                              <div className="flex items-center justify-between gap-4 flex-wrap">
+                                <div className="flex items-center gap-3">
+                                  {/* Size Search */}
+                                  <div className="relative">
+                                    <input
+                                      type="text"
+                                      value={sizeSearch}
+                                      onChange={(e) => {
+                                        setSizeSearch(e.target.value);
+                                        setCurrentPage(1);
+                                      }}
+                                      placeholder="Search sizes..."
+                                      className="bg-black border border-gray-700 rounded-lg px-3 py-1.5 pr-8 text-sm focus:border-[#A3F61E] focus:outline-none w-48"
+                                    />
+                                    {sizeSearch && (
+                                      <button
+                                        onClick={() => {
+                                          setSizeSearch("");
+                                          setCurrentPage(1);
+                                        }}
+                                        className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
+                                      >
+                                        <X className="w-4 h-4" />
+                                      </button>
+                                    )}
+                                  </div>
+
+                                  {/* Availability Filter */}
+                                  <select
+                                    value={sizeFilter}
+                                    onChange={(e) => {
+                                      setSizeFilter(e.target.value as any);
+                                      setCurrentPage(1);
+                                    }}
+                                    className="bg-black border border-gray-700 rounded-lg px-3 py-1.5 text-sm focus:border-[#A3F61E] focus:outline-none"
+                                  >
+                                    <option value="all">All Sizes</option>
+                                    <option value="available">
+                                      Available Only
+                                    </option>
+                                    <option value="unavailable">
+                                      Unavailable Only
+                                    </option>
+                                  </select>
+                                </div>
+
+                                {/* Results count */}
+                                <div className="text-sm text-gray-400">
+                                  {(() => {
+                                    let filtered = previewMaterial.items;
+
+                                    if (sizeFilter !== "all") {
+                                      filtered = filtered.filter((item: any) =>
+                                        sizeFilter === "available"
+                                          ? item.available
+                                          : !item.available
+                                      );
+                                    }
+
+                                    if (sizeSearch.trim()) {
+                                      filtered = filtered.filter((item: any) =>
+                                        item.size
+                                          .toLowerCase()
+                                          .includes(sizeSearch.toLowerCase())
+                                      );
+                                    }
+
+                                    return `Showing ${filtered.length} of ${previewMaterial.items.length} sizes`;
+                                  })()}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Table */}
+                            <div className="overflow-x-auto">
+                              <table className="w-full text-sm">
+                                <thead className="text-left text-gray-400 border-b border-gray-800 bg-black/30">
+                                  <tr>
+                                    <th className="px-4 py-2">Size</th>
+                                    <th className="px-4 py-2">Available</th>
+                                    <th className="px-4 py-2">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-800/50">
+                                  {(() => {
+                                    let filtered = previewMaterial.items;
+
+                                    // Apply availability filter
+                                    if (sizeFilter !== "all") {
+                                      filtered = filtered.filter((item: any) =>
+                                        sizeFilter === "available"
+                                          ? item.available
+                                          : !item.available
+                                      );
+                                    }
+
+                                    // Apply search filter
+                                    if (sizeSearch.trim()) {
+                                      filtered = filtered.filter((item: any) =>
+                                        item.size
+                                          .toLowerCase()
+                                          .includes(sizeSearch.toLowerCase())
+                                      );
+                                    }
+
+                                    // Pagination
+                                    const startIndex =
+                                      (currentPage - 1) * itemsPerPage;
+                                    const endIndex = startIndex + itemsPerPage;
+                                    const paginatedItems = filtered.slice(
+                                      startIndex,
+                                      endIndex
+                                    );
+
+                                    if (paginatedItems.length === 0) {
+                                      return (
+                                        <tr>
+                                          <td
+                                            colSpan={3}
+                                            className="px-4 py-8 text-center text-gray-500"
+                                          >
+                                            No sizes found matching your filters
+                                          </td>
+                                        </tr>
+                                      );
+                                    }
+
+                                    return paginatedItems.map((item: any) => (
+                                      <tr
+                                        key={item.id}
+                                        className="hover:bg-gray-900/50"
+                                      >
+                                        <td className="px-4 py-3">
+                                          <code className="bg-black/50 px-2 py-1 rounded text-[#A3F61E] font-mono">
+                                            {item.size}
+                                          </code>
+                                        </td>
+                                        <td className="px-4 py-3">
+                                          {editingId === item.id ? (
+                                            <select
+                                              value={
+                                                editData.available !== undefined
+                                                  ? editData.available
+                                                    ? "true"
+                                                    : "false"
+                                                  : item.available
+                                                  ? "true"
+                                                  : "false"
+                                              }
+                                              onChange={(e) =>
+                                                setEditData({
+                                                  ...editData,
+                                                  available:
+                                                    e.target.value === "true",
+                                                })
+                                              }
+                                              className="bg-black border border-gray-700 rounded px-2 py-1"
+                                            >
+                                              <option value="true">Yes</option>
+                                              <option value="false">No</option>
+                                            </select>
+                                          ) : (
+                                            <span
+                                              className={`px-3 py-1 rounded-full text-xs font-medium ${
+                                                item.available
+                                                  ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                                                  : "bg-red-500/20 text-red-400 border border-red-500/30"
+                                              }`}
+                                            >
+                                              {item.available
+                                                ? "✓ In Stock"
+                                                : "✗ Out of Stock"}
+                                            </span>
+                                          )}
+                                        </td>
+                                        <td className="px-4 py-3">
+                                          <div className="flex gap-2">
+                                            {editingId === item.id ? (
+                                              <>
+                                                <button
+                                                  onClick={() =>
+                                                    handleUpdate(item)
+                                                  }
+                                                  className="text-green-500 hover:text-green-400 p-1"
+                                                  title="Save"
+                                                >
+                                                  <Save className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                  onClick={() => {
+                                                    setEditingId(null);
+                                                    setEditData({});
+                                                  }}
+                                                  className="text-gray-500 hover:text-gray-400 p-1"
+                                                  title="Cancel"
+                                                >
+                                                  <X className="w-4 h-4" />
+                                                </button>
+                                              </>
+                                            ) : (
+                                              <button
+                                                onClick={() =>
+                                                  setEditingId(item.id)
+                                                }
+                                                className="text-blue-500 hover:text-blue-400 p-1"
+                                                title="Edit"
+                                              >
+                                                <Edit2 className="w-4 h-4" />
+                                              </button>
+                                            )}
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    ));
+                                  })()}
+                                </tbody>
+                              </table>
+                            </div>
+
+                            {/* Pagination Controls */}
+                            {(() => {
+                              let filtered = previewMaterial.items;
+
+                              if (sizeFilter !== "all") {
+                                filtered = filtered.filter((item: any) =>
+                                  sizeFilter === "available"
+                                    ? item.available
+                                    : !item.available
+                                );
+                              }
+
+                              if (sizeSearch.trim()) {
+                                filtered = filtered.filter((item: any) =>
+                                  item.size
+                                    .toLowerCase()
+                                    .includes(sizeSearch.toLowerCase())
+                                );
+                              }
+
+                              const totalPages = Math.ceil(
+                                filtered.length / itemsPerPage
+                              );
+
+                              if (totalPages <= 1) return null;
+
+                              return (
+                                <div className="px-5 py-4 border-t border-gray-800/50 bg-black/20">
+                                  <div className="flex items-center justify-between">
+                                    <div className="text-sm text-gray-400">
+                                      Page {currentPage} of {totalPages}
+                                    </div>
+
+                                    <div className="flex items-center gap-2">
+                                      <button
+                                        onClick={() => setCurrentPage(1)}
+                                        disabled={currentPage === 1}
+                                        className="px-3 py-1.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                                      >
+                                        First
+                                      </button>
+                                      <button
+                                        onClick={() =>
+                                          setCurrentPage((p) =>
+                                            Math.max(1, p - 1)
+                                          )
+                                        }
+                                        disabled={currentPage === 1}
+                                        className="px-3 py-1.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                                      >
+                                        Previous
+                                      </button>
+
+                                      {/* Page numbers */}
+                                      <div className="flex items-center gap-1">
+                                        {Array.from(
+                                          { length: Math.min(5, totalPages) },
+                                          (_, i) => {
+                                            let pageNum;
+                                            if (totalPages <= 5) {
+                                              pageNum = i + 1;
+                                            } else if (currentPage <= 3) {
+                                              pageNum = i + 1;
+                                            } else if (
+                                              currentPage >=
+                                              totalPages - 2
+                                            ) {
+                                              pageNum = totalPages - 4 + i;
+                                            } else {
+                                              pageNum = currentPage - 2 + i;
+                                            }
+
+                                            return (
+                                              <button
+                                                key={pageNum}
+                                                onClick={() =>
+                                                  setCurrentPage(pageNum)
+                                                }
+                                                className={`px-3 py-1.5 rounded-lg text-sm ${
+                                                  currentPage === pageNum
+                                                    ? "bg-[#A3F61E] text-black font-bold"
+                                                    : "bg-gray-800 text-white hover:bg-gray-700"
+                                                }`}
+                                              >
+                                                {pageNum}
+                                              </button>
+                                            );
+                                          }
+                                        )}
+                                      </div>
+
+                                      <button
+                                        onClick={() =>
+                                          setCurrentPage((p) =>
+                                            Math.min(totalPages, p + 1)
+                                          )
+                                        }
+                                        disabled={currentPage === totalPages}
+                                        className="px-3 py-1.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                                      >
+                                        Next
+                                      </button>
+                                      <button
+                                        onClick={() =>
+                                          setCurrentPage(totalPages)
+                                        }
+                                        disabled={currentPage === totalPages}
+                                        className="px-3 py-1.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                                      >
+                                        Last
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })()}
+                          </div>
+                        </>
+                      );
+                    })()}
                   </div>
                 ) : (
                   <p className="text-gray-500 text-center py-8">
