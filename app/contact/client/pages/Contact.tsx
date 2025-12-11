@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -7,6 +7,20 @@ export default function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
+  // Auto-dismiss success message after 5 seconds
+  useEffect(() => {
+    if (submitStatus?.type === "success") {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,20 +35,48 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", formData);
-      setFormData({ name: "", email: "", message: "" });
-      alert("Thank you! We'll get back to you within an hour.");
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          type: "contact",
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you! We'll get back to you within an hour.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const data = await response.json();
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Failed to send message. Please try again.",
+        });
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="relative min-h-screen bg-white pt-[50px]">
+    <div className="relative min-h-screen bg-white pt-[20px]">
       {/* Main Content */}
       <div>
         {/* Contact Us Section */}
@@ -54,7 +96,7 @@ export default function Contact() {
 
             {/* Main Office */}
             <div>
-            <div className="relative min-h-screen bg-white pt-2">
+              <h3 className="text-lg font-semibold mb-3 text-black">
                 Main Office
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -72,7 +114,7 @@ export default function Contact() {
             {/* Phone */}
             <div>
               <p className="text-gray-800 text-sm font-medium">
-                1800 833 0066{" "}
+                +91 7007257245{" "}
                 <span className="font-normal text-gray-600">(Mon-Sun, 9 am - 8 pm)</span>
               </p>
             </div>
@@ -108,10 +150,10 @@ export default function Contact() {
               <p className="text-gray-800 text-sm">
                 📞{" "}
                 <a
-                  href="tel:+917007257245"
+                  href="tel:+91 8951934668"
                   className="text-gray-700 hover:underline"
                 >
-                  7007257245
+                  8951934668
                 </a>
               </p>
             </div>
@@ -122,6 +164,33 @@ export default function Contact() {
 
           {/* Contact Form Section */}
           <div className="max-w-2xl">
+            {/* Status Messages - Above Heading */}
+            {submitStatus && (
+              <div
+                className={`mb-6 p-4 rounded-lg text-center font-medium shadow-lg transition-all duration-300 ${
+                  submitStatus.type === "success"
+                    ? "bg-[#BCFF83] text-black border-2 border-[#a8e85c]"
+                    : "bg-red-50 text-red-800 border-2 border-red-200"
+                }`}
+              >
+                {submitStatus.type === "success" ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>{submitStatus.message}</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    <span>{submitStatus.message}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
             <h2 className="text-3xl font-bold mb-12 text-center text-black">
               Contact
             </h2>

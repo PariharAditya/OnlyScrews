@@ -99,10 +99,11 @@ export default function Carousel({
                   isTransitioning ? "opacity-75" : "opacity-100"
                 }`}
               >
-                <div className="bg-dark-card/80 backdrop-blur-sm rounded-lg p-6 md:p-8 h-full border border-white/10 hover:border-lime/30 transition-colors">
+                <div className="bg-dark-card/80 backdrop-blur-sm rounded-lg p-6 md:p-8 h-full border border-white/10 hover:border-lime/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
                   {/* Title */}
                   <div
-                    className="inline-block bg-lime text-black rounded-full px-4 py-2 mb-6 font-bold text-sm md:text-base whitespace-nowrap"
+                    className="inline-block text-black rounded-full px-4 py-2 mb-6 font-bold text-sm md:text-base whitespace-nowrap"
+                    style={{ backgroundColor: '#BCFF83' }}
                     contentEditable
                     suppressContentEditableWarning
                   >
@@ -156,18 +157,31 @@ export default function Carousel({
                   onClick={() => goToSlide(idx)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     idx === currentIndex
-                      ? "bg-lime w-8"
+                      ? "w-8"
                       : "bg-white/30 hover:bg-white/50"
                   }`}
+                  style={idx === currentIndex ? { backgroundColor: '#BCFF83' } : undefined}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
             </div>
 
             {/* View All Button */}
-            <button className="px-6 md:px-8 py-2 md:py-3 rounded-full border-2 border-lime text-lime font-semibold hover:bg-lime hover:text-black transition-colors whitespace-nowrap">
+            <a 
+              href="/products"
+              className="px-6 md:px-8 py-2 md:py-3 rounded-full border-2 font-semibold transition-colors whitespace-nowrap cursor-pointer inline-block text-center"
+              style={{ borderColor: '#BCFF83', color: '#BCFF83' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#BCFF83';
+                e.currentTarget.style.color = '#000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#BCFF83';
+              }}
+            >
               View All
-            </button>
+            </a>
           </div>
         </div>
       </div>
