@@ -180,6 +180,11 @@ export default function RootLayout({
       <head>
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F2QFN2DS2"></script>
+        {/* Favicon: high-resolution image for maximum visual impact */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/final%20sb%20favicon.png" type="image/png" sizes="1240x1754" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/images/final%20sb%20favicon.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
