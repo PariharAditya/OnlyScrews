@@ -15,7 +15,7 @@ export default function AboutPage() {
   const [slides] = useState<CarouselSlide[]>(defaultSlides);
 
   return (
-    <div className="bg-black pt-8 pb-24">
+    <div className="bg-black pt-8 pb-29">
       <Carousel slides={slides} autoPlay={true} autoPlayInterval={6000} />
     </div>
   );

@@ -104,8 +104,6 @@ export default function Carousel({
                   <div
                     className="inline-block text-black rounded-full px-4 py-2 mb-6 font-bold text-sm md:text-base whitespace-nowrap"
                     style={{ backgroundColor: '#BCFF83' }}
-                    contentEditable
-                    suppressContentEditableWarning
                   >
                     {slide.title}
                   </div>
@@ -116,11 +114,7 @@ export default function Carousel({
                   </div>
 
                   {/* Description */}
-                  <p
-                    className="text-white/80 text-sm md:text-base leading-relaxed"
-                    contentEditable
-                    suppressContentEditableWarning
-                  >
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed">
                     {slide.description}
                   </p>
                 </div>

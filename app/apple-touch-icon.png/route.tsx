@@ -4,5 +4,5 @@ export const runtime = 'edge'
 
 export async function GET() {
   // Redirect to the static PNG used as apple touch icon
-  return Response.redirect('/images/final%20sb%20favicon.png', 307)
+  return Response.redirect('https://screwbazar.com/images/final%20sb%20favicon.png', 307)
 }
