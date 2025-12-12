@@ -6,18 +6,17 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/login', '/sign-in', '/sign-up', '/profile'],
+        disallow: ['/api/', '/admin/', '/login', '/login/', '/sign-in', '/sign-in/', '/sign-up', '/sign-up/', '/profile', '/profile/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/login', '/sign-in', '/sign-up', '/profile'],
-        crawlDelay: 0,
+        disallow: ['/api/', '/admin/', '/login', '/login/', '/sign-in', '/sign-in/', '/sign-up', '/sign-up/', '/profile', '/profile/'],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/login', '/sign-in', '/sign-up', '/profile'],
+        disallow: ['/api/', '/admin/', '/login', '/login/', '/sign-in', '/sign-in/', '/sign-up', '/sign-up/', '/profile', '/profile/'],
         crawlDelay: 1,
       },
     ],
