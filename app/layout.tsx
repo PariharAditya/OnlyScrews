@@ -157,20 +157,7 @@ export default function RootLayout({
         brand: {
           "@type": "Brand",
           name: "ScrewBazar",
-        },
-        offers: {
-          "@type": "AggregateOffer",
-          priceCurrency: "INR",
-          lowPrice: "10",
-          highPrice: "10000",
-          availability: "https://schema.org/InStock",
-          url: "https://screwbazar.com/products",
-        },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.8",
-          reviewCount: "250",
-        },
+        }
       },
     ],
   };

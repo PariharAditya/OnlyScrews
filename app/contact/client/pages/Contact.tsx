@@ -90,7 +90,13 @@ export default function Contact() {
             {/* About */}
             <div>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Screw Bazar is an online fastener and hardware store, dedicated to supplying a wide range of fastening solutions — from screws, bolts, rivets and dowel-pins to anchors, cotter-pins and more — for both individual and industrial needs. We aim to be a reliable, one-stop destination for quality hardware products, whether you're a DIY enthusiast, a contractor, or a professional in construction or manufacturing.
+                Screw Bazar is an online fastener and hardware store, dedicated
+                to supplying a wide range of fastening solutions — from screws,
+                bolts, rivets and dowel-pins to anchors, cotter-pins and more —
+                for both individual and industrial needs. We aim to be a
+                reliable, one-stop destination for quality hardware products,
+                whether you're a DIY enthusiast, a contractor, or a professional
+                in construction or manufacturing.
               </p>
             </div>
 
@@ -100,22 +106,27 @@ export default function Contact() {
                 Main Office
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
-                1st Floor, RK Mansion, 124/1, Venkataramana Naik Ln, S.P Road Cross, Kumbarpet, Dodpete, Nagarathpete, Bengaluru, Karnataka 560002
+                1st Floor, RK Mansion, 124/1, Venkataramana Naik Ln, S.P Road
+                Cross, Kumbarpet, Dodpete, Nagarathpete, Bengaluru, Karnataka
+                560002
               </p>
             </div>
 
             {/* Message */}
             <div>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Have any doubts, comments, or just like to say Hi, we are here for you, and we are wearing our thinking caps!
+                Have any doubts, comments, or just like to say Hi, we are here
+                for you, and we are wearing our thinking caps!
               </p>
             </div>
 
             {/* Phone */}
             <div>
               <p className="text-gray-800 text-sm font-medium">
-                +91 7007257245{" "}
-                <span className="font-normal text-gray-600">(Mon-Sun, 9 am - 8 pm)</span>
+                +91 8951934668{" "}
+                <span className="font-normal text-gray-600">
+                  (Mon-Sun, 9 am - 8 pm)
+                </span>
               </p>
             </div>
 
@@ -136,7 +147,8 @@ export default function Contact() {
             {/* Feedback Message */}
             <div>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                If you have any suggestions, feedback, or inquiries, you may reach our founding team directly at:
+                If you have any suggestions, feedback, or inquiries, you may
+                reach our founding team directly at:
               </p>
               <p className="text-gray-800 text-sm mb-2">
                 📩{" "}
@@ -150,10 +162,10 @@ export default function Contact() {
               <p className="text-gray-800 text-sm">
                 📞{" "}
                 <a
-                  href="tel:+91 8951934668"
+                  href="tel:+91 7007257245"
                   className="text-gray-700 hover:underline"
                 >
-                  8951934668
+                  7007257245
                 </a>
               </p>
             </div>
@@ -175,15 +187,31 @@ export default function Contact() {
               >
                 {submitStatus.type === "success" ? (
                   <div className="flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     <span>{submitStatus.message}</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     <span>{submitStatus.message}</span>
                   </div>
